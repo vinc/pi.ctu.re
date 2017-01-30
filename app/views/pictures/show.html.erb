@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag(@picture.image_url.to_s) %>
+<p><%= image_tag(@picture.image_url.to_s) %></p>
 
-<p>
-  <strong>Caption:</strong>
-  <%= @picture.caption %>
-</p>
+<p><%= @picture.caption %></p>
 
+<%= link_to 'Back', pictures_path %> |
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>

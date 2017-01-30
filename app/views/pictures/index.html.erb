@@ -2,27 +2,11 @@
 
 <h1>Pictures</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Caption</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= image_tag(picture.image_url(:thumb).to_s) %></td>
-        <td><%= picture.caption %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @pictures.each do |picture| %>
+  <%= link_to picture do %>
+    <%= image_tag(picture.image_url(:thumb).to_s) %>
+  <% end %>
+<% end %>
 
 <br>
 
