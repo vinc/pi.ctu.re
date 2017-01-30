@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
     <%= f.label :caption %>
     <%= f.text_area :caption %>
   </div>
