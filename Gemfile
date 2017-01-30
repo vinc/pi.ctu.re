@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem 'bower-rails', '~> 0.11.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

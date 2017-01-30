@@ -2,11 +2,13 @@
 
 <h1>Pictures</h1>
 
-<% @pictures.each do |picture| %>
-  <%= link_to picture do %>
-    <%= image_tag(picture.image_url(:thumb).to_s) %>
+<div id="gallery" class="justified-gallery">
+  <% @pictures.each do |picture| %>
+    <%= link_to picture do %>
+      <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.caption) %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <br>
 

@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bower-rails (0.11.0)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.0.0)
@@ -189,6 +190,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bower-rails (~> 0.11.0)
   byebug
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
