@@ -1,7 +1,7 @@
 <%= form_for(picture) do |f| %>
   <% if picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h4>
 
       <ul>
       <% picture.errors.full_messages.each do |message| %>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: 'form-control-file' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :caption %>
-    <%= f.text_area :caption %>
+    <%= f.text_area :caption, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+
+<br>

@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require justifiedGallery/dist/js/jquery.justifiedGallery
 //= require_tree .

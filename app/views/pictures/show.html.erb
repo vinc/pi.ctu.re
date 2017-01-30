@@ -1,7 +1,10 @@
-<p><%= image_tag(@picture.image_url.to_s) %></p>
+<figure class="figure">
+  <%= image_tag(@picture.image_url.to_s, class: 'figure-img img-fluid') %>
+  <figcaption class="figure-caption"><%= @picture.caption %></figcaption>
+</figure>
 
-<p><%= @picture.caption %></p>
-
-<%= link_to 'Back', pictures_path %> |
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="btn-group" role="group" aria-label="Actions">
+  <%= link_to 'Back', pictures_path, class: 'btn btn-secondary', role: 'button' %>
+  <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
+  <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary', role: 'button' %>
+</div>
