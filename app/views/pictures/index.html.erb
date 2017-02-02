@@ -1,8 +1,3 @@
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
-  <li class="breadcrumb-item active">Pictures</li>
-</ol>
-
 <div id="gallery" class="justified-gallery loading">
   <% @pictures.each do |picture| %>
     <%= link_to picture do %>
@@ -10,7 +5,3 @@
     <% end %>
   <% end %>
 </div>
-
-<br>
-
-<%= link_to 'Upload a picture', new_picture_path, class: 'btn btn-primary', role: 'button' %>
