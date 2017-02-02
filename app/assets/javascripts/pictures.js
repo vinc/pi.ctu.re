@@ -1,3 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $('#gallery').justifiedGallery();
+  $('#gallery.loading')
+    .removeClass('loading')
+    .justifiedGallery();
 });

@@ -3,7 +3,7 @@
   <li class="breadcrumb-item active">Pictures</li>
 </ol>
 
-<div id="gallery" class="justified-gallery">
+<div id="gallery" class="justified-gallery loading">
   <% @pictures.each do |picture| %>
     <%= link_to picture do %>
       <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.caption) %>
