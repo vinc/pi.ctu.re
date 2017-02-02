@@ -1,17 +1,13 @@
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
-  <li class="breadcrumb-item"><%= link_to 'Pictures', pictures_path %></li>
-  <li class="breadcrumb-item active">View picture</li>
-</ol>
-
-<figure class="figure">
-  <%= image_tag(@picture.image_url.to_s, class: 'figure-img img-fluid') %>
+<figure class="figure mx-auto d-block">
+  <%= image_tag(@picture.image_url.to_s, class: 'figure-img img-fluid mx-auto d-block') %>
   <figcaption class="figure-caption"><%= @picture.caption %></figcaption>
 </figure>
 
 <% if user_signed_in? && @picture.user_id == current_user.id %>
+  <div class="text-center">
   <div class="btn-group" role="group" aria-label="Actions">
     <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
     <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary', role: 'button' %>
+  </div>
   </div>
 <% end %>
