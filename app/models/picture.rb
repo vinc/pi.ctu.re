@@ -1,4 +1,6 @@
 class Picture < ApplicationRecord
+  belongs_to :user
+
   mount_uploader :image, ImageUploader
 
   before_create do
