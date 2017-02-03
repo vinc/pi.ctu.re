@@ -1,4 +1,15 @@
-<div id="gallery" class="justified-gallery loading">
+<div class="dropdown">
+  Explore
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <%= params[:sort] == 'new' ? 'most recent' : 'most viewed' %>
+  </a>
+  <div class="dropdown-menu">
+    <%= link_to 'most viewed', pictures_path(sort: 'top'), class: 'dropdown-item' %>
+    <%= link_to 'most recent', pictures_path(sort: 'new'), class: 'dropdown-item' %>
+  </div>
+</div>
+
+<div id="gallery" class="justified-gallery loading mt-3">
   <% @pictures.each do |picture| %>
     <%= link_to picture do %>
       <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.caption) %>
