@@ -3,7 +3,14 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pictures = Picture.all
+    @pictures = case params[:sort] || 'top'
+    when 'top'
+      Picture.order(:views_count => :desc)
+    when 'new'
+      Picture.order(:created_at => :desc)
+    else
+      raise ActionController::BadRequest, 'Invalid query parameters: sort'
+    end
   end
 
   def show
