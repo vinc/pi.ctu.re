@@ -1,13 +1,16 @@
-<figure class="figure mx-auto d-block">
-  <%= image_tag(@picture.image_url.to_s, class: 'figure-img img-fluid mx-auto d-block') %>
-  <figcaption class="figure-caption"><%= @picture.caption %></figcaption>
-</figure>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <figure class="figure mx-auto d-block">
+      <%= image_tag(@picture.image_url(:large).to_s, class: 'figure-img img-fluid mx-auto d-block', style: 'max-height:70vh') %>
+      <figcaption class="figure-caption text-center"><%= @picture.caption %></figcaption>
+    </figure>
+  </div>
 
-<% if user_signed_in? && @picture.user_id == current_user.id %>
-  <div class="text-center">
-  <div class="btn-group" role="group" aria-label="Actions">
-    <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
-    <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary', role: 'button' %>
-  </div>
-  </div>
-<% end %>
+  <% if user_signed_in? && @picture.user_id == current_user.id %>
+    <div class="col-md-2">
+      <div class="text-center text-md-right">
+        <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
+      </div>
+    </div>
+  <% end %>
+</div>
