@@ -1,7 +1,9 @@
 <div class="jumbotron">
   <div class="container">
     <h1 class="display-3 text-center">Welcome to Picture</h1>
-    <p class="text-center mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-success', role: 'button' %></p>
+    <% unless user_signed_in? %>
+      <p class="text-center mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-success', role: 'button' %></p>
+    <% end %>
   </div>
 </div>
 
