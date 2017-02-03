@@ -2,28 +2,20 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /pictures
-  # GET /pictures.json
   def index
     @pictures = Picture.all
   end
 
-  # GET /pictures/1
-  # GET /pictures/1.json
   def show
   end
 
-  # GET /pictures/new
   def new
     @picture = current_user.pictures.new
   end
 
-  # GET /pictures/1/edit
   def edit
   end
 
-  # POST /pictures
-  # POST /pictures.json
   def create
     @picture = current_user.pictures.new(picture_params)
 
@@ -38,8 +30,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pictures/1
-  # PATCH/PUT /pictures/1.json
   def update
     respond_to do |format|
       if @picture.update(picture_params)
@@ -52,8 +42,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  # DELETE /pictures/1
-  # DELETE /pictures/1.json
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -65,7 +53,7 @@ class PicturesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+      @picture = Picture.find_by(token: params[:token])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,6 +5,10 @@ class Picture < ApplicationRecord
     self.token = self.class.generate_unique_secure_token(:token)
   end
 
+  def to_param
+    self.token
+  end
+
   def regenerate_token!
     self.update(token: self.class.generate_unique_secure_token(:token))
   end
