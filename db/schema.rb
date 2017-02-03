@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203102900) do
+ActiveRecord::Schema.define(version: 20170203133256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pictures", force: :cascade do |t|
     t.text     "caption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "image"
     t.integer  "user_id"
     t.string   "token"
+    t.integer  "views_count", default: 0, null: false
     t.index ["token"], name: "index_pictures_on_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
   end

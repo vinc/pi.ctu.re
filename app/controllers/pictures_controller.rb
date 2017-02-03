@@ -7,6 +7,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    Picture.increment_counter(:views_count, @picture.id)
   end
 
   def new

@@ -6,11 +6,12 @@
     </figure>
   </div>
 
-  <% if user_signed_in? && @picture.user_id == current_user.id %>
-    <div class="col-md-2">
+  <div class="col-md-2">
+    <% if user_signed_in? && @picture.user_id == current_user.id %>
       <div class="text-center text-md-right">
         <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+    <p><%= @picture.views_count %> views</p>
+  </div>
 </div>
