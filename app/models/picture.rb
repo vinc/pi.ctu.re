@@ -13,7 +13,7 @@ class Picture < ApplicationRecord
     self.token
   end
 
-  def regenerate_token!
+  def regenerate_token
     self.update(token: self.class.generate_unique_secure_token(:token))
   end
 
