@@ -1,18 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'has a valid factory' do
-    user = FactoryGirl.build(:user)
-    expect(user).to be_valid
-  end
+  describe 'validations' do
+    subject { FactoryGirl.build(:user) }
 
-  it 'is invalid without a username' do
-    user = FactoryGirl.build(:user, username: nil)
-    expect(user).not_to be_valid
-  end
+    it { is_expected.to validate_presence_of(:username) }
+    it { is_expected.to validate_presence_of(:email) }
 
-  it 'is invalid without an email' do
-    user = FactoryGirl.build(:user, email: nil)
-    expect(user).not_to be_valid
+    it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
+    it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   end
 end
