@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
     order = params[:order].try(:to_sym)
     page = params[:page]
     begin
-      @pictures = Picture.order_by(order).page(page).per(5)
+      @pictures = Picture.order_by(order).page(page)
     rescue ArgumentError
       raise ActionController::BadRequest, 'Invalid query parameters: order'
     end
