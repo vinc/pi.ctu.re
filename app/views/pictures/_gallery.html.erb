@@ -2,6 +2,6 @@
   <%= render partial: 'pictures/pictures' %>
 </div>
 
-<p class="text-center mt-3">
-  <%= link_to_next_page @pictures, 'Next Page', class: 'btn btn-secondary', role: 'button' %>
+<p class="next-page text-center mt-3">
+  <%= link_to_next_page @pictures, 'Next Page', remote: true, class: 'btn btn-secondary', role: 'button' %>
 </p>

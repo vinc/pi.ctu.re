@@ -1,0 +1,17 @@
+// FIXME: `pictures#index.js` and `users#show.js` are duplicated here
+
+// Append new data
+$("<%=j render(:partial => 'pictures/pictures', :object => @pictures) %>")
+  .appendTo($('#gallery'));
+
+// Reload gallery script
+$('#gallery').justifiedGallery('norewind');
+
+// Update next-page link
+<% if @pictures.last_page? %>
+  $('.next-page')
+    .html("<%=j link_to 'Next Page', '#', aria_disabled: true, class: 'btn btn-secondary disabled', role: 'button' %>");
+<% else %>
+  $('.next-page')
+    .html("<%=j link_to_next_page @pictures, 'Next Page', remote: true, class: 'btn btn-secondary', role: 'button' %>");
+<% end %>
