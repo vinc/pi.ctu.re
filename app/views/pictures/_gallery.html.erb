@@ -1,14 +1,3 @@
-<div class="dropdown">
-  Explore
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <%= params[:order] == 'time' ? 'most recent' : 'most viewed' %>
-  </a>
-  <div class="dropdown-menu">
-    <%= link_to 'most viewed', pictures_path(order: 'view'), class: 'dropdown-item' %>
-    <%= link_to 'most recent', pictures_path(order: 'time'), class: 'dropdown-item' %>
-  </div>
-</div>
-
 <div id="gallery" class="justified-gallery loading mt-3">
   <% @pictures.each do |picture| %>
     <%= link_to picture do %>

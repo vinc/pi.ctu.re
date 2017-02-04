@@ -9,7 +9,10 @@
   </div>
 
   <div class="col-md-4">
-    <p>Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %> by <strong><%= @picture.user.username %></strong></p>
+    <p>
+      Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %>
+      by <strong><%= link_to @picture.user.username, user_path(@picture.user) %></strong>
+    </p>
 
     <p>
       <%= pluralize(@picture.views_count, 'view') %>,

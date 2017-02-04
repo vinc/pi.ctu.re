@@ -7,4 +7,8 @@ class User < ApplicationRecord
   acts_as_voter
 
   has_many :pictures
+
+  def to_param
+    self.username
+  end
 end

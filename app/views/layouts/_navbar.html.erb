@@ -20,7 +20,9 @@
               <i class="fa fa-user-circle" aria-hidden="true"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <span class="dropdown-item">Signed in as <strong><%= current_user.username %></strong></span>
+              <%= link_to user_path(current_user), class: 'dropdown-item' do %>
+                Signed in as <strong><%= current_user.username %></strong>
+              <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Settings', edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'dropdown-item' %>
