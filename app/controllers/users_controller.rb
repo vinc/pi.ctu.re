@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @pictures = @user.pictures.order_by(:time).page(params[:page])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js { render template: 'pictures/index' }
+    end
   end
 
   private
