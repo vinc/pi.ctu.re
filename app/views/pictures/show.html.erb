@@ -12,8 +12,8 @@
     <p>Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %> by <strong><%= @picture.user.username %></strong></p>
 
     <p>
-      <%= @picture.views_count %> views,
-      <%= @picture.get_likes.size %> likes
+      <%= pluralize(@picture.views_count, 'view') %>,
+      <%= pluralize(@picture.get_likes.size, 'like') %>
     </p>
 
     <% if user_signed_in? && current_user.liked?(@picture) %>
