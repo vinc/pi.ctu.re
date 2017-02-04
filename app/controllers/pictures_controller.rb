@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -54,6 +54,22 @@ class PicturesController < ApplicationController
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def like
+    @picture.liked_by(current_user)
+    respond_to do |format|
+      format.html { redirect_to @picture }
+      format.json { head :no_content }
+    end
+  end
+
+  def unlike
+    @picture.unliked_by(current_user)
+    respond_to do |format|
+      format.html { redirect_to @picture }
       format.json { head :no_content }
     end
   end

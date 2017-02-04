@@ -43,6 +43,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise-bootstrap-views', '~> 1.0.0.alpha1'
 gem 'rails-timeago', '~> 2.0'
 gem 'font-awesome-rails'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

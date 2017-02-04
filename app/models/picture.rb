@@ -3,6 +3,8 @@ class Picture < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  acts_as_votable
+
   before_create do
     self.token = self.class.generate_unique_secure_token(:token)
   end

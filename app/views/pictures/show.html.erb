@@ -9,10 +9,25 @@
   <div class="col-md-4">
     <p>Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %> by <strong><%= @picture.user.username %></strong></p>
 
-    <p><%= @picture.views_count %> views</p>
+    <p>
+      <%= @picture.views_count %> views,
+      <%= @picture.get_likes.size %> likes
+    </p>
+
+    <% if user_signed_in? && current_user.liked?(@picture) %>
+      <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+        <i class="fa fa-heart" aria-hidden="true"></i> Unlike
+      <% end %>
+    <% else %>
+      <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+        <i class="fa fa-heart" aria-hidden="true"></i> Like
+      <% end %>
+    <% end %>
 
     <% if user_signed_in? && @picture.user_id == current_user.id %>
-      <%= link_to 'Edit', edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' %>
+      <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+      <% end %>
     <% end %>
   </div>
 </div>
