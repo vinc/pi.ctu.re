@@ -17,7 +17,9 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              <span class="rounded-circle align-bottom d-inline-block text-white" style="width:24px;height:24px;background:grey">
+                <i class="fa fa-user-o align-middle text-center" style="width:24px;height:22px" aria-hidden="true"></i>
+              </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to user_path(current_user), class: 'dropdown-item' do %>
