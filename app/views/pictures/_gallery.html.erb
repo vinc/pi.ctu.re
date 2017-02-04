@@ -1,7 +1,7 @@
 <div id="gallery" class="justified-gallery loading mt-3">
-  <% @pictures.each do |picture| %>
-    <%= link_to picture do %>
-      <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.caption) %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'pictures/pictures' %>
 </div>
+
+<p class="text-center mt-3">
+  <%= link_to_next_page @pictures, 'Next Page', class: 'btn btn-secondary', role: 'button' %>
+</p>

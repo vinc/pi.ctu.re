@@ -3,8 +3,10 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    order = params[:order].try(:to_sym)
+    page = params[:page]
     begin
-      @pictures = Picture.order_by(params[:order].try(:to_sym))
+      @pictures = Picture.order_by(order).page(page).per(5)
     rescue ArgumentError
       raise ActionController::BadRequest, 'Invalid query parameters: order'
     end
