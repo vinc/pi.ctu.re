@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @pictures = Picture.order_by(:time).page(params[:page]).per(5)
+    @pictures = @user.pictures.order_by(:time).page(params[:page]).per(5)
   end
 
   private
