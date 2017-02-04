@@ -11,4 +11,6 @@ class User < ApplicationRecord
   def to_param
     self.username
   end
+
+  validates :username, presence: true, uniqueness: true
 end
