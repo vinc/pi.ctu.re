@@ -17,6 +17,17 @@ class Picture < ApplicationRecord
     self.update(token: self.class.generate_unique_secure_token(:token))
   end
 
+  def self.order_by(type)
+    case type || :view
+    when :view
+      order(:views_count => :desc)
+    when :time
+      order(:created_at => :desc)
+    else
+      raise ArgumentError
+    end
+  end
+
   private
 
   def self.generate_unique_secure_token(attribute)
