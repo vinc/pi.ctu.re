@@ -1,0 +1,5 @@
+<% content_for(:title, "Pictures by #{@user.username}") %>
+
+<h1><%= @user.username %></h1>
+
+<%= render partial: 'pictures/gallery' %>

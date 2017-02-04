@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'u'
 
+  resources :users, param: :username, path: 'u', only: :show
+
   get 'welcome/index'
 
   root 'welcome#index'
