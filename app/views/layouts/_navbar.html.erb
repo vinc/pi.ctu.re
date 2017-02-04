@@ -6,10 +6,10 @@
     <a class="navbar-brand" href="/"><i class="fa fa-camera" aria-hidden="true"></i> Picture</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item<%= ' active' if content_for(:nav) == 'explore' %>">
           <%= link_to 'Explore', pictures_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item<%= ' active' if content_for(:nav) == 'upload' %>">
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
         </li>
       </ul>
