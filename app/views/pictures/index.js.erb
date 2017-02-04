@@ -9,8 +9,7 @@ $('#gallery').justifiedGallery('norewind');
 
 // Update next-page link
 <% if @pictures.last_page? %>
-  $('.next-page')
-    .html("<%=j link_to 'Next Page', '#', aria_disabled: true, class: 'btn btn-secondary disabled', role: 'button' %>");
+  $('.next-page').html('');
 <% else %>
   $('.next-page')
     .html("<%=j link_to_next_page @pictures, 'Next Page', remote: true, class: 'btn btn-secondary', role: 'button' %>");
