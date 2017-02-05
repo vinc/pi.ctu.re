@@ -37,7 +37,7 @@ class Picture < ApplicationRecord
 
   def self.generate_unique_secure_token(attribute)
     10.times do |i|
-      token = SecureRandom::base58(8).downcase
+      token = SecureRandom.uuid.slice(0, 8)
       return token unless exists?(attribute => token)
     end
     raise "Couldn't generate a unique token in 10 attempts!"
