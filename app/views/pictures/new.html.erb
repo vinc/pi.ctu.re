@@ -1,8 +1,13 @@
 <% content_for(:title, 'Upload a picture') %>
 <% content_for(:nav, 'upload') %>
 
-<h1>Upload a picture</h1>
-
-<%= render 'form', picture: @picture %>
-
-<%= link_to 'Back', pictures_path %>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <h4 class="card-header">Upload a picture</h4>
+      <div class="card-block">
+        <%= render 'form', picture: @picture %>
+      </div>
+    </div>
+  </div>
+</div>
