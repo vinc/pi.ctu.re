@@ -7,6 +7,9 @@ class Picture < ApplicationRecord
 
   acts_as_votable
 
+  order_query :order_by_view, [:views_count, :desc]
+  order_query :order_by_time, [:created_at, :desc]
+
   before_create do
     self.token = self.class.generate_unique_secure_token(:token)
   end
@@ -26,20 +29,6 @@ class Picture < ApplicationRecord
   def charge_user(version = nil)
     self.user.decrement!(:balance, self.size(version))
   end
-
-  def self.order_by(type)
-    case type || :view
-    when :view
-      order_by_view
-    when :time
-      order_by_time
-    else
-      raise ArgumentError
-    end
-  end
-
-  order_query :order_by_view, [:views_count, :desc]
-  order_query :order_by_time, [:created_at, :desc]
 
   private
 
