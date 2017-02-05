@@ -6,6 +6,10 @@ RSpec.describe Picture, type: :model do
     expect(picture).to be_valid
   end
 
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
   describe 'token' do
     it 'is random' do
       token = FactoryGirl.create(:picture).token
