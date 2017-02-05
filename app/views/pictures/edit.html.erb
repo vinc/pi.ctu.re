@@ -1,7 +1,14 @@
 <% content_for(:title, "Editing Picture (#{@picture.token})") %>
 
-<h1>Editing Picture</h1>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <h4 class="card-header">Editing picture</h4>
+      <div class="card-block">
+        <%= image_tag(@picture.image_url(:thumb).to_s, class: 'img-fluid mb-3') %>
 
-<%= render 'form', picture: @picture %>
-
-<%= link_to 'Delete', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger', role: 'button' %>
+        <%= render 'form', picture: @picture %>
+      </div>
+    </div>
+  </div>
+</div>

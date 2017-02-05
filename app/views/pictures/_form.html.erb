@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: 'form-control-file' %>
-  </div>
+  <% unless picture.persisted? %>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'form-control-file' %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.label :caption %>
     <%= f.text_area :caption, class: 'form-control' %>
   </div>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <div class="">
+    <%= f.submit class: 'btn btn-primary' %>
+
+    <% if picture.persisted? %>
+      <%= link_to 'or delete?', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link text-danger', role: 'button' %>
+    <% end %>
+  </div>
 <% end %>
