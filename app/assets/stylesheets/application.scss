@@ -18,3 +18,9 @@
  */
 
 @import "bootstrap";
+
+@include media-breakpoint-down(md) {
+  .navbar .container {
+    width: 100%; // FIXME: this seems to be a bug in Bootstrap 4
+  }
+}
