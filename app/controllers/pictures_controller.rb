@@ -3,7 +3,10 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    case params[:order] || 'view'
+    @show_picture_from = 'explore'
+    @show_picture_order = params[:order] || 'view'
+
+    case @show_picture_order
     when 'view'
       @pictures = Picture.order_by_view.page(params[:page])
     when 'time'
@@ -14,6 +17,20 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @show_picture_from = params[:from] || 'user'
+    @show_picture_order = params[:order] || 'time'
+
+    pictures = (params[:from] == 'explore' ? Picture : @picture.user.pictures)
+
+    case params[:order]
+    when 'view'
+      @previous_picture = pictures.order_by_view_at(@picture).previous(false)
+      @next_picture     = pictures.order_by_view_at(@picture).next(false)
+    else
+      @previous_picture = pictures.order_by_time_at(@picture).previous(false)
+      @next_picture     = pictures.order_by_time_at(@picture).next(false)
+    end
+
     Picture.increment_counter(:views_count, @picture.id)
   end
 

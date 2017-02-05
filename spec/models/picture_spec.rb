@@ -54,5 +54,12 @@ RSpec.describe Picture, type: :model do
       expect(pictures[2]).to eql(@picture_1)
     end
 
+    it 'works with previous and next' do
+      expect(Picture.order_by_time_at(@picture_3).previous).to eql(@picture_2)
+      expect(Picture.order_by_time_at(@picture_3).next).to eql(@picture_1)
+
+      expect(Picture.order_by_view_at(@picture_3).previous).to eql(@picture_2)
+      expect(Picture.order_by_view_at(@picture_3).next).to eql(@picture_1)
+    end
   end
 end
