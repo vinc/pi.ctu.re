@@ -19,6 +19,14 @@ class Picture < ApplicationRecord
     self.update(token: self.class.generate_unique_secure_token(:token))
   end
 
+  def size(version = nil)
+    (version ? self.image.versions[version] : self.image).size
+  end
+
+  def charge_user(version = nil)
+    self.user.decrement!(:balance, self.size(version))
+  end
+
   def self.order_by(type)
     case type || :view
     when :view

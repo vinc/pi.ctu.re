@@ -56,7 +56,7 @@
     <p>
       <%= pluralize(@picture.get_likes.size, 'like') %>,
       <%= pluralize(@picture.views_count, 'view') %>
-      <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.image.size) %>)</span>
+      <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.size(:large)) %>)</span>
     </p>
 
     <% if user_signed_in? && current_user.liked?(@picture) %>
