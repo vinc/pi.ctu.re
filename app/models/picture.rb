@@ -19,7 +19,10 @@ class Picture < ApplicationRecord
   end
 
   def regenerate_token
+    old_path = Rails.root.join('public', self.image.store_dir)
     self.update(token: self.class.generate_unique_secure_token(:token))
+    new_path = Rails.root.join('public', self.image.store_dir)
+    FileUtils.mv(old_path, new_path)
   end
 
   def size(version = nil)
