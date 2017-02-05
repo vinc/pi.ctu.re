@@ -1,4 +1,6 @@
 class Picture < ApplicationRecord
+  include OrderQuery
+
   belongs_to :user
 
   mount_uploader :image, ImageUploader
@@ -20,13 +22,16 @@ class Picture < ApplicationRecord
   def self.order_by(type)
     case type || :view
     when :view
-      order(:views_count => :desc)
+      order_by_view
     when :time
-      order(:created_at => :desc)
+      order_by_time
     else
       raise ArgumentError
     end
   end
+
+  order_query :order_by_view, [:views_count, :desc]
+  order_query :order_by_time, [:created_at, :desc]
 
   private
 

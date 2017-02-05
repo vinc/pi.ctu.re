@@ -126,6 +126,9 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    order_query (0.3.3)
+      activerecord (>= 4.0, < 6.0)
+      activesupport (>= 4.0, < 6.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
     public_suffix (2.0.5)
@@ -251,6 +254,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   mini_magick
+  order_query (~> 0.3.3)
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)
