@@ -41,21 +41,18 @@ RSpec.describe Picture, type: :model do
     end
 
     it 'returns a list ordered by creation time' do
-      pictures = Picture.order_by(:time)
+      pictures = Picture.order_by_time
       expect(pictures[0]).to eql(@picture_2)
       expect(pictures[1]).to eql(@picture_3)
       expect(pictures[2]).to eql(@picture_1)
     end
 
     it 'returns a list ordered by views count' do
-      pictures = Picture.order_by(:view)
+      pictures = Picture.order_by_view
       expect(pictures[0]).to eql(@picture_2)
       expect(pictures[1]).to eql(@picture_3)
       expect(pictures[2]).to eql(@picture_1)
     end
 
-    it 'raises ArgumentError on unknown order argument' do
-      expect { Picture.order_by(:lol) }.to raise_error(ArgumentError)
-    end
   end
 end
