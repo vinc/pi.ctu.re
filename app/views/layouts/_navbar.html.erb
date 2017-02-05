@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-sm navbar-light bg-faded mb-3">
+<nav class="navbar navbar-toggleable-sm mb-3 <%= content_for(:page) == 'home' ? 'navbar-inverse' : 'navbar-light bg-faded' %>">
   <div class="container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -6,10 +6,10 @@
     <a class="navbar-brand" href="/"><i class="fa fa-camera" aria-hidden="true"></i> Picture</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item<%= ' active' if content_for(:nav) == 'explore' %>">
+        <li class="nav-item<%= ' active' if content_for(:page) == 'explore' %>">
           <%= link_to 'Explore', pictures_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item<%= ' active' if content_for(:nav) == 'upload' %>">
+        <li class="nav-item<%= ' active' if content_for(:page) == 'upload' %>">
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
         </li>
       </ul>

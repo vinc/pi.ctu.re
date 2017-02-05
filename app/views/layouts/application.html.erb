@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="<%= content_for(:page) %>">
     <%= render partial: 'layouts/navbar' %>
 
     <div class="container mb-3">
