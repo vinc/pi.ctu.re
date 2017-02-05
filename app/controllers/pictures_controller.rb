@@ -82,7 +82,7 @@ class PicturesController < ApplicationController
   def like
     @picture.liked_by(current_user)
     respond_to do |format|
-      format.html { redirect_to @picture }
+      format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
     end
   end
@@ -90,7 +90,7 @@ class PicturesController < ApplicationController
   def unlike
     @picture.unliked_by(current_user)
     respond_to do |format|
-      format.html { redirect_to @picture }
+      format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
     end
   end
