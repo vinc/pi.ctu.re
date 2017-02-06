@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, path: 'u'
-
   resources :users, param: :username, path: 'u', only: :show
+
+  devise_for :users, path: 'account'
 
   get 'welcome/index'
 

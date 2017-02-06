@@ -6,7 +6,7 @@ RSpec.feature 'UserSignUp', type: :feature do
   end
 
   scenario 'User signs up' do
-    visit '/u/sign_up'
+    visit '/account/sign_up'
 
     fill_in 'Email',                 with: @user.email
     fill_in 'Username',              with: @user.username
