@@ -1,6 +1,11 @@
+<% content_for(:page, 'edit-account') %>
+
 <%= bootstrap_devise_error_messages! %>
 
-<div class="row justify-content-center">
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'account/nav' %>
+  </div>
   <div class="col-md-6">
     <div class="card">
       <h4 class="card-header"><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h4>

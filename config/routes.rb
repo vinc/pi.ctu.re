@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'account'
 
+  namespace :account do
+    resource :settings, only: [:edit, :update]
+  end
+
   get 'welcome/index'
 
   root 'welcome#index'

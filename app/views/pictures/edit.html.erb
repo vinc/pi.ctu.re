@@ -1,9 +1,9 @@
-<% content_for(:title, "Editing Picture (#{@picture.token})") %>
+<% content_for(:title, "Edit Picture (#{@picture.token})") %>
 
 <div class="row justify-content-center">
   <div class="col-md-6">
     <div class="card">
-      <h4 class="card-header">Editing picture</h4>
+      <h4 class="card-header">Edit picture</h4>
       <div class="card-block">
         <%= image_tag(@picture.image_url(:thumb).to_s, class: 'img-fluid mb-3') %>
 

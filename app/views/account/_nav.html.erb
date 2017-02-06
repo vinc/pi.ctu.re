@@ -1,0 +1,11 @@
+<ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+    <%= link_to 'Settings', edit_account_settings_path, class: "nav-link #{'active' if content_for(:page) == 'edit-settings'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Profile', edit_user_path(current_user), class: "nav-link #{'active' if content_for(:page) == 'edit-profile'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Account', edit_user_registration_path, class: "nav-link #{'active' if content_for(:page) == 'edit-account'}" %>
+  </li>
+</ul>
