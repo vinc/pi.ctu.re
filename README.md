@@ -1,24 +1,10 @@
-# README
+Picture
+=======
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://pi.ctu.re
 
-Things you may want to cover:
 
-* Ruby version
+License
+-------
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright (c) 2017 Vincent Ollivier. Released under MIT.
