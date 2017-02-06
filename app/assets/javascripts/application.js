@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require rails-timeago
+//= require tether
 //= require bootstrap-sprockets
+//= require rails-timeago
 //= require justifiedGallery/dist/js/jquery.justifiedGallery
 //= require_tree .
