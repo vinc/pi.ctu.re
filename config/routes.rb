@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, param: :username, path: 'u', only: :show
+  resources :users, param: :username, path: 'u', only: [:show, :edit, :update]
 
   devise_for :users, path: 'account'
 
