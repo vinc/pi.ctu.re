@@ -19,4 +19,16 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:pictures) }
   end
+
+  describe '.name' do
+    it 'returns fullname when defined' do
+      user = FactoryGirl.build(:user)
+      expect(user.name).to eql(user.fullname)
+    end
+
+    it 'returns username when fullname is not defined' do
+      user = FactoryGirl.build(:user, fullname: nil)
+      expect(user.name).to eql(user.username)
+    end
+  end
 end

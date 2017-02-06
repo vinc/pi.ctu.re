@@ -12,6 +12,10 @@ class User < ApplicationRecord
     self.username
   end
 
+  def name
+    self.fullname || self.username
+  end
+
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
 end

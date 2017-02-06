@@ -1,5 +1,13 @@
-<% content_for(:title, "Pictures by #{@user.username}") %>
+<% content_for(:title, "Pictures by #{@user.name}") %>
 
-<h1><%= @user.username %></h1>
+<% if user_signed_in? && @user == current_user %>
+  <div class="btn-group float-right" role="group">
+    <%= link_to edit_user_path(@user), class: 'btn btn-secondary', role: 'button' do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+    <% end %>
+  </div>
+<% end %>
+
+<h1><%= @user.name %></h1>
 
 <%= render partial: 'pictures/gallery' %>
