@@ -9,5 +9,7 @@ FactoryGirl.define do
     password_confirmation 'password'
 
     balance               100_000_000 # 100 MB
+
+    invitation_code       Rails.application.secrets.invitation_code
   end
 end
