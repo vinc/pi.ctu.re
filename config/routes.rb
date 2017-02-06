@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :pictures, param: :token, path: 'p' do
     member do
+      get 'lightbox'
       put 'like'
       put 'unlike'
     end

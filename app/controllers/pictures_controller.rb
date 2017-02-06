@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_picture,        except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show, :lightbox]
 
   def index
     @show_picture_from = 'explore'
@@ -93,6 +93,13 @@ class PicturesController < ApplicationController
       format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
     end
+  end
+
+  def lightbox
+    @show_picture_from = params[:from] || 'user'
+    @show_picture_order = params[:order] || 'time'
+    Picture.increment_counter(:views_count, @picture.id)
+    @picture.charge_user(:large)
   end
 
   private

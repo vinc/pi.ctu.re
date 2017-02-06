@@ -13,9 +13,11 @@
   </head>
 
   <body class="<%= content_for(:page) %>">
-    <%= render partial: 'layouts/navbar' %>
+    <% unless content_for(:page) == 'lightbox' %>
+      <%= render partial: 'layouts/navbar' %>
+    <% end %>
 
-    <div class="container mb-3">
+    <div class="container <%= content_for(:page) == 'lightbox' ? '' : 'mb-3' %>">
       <% if alert %>
         <div class="alert alert-danger" role="alert"><%= alert %></div>
       <% end %>

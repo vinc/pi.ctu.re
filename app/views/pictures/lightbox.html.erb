@@ -1,0 +1,17 @@
+<% content_for(:title, "#{@picture.caption.presence || 'Picture'} by #{@picture.user.username} (#{@picture.token})") %>
+<% content_for(:page, 'lightbox') %>
+
+<div class="row justify-content-center align-items-center" style="height:100vh">
+  <div class="col-md-10">
+    <figure class="figure mx-auto d-block mb-0" style="position:relative">
+      <%= link_to(picture_path(@picture, from: @show_picture_from, order: @show_picture_order), style: 'cursor:zoom-out') do %>
+        <%= image_tag(@picture.image_url.to_s, class: 'figure-img img-fluid mx-auto d-block mb-0', style: 'max-height:80vh') %>
+      <% end %>
+      <figcaption class="figure-caption text-center mt-2" style="position:absolute;width:100%">
+        <%= @picture.caption.presence || 'Picture' %>
+        by
+        <%= link_to(@picture.user.username, @picture.user, class: 'text-muted font-weight-bold') %>
+      </figcaption>
+    </figure>
+  </div>
+</div>
