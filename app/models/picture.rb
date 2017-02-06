@@ -10,6 +10,14 @@ class Picture < ApplicationRecord
   order_query :order_by_view, [:views_count, :desc]
   order_query :order_by_time, [:created_at, :desc]
 
+  validate :user_balance_cannot_be_negative, on: :create
+
+  def user_balance_cannot_be_negative
+    unless self.user.balance > 0
+      errors.add(:user_id, 'data balance cannot be negative')
+    end
+  end
+
   before_create do
     self.token = self.class.generate_unique_secure_token(:token)
   end
