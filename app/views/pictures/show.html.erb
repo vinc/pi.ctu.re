@@ -43,14 +43,17 @@
   <div class="col-md-8">
     <figure class="figure mx-auto d-block">
       <%= image_tag(@picture.image_url(:large).to_s, class: 'figure-img img-fluid mx-auto d-block', style: 'max-height:75vh') %>
-      <figcaption class="figure-caption text-center"><%= @picture.caption %></figcaption>
+      <figcaption class="figure-caption text-center">
+        <%= @picture.caption.presence || 'Picture' %>
+        by
+        <%= link_to(@picture.user.username, @picture.user, class: 'text-muted font-weight-bold') %>
+      </figcaption>
     </figure>
   </div>
 
   <div class="col-md-4">
     <p>
       Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %>
-      by <strong><%= link_to @picture.user.username, user_path(@picture.user) %></strong>
     </p>
 
     <p>
