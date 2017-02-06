@@ -7,5 +7,7 @@ FactoryGirl.define do
     fullname              { Faker::Name.name }
     password              'password'
     password_confirmation 'password'
+
+    balance               100_000_000 # 100 MB
   end
 end
