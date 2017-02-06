@@ -64,20 +64,34 @@
       <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.size(:large)) %>)</span>
     </p>
 
-    <% if user_signed_in? && current_user.liked?(@picture) %>
-      <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
-        <i class="fa fa-heart" aria-hidden="true"></i> Unlike
-      <% end %>
-    <% else %>
-      <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
-        <i class="fa fa-heart" aria-hidden="true"></i> Like
-      <% end %>
-    <% end %>
+    <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
+      <div class="btn-group mr-2" role="group">
+        <% if user_signed_in? && current_user.liked?(@picture) %>
+          <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+            <i class="fa fa-heart" aria-hidden="true"></i> Unlike
+          <% end %>
+        <% else %>
+          <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+            <i class="fa fa-heart" aria-hidden="true"></i> Like
+          <% end %>
+        <% end %>
+      </div>
 
-    <% if user_signed_in? && @picture.user_id == current_user.id %>
-      <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
+          <i class="fa fa-share" aria-hidden="true"></i> Share
+        </button>
+      </div>
+    </div>
+
+    <div class="btn-group mt-2" role="group">
+      <% if user_signed_in? && @picture.user_id == current_user.id %>
+        <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
+
+<%= render partial: 'share_modal' %>
