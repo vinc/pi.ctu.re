@@ -14,7 +14,10 @@
   <% unless picture.persisted? %>
     <div class="form-group">
       <%= f.label :image %>
-      <%= f.file_field :image, class: 'form-control-file' %>
+      <label class="custom-file d-block">
+        <%= f.file_field :image, class: 'custom-file-input' %>
+        <span class="custom-file-control" data-content="Choose file..."></span>
+      </label>
     </div>
   <% end %>
 

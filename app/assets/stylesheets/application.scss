@@ -24,3 +24,16 @@
     width: 100%; // FIXME: this seems to be a bug in Bootstrap 4
   }
 }
+
+.custom-file-control {
+  overflow: hidden;
+
+  &::after {
+    content: attr(data-content) !important;
+    width: 100%;
+    overflow-x: hidden;
+    position: absolute;
+    padding-right: 7rem;
+    text-overflow: ellipsis;
+  }
+}

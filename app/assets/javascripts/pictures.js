@@ -7,4 +7,10 @@ $(document).on('turbolinks:load', function() {
     margins: 10,
     border: 0
   });
+
+  $('.custom-file-input').on('change', function() {
+    var content = $('.custom-file-input').val();
+
+    $('.custom-file-control').attr('data-content', content);
+  });
 });
