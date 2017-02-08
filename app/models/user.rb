@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   has_many :pictures
 
+  def remember_me
+    true
+  end
+
   def to_param
     self.username
   end
