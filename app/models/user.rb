@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  has_many :albums
   has_many :pictures
 
   def remember_me

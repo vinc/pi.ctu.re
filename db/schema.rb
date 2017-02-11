@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206111319) do
+ActiveRecord::Schema.define(version: 20170211090132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title"
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_albums_on_user_id", using: :btree
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.text     "caption"
@@ -62,5 +71,6 @@ ActiveRecord::Schema.define(version: 20170206111319) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "albums", "users"
   add_foreign_key "pictures", "users"
 end

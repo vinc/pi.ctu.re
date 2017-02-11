@@ -1,0 +1,22 @@
+<% if @user %>
+  <% content_for(:title, "Albums by #{@user.name}") %>
+  <% content_for(:page, 'user_albums') %>
+
+  <%= render 'users/header' %>
+<% else %>
+  <% content_for(:title, 'Albums') %>
+<% end %>
+
+<div class="mt-4">
+  <% @albums.each do |album| %>
+    <p><%= link_to album.title, album %></p>
+  <% end %>
+</div>
+
+<% if user_signed_in? && @user == current_user %>
+  <div class="btn-group mt-4" role="group">
+    <%= link_to new_album_path, class: 'btn btn-secondary', role: 'button' do %>
+      Create album
+    <% end %>
+  </div>
+<% end %>

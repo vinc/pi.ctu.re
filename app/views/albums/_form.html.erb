@@ -1,0 +1,26 @@
+<%= form_for(album) do |f| %>
+  <% if album.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h4>
+
+      <ul>
+      <% album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="">
+    <%= f.submit class: 'btn btn-primary' %>
+
+    <% if album.persisted? %>
+      <%= link_to 'or delete?', @album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link text-danger', role: 'button' %>
+    <% end %>
+  </div>
+<% end %>

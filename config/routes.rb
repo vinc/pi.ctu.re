@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :albums, param: :token, path: 'a'
+
   resources :pictures, param: :token, path: 'p' do
     member do
       get 'lightbox'
@@ -7,7 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, param: :username, path: 'u', only: [:show, :edit, :update]
+  resources :users, param: :username, path: 'u', only: [:show, :edit, :update] do
+    resources :pictures, only: [:index]
+    resources :albums, only: [:index]
+  end
 
   devise_for :users, path: 'account'
 

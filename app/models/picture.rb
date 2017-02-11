@@ -1,5 +1,6 @@
 class Picture < ApplicationRecord
   include OrderQuery
+  include Tokenizable
 
   belongs_to :user
 
@@ -18,21 +19,6 @@ class Picture < ApplicationRecord
     end
   end
 
-  before_create do
-    self.token = self.class.generate_unique_secure_token(:token)
-  end
-
-  def to_param
-    self.token
-  end
-
-  def regenerate_token
-    old_path = Rails.root.join('public', self.image.store_dir)
-    self.update(token: self.class.generate_unique_secure_token(:token))
-    new_path = Rails.root.join('public', self.image.store_dir)
-    FileUtils.mv(old_path, new_path)
-  end
-
   def size(version = nil)
     (version ? self.image.versions[version] : self.image).size
   end
@@ -41,13 +27,10 @@ class Picture < ApplicationRecord
     self.user.decrement!(:balance, self.size(version))
   end
 
-  private
-
-  def self.generate_unique_secure_token(attribute)
-    10.times do |i|
-      token = SecureRandom.uuid.slice(0, 8)
-      return token unless exists?(attribute => token)
-    end
-    raise "Couldn't generate a unique token in 10 attempts!"
+  def regenerate_token
+    old_path = Rails.root.join('public', self.image.store_dir)
+    self.update(token: self.class.generate_unique_secure_token(:token))
+    new_path = Rails.root.join('public', self.image.store_dir)
+    FileUtils.mv(old_path, new_path)
   end
 end

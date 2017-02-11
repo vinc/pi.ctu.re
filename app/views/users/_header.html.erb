@@ -1,0 +1,18 @@
+<% if user_signed_in? && @user == current_user %>
+  <div class="btn-group float-right" role="group">
+    <%= link_to edit_user_path(@user), class: 'btn btn-secondary', role: 'button' do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+    <% end %>
+  </div>
+<% end %>
+
+<h1><%= @user.name %></h1>
+
+<ul class="nav nav-pills mt-4">
+  <li class="nav-item">
+    <%= link_to 'Pictures', user_pictures_path(@user), class: "nav-link #{content_for(:page) == 'user_pictures' ? 'active' : ''}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Albums', user_albums_path(@user), class: "nav-link #{content_for(:page) == 'user_albums' ? 'active' : ''}" %>
+  </li>
+</ul>

@@ -1,0 +1,12 @@
+<% content_for(:title, "Edit Album (#{@album.token})") %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <h4 class="card-header">Edit album</h4>
+      <div class="card-block">
+        <%= render 'form', album: @album %>
+      </div>
+    </div>
+  </div>
+</div>

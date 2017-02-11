@@ -1,0 +1,11 @@
+<% content_for(:title, "#{@album.title.presence || 'Album'} by #{@album.user.name} (#{@album.token})") %>
+
+<% if user_signed_in? && @album.user == current_user %>
+  <div class="btn-group float-right" role="group">
+    <%= link_to edit_album_path(@album), class: 'btn btn-secondary', role: 'button' do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+    <% end %>
+  </div>
+<% end %>
+
+<h1><%= @album.title %> <small>by <%= link_to @album.user.name, @album.user %></small></h1>
