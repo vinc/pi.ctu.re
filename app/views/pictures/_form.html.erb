@@ -26,6 +26,11 @@
     <%= f.text_area :caption, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :album_ids %>
+    <%= f.collection_select :album_ids, current_user.albums, :id, :title, { selected: picture.album_ids }, { class: 'form-control', multiple: true } %>
+  </div>
+
   <div class="">
     <%= f.submit class: 'btn btn-primary' %>
 
