@@ -3,6 +3,7 @@ class Picture < ApplicationRecord
   include Tokenizable
 
   belongs_to :user
+  has_and_belongs_to_many :pictures
 
   mount_uploader :image, ImageUploader
 

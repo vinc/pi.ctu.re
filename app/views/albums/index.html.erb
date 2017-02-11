@@ -7,14 +7,24 @@
   <% content_for(:title, 'Albums') %>
 <% end %>
 
-<div class="mt-4">
+<div class="card-columns mt-4">
   <% @albums.each do |album| %>
-    <p><%= link_to album.title, album %></p>
+    <%= link_to album do %>
+      <div class="card">
+        <% if album.pictures.size > 0 %>
+          <%= image_tag(album.pictures.first.image_url(:thumb).to_s, alt: album.title, class: 'card-img-top img-fluid') %>
+        <% end %>
+        <div class="card-block">
+          <h4 class="card-title"><%= album.title %></h4>
+          <p class="card-text"><small class="text-muted">Last updated <%= timeago_tag album.updated_at, :limit => 10.days.ago %></small></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
 <% if user_signed_in? && @user == current_user %>
-  <div class="btn-group mt-4" role="group">
+  <div class="btn-group mt-3" role="group">
     <%= link_to new_album_path, class: 'btn btn-secondary', role: 'button' do %>
       Create album
     <% end %>
