@@ -37,3 +37,9 @@
     text-overflow: ellipsis;
   }
 }
+
+.card-columns {
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}

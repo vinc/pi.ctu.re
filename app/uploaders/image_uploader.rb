@@ -41,6 +41,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [nil, 500]
   end
 
+  version :square do
+    process resize_to_fill: [300, 300]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
@@ -54,7 +58,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{secure_token}.#{file.extension.downcase}" if original_filename.present?
+    if original_filename
+      if model && model.read_attribute(mounted_as).present?
+        model.read_attribute(mounted_as)
+      else
+        "#{secure_token}.#{file.extension.downcase}" if original_filename.present?
+      end
+    end
   end
 
   private
