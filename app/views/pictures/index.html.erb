@@ -1,17 +1,1 @@
-<% if @from == 'explore' %>
-  <% content_for(:title, "Explore #{params[:order] == 'time' ? 'most recent' : 'most viewed'} pictures") %>
-  <% content_for(:page, 'explore') %>
-
-  <div class="dropdown">
-    Explore
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-      <%= params[:order] == 'time' ? 'most recent' : 'most viewed' %>
-    </a>
-    <div class="dropdown-menu">
-      <%= link_to 'most viewed', explore_path(order: 'view'), class: 'dropdown-item' %>
-      <%= link_to 'most recent', explore_path(order: 'time'), class: 'dropdown-item' %>
-    </div>
-  </div>
-<% end %>
-
 <%= render 'pictures/gallery', pictures: @pictures %>

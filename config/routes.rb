@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resource :settings, only: [:edit, :update]
   end
 
-  get 'explore' => 'pictures#index'
+  get 'explore' => 'explore#index'
 
   root 'welcome#index'
 end
