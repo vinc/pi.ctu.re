@@ -10,7 +10,7 @@
 
 <ul class="nav nav-pills mt-4">
   <li class="nav-item">
-    <%= link_to 'Pictures', user_pictures_path(@user), class: "nav-link #{content_for(:page) == 'user_pictures' ? 'active' : ''}" %>
+    <%= link_to 'Pictures', @user, class: "nav-link #{content_for(:page) == 'user_pictures' ? 'active' : ''}" %>
   </li>
   <li class="nav-item">
     <%= link_to 'Albums', user_albums_path(@user), class: "nav-link #{content_for(:page) == 'user_albums' ? 'active' : ''}" %>

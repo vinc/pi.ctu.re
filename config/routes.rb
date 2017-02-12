@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :albums, param: :token, path: 'a'
+  resources :albums, param: :token, path: 'a' do
+    #resources :pictures, only: [:index]
+  end
 
   resources :pictures, param: :token, path: 'p' do
     member do
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, param: :username, path: 'u', only: [:show, :edit, :update] do
-    resources :pictures, only: [:index]
+    #resources :pictures, only: [:index]
     resources :albums, only: [:index]
   end
 
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
     resource :settings, only: [:edit, :update]
   end
 
-  get 'welcome/index'
+  get 'explore' => 'pictures#index'
 
   root 'welcome#index'
 end

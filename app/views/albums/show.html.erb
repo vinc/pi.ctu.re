@@ -10,4 +10,4 @@
 
 <h1><%= @album.title %> <small>by <%= link_to @album.user.name, @album.user %></small></h1>
 
-<%= render 'pictures/gallery', pictures: @album.pictures.page(0) %>
+<%= render 'pictures/gallery', pictures: @pictures %>

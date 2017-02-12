@@ -6,7 +6,7 @@
       <ul class="pagination pagination-sm justify-content-center">
         <% if @previous_picture %>
           <li class="page-item">
-            <%= link_to picture_path(@previous_picture, from: @show_picture_from, order: @show_picture_order), class: 'page-link', aria_label: 'previous' do %>
+            <%= link_to picture_path(@previous_picture, from: @from, order: @order), class: 'page-link', aria_label: 'previous' do %>
               <i class="fa fa-chevron-left" aria-hidden="true"></i>
               <span class="sr-only">Previous</span>
             <% end %>
@@ -21,7 +21,7 @@
         <% end %>
         <% if @next_picture %>
           <li class="page-item">
-            <%= link_to picture_path(@next_picture, from: @show_picture_from, order: @show_picture_order), class: 'page-link', aria_label: 'next' do %>
+            <%= link_to picture_path(@next_picture, from: @from, order: @order), class: 'page-link', aria_label: 'next' do %>
               <i class="fa fa-chevron-right" aria-hidden="true"></i>
               <span class="sr-only">Next</span>
             <% end %>
@@ -42,7 +42,7 @@
 <div class="row">
   <div class="col-md-8">
     <figure class="figure mx-auto d-block">
-      <%= link_to(lightbox_picture_path(@picture, from: @show_picture_from, order: @show_picture_order), style: 'cursor:zoom-in') do %>
+      <%= link_to(lightbox_picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-in') do %>
         <%= image_tag(@picture.image_url(:large).to_s, class: 'figure-img img-fluid mx-auto d-block', style: 'max-height:75vh') %>
       <% end %>
       <figcaption class="figure-caption text-center">

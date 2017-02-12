@@ -1,34 +1,36 @@
 class PicturesController < ApplicationController
-  before_action :set_picture,        except: [:index, :new, :create]
+  include Orderable
+
   before_action :authenticate_user!, except: [:index, :show, :lightbox]
 
-  def index
-    @show_picture_from = 'explore'
-    @show_picture_order = params[:order] || 'view'
+  before_action :set_picture,        except: [:index, :new, :create]
+  before_action :set_album,            only: [:index, :show, :lightbox]
+  before_action :set_user,             only: [:index, :show, :lightbox]
 
-    case @show_picture_order
+  before_action :set_from,             only: [:index, :show, :lightbox]
+  before_action :set_order,            only: [:index, :show, :lightbox]
+
+  before_action :set_pictures,         only: [:index, :show, :lightbox]
+
+  def index
+    case @order
     when 'view'
-      @pictures = Picture.order_by_view.page(params[:page])
+      @pictures = @pictures.order_by_view.page(params[:page])
     when 'time'
-      @pictures = Picture.order_by_time.page(params[:page])
+      @pictures = @pictures.order_by_time.page(params[:page])
     else
       raise ActionController::BadRequest, 'Invalid query parameters: order'
     end
   end
 
   def show
-    @show_picture_from = params[:from] || 'user'
-    @show_picture_order = params[:order] || 'time'
-
-    pictures = (params[:from] == 'explore' ? Picture : @picture.user.pictures)
-
-    case params[:order]
+    case @order
     when 'view'
-      @previous_picture = pictures.order_by_view_at(@picture).previous(false)
-      @next_picture     = pictures.order_by_view_at(@picture).next(false)
+      @previous_picture = @pictures.order_by_view_at(@picture).previous(false)
+      @next_picture     = @pictures.order_by_view_at(@picture).next(false)
     else
-      @previous_picture = pictures.order_by_time_at(@picture).previous(false)
-      @next_picture     = pictures.order_by_time_at(@picture).next(false)
+      @previous_picture = @pictures.order_by_time_at(@picture).previous(false)
+      @next_picture     = @pictures.order_by_time_at(@picture).next(false)
     end
 
     Picture.increment_counter(:views_count, @picture.id)
@@ -96,20 +98,35 @@ class PicturesController < ApplicationController
   end
 
   def lightbox
-    @show_picture_from = params[:from] || 'user'
-    @show_picture_order = params[:order] || 'time'
     Picture.increment_counter(:views_count, @picture.id)
     @picture.charge_user(:large)
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find_by(token: params[:token])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def picture_params
-      params.require(:picture).permit(:caption, :image, album_ids: [])
+  private
+
+  def set_picture
+    @picture = Picture.find_by(token: params[:token])
+  end
+
+  def set_user
+    if params[:user_username]
+      @user = User.find_by(username: params[:user_username])
+    elsif @picture
+      @user = @picture.user
     end
+  end
+
+  def set_album
+    token = params[:album_token] ||
+            params[:from] unless %w(all explore user).include?(params[:from])
+
+    if token
+      @album = Album.find_by(token: token)
+    end
+  end
+
+  def picture_params
+    params.require(:picture).permit(:caption, :image, album_ids: [])
+  end
 end

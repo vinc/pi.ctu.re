@@ -1,5 +1,5 @@
 <% pictures.each do |picture| %>
-  <%= link_to picture_path(picture, from: @show_picture_from, order: @show_picture_order) do %>
+  <%= link_to picture_path(picture, from: @from, order: @order) do %>
     <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.caption) %>
   <% end %>
 <% end %>

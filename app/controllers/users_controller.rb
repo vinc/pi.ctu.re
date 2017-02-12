@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  include Orderable
+
   before_action :authenticate_user!, except: [:show]
+
+  before_action :set_user
+
+  before_action :set_from,             only: [:show]
+  before_action :set_order,            only: [:show]
 
   def show
     @pictures = @user.pictures.order_by_time.page(params[:page])
