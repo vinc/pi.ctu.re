@@ -27,6 +27,7 @@
               </h6>
               <div class="dropdown-divider"></div>
               <%= link_to 'Profile', current_user, class: 'dropdown-item' %>
+              <%= link_to 'Albums', user_albums_path(current_user), class: 'dropdown-item' %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Settings', edit_account_settings_path, class: 'dropdown-item' %>
               <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'dropdown-item' %>
