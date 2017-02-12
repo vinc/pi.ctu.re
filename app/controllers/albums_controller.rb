@@ -15,6 +15,11 @@ class AlbumsController < ApplicationController
 
   def show
     @pictures = @album.pictures.order_by_time.page(params[:page])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js { render template: 'pictures/index' }
+    end
   end
 
   def new
