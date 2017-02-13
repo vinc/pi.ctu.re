@@ -51,7 +51,7 @@
 <div class="row">
   <div class="col-md-8">
     <%= link_to(lightbox_picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-in') do %>
-      <%= image_tag(@picture.image_url(:large).to_s, class: 'img-fluid mx-auto d-block', style: 'max-height:75vh') %>
+      <%= image_tag(@picture.image_url(:large).to_s, alt: @picture.alt, class: 'img-fluid mx-auto d-block', style: 'max-height:75vh') %>
     <% end %>
   </div>
 

@@ -14,6 +14,10 @@ class Picture < ApplicationRecord
 
   validate :user_balance_cannot_be_negative, on: :create
 
+  def alt
+    self.caption.presence || self.token
+  end
+
   def user_balance_cannot_be_negative
     unless self.user.balance > 0
       errors.add(:user_id, 'data balance cannot be negative')
