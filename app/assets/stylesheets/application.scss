@@ -39,6 +39,15 @@
 }
 
 .card-columns {
+  @include media-breakpoint-only(xs) {
+    column-count: 2;
+    .card {
+      margin-bottom: 0.75rem;
+      .card-block {
+        padding: 0.5rem;
+      }
+    }
+  }
   @include media-breakpoint-only(xl) {
     column-count: 4;
   }
