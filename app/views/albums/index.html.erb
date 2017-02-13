@@ -7,21 +7,7 @@
   <% content_for(:title, 'Albums') %>
 <% end %>
 
-<div class="card-columns mt-4">
-  <% @albums.each do |album| %>
-    <%= link_to album do %>
-      <div class="card">
-        <% if album.pictures.size > 0 %>
-          <%= image_tag(album.pictures.first.image_url(:square).to_s, alt: album.title, class: 'card-img-top img-fluid') %>
-        <% end %>
-        <div class="card-block">
-          <h4 class="card-title"><%= album.title %></h4>
-          <p class="card-text"><small class="text-muted">Updated <%= timeago_tag album.updated_at, :limit => 10.days.ago %></small></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'albums', albums: @albums %>
 
 <% if user_signed_in? && @user == current_user %>
   <div class="btn-group mt-3" role="group">

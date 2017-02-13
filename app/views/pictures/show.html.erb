@@ -148,4 +148,12 @@
   </div>
 <% end %>
 
+<% unless @picture.albums.empty? %>
+  <div class="mt-5">
+    <h3>Albums</h3>
+
+    <%= render 'albums/albums', albums: @picture.albums.order_by_time %>
+  </div>
+<% end %>
+
 <%= render partial: 'share_modal' %>
