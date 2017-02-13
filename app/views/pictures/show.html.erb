@@ -1,9 +1,9 @@
 <% content_for(:title, "#{@picture.caption.presence || 'Picture'} by #{@picture.user.name} (#{@picture.token})") %>
 
-<div class="row">
+<div class="row" style="position:relative">
   <div class="col-md-8">
     <nav aria-label="picture pagination">
-      <ul class="pagination pagination-sm justify-content-center">
+      <ul class="pagination pagination justify-content-center">
         <% if @previous_picture %>
           <li class="page-item">
             <%= link_to picture_path(@previous_picture, from: @from, order: @order), class: 'page-link', aria_label: 'previous' do %>
@@ -37,55 +37,9 @@
       </ul>
     </nav>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-8">
-    <figure class="figure mx-auto d-block">
-      <%= link_to(lightbox_picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-in') do %>
-        <%= image_tag(@picture.image_url(:large).to_s, class: 'figure-img img-fluid mx-auto d-block', style: 'max-height:75vh') %>
-      <% end %>
-      <figcaption class="figure-caption text-center">
-        <%= @picture.caption.presence || 'Picture' %>
-        by
-        <%= link_to(@picture.user.name, @picture.user, class: 'text-muted font-weight-bold') %>
-      </figcaption>
-    </figure>
-  </div>
-
-  <div class="col-md-4">
-    <p>
-      Published <%= timeago_tag @picture.created_at, :limit => 10.days.ago %>
-    </p>
-
-    <p>
-      <%= pluralize(@picture.get_likes.size, 'like') %>,
-      <%= pluralize(@picture.views_count, 'view') %>
-      <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.size(:large)) %>)</span>
-    </p>
-
-    <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
-      <div class="btn-group mr-2" role="group">
-        <% if user_signed_in? && current_user.liked?(@picture) %>
-          <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
-            <i class="fa fa-heart" aria-hidden="true"></i> Unlike
-          <% end %>
-        <% else %>
-          <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
-            <i class="fa fa-heart" aria-hidden="true"></i> Like
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
-          <i class="fa fa-share" aria-hidden="true"></i> Share
-        </button>
-      </div>
-    </div>
-
+  <div class="col-4" style="position:absolute;right:0">
     <% if user_signed_in? && @picture.user_id == current_user.id %>
-      <div class="btn-group mt-2" role="group">
+      <div class="btn-group float-right" role="group">
         <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
           <i class="fa fa-pencil" aria-hidden="true"></i> Edit
         <% end %>
@@ -94,8 +48,58 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to(lightbox_picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-in') do %>
+      <%= image_tag(@picture.image_url(:large).to_s, class: 'img-fluid mx-auto d-block', style: 'max-height:75vh') %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4 d-flex flex-column mt-2 mt-md-0">
+    <div>
+      <p class="text-muted pull-right"><%= timeago_tag @picture.created_at, :limit => 10.days.ago %></p>
+      <p>
+        <%= link_to(@picture.user.name, @picture.user, class: 'font-weight-bold') %>
+      </p>
+
+      <% if @picture.caption.present? %>
+        <p><%= @picture.caption %></p>
+      <% end %>
+    </div>
+
+    <div class="mt-auto">
+      <hr>
+      <p>
+        <%= pluralize(@picture.get_likes.size, 'like') %>,
+        <%= pluralize(@picture.views_count, 'view') %>
+        <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.size(:large)) %>)</span>
+      </p>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
+        <div class="btn-group mr-2" role="group">
+          <% if user_signed_in? && current_user.liked?(@picture) %>
+            <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+              <i class="fa fa-heart" aria-hidden="true"></i> Unlike
+            <% end %>
+          <% else %>
+            <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+              <i class="fa fa-heart" aria-hidden="true"></i> Like
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
+            <i class="fa fa-share" aria-hidden="true"></i> Share
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% if @picture.exif.exif? %>
-  <div class="mt-4">
+  <div class="mt-5">
     <h3>Informations</h3>
 
     <table class="table">
