@@ -34,4 +34,8 @@ class Picture < ApplicationRecord
     new_path = Rails.root.join('public', self.image.store_dir)
     FileUtils.mv(old_path, new_path)
   end
+
+  def exif
+    @exif ||= EXIFR::JPEG.new(self.image.path) # TODO: Save in database
+  end
 end

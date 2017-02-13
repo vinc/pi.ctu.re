@@ -46,6 +46,7 @@ gem 'font-awesome-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
 gem 'order_query', '~> 0.3.3'
+gem 'exifr'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

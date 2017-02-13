@@ -76,6 +76,7 @@ GEM
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    exifr (1.2.5)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   carrierwave (~> 1.0)
   devise
   devise-bootstrap-views (~> 1.0.0.alpha1)
+  exifr
   factory_girl_rails
   faker
   font-awesome-rails

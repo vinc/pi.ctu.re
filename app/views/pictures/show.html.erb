@@ -94,4 +94,54 @@
   </div>
 </div>
 
+<% if @picture.exif.exif? %>
+  <div class="mt-4">
+    <h3>Informations</h3>
+
+    <table class="table">
+      <% if @picture.exif.date_time %>
+        <tr>
+          <th scope="row">Date</th>
+          <td><%= @picture.exif.date_time.strftime('%F %T') %></td>
+        </tr>
+      <% end %>
+
+      <% if @picture.exif.model %>
+        <tr>
+          <th scope="row">Camera</th>
+          <td><%= @picture.exif.model %></td>
+        </tr>
+      <% end %>
+
+      <% if @picture.exif.focal_length %>
+        <tr>
+          <th scope="row">Focal Length</th>
+          <td><%= @picture.exif.focal_length.to_f %> mm</td>
+        </tr>
+      <% end %>
+
+      <% if @picture.exif.f_number %>
+        <tr>
+          <th scope="row">Apperture</th>
+          <td>f/<%= @picture.exif.f_number.to_f %></td>
+        </tr>
+      <% end %>
+
+      <% if @picture.exif.exposure_time %>
+        <tr>
+          <th scope="row">Exposure Time</th>
+          <td><%= @picture.exif.exposure_time.to_s.sub(/\/1$/, '') %> s</td>
+        </tr>
+      <% end %>
+
+      <% if @picture.exif.iso_speed_ratings %>
+        <tr>
+          <th scope="row">ISO</dt>
+          <td><%= @picture.exif.iso_speed_ratings %></dd>
+        </tr>
+      <% end %>
+    </dl>
+  </div>
+<% end %>
+
 <%= render partial: 'share_modal' %>
