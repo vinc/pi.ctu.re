@@ -12,6 +12,7 @@ class Picture < ApplicationRecord
   order_query :order_by_view, [:views_count, :desc]
   order_query :order_by_time, [:created_at, :desc]
 
+  validates_presence_of :image
   validate :user_balance_cannot_be_negative, on: :create
 
   def alt
