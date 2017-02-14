@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   end
 
   resources :pictures, param: :token, path: 'p' do
+    collection do
+      get 'search'
+    end
+
     member do
       get 'lightbox'
       put 'like'

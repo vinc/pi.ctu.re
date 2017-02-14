@@ -1,7 +1,9 @@
-<div id="gallery" class="justified-gallery mt-3">
-  <%= render 'pictures/pictures', pictures: pictures %>
-</div>
+<% if pictures %>
+  <div id="gallery" class="justified-gallery mt-3">
+    <%= render 'pictures/pictures', pictures: pictures %>
+  </div>
 
-<p class="next-page text-center mt-3">
-  <%= link_to_next_page pictures, 'Load more', remote: true, class: 'btn btn-secondary', role: 'button' %>
-</p>
+  <p class="next-page text-center mt-3">
+    <%= link_to_next_page pictures, 'Load more', remote: true, class: 'btn btn-secondary', role: 'button' %>
+  </p>
+<% end %>

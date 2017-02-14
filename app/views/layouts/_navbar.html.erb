@@ -5,15 +5,21 @@
     </button>
     <a class="navbar-brand" href="/"><i class="fa fa-camera" aria-hidden="true"></i> Picture</a>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav">
         <li class="nav-item<%= ' active' if content_for(:page) == 'explore' %>">
           <%= link_to 'Explore', explore_path, class: 'nav-link' %>
         </li>
         <li class="nav-item<%= ' active' if content_for(:page) == 'upload' %>">
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
         </li>
+        <% unless %w(home search).include? content_for(:page) %>
+          <li class="nav-item ml-md-2 mt-md-0 mt-2">
+            <%= render 'layouts/search' %>
+          </li>
+        <% end %>
       </ul>
-      <ul class="navbar-nav justify-content-end">
+
+      <ul class="navbar-nav ml-auto mt-md-0 mt-2">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

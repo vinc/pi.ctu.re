@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   include Orderable
 
-  before_action :authenticate_user!, except: [:index, :show, :lightbox]
+  before_action :authenticate_user!, except: [:index, :search, :show, :lightbox]
 
   before_action :set_picture,        except: [:index, :new, :create]
   before_action :set_album,            only: [:index, :show, :lightbox]
@@ -20,6 +20,17 @@ class PicturesController < ApplicationController
       @pictures = @pictures.order_by_time.page(params[:page])
     else
       raise ActionController::BadRequest, 'Invalid query parameters: order'
+    end
+  end
+
+  def search
+    if params[:q].present?
+      @pictures = Picture.where('caption ILIKE ?', "%#{params[:q]}%").page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html # search.html.erb
+      format.js { render template: 'index' }
     end
   end
 

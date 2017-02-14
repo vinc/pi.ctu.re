@@ -25,6 +25,12 @@
   }
 }
 
+@include media-breakpoint-up(md) {
+  .navbar .search {
+    width: 24rem;
+  }
+}
+
 .custom-file-control {
   overflow: hidden;
 
