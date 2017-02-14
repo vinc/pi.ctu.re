@@ -1,0 +1,23 @@
+<%= form_for(current_user, url: account_settings_path) do |f| %>
+  <% if current_user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(current_user.errors.count, "error") %> prohibited this profile from being saved:</h4>
+
+      <ul>
+        <% current_user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :default_license %>
+    <%= f.select(:default_license, ['CC BY', 'CC BY-SA', 'CC BY-NC', 'CC BY-ND', 'CC BY-NC-SA', 'CC BY-NC-ND'], {}, { class: 'form-control custom-select' }) %>
+    <p class="form-text text-muted">
+      Choose a <a href="https://creativecommons.org/choose/">Creative Commons license</a> for your pictures.
+    </p>
+  </div>
+
+  <%= f.submit 'Update', class: 'btn btn-primary' %>
+<% end %>
