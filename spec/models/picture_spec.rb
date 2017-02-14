@@ -34,39 +34,36 @@ RSpec.describe Picture, type: :model do
   end
 
   describe '.size' do
-    pending 'with real images'
-
     before do
       @picture = FactoryGirl.create(:picture)
     end
 
     it 'returns the size of the picture' do
-      expect(@picture.size).to eql(0)
+      expect(@picture.size).to be > 0
     end
 
     it 'returns the size of a version of the picture' do
-      expect(@picture.size(:large)).to eql(0)
+      expect(@picture.size(:large)).to be > 0
     end
   end
 
   describe '.charge_user' do
-    pending 'with real images'
-
     before do
+      @balance = 100_000_000
       @picture = FactoryGirl.create(:picture)
-      @picture.user = FactoryGirl.create(:user, balance: 100_000_000) # 100 MB
+      @picture.user = FactoryGirl.create(:user, balance: @balance) # 100 MB
     end
 
     it 'charges user with the size of the picture' do
       @picture.charge_user
 
-      expect(@picture.user.balance).to eql(100_000_000)
+      expect(@picture.user.balance).to eql(@balance - @picture.size)
     end
 
     it 'charges user the size of a version of the picture' do
       @picture.charge_user(:large)
 
-      expect(@picture.user.balance).to eql(100_000_000)
+      expect(@picture.user.balance).to eql(@balance - @picture.size(:large))
     end
   end
 

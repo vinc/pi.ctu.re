@@ -101,4 +101,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
 end
