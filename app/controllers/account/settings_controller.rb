@@ -7,8 +7,8 @@ class Account::SettingsController < ApplicationController
   def update
     respond_to do |format|
       if current_user.update(user_params)
-        format.html { redirect_to current_user, notice: 'Settings were successfully updated.' }
-        format.json { render :show, status: :ok, location: current_user }
+        format.html { redirect_to edit_account_settings_path, notice: 'Settings were successfully updated.' }
+        format.json { render :show, status: :ok, location: edit_account_settings_path }
       else
         format.html { render :edit }
         format.json { render json: current_user.errors, status: :unprocessable_entity }
@@ -16,9 +16,10 @@ class Account::SettingsController < ApplicationController
     end
   end
 
+
   private
 
   def user_params
-    params.require(:user)
+    params.require(:user).permit(:default_license)
   end
 end

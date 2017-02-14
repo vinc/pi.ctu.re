@@ -32,13 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
 
   def set_user
     @user = User.find_by(username: params[:username])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:fullname)
   end

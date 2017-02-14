@@ -68,7 +68,15 @@
     </div>
 
     <div class="mt-auto">
+      <p>
+        License:
+        <a href="http://creativecommons.org/licenses/<%= @picture.user.default_license.sub('CC ', '').downcase %>/4.0/">
+          <%= @picture.user.default_license %>
+        </a>
+      </p>
+
       <hr>
+
       <p>
         <%= pluralize(@picture.get_likes.size, 'like') %>,
         <%= pluralize(@picture.views_count, 'view') %>
