@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :search, :show, :lightbox]
 
-  before_action :set_picture,        except: [:index, :new, :create]
+  before_action :set_picture,        except: [:index, :search, :new, :create]
   before_action :set_album,            only: [:index, :show, :lightbox]
   before_action :set_user,             only: [:index, :show, :lightbox]
 
