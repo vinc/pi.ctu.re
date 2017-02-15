@@ -28,6 +28,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process :store_dimensions
+
   # Create different versions of your uploaded files:
   version :large do
     process resize_to_fit: [800, 800]
@@ -68,6 +70,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   private
+
+  def store_dimensions
+    if file && model
+      img = MiniMagick::Image.open(file.file)
+      model.width = img.width
+      model.height = img.height
+    end
+  end
 
   def secure_token
     var = :"@#{mounted_as}_secure_token"
