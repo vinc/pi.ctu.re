@@ -32,10 +32,10 @@
   </div>
 
   <div class="">
-    <%= f.submit class: 'btn btn-primary' %>
-
     <% if picture.persisted? %>
-      <%= link_to 'or delete?', @picture, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link text-danger', role: 'button' %>
+      <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'This picture will be deleted, are you sure?' }, class: 'btn btn-link text-danger pull-right', role: 'button' %>
     <% end %>
+
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
