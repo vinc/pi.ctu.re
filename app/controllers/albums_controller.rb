@@ -67,7 +67,7 @@ class AlbumsController < ApplicationController
   private
 
   def set_album
-    @album = Album.find_by(token: params[:token])
+    @album = Album.find_by!(token: params[:token])
   end
 
   def set_user

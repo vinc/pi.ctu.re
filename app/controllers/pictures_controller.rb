@@ -117,7 +117,7 @@ class PicturesController < ApplicationController
   private
 
   def set_picture
-    @picture = Picture.find_by(token: params[:token])
+    @picture = Picture.find_by!(token: params[:token])
   end
 
   def set_user
