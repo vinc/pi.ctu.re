@@ -14,13 +14,13 @@
         </div>
 
         <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u @picture.caption %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
+          <%= fa_icon("twitter") %>
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<%=u picture_url(@picture) %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#3B5998">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <%= fa_icon("facebook") %>
         </a>
         <a href="https://plus.google.com/share?url=<%=u picture_url(@picture) %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#EA4335">
-          <i class="fa fa-google" aria-hidden="true"></i>
+          <%= fa_icon("google") %>
         </a>
       </div>
       <div class="modal-footer">

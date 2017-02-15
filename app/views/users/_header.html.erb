@@ -1,7 +1,7 @@
 <% if user_signed_in? && @user == current_user %>
   <div class="btn-group float-right" role="group">
     <%= link_to edit_user_path(@user), class: 'btn btn-secondary', role: 'button' do %>
-      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+      <%= fa_icon("pencil") %> Edit
     <% end %>
   </div>
 <% end %>
