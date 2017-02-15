@@ -1,6 +1,5 @@
 <%= form_tag(search_pictures_path, method: :get, enforce_utf8: false, class: 'search') do %>
   <div class="input-group">
-    <label for="q" class="sr-only">Search</label>
     <%= search_field_tag :q, params[:q], placeholder: 'Search pictures...', class: 'form-control', 'aria-label' => 'Query' %>
     <span class="input-group-btn">
       <button class="btn btn-secondary" id="search-submit" aria-label="Search">
