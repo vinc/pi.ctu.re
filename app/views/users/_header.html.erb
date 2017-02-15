@@ -6,9 +6,20 @@
   </div>
 <% end %>
 
-<h1><%= @user.name %></h1>
+<h1 style="line-height:100px">
+  <% if @user.avatar? %>
+    <%= image_tag(@user.avatar_url.to_s, alt: 'avatar', class: 'rounded-circle float-left mr-3', width: 100, height: 100) %>
+  <% else %>
+    <span class="rounded-circle float-left mr-3 align-bottom d-inline-block text-white" style="background:#ccc;width:100px;height:100px">
+      <i class="fa fa-user-o align-top text-center" style="width:100px;line-height:95px;font-size:70px" aria-hidden="true"></i>
+    </span>
+  <% end %>
+  <%= @user.name %>
+</h1>
 
-<ul class="nav nav-pills mt-4">
+<hr class="mt-4 mb-4">
+
+<ul class="nav nav-pills">
   <li class="nav-item">
     <%= link_to 'Pictures', @user, class: "nav-link #{content_for(:page) == 'user_pictures' ? 'active' : ''}" %>
   </li>

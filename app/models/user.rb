@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :albums
   has_many :pictures
 
