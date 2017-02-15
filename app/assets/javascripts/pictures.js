@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
   $('#gallery').justifiedGallery({
+    waitThumbnailsLoad: false,
     captions: false,
     rowHeight: 200,
     maxRowHeight: 250,

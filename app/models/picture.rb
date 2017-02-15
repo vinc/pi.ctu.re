@@ -43,4 +43,17 @@ class Picture < ApplicationRecord
   def exif
     @exif ||= EXIFR::JPEG.new(self.image.path) # TODO: Save in database
   end
+
+  def image_tag_size(version = nil)
+    return if self.width.nil? || self.height.nil?
+
+    case version
+    when :thumb
+      h = 500
+      w = self.width * h / self.height
+      "#{w}x#{h}"
+    else
+      "#{self.width}x#{self.height}"
+    end
+  end
 end
