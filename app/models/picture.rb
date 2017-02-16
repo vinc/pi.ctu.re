@@ -56,4 +56,8 @@ class Picture < ApplicationRecord
       "#{self.width}x#{self.height}"
     end
   end
+
+  def self.featured
+    self.where(is_featured: true)
+  end
 end
