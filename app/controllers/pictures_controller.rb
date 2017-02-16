@@ -109,7 +109,9 @@ class PicturesController < ApplicationController
   end
 
   def feature
-    @picture.update(is_featured: true) if current_user.is_admin
+    authorize @picture
+
+    @picture.update(is_featured: true)
     respond_to do |format|
       format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
@@ -117,7 +119,9 @@ class PicturesController < ApplicationController
   end
 
   def unfeature
-    @picture.update(is_featured: false) if current_user.is_admin
+    authorize @picture
+
+    @picture.update(is_featured: false)
     respond_to do |format|
       format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
