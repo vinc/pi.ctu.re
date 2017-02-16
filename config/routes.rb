@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
     member do
       get 'lightbox'
+
       put 'like'
       put 'unlike'
+
+      put 'feature'
+      put 'unfeature'
     end
   end
 

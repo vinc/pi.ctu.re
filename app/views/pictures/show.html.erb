@@ -37,13 +37,25 @@
       </ul>
     </nav>
   </div>
-  <div class="col-4" style="position:absolute;right:0">
-    <% if user_signed_in? && @picture.user_id == current_user.id %>
-      <div class="btn-group float-right" role="group">
+  <div class="col-4 text-right" style="position:absolute;right:0">
+    <% if user_signed_in? %>
+      <% if current_user.is_admin %>
+        <% if @picture.is_featured %>
+          <%= link_to unfeature_picture_path(@picture), method: :put, class: 'btn btn-outline-warning', role: 'button' do %>
+            <%= fa_icon("check") %> Unpick
+          <% end %>
+        <% else %>
+          <%= link_to feature_picture_path(@picture), method: :put, class: 'btn btn-outline-warning', role: 'button' do %>
+            <%= fa_icon("check") %> Pick
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if @picture.user_id == current_user.id %>
         <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
           <%= fa_icon("pencil") %> Edit
         <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

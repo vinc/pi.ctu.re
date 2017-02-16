@@ -108,6 +108,22 @@ class PicturesController < ApplicationController
     end
   end
 
+  def feature
+    @picture.update(is_featured: true) if current_user.is_admin
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @picture) }
+      format.json { head :no_content }
+    end
+  end
+
+  def unfeature
+    @picture.update(is_featured: false) if current_user.is_admin
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @picture) }
+      format.json { head :no_content }
+    end
+  end
+
   def lightbox
     Picture.increment_counter(:views_count, @picture.id)
     @picture.charge_user(:large)
