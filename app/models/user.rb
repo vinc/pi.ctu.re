@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def name
-    self.fullname || self.username
+    self.fullname.presence || self.username
   end
 
   validates :email, presence: true, uniqueness: true
