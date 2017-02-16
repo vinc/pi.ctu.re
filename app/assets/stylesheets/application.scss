@@ -25,8 +25,11 @@
   }
 }
 
-@include media-breakpoint-up(md) {
-  .navbar .search {
+.navbar .search {
+  @include media-breakpoint-only(md) {
+    width: 16rem;
+  }
+  @include media-breakpoint-up(lg) {
     width: 24rem;
   }
 }
