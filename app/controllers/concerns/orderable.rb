@@ -30,8 +30,10 @@ module Orderable
   # TODO: move that method back to pictures controller
   def set_pictures
     case @from
-    when 'all', 'explore'
+    when 'all'
       @pictures = Picture
+    when 'explore'
+      @pictures = Picture.featured
     when 'user'
       @pictures = @user.pictures
     else

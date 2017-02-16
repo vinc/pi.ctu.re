@@ -9,9 +9,9 @@ class ExploreController < ApplicationController
   def index
     case @order
     when 'view'
-      @pictures = @pictures.featured.order_by_view.page(params[:page])
+      @pictures = @pictures.order_by_view.page(params[:page])
     when 'time'
-      @pictures = @pictures.featured.order_by_time.page(params[:page])
+      @pictures = @pictures.order_by_time.page(params[:page])
     else
       raise ActionController::BadRequest, 'Invalid query parameters: order'
     end
