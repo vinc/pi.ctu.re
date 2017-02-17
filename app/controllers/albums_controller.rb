@@ -45,7 +45,9 @@ class AlbumsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @album.update(album_params)
+      # NOTE: `updated_at` is not automatically changed when adding pictures
+      # to album without changing anything else.
+      if @album.update(album_params.merge(updated_at: Time.current))
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
