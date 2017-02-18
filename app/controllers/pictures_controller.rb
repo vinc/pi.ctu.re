@@ -126,7 +126,6 @@ class PicturesController < ApplicationController
 
   def lightbox
     Picture.increment_counter(:views_count, @picture.id)
-    @picture.charge_user(:large)
   end
 
 

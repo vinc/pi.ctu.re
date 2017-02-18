@@ -20,7 +20,7 @@
   <div class="form-group d-flex flex-wrap" style="margin:-0.5rem">
     <%= f.collection_check_boxes :picture_ids, current_user.pictures.order_by_time, :id, :id, { selected: album.picture_ids } do |b| %>
       <% b.label class: 'form-check-label', style: 'width:33%;padding:0.5rem' do %>
-        <%= image_tag(b.object.image_url(:square).to_s, style:'width:100%;height:auto') %>
+        <%= image_tag(b.object.image.thumb_url('200x200!').to_s, style:'width:100%;height:auto') %>
         <%= b.check_box class: 'form-check-input' %>
       <% end %>
     <% end %>

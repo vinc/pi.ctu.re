@@ -26,14 +26,8 @@ class Picture < ApplicationRecord
   end
 
   def exif
-    @exif ||= EXIFR::JPEG.new(self.image.path) # TODO: Save in database
-  end
-
-  def regenerate_token
-    old_path = Rails.root.join('public', self.image.store_dir)
-    self.update(token: self.class.generate_unique_secure_token(:token))
-    new_path = Rails.root.join('public', self.image.store_dir)
-    FileUtils.mv(old_path, new_path)
+    # TODO: Save in database
+    @exif ||= EXIFR::JPEG.new(StringIO.new(self.image.file.read))
   end
 
   def self.featured

@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-postgresql'
 gem 'mini_magick'
 gem 'bower-rails', '~> 0.11.0'
 gem 'bootstrap', '~> 4.0.0.alpha6'
