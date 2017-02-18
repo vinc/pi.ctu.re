@@ -52,6 +52,15 @@ class ApplicationUploader < CarrierWave::Uploader::Base
     [w, h].join('x')
   end
 
+  # HACK: carrierwave-postgres always make a oid, even when nothing has been
+  # uploaded, so we can't just test if oid is nil, we have to read the file.
+  # We override `empty?` and `blank?` to be able to do `attribute?`.
+  def empty?
+    length.zero?
+  end
+
+  alias :blank? :empty?
+
   private
 
   def secure_token
