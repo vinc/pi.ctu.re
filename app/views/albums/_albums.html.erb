@@ -3,7 +3,7 @@
     <%= link_to album do %>
       <div class="card">
         <% if album.pictures.size > 0 %>
-          <%= image_tag(album.pictures.first.image_url(:square).to_s, alt: album.title, class: 'card-img-top img-fluid') %>
+          <%= image_tag(album.pictures.first.image.thumb_url('500x500!').to_s, alt: album.title, class: 'card-img-top img-fluid') %>
         <% end %>
         <div class="card-block">
           <h4 class="card-title"><%= album.title %></h4>
