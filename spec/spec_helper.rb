@@ -102,6 +102,17 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
   config.after(:all) do
     if Rails.env.test?
       FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])

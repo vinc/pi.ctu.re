@@ -33,51 +33,17 @@ RSpec.describe Picture, type: :model do
     end
   end
 
-  describe '.size' do
-    before do
-      @picture = FactoryGirl.create(:picture)
-    end
-
-    it 'returns the size of the picture' do
-      expect(@picture.size).to be > 0
-    end
-
-    it 'returns the size of a version of the picture' do
-      expect(@picture.size(:large)).to be > 0
-    end
-  end
-
-  describe '.charge_user' do
-    before do
-      @balance = 100_000_000
-      @picture = FactoryGirl.create(:picture)
-      @picture.user = FactoryGirl.create(:user, balance: @balance) # 100 MB
-    end
-
-    it 'charges user with the size of the picture' do
-      @picture.charge_user
-
-      expect(@picture.user.balance).to eql(@balance - @picture.size)
-    end
-
-    it 'charges user the size of a version of the picture' do
-      @picture.charge_user(:large)
-
-      expect(@picture.user.balance).to eql(@balance - @picture.size(:large))
-    end
-  end
-
   describe '.order_by' do
     before do
       @picture_1 = FactoryGirl.create(:picture, created_at: 5.hours.ago, views_count: 10)
-      @picture_2 = FactoryGirl.create(:picture, created_at: 1.hours.ago, views_count: 50)
-      @picture_3 = FactoryGirl.create(:picture, created_at: 3.hours.ago, views_count: 30)
+      @picture_2 = FactoryGirl.create(:picture, created_at: 3.hours.ago, views_count: 50)
+      @picture_3 = FactoryGirl.create(:picture, created_at: 1.hours.ago, views_count: 30)
     end
 
     it 'returns a list ordered by creation time' do
       pictures = Picture.order_by_time
-      expect(pictures[0]).to eql(@picture_2)
-      expect(pictures[1]).to eql(@picture_3)
+      expect(pictures[0]).to eql(@picture_3)
+      expect(pictures[1]).to eql(@picture_2)
       expect(pictures[2]).to eql(@picture_1)
     end
 
@@ -89,8 +55,8 @@ RSpec.describe Picture, type: :model do
     end
 
     it 'works with previous and next' do
-      expect(Picture.order_by_time_at(@picture_3).previous).to eql(@picture_2)
-      expect(Picture.order_by_time_at(@picture_3).next).to eql(@picture_1)
+      expect(Picture.order_by_time_at(@picture_2).previous).to eql(@picture_3)
+      expect(Picture.order_by_time_at(@picture_2).next).to eql(@picture_1)
 
       expect(Picture.order_by_view_at(@picture_3).previous).to eql(@picture_2)
       expect(Picture.order_by_view_at(@picture_3).next).to eql(@picture_1)
