@@ -45,8 +45,6 @@ class PicturesController < ApplicationController
     end
 
     Picture.increment_counter(:views_count, @picture.id)
-
-    @picture.charge_user(:large)
   end
 
   def new
@@ -61,8 +59,6 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        @picture.charge_user
-
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else

@@ -63,7 +63,7 @@
 <div class="row">
   <div class="col-md-8">
     <%= link_to(lightbox_picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-in') do %>
-      <%= image_tag(@picture.image_url(:large).to_s, alt: @picture.alt, class: 'img-fluid mx-auto d-block', style: 'max-height:75vh') %>
+      <%= image_tag(@picture.image.thumb_url('800x800'), alt: @picture.alt, class: 'img-fluid mx-auto d-block', style: 'max-height:75vh') %>
     <% end %>
   </div>
 
@@ -72,7 +72,7 @@
       <p>
         <%= link_to(@picture.user) do %>
           <% if @picture.user.avatar? %>
-            <%= image_tag(@picture.user.avatar_url(:md).to_s, alt: 'avatar', class: 'rounded-circle float-left mr-3', width: 50, height: 50) %>
+            <%= image_tag(@picture.user.avatar_url(:md), alt: 'avatar', class: 'rounded-circle float-left mr-3', width: 50, height: 50) %>
           <% else %>
             <span class="rounded-circle float-left mr-3 align-bottom d-inline-block text-white" style="background:#ccc;width:50px;height:50px">
               <i class="fa fa-user-o align-top text-center" style="width:50px;line-height:45px;font-size:30px" aria-hidden="true"></i>
@@ -102,7 +102,6 @@
       <p>
         <%= pluralize(@picture.get_likes.size, 'like') %>,
         <%= pluralize(@picture.views_count, 'view') %>
-        <span class="text-muted">(<%= number_to_human_size(@picture.views_count * @picture.size(:large)) %>)</span>
       </p>
 
       <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">

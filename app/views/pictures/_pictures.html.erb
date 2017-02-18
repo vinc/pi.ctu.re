@@ -1,5 +1,5 @@
 <% pictures.each do |picture| %>
   <%= link_to picture_path(picture, from: @from, order: @order) do %>
-    <%= image_tag(picture.image_url(:thumb).to_s, alt: picture.alt, size: picture.image_tag_size(:thumb)) %>
+    <%= image_tag(picture.image.thumb_url('x300'), alt: picture.alt, size: picture.image.thumb_size('x300')) %>
   <% end %>
 <% end %>
