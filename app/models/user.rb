@@ -25,6 +25,10 @@ class User < ApplicationRecord
     self.fullname.presence || self.username
   end
 
+  before_create do
+    self.balance = 100e6 # Give 100 MB of data to each new user for free
+  end
+
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
 
