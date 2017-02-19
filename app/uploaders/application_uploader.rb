@@ -54,6 +54,6 @@ class ApplicationUploader < CarrierWave::Uploader::Base
   def generate_filename
     key = "#{mounted_as}_filename".to_sym
     val = "#{SecureRandom.uuid.tr('-', '')}.jpg"
-    model.update_attribute(key, val)
+    model.write_attribute(key, val)
   end
 end
