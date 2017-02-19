@@ -35,23 +35,6 @@ class ApplicationUploader < CarrierWave::Uploader::Base
     "#{asset_host}#{path}/#{geometry}/#{identifier}.jpg"
   end
 
-  # Example with a 600x400 picture: thumb_size('x200') -> '300x200'
-  def thumb_size(geometry)
-    w, _, h = geometry.partition('x')
-
-    if h.present?
-      h = h.to_i
-      w = model.width * h / model.height
-    elsif w.present?
-      w = w.to_i
-      h = model.height * w / model.weigth
-    else
-      return
-    end
-
-    [w, h].join('x')
-  end
-
   # HACK: carrierwave-postgres always make a oid, even when nothing has been
   # uploaded, so we can't just test if oid is nil, we have to read the file.
   # We override `empty?` and `blank?` to be able to do `attribute?`.
