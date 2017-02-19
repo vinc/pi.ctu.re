@@ -8,7 +8,7 @@ class ApplicationUploader < CarrierWave::Uploader::Base
   end
 
   def url
-    "#{asset_host}#{path}/#{identifier}.jpg"
+    "#{asset_host}#{path}/#{filename}"
   end
 
   def extension_whitelist
@@ -31,8 +31,13 @@ class ApplicationUploader < CarrierWave::Uploader::Base
   #  end
   #end
 
+  def filename
+    key = "#{mounted_as}_filename".to_sym
+    model.read_attribute(key)
+  end
+
   def thumb_url(geometry)
-    "#{asset_host}#{path}/#{geometry}/#{identifier}.jpg"
+    "#{asset_host}#{path}/#{geometry}/#{filename}"
   end
 
   # HACK: carrierwave-postgres always make a oid, even when nothing has been
@@ -44,10 +49,11 @@ class ApplicationUploader < CarrierWave::Uploader::Base
 
   alias :blank? :empty?
 
-  private
+  process :generate_filename
 
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid.tr('-', ''))
+  def generate_filename
+    key = "#{mounted_as}_filename".to_sym
+    val = "#{SecureRandom.uuid.tr('-', '')}.jpg"
+    model.update_attribute(key, val)
   end
 end

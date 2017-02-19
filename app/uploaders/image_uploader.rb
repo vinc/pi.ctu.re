@@ -9,10 +9,10 @@ class ImageUploader < ApplicationUploader
 
     if h.present?
       h = h.to_i
-      w = model.width * h / model.height
+      w = model.image_width * h / model.image_height
     elsif w.present?
       w = w.to_i
-      h = model.height * w / model.weigth
+      h = model.image_height * w / model.image_weigth
     else
       return
     end
@@ -26,9 +26,9 @@ class ImageUploader < ApplicationUploader
 
   def store_dimensions
     if file && model
-      img = MiniMagick::Image.open(file.file)
-      model.width = img.width
-      model.height = img.height
+      image = MiniMagick::Image.open(file.file)
+      model.image_width = image.width
+      model.image_height = image.height
     end
   end
 end
