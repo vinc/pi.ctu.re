@@ -14,4 +14,35 @@ $(document).on('turbolinks:load', function() {
 
     $('.custom-file-control').attr('data-content', content);
   });
+
+
+  var busy = false;
+
+  $(document).on('scroll', function() {
+    var doc = $(document);
+    var win = $(window);
+    var elem = $('#gallery');
+    var next = $('.next-page a');
+
+    if (elem.length && next.length) {
+      if (busy) {
+        return;
+      } else {
+        busy = true;
+      }
+
+      var busyDuration = 100;
+
+      if (doc.height() - doc.scrollTop() < 2 * win.height()) {
+        busyDuration = 1000;
+        next.click();
+        //console.log('loading ' + next.attr('href'));
+        //window.history.replaceState('', '', next.attr('href'));
+      }
+
+      setTimeout(function() {
+        busy = false;
+      }, busyDuration);
+    }
+  });
 });
