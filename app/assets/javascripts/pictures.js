@@ -16,14 +16,13 @@ $(document).on('turbolinks:load', function() {
   });
 
 
-  /*
   var busy = false;
 
   $(document).on('scroll', function() {
     var doc = $(document);
     var win = $(window);
     var elem = $('#gallery');
-    var next = $('.next-page a');
+    var next = $('.next-page a.infinite-scrolling');
 
     if (elem.length && next.length) {
       if (busy) {
@@ -36,6 +35,7 @@ $(document).on('turbolinks:load', function() {
 
       if (doc.height() - doc.scrollTop() < 2 * win.height()) {
         busyDuration = 1000;
+        next.removeClass('infinite-scrolling');
         next.click();
         //console.log('loading ' + next.attr('href'));
         //window.history.replaceState('', '', next.attr('href'));
@@ -46,5 +46,4 @@ $(document).on('turbolinks:load', function() {
       }, busyDuration);
     }
   });
-  */
 });

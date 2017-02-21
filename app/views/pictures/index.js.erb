@@ -10,5 +10,5 @@ $('#gallery').justifiedGallery('norewind');
   $('.next-page').html('');
 <% else %>
   $('.next-page')
-    .html("<%=j link_to_next_page @pictures, 'Load more', remote: true, class: 'btn btn-secondary', role: 'button' %>");
+    .html("<%=j link_to_next_page @pictures, 'Load more', remote: true, class: 'btn btn-secondary infinite-scrolling', role: 'button' %>");
 <% end %>
