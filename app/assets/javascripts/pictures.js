@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
   });
 
 
+  /*
   var busy = false;
 
   $(document).on('scroll', function() {
@@ -45,4 +46,5 @@ $(document).on('turbolinks:load', function() {
       }, busyDuration);
     }
   });
+  */
 });
