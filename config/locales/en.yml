@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  invitations_mailer:
+    create:
+      subject: 'Invitation to Picture requested'
+    approve:
+      subject: 'Invitation to Picture approved'

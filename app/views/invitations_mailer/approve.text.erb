@@ -1,0 +1,10 @@
+Invitation to Picture approved
+
+Hello <%= @invitation.email %>!
+
+Your invitation to Picture has been approved,
+you can now sign up through the link below with the token "<%= @invitation.token %>".
+
+<%= new_user_registration_url %>
+
+Welcome to Picture!
