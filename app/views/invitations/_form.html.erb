@@ -1,0 +1,20 @@
+<%= form_for(invitation) do |f| %>
+  <% if invitation.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h4>
+
+      <ul>
+        <% invitation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Request invitation', class: 'btn btn-primary' %>
+<% end %>

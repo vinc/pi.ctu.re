@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   namespace :account do
     resource :settings, only: [:edit, :update]
   end
+  
+  resources :invitations, only: [:new, :create]
 
   get 'explore' => 'explore#index'
 

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessor :invitation_code
+  attr_accessor :invitation_token
 
   acts_as_voter
 
@@ -32,11 +32,12 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
 
-  validate :invitation_code_must_be_valid, on: :create
+  validate :invitation_token_must_be_valid, on: :create
 
-  def invitation_code_must_be_valid
-    unless self.invitation_code == Rails.application.secrets.invitation_code
-      errors.add(:invitation_code, 'is invalid')
-    end
+  def invitation_token_must_be_valid
+    return if self.invitation_token == Rails.application.secrets.invitation_token
+    return if Invitation.approved.where(email: self.email, token: self.invitation_token).exists?
+
+    errors.add(:invitation_token, 'is invalid')
   end
 end

@@ -8,7 +8,7 @@ RSpec.feature 'UserSignUp', type: :feature do
   scenario 'User signs up' do
     visit '/account/sign_up'
 
-    fill_in 'Invitation code',       with: @user.invitation_code
+    fill_in 'Invitation token',       with: @user.invitation_token
     fill_in 'Email',                 with: @user.email
     fill_in 'Username',              with: @user.username
     fill_in 'Password',              with: @user.password

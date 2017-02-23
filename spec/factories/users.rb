@@ -10,6 +10,6 @@ FactoryGirl.define do
 
     balance               100_000_000 # 100 MB
 
-    invitation_code       Rails.application.secrets.invitation_code
+    invitation_token       Rails.application.secrets.invitation_token
   end
 end
