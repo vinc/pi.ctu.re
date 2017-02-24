@@ -30,7 +30,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       format.html # search.html.erb
-      format.js { render template: 'index' }
+      format.js { render template: 'pictures/index' }
     end
   end
 
