@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resource :settings, only: [:edit, :update]
+    resources :charges
   end
   
   resources :invitations, only: [:new, :create]
