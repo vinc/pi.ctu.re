@@ -6,6 +6,14 @@
     <div class="card">
       <h4 class="card-header">Upload a picture</h4>
       <div class="card-block">
+        <% if current_user.balance < 0 %>
+          <div class="alert alert-danger" role="alert">
+            <strong>Warning!</strong>
+            Your data balance is <strong class="text-danger-">-<%= number_to_human_size(-current_user.balance) %></strong>,
+            you need to <%= link_to 'top up', account_billing_path %> before uploading
+            new pictures.
+          </div>
+          <% end %>
         <%= render 'form', picture: @picture %>
       </div>
     </div>
