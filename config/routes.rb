@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
   namespace :account do
     resource :settings, only: [:edit, :update]
-    resources :charges
+    resource :billing, only: [:show]
+    resources :charges, only: [:create]
   end
   
   resources :invitations, only: [:new, :create]

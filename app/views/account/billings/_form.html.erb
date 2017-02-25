@@ -1,0 +1,52 @@
+<%= form_tag account_charges_path, id:'charge', class: 'form-inline' do %>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag :token_id %>
+
+  <label class="amount">
+    <select class="custom-select" name="amount">
+      <option value="100">$1.00 USD</option>
+      <option value="500">$5.00 USD</option>
+      <option value="1000">$10.00 USD</option>
+      <option value="5000">$50.00 USD</option>
+      <option value="10000">$100.00 USD</option>
+    </select>
+  </label>
+
+  <button id="stripe-button" class="btn btn-primary ml-2" role="button">Pay with card</button>
+
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+    const handler = StripeCheckout.configure({
+      key:             "<%= Rails.configuration.stripe[:publishable_key] %>",
+      name:            "Picture",
+      description:     "data top up",
+      allowRememberMe: "false",
+      email:           "<%= current_user.email %>",
+      locale:          "auto",
+      token: function(token) {
+        button.prop('disabled', true);
+        $('input[name=token_id]').val(token.id);
+        $('form#charge').submit();
+      }
+    });
+
+    const button = $('#stripe-button');
+
+    button.on('click', function(e) {
+      //button.prop('disabled', true);
+      handler.open({
+        amount: $('select[name=amount]').val()
+      })
+      e.preventDefault();
+    });
+
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  </script>
+<% end %>

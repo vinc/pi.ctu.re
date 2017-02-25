@@ -9,17 +9,6 @@
     <div class="card">
       <h4 class="card-header">Edit settings</h4>
       <div class="card-block">
-        <p class="card-text">
-          Data balance:
-          <% if current_user.balance > 0 %>
-            <span class="text-success"><%= number_to_human_size(current_user.balance) %></span>
-          <% else %>
-            <span class="text-danger">-<%= number_to_human_size(-current_user.balance) %></span>
-          <% end %>
-        </p>
-
-        <hr>
-
         <%= render 'form' %>
       </div>
     </div>
