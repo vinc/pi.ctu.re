@@ -10,9 +10,19 @@
     </label>
   </article>
 
+  <input type="submit" name="commit" value="Pay" class="btn btn-primary" data-disable-with="Pay" />
+
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
+          data-name="Picture"
+          data-description="data top up"
           data-amount="500"
+          data-allow-remember-me="false"
+          data-email="<%= current_user.email %>"
           data-locale="auto"></script>
+  <style>
+    .stripe-button-el {
+      display: none;
+    }
+  </style>
 <% end %>
