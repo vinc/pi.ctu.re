@@ -4,13 +4,16 @@ class Account::ChargesController < ApplicationController
   def create
     @amount = charge_params[:amount] # in cents
 
-    customer = Stripe::Customer.create(
-      email:  current_user.email,
-      source: charge_params[:token_id]
-    )
+    if current_user.customer_id.nil?
+      customer = Stripe::Customer.create(
+        email:  current_user.email,
+        source: charge_params[:token_id]
+      )
+      current_user.update(customer_id: customer.id)
+    end
 
     charge = Stripe::Charge.create(
-      customer:    customer.id,
+      customer:    current_user.customer_id,
       amount:      @amount,
       description: 'Data top up',
       currency:    'usd'
