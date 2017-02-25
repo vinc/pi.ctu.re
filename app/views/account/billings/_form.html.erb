@@ -24,32 +24,34 @@
 
   <script src="https://checkout.stripe.com/checkout.js"></script>
   <script>
-    const handler = StripeCheckout.configure({
-      key:             "<%= Rails.configuration.stripe[:publishable_key] %>",
-      name:            "Picture",
-      description:     "data top up",
-      allowRememberMe: "false",
-      email:           "<%= current_user.email %>",
-      locale:          "auto",
-      token: function(token) {
-        button.prop('disabled', true);
-        $('input[name=token_id]').val(token.id);
-        $('form#charge').submit();
-      }
-    });
+    $(document).on('turbolinks:load', function() {
+      const handler = StripeCheckout.configure({
+        key:             "<%= Rails.configuration.stripe[:publishable_key] %>",
+        name:            "Picture",
+        description:     "data top up",
+        allowRememberMe: "false",
+        email:           "<%= current_user.email %>",
+        locale:          "auto",
+        token: function(token) {
+          button.prop('disabled', true);
+          $('input[name=token_id]').val(token.id);
+          $('form#charge').submit();
+        }
+      });
 
-    const button = $('#stripe-button');
+      const button = $('#stripe-button');
 
-    button.on('click', function(e) {
-      //button.prop('disabled', true);
-      handler.open({
-        amount: $('select[name=amount]').val()
-      })
-      e.preventDefault();
-    });
+      button.on('click', function(e) {
+        //button.prop('disabled', true);
+        handler.open({
+          amount: $('select[name=amount]').val()
+        })
+        e.preventDefault();
+      });
 
-    $(window).on('popstate', function() {
-      handler.close();
+      $(window).on('popstate', function() {
+        handler.close();
+      });
     });
   </script>
 <% end %>

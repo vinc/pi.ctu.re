@@ -10,6 +10,10 @@ class Account::ChargesController < ApplicationController
         source: charge_params[:token_id]
       )
       current_user.update(customer_id: customer.id)
+    else
+      customer = Stripe::Customer.retrieve(current_user.customer_id)
+      customer.source = charge_params[:token_id]
+      customer.save
     end
 
     charge = Stripe::Charge.create(
