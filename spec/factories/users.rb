@@ -29,6 +29,8 @@ require "faker"
 
 FactoryBot.define do
   factory :user do
+    is_admin false
+
     email                 { Faker::Internet.email }
     username              { Faker::Internet.user_name }
     fullname              { Faker::Name.name }

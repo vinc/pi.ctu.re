@@ -144,8 +144,7 @@ class PicturesController < ApplicationController
 
   def set_album
     unless %w[all explore user].include?(params[:from])
-      token = params[:album_token] ||
-              params[:from]
+      token = params[:album_token] || params[:from]
     end
 
     @album = Album.find_by(token: token) if token

@@ -19,9 +19,15 @@
 require "faker"
 
 FactoryBot.define do
+  image_path = Rails.root.join("app/assets/images/home_bg.jpg")
+
   factory :picture do
     caption { Faker::Lorem.sentence }
-    image   { File.open(Rails.root.join("app/assets/images/home_bg.jpg")) }
+    image File.open(image_path)
     user
+
+    factory :picture_upload do
+      image Rack::Test::UploadedFile.new(image_path, "image/jpeg")
+    end
   end
 end
