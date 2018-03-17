@@ -42,7 +42,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     describe "POST #create" do
-      context "with album attributes" do
+      context "with valid album attributes" do
         let(:album_attributes) { FactoryBot.attributes_for(:album) }
 
         it "returns http redirect to #show" do
