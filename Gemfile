@@ -38,18 +38,18 @@ group :test do
   gem "simplecov", require: false
 end
 
-gem "acts_as_votable", "~> 0.11.0"
+gem "acts_as_votable", "~> 0.11"
 gem "bootstrap", "~> 4.0.0"
-gem "bower-rails", "~> 0.11.0"
+gem "bower-rails", "~> 0.11"
 gem "carrierwave", "~> 1.0"
 gem "carrierwave-postgresql"
 gem "devise"
 gem "devise-bootstrap-views", "~> 1.0.0.alpha1"
-gem "exifr", "~> 1.3.3"
+gem "exifr", "~> 1.3"
 gem "font-awesome-rails"
 gem "kaminari"
 gem "mini_magick"
-gem "order_query", "~> 0.3.3"
+gem "order_query", "~> 0.4"
 gem "pundit"
 gem "rails-timeago", "~> 2.0"
 gem "stripe"
