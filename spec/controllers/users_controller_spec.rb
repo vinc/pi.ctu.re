@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'GET #show' do
     context 'when user exists' do
       it 'returns http success' do
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         get :show, params: { username: user.username }
         expect(response).to have_http_status(:success)
       end

@@ -5,7 +5,7 @@ RSpec.describe AlbumsController, type: :controller do
   describe 'GET #show' do
     context 'when album exists' do
       it 'returns http success' do
-        album = FactoryGirl.create(:album)
+        album = FactoryBot.create(:album)
         get :show, params: { token: album.token }
         expect(response).to have_http_status(:success)
       end

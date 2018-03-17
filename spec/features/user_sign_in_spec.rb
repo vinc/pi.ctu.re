@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'UserSignIn', type: :feature do
   before :each do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   scenario 'User signs in' do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'UserSignUp', type: :feature do
   before :each do
-    @user = FactoryGirl.build(:user, invitation_token: nil)
+    @user = FactoryBot.build(:user, invitation_token: nil)
   end
 
   scenario 'User signs up' do

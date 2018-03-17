@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
   it 'has a valid factory' do
-    picture = FactoryGirl.build(:picture)
+    picture = FactoryBot.build(:picture)
     expect(picture).to be_valid
   end
 
@@ -12,20 +12,20 @@ RSpec.describe Picture, type: :model do
 
   describe 'token' do
     it 'is random' do
-      token = FactoryGirl.create(:picture).token
+      token = FactoryBot.create(:picture).token
       expect(token).to match(/[0-9a-z]{8}/)
     end
 
     it 'is unique' do
-      token_1 = FactoryGirl.create(:picture).token
-      token_2 = FactoryGirl.create(:picture).token
+      token_1 = FactoryBot.create(:picture).token
+      token_2 = FactoryBot.create(:picture).token
       expect(token_1).not_to eql(token_2)
     end
   end
 
   describe '.regenerate_token' do
     xit 'regenerates a new token' do
-      picture = FactoryGirl.create(:picture)
+      picture = FactoryBot.create(:picture)
       token_1 = picture.token
       picture.regenerate_token
       token_2 = picture.token
@@ -35,9 +35,9 @@ RSpec.describe Picture, type: :model do
 
   describe '.order_by' do
     before do
-      @picture_1 = FactoryGirl.create(:picture, created_at: 5.hours.ago, views_count: 10)
-      @picture_2 = FactoryGirl.create(:picture, created_at: 3.hours.ago, views_count: 50)
-      @picture_3 = FactoryGirl.create(:picture, created_at: 1.hours.ago, views_count: 30)
+      @picture_1 = FactoryBot.create(:picture, created_at: 5.hours.ago, views_count: 10)
+      @picture_2 = FactoryBot.create(:picture, created_at: 3.hours.ago, views_count: 50)
+      @picture_3 = FactoryBot.create(:picture, created_at: 1.hours.ago, views_count: 30)
     end
 
     it 'returns a list ordered by creation time' do

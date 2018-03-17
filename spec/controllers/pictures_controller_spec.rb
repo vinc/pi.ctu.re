@@ -5,7 +5,7 @@ RSpec.describe PicturesController, type: :controller do
   describe 'GET #show' do
     context 'when picture exists' do
       it 'returns http success' do
-        picture = FactoryGirl.create(:picture)
+        picture = FactoryBot.create(:picture)
         get :show, params: { token: picture.token }
         expect(response).to have_http_status(:success)
       end

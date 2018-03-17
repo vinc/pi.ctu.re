@@ -1,6 +1,6 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     email                 { Faker::Internet.email }
     username              { Faker::Internet.user_name }
@@ -10,6 +10,6 @@ FactoryGirl.define do
 
     balance               100_000_000 # 100 MB
 
-    invitation_token      { FactoryGirl.create(:invitation, email: email, approved_at: Time.zone.now).token }
+    invitation_token      { FactoryBot.create(:invitation, email: email, approved_at: Time.zone.now).token }
   end
 end
