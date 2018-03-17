@@ -18,4 +18,6 @@ class Album < ApplicationRecord
   has_and_belongs_to_many :pictures
 
   order_query :order_by_time, %i[updated_at desc]
+
+  validates_presence_of :title
 end
