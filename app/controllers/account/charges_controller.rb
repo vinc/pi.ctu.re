@@ -2,7 +2,7 @@ class Account::ChargesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @amount = charge_params[:amount] # in cents
+    @amount = charge_params[:amount].to_i # in cents
 
     if current_user.customer_id.nil?
       customer = Stripe::Customer.create(
