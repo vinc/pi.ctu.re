@@ -28,14 +28,13 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  subject { FactoryBot.build(:user) }
+
   it "has a valid factory" do
-    user = FactoryBot.build(:user)
-    expect(user).to be_valid
+    expect(subject).to be_valid
   end
 
   describe "validations" do
-    subject { FactoryBot.build(:user) }
-
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_presence_of(:email) }
 
@@ -47,15 +46,27 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:pictures) }
   end
 
-  describe ".name" do
-    it "returns fullname when defined" do
-      user = FactoryBot.build(:user)
-      expect(user.name).to eql(user.fullname)
+  describe "#name" do
+    context "with fullname" do
+      it "returns fullname" do
+        expect(subject.name).to eql(subject.fullname)
+      end
     end
 
-    it "returns username when fullname is not defined" do
-      user = FactoryBot.build(:user, fullname: nil)
-      expect(user.name).to eql(user.username)
+    context "without fullname" do
+      subject { FactoryBot.build(:user, fullname: nil) }
+
+      it "returns username" do
+        expect(subject.name).to eql(subject.username)
+      end
+    end
+  end
+
+  describe "#avatar" do
+    describe "#path" do
+      it "returns file path" do
+        expect(subject.avatar.path).to match("/")
+      end
     end
   end
 end
