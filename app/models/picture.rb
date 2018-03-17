@@ -1,3 +1,5 @@
+require 'exifr/jpeg'
+
 class Picture < ApplicationRecord
   include OrderQuery
   include Tokenizable

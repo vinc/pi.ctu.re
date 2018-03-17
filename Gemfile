@@ -47,7 +47,7 @@ gem 'font-awesome-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
 gem 'order_query', '~> 0.3.3'
-gem 'exifr', '~> 1.2.6'
+gem 'exifr', '~> 1.3.3'
 gem 'pundit'
 gem 'stripe'
 
