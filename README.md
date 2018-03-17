@@ -1,6 +1,8 @@
 Picture
 =======
 
+[![Picture](/app/assets/images/home_bg.jpg?raw=true)](https://pi.ctu.re)
+
 https://pi.ctu.re
 
 
