@@ -4,7 +4,7 @@
   <div class="col-md-6">
     <div class="card">
       <h4 class="card-header"><%= t('.change_your_password', default: 'Change your password') %></h4>
-      <div class="card-block">
+      <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, role: 'form' }) do |f| %>
           <%= f.hidden_field :reset_password_token %>
 

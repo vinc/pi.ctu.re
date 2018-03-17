@@ -4,7 +4,7 @@
   <div class="col-md-6">
     <div class="card">
       <h4 class="card-header">Edit picture</h4>
-      <div class="card-block">
+      <div class="card-body">
         <%= image_tag(@picture.image.thumb_url('500x500'), class: 'img-fluid mb-3') %>
 
         <%= render 'form', picture: @picture %>

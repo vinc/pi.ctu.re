@@ -9,10 +9,12 @@ $(document).on('turbolinks:load', function() {
     border: 0
   });
 
-  $('.custom-file-input').on('change', function() {
-    var content = $('.custom-file-input').val();
+  $("input:file").change(function() {
+    var f = this.files;
+    var n = this.files.length;
+    var msg = n > 1 ? n + " files selected" : f[0].name;
 
-    $('.custom-file-control').attr('data-content', content);
+    $(".custom-file-label[for=" + this.id + "]").text(msg);
   });
 
 

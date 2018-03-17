@@ -19,9 +19,13 @@
 
 @import "bootstrap";
 
+.container {
+  position: relative;
+}
+
 @include media-breakpoint-down(md) {
   .navbar .container {
-    width: 100%; // FIXME: this seems to be a bug in Bootstrap 4
+    // width: 100%; // FIXME: this seems to be a bug in Bootstrap 4 alpha 6
   }
 }
 
@@ -31,6 +35,18 @@
   }
   @include media-breakpoint-up(lg) {
     width: 24rem;
+  }
+}
+
+.search {
+  .input-group {
+    .btn {
+      border-color: $input-border-color;
+      border-left-color: transparent;
+    }
+    .btn-outline-secondary:hover {
+      border-color: $secondary;
+    }
   }
 }
 
@@ -52,7 +68,7 @@
     column-count: 2;
     .card {
       margin-bottom: 0.75rem;
-      .card-block {
+      .card-body {
         padding: 0.5rem;
       }
     }
@@ -62,6 +78,6 @@
   }
 }
 
-.navbar.bg-faded {
+.navbar.bg-light {
   border-bottom: solid 1px $card-border-color;
 }
