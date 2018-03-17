@@ -40,6 +40,19 @@ class User < ApplicationRecord
   has_many :albums
   has_many :pictures
 
+  def self.default_licenses
+    [
+      "CC BY",
+      "CC BY-SA",
+      "CC BY-NC",
+      "CC BY-ND",
+      "CC BY-NC-SA",
+      "CC BY-NC-ND"
+    ].freeze
+  end
+
+  validates :default_license, inclusion: { in: default_licenses }
+
   def remember_me
     true
   end

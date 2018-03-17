@@ -24,6 +24,15 @@ RSpec.describe Account::SettingsController, type: :controller do
           expect(response).to redirect_to(edit_account_settings_path)
         end
       end
+
+      context "with invalid album attributes" do
+        let(:user_attributes) { { default_license: "WTF" } }
+
+        it "returns http success" do
+          patch :update, params: { user: user_attributes }
+          expect(response).to be_successful
+        end
+      end
     end
   end
 end

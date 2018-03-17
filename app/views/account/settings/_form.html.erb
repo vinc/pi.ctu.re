@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :default_license %>
-    <%= f.select(:default_license, ['CC BY', 'CC BY-SA', 'CC BY-NC', 'CC BY-ND', 'CC BY-NC-SA', 'CC BY-NC-ND'], {}, { class: 'form-control custom-select' }) %>
+    <%= f.select(:default_license, User.default_licenses, {}, { class: 'form-control custom-select' }) %>
     <p class="form-text text-muted">
       Choose a <a href="https://creativecommons.org/choose/">Creative Commons license</a> for your pictures.
     </p>
