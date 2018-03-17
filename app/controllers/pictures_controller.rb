@@ -1,42 +1,42 @@
 class PicturesController < ApplicationController
   include Orderable
 
-  before_action :authenticate_user!, except: [:index, :search, :show, :lightbox]
+  before_action :authenticate_user!, except: %i[index search show lightbox]
 
-  before_action :set_picture,        except: [:index, :search, :new, :create]
-  before_action :set_album,            only: [:index, :show, :lightbox]
-  before_action :set_user,             only: [:index, :show, :lightbox]
+  before_action :set_picture,        except: %i[index search new create]
+  before_action :set_album,            only: %i[index show lightbox]
+  before_action :set_user,             only: %i[index show lightbox]
 
-  before_action :set_from,             only: [:index, :show, :lightbox]
-  before_action :set_order,            only: [:index, :show, :lightbox]
+  before_action :set_from,             only: %i[index show lightbox]
+  before_action :set_order,            only: %i[index show lightbox]
 
-  before_action :set_pictures,         only: [:index, :show, :lightbox]
+  before_action :set_pictures,         only: %i[index show lightbox]
 
   def index
     case @order
-    when 'view'
+    when "view"
       @pictures = @pictures.order_by_view.page(params[:page])
-    when 'time'
+    when "time"
       @pictures = @pictures.order_by_time.page(params[:page])
     else
-      raise ActionController::BadRequest, 'Invalid query parameters: order'
+      raise ActionController::BadRequest, "Invalid query parameters: order"
     end
   end
 
   def search
     if params[:q].present?
-      @pictures = Picture.where('caption ILIKE ?', "%#{params[:q]}%").page(params[:page])
+      @pictures = Picture.where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
     end
 
     respond_to do |format|
       format.html # search.html.erb
-      format.js { render template: 'pictures/index' }
+      format.js { render template: "pictures/index" }
     end
   end
 
   def show
     case @order
-    when 'view'
+    when "view"
       @previous_picture = @pictures.order_by_view_at(@picture).previous(false)
       @next_picture     = @pictures.order_by_view_at(@picture).next(false)
     else
@@ -59,7 +59,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to @picture, notice: "Picture was successfully created." }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -71,7 +71,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @picture, notice: "Picture was successfully updated." }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }
@@ -83,7 +83,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -128,7 +128,6 @@ class PicturesController < ApplicationController
     Picture.increment_counter(:views_count, @picture.id)
   end
 
-
   private
 
   def set_picture
@@ -144,12 +143,12 @@ class PicturesController < ApplicationController
   end
 
   def set_album
-    token = params[:album_token] ||
-            params[:from] unless %w(all explore user).include?(params[:from])
-
-    if token
-      @album = Album.find_by(token: token)
+    unless %w[all explore user].include?(params[:from])
+      token = params[:album_token] ||
+              params[:from]
     end
+
+    @album = Album.find_by(token: token) if token
   end
 
   def picture_params

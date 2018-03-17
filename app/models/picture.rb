@@ -1,4 +1,4 @@
-require 'exifr/jpeg'
+require "exifr/jpeg"
 
 class Picture < ApplicationRecord
   include OrderQuery
@@ -11,28 +11,28 @@ class Picture < ApplicationRecord
 
   acts_as_votable
 
-  order_query :order_by_view, [:views_count, :desc]
-  order_query :order_by_time, [:created_at, :desc]
+  order_query :order_by_view, %i[views_count desc]
+  order_query :order_by_time, %i[created_at desc]
 
   validates_presence_of :image
   validate :user_balance_cannot_be_negative, on: :create
 
   def user_balance_cannot_be_negative
-    unless self.user.balance > 0
-      errors.add(:user_id, 'data balance cannot be negative')
+    unless user.balance > 0
+      errors.add(:user_id, "data balance cannot be negative")
     end
   end
 
   def alt
-    self.caption.presence || self.token
+    caption.presence || token
   end
 
   def exif
     # TODO: Save in database
-    @exif ||= EXIFR::JPEG.new(StringIO.new(self.image.file.read))
+    @exif ||= EXIFR::JPEG.new(StringIO.new(image.file.read))
   end
 
   def self.featured
-    self.where(is_featured: true)
+    where(is_featured: true)
   end
 end

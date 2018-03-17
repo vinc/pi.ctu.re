@@ -8,17 +8,17 @@ class ExploreController < ApplicationController
 
   def index
     case @order
-    when 'view'
+    when "view"
       @pictures = @pictures.order_by_view.page(params[:page])
-    when 'time'
+    when "time"
       @pictures = @pictures.order_by_time.page(params[:page])
     else
-      raise ActionController::BadRequest, 'Invalid query parameters: order'
+      raise ActionController::BadRequest, "Invalid query parameters: order"
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js { render template: 'pictures/index' }
+      format.js { render template: "pictures/index" }
     end
   end
 end

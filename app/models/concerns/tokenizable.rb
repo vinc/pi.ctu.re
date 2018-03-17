@@ -10,16 +10,16 @@ module Tokenizable
   end
 
   def to_param
-    self.token
+    token
   end
 
   def regenerate_token
-    self.update(token: self.class.generate_unique_secure_token(:token))
+    update(token: self.class.generate_unique_secure_token(:token))
   end
 
   module ClassMethods
     def generate_unique_secure_token(attribute)
-      10.times do |i|
+      10.times do |_i|
         token = SecureRandom.uuid.slice(0, 8)
         return token unless exists?(attribute => token)
       end

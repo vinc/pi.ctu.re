@@ -12,16 +12,16 @@ class ApplicationUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg)
+    %w[jpg jpeg]
   end
 
   def content_type_whitelist
-    'image/jpeg'
+    "image/jpeg"
   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  #def filename
+  # def filename
   #  if original_filename
   #    if model && model.read_attribute(mounted_as).present?
   #      model.read_attribute(mounted_as)
@@ -29,7 +29,7 @@ class ApplicationUploader < CarrierWave::Uploader::Base
   #      "#{secure_token}.#{file.extension.downcase}" if original_filename.present?
   #    end
   #  end
-  #end
+  # end
 
   def filename
     key = "#{mounted_as}_filename".to_sym
@@ -47,7 +47,7 @@ class ApplicationUploader < CarrierWave::Uploader::Base
     length.zero?
   end
 
-  alias :blank? :empty?
+  alias blank? empty?
 
   process :generate_filename
 

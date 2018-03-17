@@ -2,7 +2,7 @@ class Invitation < ApplicationRecord
   include Tokenizable
 
   def approve
-    self.update(approved_at: Time.zone.now)
+    update(approved_at: Time.zone.now)
   end
 
   def self.approved

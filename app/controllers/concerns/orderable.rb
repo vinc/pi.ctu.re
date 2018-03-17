@@ -4,40 +4,40 @@ module Orderable
   private
 
   def set_from
-    if params[:from]
-      @from = params[:from]
-    elsif params[:album_token] || @album
-      @from = params[:album_token] || @album.token
-    elsif params[:user_username] || @user
-      @from = 'user'
-    elsif request.path == explore_path
-      @from = 'explore'
-    else
-      @from = 'all'
-    end
+    @from = if params[:from]
+              params[:from]
+            elsif params[:album_token] || @album
+              params[:album_token] || @album.token
+            elsif params[:user_username] || @user
+              "user"
+            elsif request.path == explore_path
+              "explore"
+            else
+              "all"
+            end
   end
 
   def set_order
-    if params[:order]
-      @order = params[:order]
-    elsif request.path == explore_path
-      @order = 'view'
-    else
-      @order = 'time'
-    end
+    @order = if params[:order]
+               params[:order]
+             elsif request.path == explore_path
+               "view"
+             else
+               "time"
+             end
   end
 
   # TODO: move that method back to pictures controller
   def set_pictures
-    case @from
-    when 'all'
-      @pictures = Picture
-    when 'explore'
-      @pictures = Picture.featured
-    when 'user'
-      @pictures = @user.pictures
-    else
-      @pictures = @album.pictures
-    end
+    @pictures = case @from
+                when "all"
+                  Picture
+                when "explore"
+                  Picture.featured
+                when "user"
+                  @user.pictures
+                else
+                  @album.pictures
+                end
   end
 end

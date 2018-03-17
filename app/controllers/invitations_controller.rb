@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to root_path, notice: 'Invitation was successfully requested.' }
+        format.html { redirect_to root_path, notice: "Invitation was successfully requested." }
       else
         format.html { render :new }
       end

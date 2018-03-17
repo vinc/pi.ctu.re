@@ -7,7 +7,7 @@ class Account::SettingsController < ApplicationController
   def update
     respond_to do |format|
       if current_user.update(user_params)
-        format.html { redirect_to edit_account_settings_path, notice: 'Settings were successfully updated.' }
+        format.html { redirect_to edit_account_settings_path, notice: "Settings were successfully updated." }
         format.json { render :show, status: :ok, location: edit_account_settings_path }
       else
         format.html { render :edit }
@@ -15,7 +15,6 @@ class Account::SettingsController < ApplicationController
       end
     end
   end
-
 
   private
 

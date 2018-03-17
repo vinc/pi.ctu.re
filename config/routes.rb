@@ -1,40 +1,40 @@
 Rails.application.routes.draw do
-  resources :albums, param: :token, path: 'a' do
-    #resources :pictures, only: [:index]
+  resources :albums, param: :token, path: "a" do
+    # resources :pictures, only: [:index]
   end
 
-  resources :pictures, param: :token, path: 'p' do
+  resources :pictures, param: :token, path: "p" do
     collection do
-      get 'search'
+      get "search"
     end
 
     member do
-      get 'lightbox'
+      get "lightbox"
 
-      put 'like'
-      put 'unlike'
+      put "like"
+      put "unlike"
 
-      put 'feature'
-      put 'unfeature'
+      put "feature"
+      put "unfeature"
     end
   end
 
-  resources :users, param: :username, path: 'u', only: [:show, :edit, :update] do
-    #resources :pictures, only: [:index]
+  resources :users, param: :username, path: "u", only: %i[show edit update] do
+    # resources :pictures, only: [:index]
     resources :albums, only: [:index]
   end
 
-  devise_for :users, path: 'account'
+  devise_for :users, path: "account"
 
   namespace :account do
-    resource :settings, only: [:edit, :update]
+    resource :settings, only: %i[edit update]
     resource :billing, only: [:show]
     resources :charges, only: [:create]
   end
-  
-  resources :invitations, only: [:new, :create]
 
-  get 'explore' => 'explore#index'
+  resources :invitations, only: %i[new create]
 
-  root 'welcome#index'
+  get "explore" => "explore#index"
+
+  root "welcome#index"
 end

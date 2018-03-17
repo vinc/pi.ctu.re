@@ -18,11 +18,11 @@ class User < ApplicationRecord
   end
 
   def to_param
-    self.username
+    username
   end
 
   def name
-    self.fullname.presence || self.username
+    fullname.presence || username
   end
 
   before_create do
@@ -35,8 +35,8 @@ class User < ApplicationRecord
   validate :invitation_token_must_be_valid, on: :create
 
   def invitation_token_must_be_valid
-    unless Invitation.approved.where(email: self.email, token: self.invitation_token).exists?
-      errors.add(:invitation_token, 'is invalid')
+    unless Invitation.approved.where(email: email, token: invitation_token).exists?
+      errors.add(:invitation_token, "is invalid")
     end
   end
 end

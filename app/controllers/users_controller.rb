@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.js { render template: 'pictures/index' }
+      format.js { render template: "pictures/index" }
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to @user, notice: "Profile was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
 
   private
 

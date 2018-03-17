@@ -1,9 +1,9 @@
 class InvitationsMailer < ApplicationMailer
-  #def create(invitation)
+  # def create(invitation)
   #  @invitation = invitation
   #
   #  mail to: invitation.email
-  #end
+  # end
 
   def approve(invitation)
     @invitation = invitation

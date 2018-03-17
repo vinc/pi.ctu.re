@@ -1,7 +1,7 @@
 CarrierWave.configure do |config|
-  if Rails.env.production?
-    config.asset_host = 'https://infra.stru.ctu.re';
-  else
-    config.asset_host = 'http://localhost:4000';
-  end
+  config.asset_host = if Rails.env.production?
+                        "https://infra.stru.ctu.re"
+                      else
+                        "http://localhost:4000"
+                      end
 end

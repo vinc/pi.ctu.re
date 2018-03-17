@@ -19,14 +19,13 @@ class Account::ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer:    current_user.customer_id,
       amount:      @amount,
-      description: 'Data top up',
-      currency:    'usd'
+      description: "Data top up",
+      currency:    "usd"
     )
 
     current_user.increment!(:balance, charge.amount * 1e7)
 
-    redirect_to account_billing_path, notice: 'Account balance was successfully topped up'
-
+    redirect_to account_billing_path, notice: "Account balance was successfully topped up"
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to account_billing_path

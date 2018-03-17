@@ -5,7 +5,7 @@ class ImageUploader < ApplicationUploader
 
   # Example with a 600x400 picture: thumb_size('x200') -> '300x200'
   def thumb_size(geometry)
-    w, _, h = geometry.partition('x')
+    w, _, h = geometry.partition("x")
 
     if h.present?
       h = h.to_i
@@ -17,7 +17,7 @@ class ImageUploader < ApplicationUploader
       return
     end
 
-    [w, h].join('x')
+    [w, h].join("x")
   end
 
   process :store_dimensions
