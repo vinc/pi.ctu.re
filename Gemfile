@@ -38,7 +38,7 @@ group :test do
   gem "simplecov", require: false
 end
 
-gem "acts_as_votable", "~> 0.10.0"
+gem "acts_as_votable", "~> 0.11.0"
 gem "bootstrap", "~> 4.0.0"
 gem "bower-rails", "~> 0.11.0"
 gem "carrierwave", "~> 1.0"
