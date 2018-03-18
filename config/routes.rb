@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/u", to: redirect("/explore")
   resources :users, param: :username, path: "u", only: %i[show edit update] do
     # resources :pictures, only: [:index]
     resources :albums, only: [:index]
@@ -27,12 +28,15 @@ Rails.application.routes.draw do
   devise_for :users, path: "account"
 
   namespace :account do
+    get "/", to: redirect("/account/settings/edit")
+    get "/settings", to: redirect("/account/settings/edit")
     resource :settings, only: %i[edit update]
     resource :billing, only: [:show]
     resources :charges, only: [:create]
   end
 
   namespace :admin do
+    get "/", to: redirect("/admin/users")
     resources :users, param: :username, only: [:index]
     resources :invitations, param: :token, only: [:index] do
       member do
