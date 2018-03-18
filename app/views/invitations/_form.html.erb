@@ -1,4 +1,11 @@
 <%= form_for(invitation) do |f| %>
+  <div class="alert alert-info" role="alert">
+    <a class="alert-link" href="/">Picture</a> is a website where you can host your pictures and
+    pay for the data stored and transfered. The code is
+    <a class="alert-link" href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
+    host your own instance.
+  </div>
+
   <% if invitation.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <h4 class="alert-heading"><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h4>
