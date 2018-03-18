@@ -1,7 +1,7 @@
 <% if user_signed_in? && @user == current_user %>
   <div class="btn-group float-right" role="group" style="position:absolute;right:15px;z-index:1">
-    <%= link_to edit_user_path(@user), class: 'btn btn-secondary', role: 'button' do %>
-      <%= fa_icon("pencil") %> Edit
+    <%= link_to edit_user_path(@user), class: 'btn btn-outline-primary', role: 'button' do %>
+      <%= fa_icon("pencil") %> Edit profile
     <% end %>
   </div>
 <% end %>

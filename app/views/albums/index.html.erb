@@ -11,7 +11,7 @@
 
 <% if user_signed_in? && @user == current_user %>
   <div class="btn-group mt-3" role="group">
-    <%= link_to new_album_path, class: 'btn btn-secondary', role: 'button' do %>
+    <%= link_to new_album_path, class: 'btn btn-outline-primary', role: 'button' do %>
       Create album
     <% end %>
   </div>

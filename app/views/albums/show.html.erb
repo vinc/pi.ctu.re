@@ -2,7 +2,7 @@
 
 <% if user_signed_in? && @album.user == current_user %>
   <div class="btn-group float-right" role="group">
-    <%= link_to edit_album_path(@album), class: 'btn btn-secondary', role: 'button' do %>
+    <%= link_to edit_album_path(@album), class: 'btn btn-outline-primary', role: 'button' do %>
       <%= fa_icon("pencil") %> Edit
     <% end %>
   </div>

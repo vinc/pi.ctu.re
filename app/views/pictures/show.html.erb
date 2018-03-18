@@ -52,7 +52,7 @@
       <% end %>
 
       <% if @picture.user_id == current_user.id %>
-        <%= link_to edit_picture_path(@picture), class: 'btn btn-secondary', role: 'button' do %>
+        <%= link_to edit_picture_path(@picture), class: 'btn btn-outline-primary', role: 'button' do %>
           <%= fa_icon("pencil") %> Edit
         <% end %>
       <% end %>
@@ -107,18 +107,18 @@
       <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
         <div class="btn-group mr-2" role="group">
           <% if user_signed_in? && current_user.liked?(@picture) %>
-            <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+            <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-outline-secondary', role: 'button' do %>
               <%= fa_icon("heart") %> Unlike
             <% end %>
           <% else %>
-            <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-secondary', role: 'button' do %>
+            <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-outline-secondary', role: 'button' do %>
               <%= fa_icon("heart") %> Like
             <% end %>
           <% end %>
         </div>
 
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
             <%= fa_icon("share") %> Share
           </button>
         </div>
