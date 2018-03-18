@@ -58,7 +58,3 @@ gem "pundit"
 gem "rails-timeago", "~> 2.16.0"
 gem "responders"
 gem "stripe"
-
-source "https://rails-assets.org" do
-  gem "rails-assets-tether", ">= 1.3.3"
-end
