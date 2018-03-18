@@ -24,9 +24,7 @@ class PicturesController < ApplicationController
   end
 
   def search
-    if params[:q].present?
-      @pictures = Picture.where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
-    end
+    @pictures = Picture.where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page]) if params[:q].present?
 
     respond_to do |format|
       format.html # search.html.erb
@@ -143,9 +141,7 @@ class PicturesController < ApplicationController
   end
 
   def set_album
-    unless %w[all explore user].include?(params[:from])
-      token = params[:album_token] || params[:from]
-    end
+    token = params[:album_token] || params[:from] unless %w[all explore user].include?(params[:from])
 
     @album = Album.find_by(token: token) if token
   end

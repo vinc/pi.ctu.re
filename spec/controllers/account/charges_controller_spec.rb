@@ -15,7 +15,7 @@ RSpec.describe Account::ChargesController, type: :controller do
 
     describe "GET #create" do
       let(:amount) { "5000" } # $5
-      let(:card_token) { stripe_helper.generate_card_token() }
+      let(:card_token) { stripe_helper.generate_card_token }
 
       context "with valid card" do
         it "returns http redirect to account billing" do
