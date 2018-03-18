@@ -44,7 +44,6 @@ end
 
 gem "acts_as_votable", "~> 0.11.1"
 gem "bootstrap", "~> 4.0.0"
-gem "bower-rails", "~> 0.11.0"
 gem "carrierwave", "~> 1.2.2"
 gem "carrierwave-postgresql", "0.1.5"
 gem "devise", "~> 4.4.3"

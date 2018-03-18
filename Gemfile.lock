@@ -54,7 +54,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bower-rails (0.11.0)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.18.0)
@@ -298,7 +297,6 @@ DEPENDENCIES
   acts_as_votable (~> 0.11.1)
   annotate
   bootstrap (~> 4.0.0)
-  bower-rails (~> 0.11.0)
   byebug
   capybara
   carrierwave (~> 1.2.2)

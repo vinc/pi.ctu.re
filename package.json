@@ -1,5 +1,7 @@
 {
   "name": "picture",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "justifiedGallery": "^3.6.5"
+  }
 }
