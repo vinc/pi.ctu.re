@@ -1,0 +1,43 @@
+<% content_for(:title, 'Admin - Users') %>
+<% content_for(:page, 'admin-users') %>
+
+<div class="row">
+  <div class="col-lg-2">
+    <%= render 'admin/nav' %>
+  </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <h4 class="card-header">Users</h4>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Created</th>
+              <th scope="col">Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <th scope="row"><%= link_to user.username, user %></th>
+                <td><%= user.created_at %></td>
+                <td>
+                  <% if user.balance.negative? %>
+                    <span class="text-danger">
+                      -<%= number_to_human_size(-user.balance) %>
+                    </span>
+                  <% else %>
+                    <span class="text-success">
+                      <%= number_to_human_size(user.balance) %>
+                    </span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

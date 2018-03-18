@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :users, param: :username, only: [:index]
     resources :invitations, param: :token, only: [:index] do
       member do
         put "approve"

@@ -7,7 +7,7 @@ class Admin::InvitationsController < Admin::AdminController
 
   def approve
     @invitation.update(approved_at: Time.zone.now)
-    InvitationsMailer.approve(@invation).deliver_later
+    InvitationsMailer.approve(@invitation).deliver_later
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: admin_invitations_path) }
