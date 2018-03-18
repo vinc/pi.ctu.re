@@ -35,7 +35,7 @@ end
 
 group :test do
   gem "capybara"
-  gem "codecov"
+  gem "codecov", require: false
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
