@@ -57,13 +57,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "picture_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: "pi.ctu.re" }
+  config.action_mailer.default_url_options = {
+    host: ENV["HOSTNAME"]
+  }
+
   config.action_mailer.smtp_settings = {
     port:           ENV["SMTP_PORT"].to_i,
     address:        ENV["SMTP_HOST"],
     user_name:      ENV["SMTP_USERNAME"],
     password:       ENV["SMTP_PASSWORD"],
-    domain:         "pi.ctu.re",
+    domain:         ENV["HOSTNAME"],
     authentication: :plain
   }
 
