@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 5.0.0"
+gem "rails", "~> 5.0.6"
 
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -35,25 +35,25 @@ end
 group :test do
   gem "capybara"
   gem "database_cleaner"
-  gem "shoulda-matchers", "~> 3.1"
+  gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
   gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
 end
 
-gem "acts_as_votable", "~> 0.11"
+gem "acts_as_votable", "~> 0.11.1"
 gem "bootstrap", "~> 4.0.0"
-gem "bower-rails", "~> 0.11"
-gem "carrierwave", "~> 1.0"
+gem "bower-rails", "~> 0.11.0"
+gem "carrierwave", "~> 1.2.2"
 gem "carrierwave-postgresql"
-gem "devise", "~> 4.4"
+gem "devise", "~> 4.4.3"
 gem "devise-bootstrap-views", "~> 1.0.0.alpha1"
-gem "exifr", "~> 1.3"
+gem "exifr", "~> 1.3.3"
 gem "font-awesome-rails"
 gem "kaminari"
 gem "mini_magick"
-gem "order_query", "~> 0.4"
+gem "order_query", "~> 0.4.0"
 gem "pundit"
-gem "rails-timeago", "~> 2.0"
+gem "rails-timeago", "~> 2.16.0"
 gem "stripe"
 
 source "https://rails-assets.org" do
