@@ -54,6 +54,7 @@ gem "mini_magick"
 gem "order_query", "~> 0.4.0"
 gem "pundit"
 gem "rails-timeago", "~> 2.16.0"
+gem "responders"
 gem "stripe"
 
 source "https://rails-assets.org" do
