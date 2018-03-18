@@ -10,6 +10,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
   <body class="<%= content_for(:page) %>">
