@@ -296,7 +296,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave (~> 1.2.2)
-  carrierwave-postgresql
+  carrierwave-postgresql (= 0.1.5)
   database_cleaner
   devise (~> 4.4.3)
   devise-bootstrap-views (~> 1.0.0.alpha1)
