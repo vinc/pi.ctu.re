@@ -7,12 +7,4 @@
   <% content_for(:title, 'Albums') %>
 <% end %>
 
-<%= render 'albums', albums: @albums %>
-
-<% if user_signed_in? && @user == current_user %>
-  <div class="btn-group mt-3" role="group">
-    <%= link_to new_album_path, class: 'btn btn-outline-primary', role: 'button' do %>
-      Create album
-    <% end %>
-  </div>
-<% end %>
+<%= render 'albums', albums: @albums, user: @user %>
