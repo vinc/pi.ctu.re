@@ -1,24 +1,11 @@
 class Account::ChargesController < ApplicationController
   before_action :authenticate_user!
+  before_action :create_customer
 
   def create
-    @amount = charge_params[:amount].to_i # in cents
-
-    if current_user.customer_id.nil?
-      customer = Stripe::Customer.create(
-        email:  current_user.email,
-        source: charge_params[:token_id]
-      )
-      current_user.update(customer_id: customer.id)
-    else
-      customer = Stripe::Customer.retrieve(current_user.customer_id)
-      customer.source = charge_params[:token_id]
-      customer.save
-    end
-
     charge = Stripe::Charge.create(
       customer:    current_user.customer_id,
-      amount:      @amount,
+      amount:      charge_params[:amount].to_i, # in cents
       description: "Data top up",
       currency:    "usd"
     )
@@ -32,6 +19,20 @@ class Account::ChargesController < ApplicationController
   end
 
   private
+
+  def create_customer
+    if current_user.customer_id.nil?
+      customer = Stripe::Customer.create(
+        email:  current_user.email,
+        source: charge_params[:token_id]
+      )
+      current_user.update(customer_id: customer.id)
+    else
+      customer = Stripe::Customer.retrieve(current_user.customer_id)
+      customer.source = charge_params[:token_id]
+      customer.save
+    end
+  end
 
   def charge_params
     params.permit(:amount, :token_id)

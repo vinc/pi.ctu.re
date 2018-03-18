@@ -7,14 +7,14 @@ class ImageUploader < ApplicationUploader
   def thumb_size(geometry)
     w, _, h = geometry.partition("x")
 
+    return unless h.present? || w.present?
+
     if h.present?
       h = h.to_i
       w = model.image_width * h / model.image_height
-    elsif w.present?
+    else
       w = w.to_i
       h = model.image_height * w / model.image_weigth
-    else
-      return
     end
 
     [w, h].join("x")
@@ -25,10 +25,10 @@ class ImageUploader < ApplicationUploader
   private
 
   def store_dimensions
-    if file && model
-      image = MiniMagick::Image.open(file.file)
-      model.image_width = image.width
-      model.image_height = image.height
-    end
+    return unless file && model
+
+    image = MiniMagick::Image.open(file.file)
+    model.image_width = image.width
+    model.image_height = image.height
   end
 end

@@ -1,8 +1,8 @@
 require "rails_helper"
 
-include Warden::Test::Helpers
-
 RSpec.feature "PictureUpload", type: :feature do
+  include Warden::Test::Helpers
+
   before :each do
     @user = FactoryBot.create(:user)
     login_as(@user, scope: :user)

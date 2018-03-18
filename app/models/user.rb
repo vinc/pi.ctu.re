@@ -75,8 +75,7 @@ class User < ApplicationRecord
   validate :invitation_token_must_be_valid, on: :create
 
   def invitation_token_must_be_valid
-    unless Invitation.approved.where(email: email, token: invitation_token).exists?
-      errors.add(:invitation_token, "is invalid")
-    end
+    approved_invitation = Invitation.approved.where(email: email, token: invitation_token)
+    errors.add(:invitation_token, "is invalid") unless approved_invitation.exists?
   end
 end
