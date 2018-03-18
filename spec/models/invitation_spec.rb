@@ -19,20 +19,12 @@ RSpec.describe Invitation, type: :model do
     expect(subject).to be_valid
   end
 
-  describe "#approve" do
-    it "approves invitation" do
-      expect(subject.approved_at).to be_nil
-      subject.approve
-      expect(subject.approved_at).not_to be_nil
-    end
-  end
-
   describe ".approved" do
     let!(:invitations) { FactoryBot.create_list(:invitation, 5) }
 
     it "filters approved invitations" do
       expect(Invitation.approved.count).to eq(0)
-      invitations.first.approve
+      invitations.first.update(approved_at: Time.now)
       expect(Invitation.approved.count).to eq(1)
     end
   end

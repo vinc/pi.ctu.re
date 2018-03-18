@@ -32,6 +32,14 @@ Rails.application.routes.draw do
     resources :charges, only: [:create]
   end
 
+  namespace :admin do
+    resources :invitations, param: :token, only: [:index] do
+      member do
+        put "approve"
+      end
+    end
+  end
+
   resources :invitations, only: %i[new create]
 
   get "explore" => "explore#index"

@@ -13,7 +13,7 @@ RSpec.feature "UserSignUp", type: :feature do
     click_button "Request invitation"
 
     @invitation = Invitation.find_by(email: @user.email)
-    @invitation.approve
+    @invitation.update(approved_at: Time.now)
 
     visit "/account/sign_up"
 

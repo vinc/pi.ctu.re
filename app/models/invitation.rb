@@ -11,11 +11,10 @@
 #
 
 class Invitation < ApplicationRecord
+  include OrderQuery
   include Tokenizable
 
-  def approve
-    update(approved_at: Time.zone.now)
-  end
+  order_query :order_by_time, %i[created_at desc]
 
   def self.approved
     where.not(approved_at: nil)

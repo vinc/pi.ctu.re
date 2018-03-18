@@ -1,0 +1,39 @@
+<% content_for(:title, 'Admin - Invitations') %>
+<% content_for(:page, 'admin-invitation') %>
+
+<div class="row">
+  <div class="col-lg-2">
+    <%= render 'admin/nav' %>
+  </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <h4 class="card-header">Invitations</h4>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Token</th>
+              <th scope="col">Email</th>
+              <th scope="col">Created</th>
+              <th scope="col">Approved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @invitations.each do |invitation| %>
+              <tr>
+                <th scope="row"><%= invitation.token %></th>
+                <td><%= invitation.email %></td>
+                <td><%= invitation.created_at %></td>
+                <% if invitation.approved_at.nil? %>
+                  <td><%= link_to "Approve", approve_admin_invitation_path(invitation), method: :put, class: "text-primary" %></td>
+                <% else %>
+                  <td><%= invitation.approved_at %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
