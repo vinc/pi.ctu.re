@@ -2,9 +2,11 @@
   <li class="nav-item">
     <%= link_to 'Settings', edit_account_settings_path, class: "nav-link #{'active' if content_for(:page) == 'edit-settings'}" %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Billing', account_billing_path, class: "nav-link #{'active' if content_for(:page) == 'billing'}" %>
-  </li>
+  <% if current_user.billable? %>
+    <li class="nav-item">
+      <%= link_to 'Billing', account_billing_path, class: "nav-link #{'active' if content_for(:page) == 'billing'}" %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to 'Profile', edit_user_path(current_user), class: "nav-link #{'active' if content_for(:page) == 'edit-profile'}" %>
   </li>

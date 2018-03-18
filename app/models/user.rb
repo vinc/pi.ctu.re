@@ -40,6 +40,10 @@ class User < ApplicationRecord
   has_many :albums
   has_many :pictures
 
+  before_create do
+    self.balance = 100e6 # Give 100 MB of data to each new user for free
+  end
+
   def self.default_licenses
     [
       "CC BY",
@@ -52,6 +56,9 @@ class User < ApplicationRecord
   end
 
   validates :default_license, inclusion: { in: default_licenses }
+  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+  validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
 
   def remember_me
     true
@@ -65,17 +72,12 @@ class User < ApplicationRecord
     fullname.presence || username
   end
 
-  before_create do
-    self.balance = 100e6 # Give 100 MB of data to each new user for free
-  end
-
-  validates :email, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true
-
-  validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
-
   def invitation_token_must_be_valid
     approved_invitation = Invitation.approved.where(email: email, token: invitation_token)
     errors.add(:invitation_token, "is invalid") unless approved_invitation.exists?
+  end
+
+  def billable?
+    ENV["STRIPE_PUBLISHABLE_KEY"].present?
   end
 end

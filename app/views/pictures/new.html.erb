@@ -6,7 +6,7 @@
     <div class="card">
       <h4 class="card-header">Upload a picture</h4>
       <div class="card-body">
-        <% if current_user.balance < 0 %>
+        <% if current_user.billable? && current_user.balance.negative? %>
           <div class="alert alert-danger" role="alert">
             <strong>Warning!</strong>
             Your data balance is <strong class="text-danger-">-<%= number_to_human_size(-current_user.balance) %></strong>,
