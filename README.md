@@ -5,11 +5,11 @@ Picture
 [![Code Climate](https://codeclimate.com/github/vinc/pi.ctu.re.svg)](https://codeclimate.com/github/vinc/pi.ctu.re)
 [![Code Coverage](https://codecov.io/gh/vinc/pi.ctu.re/branch/master/graph/badge.svg)](https://codecov.io/gh/vinc/pi.ctu.re)
 
-[![Picture](/app/assets/images/home_bg.jpg?raw=true)](https://pi.ctu.re)
-
 Picture (https://pi.ctu.re) is a website where you can host your pictures
 and pay for the data stored and transfered. The code is open source so you
 can also host your own instance.
+
+[![Picture](/app/assets/images/home_bg.jpg?raw=true)](https://pi.ctu.re)
 
 
 Development
