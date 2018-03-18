@@ -107,6 +107,9 @@ GEM
     ffi (1.9.23)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
+    generator_spec (0.9.4)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -311,6 +314,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
+  generator_spec
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

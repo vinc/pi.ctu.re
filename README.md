@@ -24,6 +24,7 @@ The main website is a rails app:
     $ cp .env.sample .env
     $ bundle install
     $ rails db:setup
+    $ rails generate admin
     $ rails server
 
 And images are delivered by a node app:

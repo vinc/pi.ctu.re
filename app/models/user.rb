@@ -72,7 +72,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
 
-  validate :invitation_token_must_be_valid, on: :create
+  validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
 
   def invitation_token_must_be_valid
     approved_invitation = Invitation.approved.where(email: email, token: invitation_token)
