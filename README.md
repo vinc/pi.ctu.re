@@ -17,7 +17,7 @@ Development
 
 All the data is contained in a PostgreSQL database.
 
-The main website is a rails app:
+The main website is a [rails app](https://github.com/vinc/pi.ctu.re):
 
     $ git clone https://github.com/vinc/pi.ctu.re
     $ cd pi.ctu.re
@@ -27,7 +27,7 @@ The main website is a rails app:
     $ rails generate admin
     $ rails server
 
-And images are delivered by a node app:
+And images are delivered by a [node app](https://github.com/vinc/infra.stru.ctu.re):
 
     $ git clone https://github.com/vinc/infra.stru.ctu.re
     $ cd infra.stru.ctu.re
