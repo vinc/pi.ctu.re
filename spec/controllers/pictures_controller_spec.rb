@@ -83,7 +83,7 @@ RSpec.describe PicturesController, type: :controller do
 
     describe "POST #create" do
       context "with valid picture attributes" do
-        let(:picture_attributes) { FactoryBot.attributes_for(:picture_upload) }
+        let(:picture_attributes) { FactoryBot.attributes_for(:picture, :with_uploaded_file) }
 
         it "returns http redirect to #show" do
           post :create, params: { picture: picture_attributes }
@@ -92,7 +92,7 @@ RSpec.describe PicturesController, type: :controller do
       end
 
       context "with invalid picture attributes" do
-        let(:picture_attributes) { FactoryBot.attributes_for(:picture_upload, image: "invalid") }
+        let(:picture_attributes) { FactoryBot.attributes_for(:picture).except(:image) }
 
         it "returns http success" do
           post :create, params: { picture: picture_attributes }
@@ -112,8 +112,10 @@ RSpec.describe PicturesController, type: :controller do
       end
 
       describe "PATCH #update" do
+        let(:picture_attributes) { FactoryBot.attributes_for(:picture).except(:image) }
+
         it "returns http redirect to #show" do
-          patch :update, params: { token: picture.token, picture: FactoryBot.attributes_for(:picture_upload) }
+          patch :update, params: { token: picture.token, picture: picture_attributes }
           expect(response).to redirect_to(picture)
         end
       end

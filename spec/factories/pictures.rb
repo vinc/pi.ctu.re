@@ -26,7 +26,7 @@ FactoryBot.define do
     image File.open(image_path)
     user
 
-    factory :picture_upload do
+    trait :with_uploaded_file do
       image Rack::Test::UploadedFile.new(image_path, "image/jpeg")
     end
   end
