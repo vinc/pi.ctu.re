@@ -25,7 +25,6 @@ end
 
 group :development do
   gem "annotate"
-  gem "codecov"
   gem "listen", "~> 3.0.5"
   gem "rubocop"
   gem "spring"
@@ -35,6 +34,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "codecov"
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
