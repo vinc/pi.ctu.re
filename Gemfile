@@ -25,6 +25,7 @@ end
 
 group :development do
   gem "annotate"
+  gem "codecov"
   gem "listen", "~> 3.0.5"
   gem "rubocop"
   gem "spring"

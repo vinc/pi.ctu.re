@@ -1,6 +1,11 @@
 require "simplecov"
 SimpleCov.start "rails"
 
+if ENV["CI"]
+  require "codecov"
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
 require "capybara/rspec"
 require "pundit/rspec"
 
