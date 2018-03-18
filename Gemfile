@@ -9,7 +9,7 @@ gem "rails", "~> 5.0.6"
 
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
-gem "pg", "~> 1.0.0"
+gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
