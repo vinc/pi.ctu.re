@@ -20,7 +20,7 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+    <%= f.email_field :email, class: "form-control #{"is-invalid" if invitation.errors[:email].any?}" %>
   </div>
 
   <%= f.submit 'Request invitation', class: 'btn btn-primary' %>

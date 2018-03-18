@@ -15,24 +15,24 @@
 
           <div class="form-group">
             <%= f.label :invitation_token %>
-            <%= f.text_field :invitation_token, autofocus: true, class: 'form-control' %>
+            <%= f.text_field :invitation_token, autofocus: true, class: "form-control #{"is-invalid" if resource.errors[:invitation_token].any?}" %>
             <span class="text-muted">Don't have one? <%= link_to 'Request an invitation token', new_invitation_path %>
           </div>
           <div class="form-group">
             <%= f.label :username %>
-            <%= f.text_field :username, class: 'form-control' %>
+            <%= f.text_field :username, class: "form-control #{"is-invalid" if resource.errors[:username].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.email_field :email, class: "form-control #{"is-invalid" if resource.errors[:email].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.password_field :password, class: "form-control #{"is-invalid" if resource.errors[:password].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.password_field :password_confirmation, class: "form-control #{"is-invalid" if resource.errors[:password_confirmation].any?}" %>
           </div>
 
           <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
