@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-md mb-3 <%= content_for(:page) == 'home' ? 'navbar-dark' : 'navbar-light bg-light' %>">
-  <div class="container">
+  <div class="container px-0 px-sm-3 px-md-3">
     <a class="navbar-brand" href="/"><%= fa_icon("camera") %> Picture</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav w-100">
         <li class="nav-item<%= ' active' if content_for(:page) == 'explore' %>">
           <%= link_to 'Explore', explore_path, class: 'nav-link' %>
         </li>
@@ -15,15 +15,13 @@
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
         </li>
         <% unless %w(home search).include? content_for(:page) %>
-          <li class="nav-item ml-md-2 mt-md-0 mt-2">
+          <li class="nav-item ml-md-2 my-md-0 my-2">
             <%= render 'layouts/search' %>
           </li>
         <% end %>
-      </ul>
 
-      <ul class="navbar-nav ml-auto mt-md-0 mt-2">
         <% if user_signed_in? %>
-          <li class="nav-item dropdown">
+          <li class="nav-item ml-md-auto dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="line-height:30px;padding:5px 0">
               <% if current_user.avatar? %>
                 <%= image_tag(current_user.avatar.thumb_url('60x60'), alt: 'avatar', class: 'rounded-circle', width: 30, height: 30) %>
@@ -50,12 +48,14 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item mr-2">
+          <li class="nav-item ml-md-auto">
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary', role: 'button' %>
-          </li>
+          <% unless content_for(:page) == 'home' %>
+            <li class="nav-item ml-md-2">
+              <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary', role: 'button' %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
