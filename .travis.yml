@@ -3,5 +3,6 @@ services:
   - postgresql
 script:
   - cp .env.sample .env
-  - bundle exec rake db:setup
-  - bundle exec rake spec
+  - yarn install
+  - bundle exec rails db:setup
+  - bundle exec rspec
