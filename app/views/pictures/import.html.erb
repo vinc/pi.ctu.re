@@ -1,0 +1,27 @@
+<% content_for(:title, 'Upload many pictures') %>
+<% content_for(:page, 'import-pictures') %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="card">
+      <h4 class="card-header">Upload many pictures</h4>
+      <div class="card-body">
+        <% if current_user.billable? && current_user.balance.negative? %>
+          <div class="alert alert-danger" role="alert">
+            <strong>Warning!</strong>
+            Your data balance is <strong>-<%= number_to_human_size(-current_user.balance) %></strong>,
+            you need to <%= link_to 'top up', account_billing_path %> before uploading
+            new pictures.
+          </div>
+          <% end %>
+
+          <%= form_for(Picture.new, html: { class: "dropzone border-primary bg-light", style: "border:dashed 2px" }) do |f| %>
+            <div class="text-center text-primary my-5 dz-message">
+              <p><%= fa_icon("cloud-upload 3x") %></p>
+              <p>Drop files here to upload</p>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

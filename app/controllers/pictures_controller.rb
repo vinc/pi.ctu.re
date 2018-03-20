@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
 
   before_action :authenticate_user!, except: %i[index search show lightbox]
 
-  before_action :set_picture,        except: %i[index search new create]
+  before_action :set_picture,        except: %i[index import search new create]
   before_action :set_album,            only: %i[index show lightbox]
   before_action :set_user,             only: %i[index show lightbox]
 
@@ -30,6 +30,9 @@ class PicturesController < ApplicationController
       format.html # search.html.erb
       format.js { render template: "pictures/index" }
     end
+  end
+
+  def import
   end
 
   def show

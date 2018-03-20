@@ -1,4 +1,12 @@
+Dropzone.autoDiscover = false;
+
 $(document).on('turbolinks:load', function() {
+  $('form.dropzone').dropzone({
+    acceptedFiles: 'image/*',
+    parallelUploads: 2,
+    paramName: 'picture[image]'
+  });
+
   $('#gallery').justifiedGallery({
     waitThumbnailsLoad: false,
     captions: false,
@@ -14,7 +22,9 @@ $(document).on('turbolinks:load', function() {
     var n = this.files.length;
     var msg = n > 1 ? n + " files selected" : f[0].name;
 
-    $(".custom-file-label[for=" + this.id + "]").text(msg);
+    if (this.id) {
+      $(".custom-file-label[for=" + this.id + "]").text(msg);
+    }
   });
 
 

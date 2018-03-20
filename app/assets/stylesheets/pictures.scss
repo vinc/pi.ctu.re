@@ -1,4 +1,22 @@
-.justified-gallery > a,
-.justified-gallery > div {
-  background: #aaa;
+.dropzone {
+  padding: 18px;
+  .dz-image {
+    border-radius: 0 !important;
+  }
+  .dz-details {
+    display: none;
+  }
+  .dz-preview:hover {
+    .dz-image {
+      img {
+        all: initial;
+      }
+    }
+  }
+}
+
+.justified-gallery {
+  > a, > div {
+    background: #aaa;
+  }
 }
