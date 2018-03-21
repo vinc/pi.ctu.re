@@ -4,7 +4,16 @@ $(document).on('turbolinks:load', function() {
   $('form.dropzone').dropzone({
     acceptedFiles: 'image/*',
     parallelUploads: 2,
-    paramName: 'picture[image]'
+    paramName: 'picture[image]',
+    init: function() {
+      this.on('success', function(file, res) {
+        var image = res.image_filename;
+        var url = res.image.url.replace(image, '120x120!/' + image);
+
+        this.emit('thumbnail', file, url);
+        this.createThumbnailFromUrl(file, url);
+      });
+    }
   });
 
   $('#gallery').justifiedGallery({
