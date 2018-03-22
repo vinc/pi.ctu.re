@@ -1,18 +1,26 @@
 Dropzone.autoDiscover = false;
 
 $(document).on('turbolinks:load', function() {
-  $('form.dropzone').dropzone({
+  var width = 300;
+  $('form.custom-dropzone').dropzone({
     acceptedFiles: 'image/*',
-    parallelUploads: 2,
+    parallelUploads: 1,
     paramName: 'picture[image]',
+    thumbnailWidth: width,
+    thumbnailHeight: width,
     init: function() {
       this.on('success', function(file, res) {
         var image = res.image_filename;
-        var url = res.image.url.replace(image, '120x120!/' + image);
+        var url = res.image.url.replace(image, width + 'x' + width + '!/' + image);
 
         this.emit('thumbnail', file, url);
         this.createThumbnailFromUrl(file, url);
       });
+    },
+    uploadprogress: function(file, progress, bytesSent) {
+      $(file.previewElement).
+        find('.dz-progress .dz-upload').
+        css('height', (100 - progress) + '%');
     }
   });
 

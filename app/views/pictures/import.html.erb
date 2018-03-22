@@ -15,10 +15,10 @@
           </div>
           <% end %>
 
-          <%= form_for(Picture.new, html: { class: "dropzone border-primary bg-light", style: "border:dashed 2px" }) do |f| %>
-            <div class="text-center text-primary my-5 dz-message">
-              <p><%= fa_icon("cloud-upload 3x") %></p>
-              <p>Drop files here to upload</p>
+          <%= form_for(Picture.new, html: { class: "custom-dropzone d-flex flex-wrap border-primary bg-light", style: "border:dashed 2px" }) do |f| %>
+            <div class="text-center text-primary my-4 dz-message d-flex flex-column align-items-center justify-content-center">
+              <div><%= fa_icon("cloud-upload 3x") %></div>
+              <div>Drop files here to upload</div>
             </div>
           <% end %>
       </div>
