@@ -1,10 +1,10 @@
 <% content_for(:title, "Welcome to Picture") %>
 <% content_for(:page, 'home') %>
 
-<div class="welcome">
-  <h1 class="display-4 text-center text-white">Welcome to Picture</h1>
+<div class="welcome text-white text-center">
+  <h1 class="display-4">Welcome to Picture</h1>
   <% unless user_signed_in? %>
-    <p class="text-center mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
+    <p class="mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
   <% end %>
 </div>
 

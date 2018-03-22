@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :pictures, param: :token, path: "p" do
     collection do
+      get "import"
       get "search"
     end
 

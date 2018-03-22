@@ -2,6 +2,7 @@
   "name": "picture",
   "private": true,
   "dependencies": {
+    "dropzone": "^5.4.0",
     "justifiedGallery": "^3.6.5"
   }
 }

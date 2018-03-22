@@ -1,4 +1,29 @@
+Dropzone.autoDiscover = false;
+
 $(document).on('turbolinks:load', function() {
+  var width = 300;
+  $('form.custom-dropzone').dropzone({
+    acceptedFiles: 'image/*',
+    parallelUploads: 1,
+    paramName: 'picture[image]',
+    thumbnailWidth: width,
+    thumbnailHeight: width,
+    init: function() {
+      this.on('success', function(file, res) {
+        var image = res.image_filename;
+        var url = res.image.url.replace(image, width + 'x' + width + '!/' + image);
+
+        this.emit('thumbnail', file, url);
+        this.createThumbnailFromUrl(file, url);
+      });
+    },
+    uploadprogress: function(file, progress, bytesSent) {
+      $(file.previewElement).
+        find('.dz-progress .dz-upload').
+        css('height', (100 - progress) + '%');
+    }
+  });
+
   $('#gallery').justifiedGallery({
     waitThumbnailsLoad: false,
     captions: false,
@@ -14,7 +39,9 @@ $(document).on('turbolinks:load', function() {
     var n = this.files.length;
     var msg = n > 1 ? n + " files selected" : f[0].name;
 
-    $(".custom-file-label[for=" + this.id + "]").text(msg);
+    if (this.id) {
+      $(".custom-file-label[for=" + this.id + "]").text(msg);
+    }
   });
 
 

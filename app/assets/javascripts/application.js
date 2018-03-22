@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require rails-timeago
 //= require justifiedGallery/dist/js/jquery.justifiedGallery
+//= require dropzone
 //= require_tree .
