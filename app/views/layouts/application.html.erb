@@ -11,18 +11,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <% if controller_name == 'users' && action_name == 'show' %>
+    <% if body_class == 'users-show' %>
       <%= auto_discovery_link_tag(:atom) %>
     <% end %>
     <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
-  <body class="<%= content_for(:page) %>">
-    <% unless content_for(:page) == 'lightbox' %>
+  <body class="<%= body_class %>">
+    <% unless body_class == 'pictures-lightbox' %>
       <%= render partial: 'layouts/navbar' %>
     <% end %>
 
-    <div class="container <%= content_for(:page) == 'lightbox' ? '' : 'mb-3' %>">
+    <div class="container<%= body_class == 'pictures-lightbox' ? '' : ' mb-3' %>">
       <% if alert %>
         <div class="alert alert-danger" role="alert"><%= alert %></div>
       <% end %>

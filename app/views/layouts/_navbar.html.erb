@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md mb-3 <%= content_for(:page) == 'home' ? 'navbar-dark' : 'navbar-light bg-light' %>">
+<nav class="navbar navbar-expand-md mb-3 <%= body_class == 'welcome-index' ? 'navbar-dark' : 'navbar-light bg-light' %>">
   <div class="container px-0 px-sm-3 px-md-3">
     <a class="navbar-brand" href="/"><%= fa_icon("camera") %> Picture</a>
 
@@ -8,13 +8,13 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav w-100">
-        <li class="nav-item<%= ' active' if content_for(:page) == 'explore' %>">
+        <li class="nav-item<%= ' active' if body_class == 'explore-index' %>">
           <%= link_to 'Explore', explore_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item<%= ' active' if content_for(:page) == 'upload' %>">
+        <li class="nav-item<%= ' active' if body_class == 'pictures-new' %>">
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
         </li>
-        <% unless %w(home search).include? content_for(:page) %>
+        <% unless %w(welcome-index pictures-search).include? body_class %>
           <li class="nav-item ml-md-2 my-md-0 my-2">
             <%= render 'layouts/search' %>
           </li>
@@ -51,7 +51,7 @@
           <li class="nav-item ml-md-auto">
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
           </li>
-          <% unless content_for(:page) == 'home' %>
+          <% unless body_class == 'welcome-index' %>
             <li class="nav-item ml-md-2">
               <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary', role: 'button' %>
             </li>
