@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @pictures = @user.pictures.order_by_time.page(params[:page])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.all # show.html.erb
       format.js { render template: "pictures/index" }
     end
   end
