@@ -11,6 +11,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <% if controller_name == 'users' && action_name == 'show' %>
+      <%= auto_discovery_link_tag(:atom) %>
+    <% end %>
     <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
