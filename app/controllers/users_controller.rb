@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include Orderable
 
+  respond_to :html, :json, :js, :atom
+
   before_action :authenticate_user!, except: [:show]
 
   before_action :set_user
@@ -11,8 +13,7 @@ class UsersController < ApplicationController
   def show
     @pictures = @user.pictures.order_by_time.page(params[:page])
 
-    respond_to do |format|
-      format.all # show.html.erb
+    respond_with(@user) do |format|
       format.js { render template: "pictures/index" }
     end
   end
@@ -21,15 +22,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "Profile was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    @user.update(user_params)
+
+    respond_with(@user)
   end
 
   private
