@@ -17,7 +17,7 @@
     <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
-  <body class="<%= body_class %>">
+  <body class="d-flex flex-column <%= body_class %>">
     <% unless body_class == 'pictures-lightbox' %>
       <%= render partial: 'layouts/navbar' %>
     <% end %>
@@ -32,5 +32,7 @@
 
       <%= yield %>
     </div>
+    
+    <%= render partial: 'layouts/footer' %>
   </body>
 </html>

@@ -9,11 +9,10 @@ en:
     title: "Picture - Upload your pictures to the cloud"
     body_html: |
       <h1 class="display-4 text-white">Upload your pictures<br> to the cloud</h1>
-    footer_html: |
-      <p class="text-white">
-        <span>Built with &hearts; by <a href="https://vinc.cc" class="text-white"><strong>vinc</strong></a>.</span>
-        <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE" class="text-white"><strong>MIT</strong></a>.</span>
-      </p>
+    footer:
+      copyright_html: |
+        <span>Built with &hearts; by <a href="https://vinc.cc"><strong>vinc</strong></a>.</span>
+        <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE"><strong>MIT</strong></a>.</span>
 
   registration:
     need_invitation: "Don't have one?"
@@ -24,6 +23,14 @@ en:
       data</a> stored and transferred. The code is <a class="alert-link"
       href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
       host your own instance.
+
+  contact:
+    title: "Contact"
+    body_html: |
+      <h1 class="mb-4">Have a question about Picture?</h1>
+
+      <p>Email us at <strong><a href="mailto:%{email}">%{email}</a></strong>.</p>
+
 
   pricing:
     title: "Pricing"

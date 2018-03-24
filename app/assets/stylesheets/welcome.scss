@@ -1,14 +1,16 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body.welcome-index {
   background: image-url("home_bg.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  //align-items: stretch;
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(white, 0.75);
+    &:hover {
+      color: rgba(white, 1.0);
+    }
+  }
 
   > .container {
     flex-grow: 1;
@@ -27,10 +29,20 @@ body.welcome-index {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
     }
-    footer {
-      span {
-        white-space: nowrap;
-      }
+  }
+
+  > footer {
+    color: rgba(white, 0.75);
+    a {
+      color: rgba(white, 0.75);
+    }
+    a:hover {
+      color: rgba(white, 1.0);
+      text-decoration: none;
+    }
+
+    span {
+      white-space: nowrap;
     }
   }
 }

@@ -24,6 +24,23 @@
   position: relative;
 }
 
+body {
+  min-height: 100vh;
+
+  > footer {
+    color: $gray-600;
+    a {
+      color: $gray-600;
+    }
+  }
+}
+
+body.infinite-scrolling {
+  > footer {
+    display: none;
+  }
+}
+
 @include media-breakpoint-down(md) {
   .navbar .container {
     // width: 100%; // FIXME: this seems to be a bug in Bootstrap 4 alpha 6

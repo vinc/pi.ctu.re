@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   get "explore" => "explore#index"
   get "pricing" => "about#pricing"
+  get "contact" => "about#contact"
 
   root "welcome#index"
 end
