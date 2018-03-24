@@ -1,0 +1,11 @@
+<% content_for(:title, t('pricing.title')) %>
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <%= t('pricing.body_html') %>
+
+    <% unless user_signed_in? %>
+      <p class="text-center mt-5"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
+    <% end %>
+  </div>
+</div>

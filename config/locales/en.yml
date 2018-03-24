@@ -19,7 +19,56 @@ en:
     need_invitation: "Don't have one?"
     request_invitation: "Request an invitation token"
     intro_html: |
-      <a class="alert-link" href="/">Picture</a> is a website where you can host
-      your pictures and pay for the data stored and transfered. The code is
-      <a class="alert-link" href="https://github.com/vinc/pi.ctu.re">open source</a>
-      so you can also host your own instance.
+      <a class="alert-link" href="/">Picture</a> is a website where you can
+      host your pictures and <a class="alert-link" href="/pricing">pay for the
+      data</a> stored and transferred. The code is <a class="alert-link"
+      href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
+      host your own instance.
+
+  pricing:
+    title: "Pricing"
+    body_html: |
+      <h1 class="mb-4">Pricing</h1>
+
+      <h3>No advertising</h3>
+
+      <p>There's no ads on <a href="/">Picture</a>, your attention or your
+      pictures are not the product. You are our customers. The service we
+      offer you is hosting your picture.</p>
+
+      <h3>One simple price</h3>
+
+      <p>Hosting providers charge, on average, about $0.10 per GB of data
+      stored or transferred per month. On top of that we need to add compute
+      costs, payment processing fees, taxes, and developer time, which add up
+      to about <strong>$1.00 per GB</strong> to make it sustainable.</p>
+
+      <p class="display-4 my-5 text-center text-muted">
+        $1.00 per GB<br>
+        of data stored<br>
+        or transferred
+      </p>
+
+      <p>We measure the data transferred by monitoring every picture downloaded.
+      And at the end of the month we measure how much space your pictures are
+      taking on our servers.</p>
+
+      <h3>Free trial</h3>
+
+      <p>When you sign up you will be given <strong>100MB of data for
+      free</strong> to test the service. No credit card required. After that
+      you will have to top up your account balance to keep uploading new
+      pictures.</p>
+
+      <h3>No termination fee</h3>
+
+      <p>You can stop topping up your account balance any time. If it becomes
+      negative you will not be able to upload anymore, and your account may be
+      temporarily disabled.</p>
+
+      <h3>Host your own instance</h3>
+
+      <p>If you have a lot of pictures or are experiencing a lot of traffic,
+      our service costs might be too much for you. The good news is that <a
+      href="/">Picture</a> is <strong>open source</strong>, so you can always
+      host your own instance!</p>
