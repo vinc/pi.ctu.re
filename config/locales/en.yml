@@ -19,7 +19,7 @@ en:
     request_invitation: "Request an invitation token"
     intro_html: |
       <a class="alert-link" href="/">Picture</a> is a website where you can
-      host your pictures and <a class="alert-link" href="/pricing">pay for the
+      share your pictures and <a class="alert-link" href="/pricing">pay for the
       data</a> stored and transferred. The code is <a class="alert-link"
       href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
       host your own instance.
@@ -66,13 +66,13 @@ en:
 
       <h2>Information We Collect</h2>
 
-      <p>When you browse this website our web servers collect your IP address
-      and user agent string with the date of your visit for the duration
-      required by the law.</p>
+      <p>When you browse this website, our web servers collect your IP address
+      and user agent string, along with the date of your visit, for the
+      duration required by the law.</p>
 
       <p>We also store a cookie in your browser to authenticate you when you
-      sign in, and at the same time we store in our database your IP address
-      to compare it with the last one for security reason.</p>
+      sign in, and at the same time we store in our database your current IP
+      address to compare it with the last one for security reason.</p>
 
       <h2>Contacting Us</h2>
 
@@ -91,7 +91,7 @@ en:
 
       <h3>One simple price</h3>
 
-      <p>Hosting providers charge, on average, about $0.10 per GB of data
+      <p>Cloud providers charge, on average, about $0.10 per GB of data
       stored or transferred per month. On top of that we need to add compute
       costs, payment processing fees, taxes, and developer time, which add up
       to about <strong>$1.00 per GB</strong> to make it sustainable.</p>
