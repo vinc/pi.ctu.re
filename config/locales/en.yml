@@ -14,3 +14,12 @@ en:
         <span>Built with &hearts; by <a href="https://vinc.cc" class="text-white"><strong>vinc</strong></a>.</span>
         <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE" class="text-white"><strong>MIT</strong></a>.</span>
       </p>
+
+  registration:
+    need_invitation: "Don't have one?"
+    request_invitation: "Request an invitation token"
+    intro_html: |
+      <a class="alert-link" href="/">Picture</a> is a website where you can host
+      your pictures and pay for the data stored and transfered. The code is
+      <a class="alert-link" href="https://github.com/vinc/pi.ctu.re">open source</a>
+      so you can also host your own instance.

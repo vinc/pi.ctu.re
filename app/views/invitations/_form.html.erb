@@ -1,9 +1,6 @@
 <%= form_for(invitation) do |f| %>
   <div class="alert alert-info" role="alert">
-    <a class="alert-link" href="/">Picture</a> is a website where you can host your pictures and
-    pay for the data stored and transfered. The code is
-    <a class="alert-link" href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
-    host your own instance.
+    <%= t('registration.intro_html') %>
   </div>
 
   <% if invitation.errors.any? %>
