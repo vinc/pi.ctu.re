@@ -53,7 +53,7 @@ body.infinite-scrolling {
 
 .navbar .search {
   @include media-breakpoint-only(md) {
-    width: 16rem;
+    width: 14rem;
   }
   @include media-breakpoint-up(lg) {
     width: 24rem;

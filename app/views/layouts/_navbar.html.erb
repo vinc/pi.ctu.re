@@ -48,14 +48,12 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item ml-md-auto">
-            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-          </li>
+          <li class="nav-item ml-md-auto text-right">
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link float-left' %>
           <% unless body_class == 'welcome-index' %>
-            <li class="nav-item ml-md-2">
-              <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary', role: 'button' %>
-            </li>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary ml-2', role: 'button' %>
           <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
