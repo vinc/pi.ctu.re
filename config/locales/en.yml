@@ -6,7 +6,7 @@ en:
       subject: "Invitation to Picture approved"
 
   welcome:
-    title: "Picture - Upload your pictures to the cloud"
+    title: "Upload your pictures to the cloud"
     body_html: |
       <h1 class="display-4 text-white">Upload your pictures<br> to the cloud</h1>
     footer:
@@ -23,6 +23,8 @@ en:
       data</a> stored and transferred. The code is <a class="alert-link"
       href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
       host your own instance.
+    tos_html: |
+      By signing up you agree to our <a href="/terms">terms of service</a>.
 
   contact:
     title: "Contact"
@@ -31,6 +33,50 @@ en:
 
       <p>Email us at <strong><a href="mailto:%{email}">%{email}</a></strong>.</p>
 
+  terms:
+    title: "Terms of Service"
+    body_html: |
+      <h1 class="mb-4">Terms of Service</h1>
+
+      <p>Welcome to Picture! To use our service you must be at least 13 years
+      old and you acknowledge to have read and understood our <a
+      href="/privacy">privacy policy</a>.</p>
+
+      <h2>Contacting Us</h2>
+
+      <p>If you have any question you can <a href="/contact">contact us</a>.</p>
+
+  privacy:
+    title: "Privacy"
+    body_html: |
+      <h1 class="mb-4">Privacy Policy</h1>
+
+      <p>Welcome to Picture! This service is open source so after reading this
+      privacy policy we invite you to <a href="https://github.com/vinc/pi.ctu.re">
+      audit the code</a> yourself if you can read the ruby programming language.</p>
+
+      <h2>Information You Provide</h2>
+      
+      <p>When you create an account on Picture you provide us your email
+      address, a username, and a password (stored as a cryptographic hash) to
+      authenticate you.</p>
+
+      <p>You may also provide us you full name and your pictures to display on
+      the website.</p>
+
+      <h2>Information We Collect</h2>
+
+      <p>When you browse this website our web servers collect your IP address
+      and user agent string with the date of your visit for the duration
+      required by the law.</p>
+
+      <p>We also store a cookie in your browser to authenticate you when you
+      sign in, and at the same time we store in our database your IP address
+      to compare it with the last one for security reason.</p>
+
+      <h2>Contacting Us</h2>
+
+      <p>If you have any question you can <a href="/contact">contact us</a>.</p>
 
   pricing:
     title: "Pricing"
@@ -39,9 +85,9 @@ en:
 
       <h3>No advertising</h3>
 
-      <p>There's no ads on <a href="/">Picture</a>, your attention or your
-      pictures are not the product. You are our customers. The service we
-      offer you is hosting your picture.</p>
+      <p>There's no ads on Picture, your attention and your pictures are not the
+      product. You are our customers. The service we offer you is hosting your
+      picture.</p>
 
       <h3>One simple price</h3>
 
@@ -76,6 +122,6 @@ en:
       <h3>Host your own instance</h3>
 
       <p>If you have a lot of pictures or are experiencing a lot of traffic,
-      our service costs might be too much for you. The good news is that <a
-      href="/">Picture</a> is <strong>open source</strong>, so you can always
-      host your own instance!</p>
+      our service costs might be too much for you. The good news is that
+      Picture is <strong>open source</strong>, so you can always host your own
+      instance!</p>

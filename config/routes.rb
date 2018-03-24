@@ -49,8 +49,10 @@ Rails.application.routes.draw do
   resources :invitations, only: %i[new create]
 
   get "explore" => "explore#index"
-  get "pricing" => "about#pricing"
   get "contact" => "about#contact"
+  get "pricing" => "about#pricing"
+  get "privacy" => "about#privacy"
+  get "terms" => "about#terms"
 
   root "welcome#index"
 end

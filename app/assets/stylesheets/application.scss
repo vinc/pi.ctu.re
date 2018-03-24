@@ -32,6 +32,10 @@ body {
     a {
       color: $gray-600;
     }
+
+    span {
+      white-space: nowrap;
+    }
   }
 }
 
