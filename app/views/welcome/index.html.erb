@@ -1,15 +1,13 @@
-<% content_for(:title, "Welcome to Picture") %>
+<% content_for(:title, t('welcome.title')) %>
 
-<div class="welcome text-white text-center">
-  <h1 class="display-4">Welcome to Picture</h1>
+<div class="welcome text-center">
+  <%= t('welcome.body_html') %>
+
   <% unless user_signed_in? %>
     <p class="mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
   <% end %>
 </div>
 
-<footer class="mt-4">
-  <p class="text-center text-white">
-    <span>Built with &hearts; by <a href="https://vinc.cc" class="text-white"><strong>vinc</strong></a>.</span>
-    <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE" class="text-white"><strong>MIT</strong></a>.</span>
-  </p>
+<footer class="mt-4 text-center">
+  <%= t('welcome.footer_html') %>
 </footer>

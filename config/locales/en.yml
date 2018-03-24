@@ -1,27 +1,16 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   invitations_mailer:
     create:
-      subject: 'Invitation to Picture requested'
+      subject: "Invitation to Picture requested"
     approve:
-      subject: 'Invitation to Picture approved'
+      subject: "Invitation to Picture approved"
+
+  welcome:
+    title: "Picture - Upload your pictures to the cloud"
+    body_html: |
+      <h1 class="display-4 text-white">Upload your pictures<br> to the cloud</h1>
+    footer_html: |
+      <p class="text-white">
+        <span>Built with &hearts; by <a href="https://vinc.cc" class="text-white"><strong>vinc</strong></a>.</span>
+        <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE" class="text-white"><strong>MIT</strong></a>.</span>
+      </p>

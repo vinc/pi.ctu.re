@@ -8,11 +8,11 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav w-100">
-        <li class="nav-item<%= ' active' if body_class == 'explore-index' %>">
-          <%= link_to 'Explore', explore_path, class: 'nav-link' %>
-        </li>
         <li class="nav-item<%= ' active' if body_class == 'pictures-new' %>">
           <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item<%= ' active' if body_class == 'explore-index' %>">
+          <%= link_to 'Explore', explore_path, class: 'nav-link' %>
         </li>
         <% unless %w(welcome-index pictures-search).include? body_class %>
           <li class="nav-item ml-md-2 my-md-0 my-2">
