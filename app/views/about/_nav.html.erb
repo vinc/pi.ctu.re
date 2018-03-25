@@ -1,0 +1,14 @@
+<ul class="nav nav-pills flex-column mb-3">
+  <li class="nav-item">
+    <%= link_to t('contact.title'), contact_path, class: "nav-link #{'active' if body_class == 'about-contact'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('terms.title'), terms_path, class: "nav-link #{'active' if body_class == 'about-terms'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('privacy.title'), privacy_path, class: "nav-link #{'active' if body_class == 'about-privacy'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('pricing.title'), pricing_path, class: "nav-link #{'active' if body_class == 'about-pricing'}" %>
+  </li>
+</ul>

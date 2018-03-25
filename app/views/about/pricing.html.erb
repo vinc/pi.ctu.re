@@ -1,11 +1,19 @@
 <% content_for(:title, t('pricing.title')) %>
 
-<div class="row justify-content-center">
-  <div class="col-lg-8">
-    <%= t('pricing.body_html') %>
+<div class="row">
+  <div class="col-lg-3">
+    <%= render 'about/nav' %>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <h4 class="card-header"><%= t('pricing.title') %></h4>
+      <div class="card-body">
+        <%= t('pricing.body_html') %>
 
-    <% unless user_signed_in? %>
-      <p class="text-center mt-5"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
-    <% end %>
+        <% unless user_signed_in? %>
+          <p class="text-center mt-5"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
