@@ -1,6 +1,6 @@
 class ImageUploader < ApplicationUploader
   def path
-    "/#{model.class.to_s.underscore}/#{mounted_as}/#{model.token}"
+    "/#{model.class.table_name}/#{model.token}"
   end
 
   # Example with a 600x400 picture: thumb_size('x200') -> '300x200'
