@@ -8,7 +8,7 @@
     <div class="card">
       <h4 class="card-header"><%= t('contact.title') %></h4>
       <div class="card-body">
-        <%= t('contact.body_html', email: @email) %>
+        <%= t('contact.body_html', email: email_munging(@email)) %>
       </div>
     </div>
   </div>
