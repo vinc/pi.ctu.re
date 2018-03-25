@@ -28,7 +28,7 @@
 
   <div class="mt-3">
     <% if album.persisted? %>
-      <%= link_to 'Delete', album, method: :delete, data: { confirm: 'This album will be deleted, are you sure?' }, class: 'btn btn-link text-danger pull-right', role: 'button' %>
+      <%= link_to 'Delete', album, method: :delete, data: { confirm: 'This album will be deleted, are you sure?' }, class: 'btn btn-link text-danger pull-right px-0', role: 'button' %>
     <% end %>
 
     <%= f.submit class: 'btn btn-primary' %>
