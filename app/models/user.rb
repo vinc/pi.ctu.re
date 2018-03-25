@@ -80,4 +80,8 @@ class User < ApplicationRecord
   def billable?
     ENV["STRIPE_PUBLISHABLE_KEY"].present?
   end
+
+  def usage
+    pictures.map(&:image).map(&:size).sum
+  end
 end

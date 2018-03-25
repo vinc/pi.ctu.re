@@ -69,4 +69,12 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "#usage" do
+    let!(:user_pictures) { FactoryBot.create_list(:picture, 5, user: subject) }
+
+    it "returns the size of all pictures" do
+      expect(subject.usage).to eq(user_pictures.map(&:image).map(&:size).sum)
+    end
+  end
 end

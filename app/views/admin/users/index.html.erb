@@ -13,7 +13,9 @@
             <tr>
               <th scope="col">Username</th>
               <th scope="col">Created</th>
+              <th scope="col">Last signed in</th>
               <th scope="col">Balance</th>
+              <th scope="col">Usage</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +23,7 @@
               <tr>
                 <th scope="row"><%= link_to user.username, user %></th>
                 <td><%= user.created_at %></td>
+                <td><%= user.last_sign_in_at %></td>
                 <td>
                   <% if user.balance.negative? %>
                     <span class="text-danger">
@@ -32,6 +35,7 @@
                     </span>
                   <% end %>
                 </td>
+                <td><%= number_to_human_size(user.usage) %></td>
               </tr>
             <% end %>
           </tbody>
