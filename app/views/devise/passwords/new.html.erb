@@ -10,7 +10,7 @@
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+            <%= f.email_field :email, class: 'form-control' %>
             <span class="form-text text-muted">You will receive a link to reset your password.</span>
           </div>
 
