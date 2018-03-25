@@ -21,13 +21,13 @@
         <% end %>
 
         <% if user_signed_in? %>
-          <li class="nav-item ml-md-auto dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="line-height:30px;padding:5px 0">
+          <li class="nav-item ml-md-auto my-md-0 my-2 dropdown d-flex align-items-center">
+            <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar? %>
-                <%= image_tag(current_user.avatar.thumb_url('60x60'), alt: 'avatar', class: 'rounded-circle', width: 30, height: 30) %>
+                <%= image_tag(current_user.avatar.thumb_url('60x60'), alt: 'avatar', class: 'rounded-circle', style: "vertical-align:bottom", width: 30, height: 30) %>
               <% else %>
                 <span class="rounded-circle align-bottom d-inline-block text-white" style="background:#ccc">
-                  <i class="fa fa-user-o align-top text-center" style="width:30px;line-height:28px" aria-hidden="true"></i>
+                  <i class="fa fa-user-o align-top text-center" style="width:30px;height:30px;line-height:28px" aria-hidden="true"></i>
                 </span>
               <% end %>
             </a>
