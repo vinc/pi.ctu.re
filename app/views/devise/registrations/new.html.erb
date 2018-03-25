@@ -19,15 +19,15 @@
           </div>
           <div class="form-group">
             <%= f.label :username %>
-            <%= f.text_field :username, pattern: "^#{User.username_pattern}$", class: "form-control #{"is-invalid" if resource.errors[:username].any?}" %>
+            <%= f.text_field :username, autocomplete: "username", pattern: "^#{User.username_pattern}$", class: "form-control #{"is-invalid" if resource.errors[:username].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control #{"is-invalid" if resource.errors[:email].any?}" %>
+            <%= f.email_field :email, autocomplete: "email", class: "form-control #{"is-invalid" if resource.errors[:email].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control #{"is-invalid" if resource.errors[:password].any?}" %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control #{"is-invalid" if resource.errors[:password].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :password_confirmation %>
