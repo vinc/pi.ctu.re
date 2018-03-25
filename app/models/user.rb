@@ -55,9 +55,13 @@ class User < ApplicationRecord
     ].freeze
   end
 
+  def self.username_pattern
+    "[0-9A-Za-z][0-9A-Za-z-]{1,30}[0-9A-Za-z]".freeze
+  end
+
   validates :default_license, inclusion: { in: default_licenses }
   validates :email, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, format: /\A#{User.username_pattern}\z/
   validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
 
   def remember_me
