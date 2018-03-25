@@ -74,9 +74,18 @@ en:
       sign in, and at the same time we store in our database your current IP
       address to compare it with the last one for security reason.</p>
 
+      %{payment_information}
+
       <h2>Contacting Us</h2>
 
       <p>If you have any question you can <a href="/contact">contact us</a>.</p>
+
+    payment_information_html: |
+      <h2>Payment Information</h2>
+
+      <p>We use a third party payment processor, <a
+      href="https://stripe.com">Stripe</a>, for all payments. We don't store
+      credit card details and instead relies on Stripe for this.
 
   pricing:
     title: "Pricing"
@@ -89,7 +98,7 @@ en:
       product. You are our customers. The service we offer you is hosting your
       pictures.</p>
 
-      <h3>One simple price</h3>
+      <h2>One simple price</h2>
 
       <p>Cloud providers charge, on average, about $0.10 per GB of data
       stored or transferred per month. On top of that we need to add computing
@@ -106,20 +115,20 @@ en:
       And at the end of the month we measure how much space your pictures are
       taking on our servers.</p>
 
-      <h3>Free trial</h3>
+      <h2>Free trial</h2>
 
       <p>When you sign up you will be given <strong>100MB of data for
       free</strong> to test the service. No credit card required. After that
       you will have to top up your account balance to keep uploading new
       pictures.</p>
 
-      <h3>No termination fee</h3>
+      <h2>No termination fee</h2>
 
       <p>You can stop topping up your account balance any time. If it becomes
       negative you will not be able to upload anymore, and your account will be
       deleted after a grace period.</p>
 
-      <h3>Host your own instance</h3>
+      <h2>Host your own instance</h2>
 
       <p>If you have a lot of pictures or are experiencing a lot of traffic,
       our service costs might be too much for you. The good news is that
