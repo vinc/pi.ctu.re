@@ -14,7 +14,7 @@ RSpec.describe Account::ChargesController, type: :controller do
     end
 
     describe "GET #create" do
-      let(:amount) { "5000" } # $5
+      let(:amount) { "5000" } # 5.00 EUR
       let(:card_token) { stripe_helper.generate_card_token }
 
       context "with valid card" do

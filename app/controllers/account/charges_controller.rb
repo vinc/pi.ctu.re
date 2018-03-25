@@ -7,7 +7,7 @@ class Account::ChargesController < ApplicationController
       customer:    current_user.customer_id,
       amount:      charge_params[:amount].to_i, # in cents
       description: "Data top up",
-      currency:    "usd"
+      currency:    "eur"
     )
 
     current_user.increment!(:balance, charge.amount * 1e7)
