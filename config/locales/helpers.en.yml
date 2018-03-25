@@ -1,0 +1,8 @@
+---
+en:
+  helpers:
+    submit:
+      create: "Create"
+      update: "Save"
+      picture:
+        create: "Upload"
