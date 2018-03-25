@@ -6,7 +6,7 @@ RSpec.feature "UserSignIn", type: :feature do
   end
 
   scenario "User signs in" do
-    visit "/account/sign_in"
+    visit "/account/signin"
 
     fill_in "Email",    with: @user.email
     fill_in "Password", with: @user.password

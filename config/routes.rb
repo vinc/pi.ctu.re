@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users, path: "account", path_names: {
+    sign_up: "signup",
+    sign_in: "signin",
+    sign_out: "signout"
+  }
+
+  namespace :account do
+    get "/", to: redirect("/account/settings/edit")
+    get "/settings", to: redirect("/account/settings/edit")
+    resource :settings, only: %i[edit update]
+    resource :billing, only: [:show]
+    resources :charges, only: [:create]
+  end
+
   resources :albums, param: :token, path: "a" do
     # resources :pictures, only: [:index]
   end
@@ -24,16 +38,6 @@ Rails.application.routes.draw do
   resources :users, param: :username, path: "u", only: %i[show edit update] do
     # resources :pictures, only: [:index]
     resources :albums, only: [:index]
-  end
-
-  devise_for :users, path: "account"
-
-  namespace :account do
-    get "/", to: redirect("/account/settings/edit")
-    get "/settings", to: redirect("/account/settings/edit")
-    resource :settings, only: %i[edit update]
-    resource :billing, only: [:show]
-    resources :charges, only: [:create]
   end
 
   namespace :admin do
