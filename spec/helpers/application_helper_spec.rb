@@ -20,4 +20,12 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe "#email_munging" do
+    subject { Faker::Internet.email }
+
+    it "returns a munged email address" do
+      expect(helper.email_munging(subject)).to eq(subject.gsub("@", "(@_@)"))
+    end
+  end
 end
