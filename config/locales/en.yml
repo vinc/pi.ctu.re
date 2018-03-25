@@ -87,12 +87,12 @@ en:
 
       <p>There's no ads on Picture, your attention and your pictures are not the
       product. You are our customers. The service we offer you is hosting your
-      picture.</p>
+      pictures.</p>
 
       <h3>One simple price</h3>
 
       <p>Cloud providers charge, on average, about $0.10 per GB of data
-      stored or transferred per month. On top of that we need to add compute
+      stored or transferred per month. On top of that we need to add computing
       costs, payment processing fees, taxes, and developer time, which add up
       to about <strong>$1.00 per GB</strong> to make it sustainable.</p>
 
@@ -116,8 +116,8 @@ en:
       <h3>No termination fee</h3>
 
       <p>You can stop topping up your account balance any time. If it becomes
-      negative you will not be able to upload anymore, and your account may be
-      temporarily disabled.</p>
+      negative you will not be able to upload anymore, and your account will be
+      deleted after a grace period.</p>
 
       <h3>Host your own instance</h3>
 
