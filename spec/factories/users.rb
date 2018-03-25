@@ -34,8 +34,8 @@ FactoryBot.define do
     email                 { Faker::Internet.email }
     username              { Faker::Internet.user_name }
     fullname              { Faker::Name.name }
-    password              "password"
-    password_confirmation "password"
+    password              { Faker::Internet.password }
+    password_confirmation &:password
 
     balance               100_000_000 # 100 MB
 
