@@ -33,6 +33,8 @@
       <%= yield %>
     </div>
     
-    <%= render partial: 'layouts/footer' %>
+    <% unless body_class == 'pictures-lightbox' %>
+      <%= render partial: 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
