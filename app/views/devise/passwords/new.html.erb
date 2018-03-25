@@ -5,7 +5,7 @@
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <h4 class="card-header"><%= t('.forgot_your_password', default: 'Forgot your password?') %></h4>
+      <div class="card-header text-muted"><%= t('.forgot_your_password', default: 'Forgot your password?') %></div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
           <div class="form-group">

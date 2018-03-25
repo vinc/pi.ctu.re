@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <h4 class="card-header"><%= t('.sign_in', default: 'Sign in') %></h4>
+      <div class="card-header text-muted"><%= t('.sign_in', default: 'Sign in') %></div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
           <div class="form-group">
