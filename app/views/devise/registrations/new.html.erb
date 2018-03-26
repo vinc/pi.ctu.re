@@ -34,7 +34,7 @@
             <%= f.password_field :password_confirmation, required: true, class: "form-control #{"is-invalid" if resource.errors[:password_confirmation].any?}" %>
           </div>
 
-          <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
+          <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary btn-block' %>
         <% end %>
       </div>
     </div>
