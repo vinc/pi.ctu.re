@@ -10,7 +10,7 @@ $('#gallery').justifiedGallery('norewind');
 // Update next-page link
 <% if @pictures.last_page? %>
   $('.next-page').html('');
+  $('body').removeClass('infinite-scrolling');
 <% else %>
-  $('.next-page')
-    .html("<%=j link_to_next_page @pictures, 'Load more', remote: true, class: 'btn btn-outline-secondary infinite-scrolling', role: 'button' %>");
+  $('.next-page').html("<%=j link_to_next_page @pictures, 'Load more', remote: true, class: 'btn btn-outline-secondary infinite-scrolling', role: 'button' %>");
 <% end %>
