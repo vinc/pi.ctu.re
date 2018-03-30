@@ -40,6 +40,11 @@ class User < ApplicationRecord
   has_many :albums
   has_many :pictures
 
+  has_many :follower_relationships, foreign_key: :followee_id, class_name: "Follow"
+  has_many :followee_relationships, foreign_key: :follower_id, class_name: "Follow"
+  has_many :followers, through: :follower_relationships, source: :follower
+  has_many :followees, through: :followee_relationships, source: :followee
+
   before_create do
     self.balance = 100e6 # Give 100 MB of data to each new user for free
   end

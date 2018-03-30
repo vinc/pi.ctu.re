@@ -44,6 +44,8 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { is_expected.to have_many(:pictures) }
+    it { is_expected.to have_many(:followers) }
+    it { is_expected.to have_many(:followees) }
   end
 
   describe "#name" do
