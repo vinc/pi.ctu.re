@@ -60,6 +60,15 @@ RSpec.describe PicturesController, type: :controller do
     end
   end
 
+  describe "GET #lightbox" do
+    let(:picture) { FactoryBot.create(:picture) }
+
+    it "returns http success" do
+      get :lightbox, params: { token: picture.token }
+      expect(response).to be_successful
+    end
+  end
+
   describe "GET #search" do
     it "returns http success" do
       get :search, params: { q: Faker::Lorem.word }

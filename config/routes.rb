@@ -39,9 +39,12 @@ Rails.application.routes.draw do
     member do
       put "follow"
       put "unfollow"
+      get "followers"
+      get "followees"
     end
-    # resources :pictures, only: [:index]
+
     resources :albums, only: [:index]
+    # resources :pictures, only: [:index]
   end
 
   namespace :admin do

@@ -1,6 +1,5 @@
 <% if @user %>
   <% content_for(:title, "Albums by #{@user.name}") %>
-  <% content_for(:page, 'user_albums') %>
 
   <%= render 'users/header' %>
 <% else %>

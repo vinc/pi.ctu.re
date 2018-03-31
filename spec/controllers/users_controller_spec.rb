@@ -20,6 +20,24 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe "GET #followers" do
+    let(:user) { FactoryBot.create(:user) }
+
+    it "returns http success" do
+      get :followers, params: { username: user.username }
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET #followees" do
+    let(:user) { FactoryBot.create(:user) }
+
+    it "returns http success" do
+      get :followees, params: { username: user.username }
+      expect(response).to be_successful
+    end
+  end
+
   context "with signed in user" do
     let(:user) { FactoryBot.create(:user) }
 
