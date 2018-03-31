@@ -62,5 +62,13 @@ Rails.application.routes.draw do
   get "privacy" => "about#privacy"
   get "terms" => "about#terms"
 
-  root "welcome#index"
+  devise_scope :user do
+    authenticated :user do
+      root "dashboard#index"
+    end
+
+    unauthenticated do
+      root "welcome#index"
+    end
+  end
 end

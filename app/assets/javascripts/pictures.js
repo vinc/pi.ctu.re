@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
-  $('#gallery').justifiedGallery({
+  $('#gallery.justified-gallery').justifiedGallery({
     waitThumbnailsLoad: false,
     captions: false,
     rowHeight: 200,
