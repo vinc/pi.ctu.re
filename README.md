@@ -22,6 +22,7 @@ The main website is a [rails app](https://github.com/vinc/pi.ctu.re):
     $ git clone https://github.com/vinc/pi.ctu.re
     $ cd pi.ctu.re
     $ cp .env.sample .env
+    $ yarn install
     $ bundle install
     $ rails db:setup
     $ rails generate admin
@@ -31,8 +32,16 @@ And images are delivered by a [node app](https://github.com/vinc/infra.stru.ctu.
 
     $ git clone https://github.com/vinc/infra.stru.ctu.re
     $ cd infra.stru.ctu.re
+    $ cp .env.sample .env
     $ yarn install
     $ yarn start
+
+A local instance can also be run using Docker:
+
+    $ git clone --recursive https://github.com/vinc/stru.ctu.re
+    $ docker-compose up
+    $ docker-compose exec web rails db:setup
+    $ docker-compose exec web rails generate admin
 
 
 License
