@@ -37,5 +37,39 @@ RSpec.describe UsersController, type: :controller do
         end
       end
     end
+
+    context "with a user to follow" do
+      let(:user_to_follow) { FactoryBot.create(:user) }
+
+      describe "PATCH #follow" do
+        it "returns http redirect to #show" do
+          expect(user_to_follow.followers).not_to include(user)
+
+          patch :follow, params: { username: user_to_follow.username }
+          expect(response).to redirect_to(user_to_follow)
+
+          expect(user_to_follow.reload.followers).to include(user)
+        end
+      end
+    end
+
+    context "with a user to unfollow" do
+      let(:user_to_unfollow) { FactoryBot.create(:user) }
+
+      describe "PATCH #unfollow" do
+        before do
+          user_to_unfollow.followers << user
+        end
+
+        it "returns http redirect to #show" do
+          expect(user_to_unfollow.reload.followers).to include(user)
+
+          patch :unfollow, params: { username: user_to_unfollow.username }
+          expect(response).to redirect_to(user_to_unfollow)
+
+          expect(user_to_unfollow.followers).not_to include(user)
+        end
+      end
+    end
   end
 end
