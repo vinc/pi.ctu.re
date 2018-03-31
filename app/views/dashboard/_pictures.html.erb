@@ -1,0 +1,15 @@
+<% pictures.each do |picture| %>
+  <div class="card mb-4">
+    <%= link_to picture_path(picture), style: 'display:block;max-height:800px;overflow:hidden' do %>
+      <%= image_tag(picture.image.thumb_url('800x800'), alt: picture.alt, class: 'card-img-top', style: '') %>
+    <% end %>
+
+    <div class="card-body">
+      <p class="card-text"><%= render 'pictures/user', picture: picture %></p>
+
+      <% if picture.caption.present? %>
+        <p class="card-text"><%= picture.caption %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

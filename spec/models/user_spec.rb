@@ -23,6 +23,8 @@
 #  avatar                 :integer
 #  avatar_filename        :string
 #  customer_id            :string
+#  followers_count        :integer          default(0)
+#  followees_count        :integer          default(0)
 #
 
 require "rails_helper"
@@ -44,6 +46,8 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { is_expected.to have_many(:pictures) }
+    it { is_expected.to have_many(:followers) }
+    it { is_expected.to have_many(:followees) }
   end
 
   describe "#name" do

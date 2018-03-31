@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   respond_to :html, :json, :js, :atom
 
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: %i[show followers followees]
 
   before_action :set_user
 
@@ -25,6 +25,36 @@ class UsersController < ApplicationController
     @user.update(user_params)
 
     respond_with(@user)
+  end
+
+  def follow
+    @user.followers << current_user
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @user) }
+      format.json { head :no_content }
+    end
+  end
+
+  def unfollow
+    @user.followers.delete(current_user)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @user) }
+      format.json { head :no_content }
+    end
+  end
+
+  def followers
+    @followers = User.joins(:followee_relationships).
+      where("follows.followee_id = ?", @user.id).
+      order("follows.created_at DESC").
+      page(1).per(100)
+  end
+
+  def followees
+    @followees = User.joins(:follower_relationships).
+      where("follows.follower_id = ?", @user.id).
+      order("follows.created_at DESC").
+      page(1).per(100)
   end
 
   private

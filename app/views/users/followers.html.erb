@@ -1,0 +1,11 @@
+<% content_for(:title, "#{@user.name} followers") %>
+
+<%= render 'users/header' %>
+
+<div class="row mt-4">
+  <% @followers.each do |follower| %>
+    <div class="col-md-6">
+      <%= render 'user_card', user: follower %>
+    </div>
+  <% end %>
+</div>

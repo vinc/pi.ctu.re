@@ -1,0 +1,27 @@
+<div class="card mb-3">
+  <div class="card-body py-2 px-3">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <%= link_to(user) do %>
+          <% if user.avatar? %>
+            <%= image_tag(user.avatar.thumb_url('100x100'), alt: 'avatar', class: 'rounded-circle', width: 50, height: 50) %>
+          <% else %>
+            <span class="rounded-circle align-bottom d-inline-block text-white" style="background:#ccc;width:50px;height:50px">
+              <i class="fa fa-user-o align-top text-center" style="width:50px;line-height:45px;font-size:30px" aria-hidden="true"></i>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col text-truncate px-0">
+        <%= link_to(user.name, user, class: 'text-secondary') %>
+      </div>
+      <div class="col-auto">
+        <% if user == current_user || user.followers.include?(current_user) %>
+          <%= link_to 'Follow', '#', class: 'btn btn-outline-primary disabled', role: 'button' %>
+        <% else %>
+          <%= link_to 'Follow', follow_user_path(user), method: :put, class: 'btn btn-outline-primary', role: 'button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<%= link_to(picture.user) do %>
+  <% if picture.user.avatar? %>
+    <%= image_tag(picture.user.avatar.thumb_url('100x100'), alt: 'avatar', class: 'rounded-circle float-left mr-3', width: 50, height: 50) %>
+  <% else %>
+    <span class="rounded-circle float-left mr-3 align-bottom d-inline-block text-white" style="background:#ccc;width:50px;height:50px">
+      <i class="fa fa-user-o align-top text-center" style="width:50px;line-height:45px;font-size:30px" aria-hidden="true"></i>
+    </span>
+  <% end %>
+<% end %>
+<%= link_to(picture.user.name, picture.user) %>
+<br>
+<span class="text-muted"><%= timeago_tag picture.created_at, :limit => 10.days.ago %></span>
