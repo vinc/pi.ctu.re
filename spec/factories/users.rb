@@ -32,7 +32,7 @@ FactoryBot.define do
     is_admin false
 
     email                 { Faker::Internet.email }
-    username              { Faker::Internet.user_name(nil, "-") }
+    username              { Faker::Internet.user_name(nil, "-") + rand(10000..99999).to_s }
     fullname              { Faker::Name.name }
     password              { Faker::Internet.password }
     password_confirmation(&:password)
