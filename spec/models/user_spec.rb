@@ -23,6 +23,8 @@
 #  avatar                 :integer
 #  avatar_filename        :string
 #  customer_id            :string
+#  followers_count        :integer          default(0)
+#  followees_count        :integer          default(0)
 #
 
 require "rails_helper"
