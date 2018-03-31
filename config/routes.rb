@@ -36,6 +36,10 @@ Rails.application.routes.draw do
 
   get "/u", to: redirect("/explore")
   resources :users, param: :username, path: "u", only: %i[show edit update] do
+    member do
+      put "follow"
+      put "unfollow"
+    end
     # resources :pictures, only: [:index]
     resources :albums, only: [:index]
   end

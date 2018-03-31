@@ -27,6 +27,22 @@ class UsersController < ApplicationController
     respond_with(@user)
   end
 
+  def follow
+    @user.followers << current_user
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @user) }
+      format.json { head :no_content }
+    end
+  end
+
+  def unfollow
+    @user.followers.delete(current_user)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: @user) }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_user
