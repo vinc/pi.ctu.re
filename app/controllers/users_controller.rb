@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   respond_to :html, :json, :js, :atom
 
-  before_action :authenticate_user!, except: [:show, :followers, :followees]
+  before_action :authenticate_user!, except: %i[show followers followees]
 
   before_action :set_user
 
