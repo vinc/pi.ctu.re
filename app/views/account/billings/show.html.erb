@@ -18,6 +18,10 @@
             <span class="text-danger text-right">-<%= number_to_human_size(-current_user.balance) %></span>
           <% end %>
         </h5>
+        <p class="card-text text-muted">
+          You must have a positive data balance to upload new pictures and cover the
+          <%= link_to 'costs of storage and transfert', pricing_path %>.
+        </p>
 
         <hr>
 
@@ -25,13 +29,7 @@
           Top up
         </h5>
         <p class="card-text">
-          Add data to your account to cover the cost of storage and transfert
-          of your pictures.
-
-          You will need a positive balance to upload new pictures.
-        </p>
-        <p class="card-text">
-          The current transfert rate is <strong>&euro;1.00 per GB</strong>.
+          The current rate is <strong>&euro;1.00 per GB</strong>.
         </p>
         <%= render 'form' %>
       </div>
