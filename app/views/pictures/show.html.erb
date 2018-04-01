@@ -52,7 +52,7 @@
       <% end %>
 
       <% if @picture.user_id == current_user.id %>
-        <%= link_to edit_picture_path(@picture), class: 'btn btn-outline-primary', role: 'button' do %>
+        <%= link_to edit_picture_path(@picture), class: 'btn btn-outline-primary ml-1', role: 'button' do %>
           <%= fa_icon("pencil") %> Edit
         <% end %>
       <% end %>
