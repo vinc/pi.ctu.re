@@ -43,7 +43,7 @@ class Picture < ApplicationRecord
   end
 
   def alt
-    caption.presence || token
+    caption.presence || "Picture #{token}"
   end
 
   def exif
