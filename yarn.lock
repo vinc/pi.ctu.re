@@ -9,3 +9,7 @@ dropzone@^5.4.0:
 justifiedGallery@^3.6.5:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/justifiedGallery/-/justifiedGallery-3.6.5.tgz#0e1eb011bf11a5cf210273b6ed16587dd88d2f77"
+
+roboto-slab-fontface-kit@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/roboto-slab-fontface-kit/-/roboto-slab-fontface-kit-1.0.2.tgz#3ff66e72096e486cbdacdf7a89cddfe2bbfc89e4"

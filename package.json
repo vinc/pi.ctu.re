@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "dropzone": "^5.4.0",
-    "justifiedGallery": "^3.6.5"
+    "justifiedGallery": "^3.6.5",
+    "roboto-slab-fontface-kit": "^1.0.2"
   }
 }

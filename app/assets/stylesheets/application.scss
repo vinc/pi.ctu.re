@@ -10,15 +10,19 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require roboto-slab-fontface-kit
+ *= require font-awesome
  *= require devise_bootstrap_views
  *= require justifiedGallery/dist/css/justifiedGallery.css
  *= require dropzone
- *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
 $primary: #0C9;
+$font-family-sans-serif: "Roboto Slab", sans-serif;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 1.1rem;
 
 @import "bootstrap";
 
