@@ -48,7 +48,7 @@ class User < ApplicationRecord
   has_many :followees, through: :followee_relationships, source: :followee
 
   before_create do
-    self.balance = 100e6 # Give 100 MB of data to each new user for free
+    self.balance = 100.megabytes
   end
 
   def self.default_licenses

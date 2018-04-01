@@ -10,7 +10,7 @@ class Account::ChargesController < ApplicationController
       currency:    "eur"
     )
 
-    current_user.increment!(:balance, charge.amount * 1e7)
+    current_user.increment!(:balance, 1.gigabyte * charge.amount / 100)
 
     redirect_to account_billing_path, notice: "Account balance was successfully topped up"
   rescue Stripe::CardError => e
