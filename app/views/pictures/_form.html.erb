@@ -38,6 +38,6 @@
       <%= link_to 'Upload many pictures', import_pictures_path, class: 'btn btn-link pull-right px-0', role: 'button' %>
     <% end %>
 
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-primary', disabled: picture.new_record? && current_user.balance.negative? %>
   </div>
 <% end %>
