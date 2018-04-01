@@ -21,7 +21,7 @@
           <p class="card-text text-muted"><%= pluralize(album.pictures.count, 'picture') %></p>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Updated <%= timeago_tag album.updated_at, :limit => 10.days.ago %></small>
+          <small class="text-muted">Updated <%= timeago_tag album.updated_at %></small>
         </div>
       </div>
     <% end %>

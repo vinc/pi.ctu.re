@@ -22,11 +22,11 @@
               <tr>
                 <th scope="row"><%= invitation.token %></th>
                 <td><%= invitation.email %></td>
-                <td><%= invitation.created_at %></td>
+                <td><%= timeago_tag invitation.created_at %></td>
                 <% if invitation.approved_at.nil? %>
                   <td><%= link_to "Approve", approve_admin_invitation_path(invitation), method: :put, class: "text-primary" %></td>
                 <% else %>
-                  <td><%= invitation.approved_at %></td>
+                  <td><%= timeago_tag invitation.approved_at %></td>
                 <% end %>
               </tr>
             <% end %>

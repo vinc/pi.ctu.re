@@ -9,5 +9,5 @@
 <% end %>
 <span class="d-flex flex-column justify-content-center" style="height:50px">
   <%= link_to(picture.user.name, picture.user) %>
-  <span class="text-muted"><%= timeago_tag picture.created_at, :limit => 10.days.ago %></span>
+  <span class="text-muted"><%= timeago_tag picture.created_at %></span>
 </span>

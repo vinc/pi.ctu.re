@@ -22,8 +22,8 @@
             <% @users.each do |user| %>
               <tr>
                 <th scope="row"><%= link_to user.username, user %></th>
-                <td><%= user.created_at %></td>
-                <td><%= user.current_sign_in_at %></td>
+                <td><%= timeago_tag user.created_at %></td>
+                <td><%= timeago_tag user.current_sign_in_at %></td>
                 <td>
                   <% if user.balance.negative? %>
                     <span class="text-danger">
