@@ -29,30 +29,25 @@ $font-size-base: 1.1rem;
   position: relative;
 }
 
-body {
+body,
+.wrapper {
   min-height: 100vh;
+}
 
-  > footer {
+.navbar-footer {
+  color: $gray-600;
+  a {
     color: $gray-600;
-    a {
-      color: $gray-600;
-    }
+  }
 
-    span {
-      white-space: nowrap;
-    }
+  span {
+    white-space: nowrap;
   }
 }
 
 body.infinite-scrolling {
-  > footer {
+  .navbar-footer {
     display: none;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .navbar .container {
-    // width: 100%; // FIXME: this seems to be a bug in Bootstrap 4 alpha 6
   }
 }
 

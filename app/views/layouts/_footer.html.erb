@@ -1,9 +1,9 @@
-<footer class="mt-auto">
-  <div class="container mt-4">
+<footer class="navbar-footer mt-auto">
+  <div class="container py-4">
     <% unless body_class == 'welcome-index' %>
-      <hr>
+      <hr class="mt-0 mb-4">
     <% end %>
-    <div class="row text-center my-4">
+    <div class="row text-center">
       <div class="col-sm text-sm-left">
         <ul class="list-inline m-0">
           <li class="list-inline-item"><%= link_to "Contact", contact_path %></li>
@@ -12,7 +12,7 @@
           <li class="list-inline-item"><%= link_to "Pricing", pricing_path %></li>
         </ul>
       </div>
-      <div class="col-sm text-sm-right">
+      <div class="col-sm text-sm-right mt-3 mt-sm-0">
         <p class="m-0">
           <%= t('welcome.footer.copyright_html') %>
         </p>

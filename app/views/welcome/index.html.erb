@@ -1,9 +1,65 @@
 <% content_for(:title, t('welcome.title')) %>
 
-<div class="welcome text-center">
+<div class="text-center">
   <%= t('welcome.body_html') %>
 
-  <% unless user_signed_in? %>
-    <p class="mt-4"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>
-  <% end %>
+  <p class="mt-5">
+    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %>
+  </p>
 </div>
+
+</div><!-- end layout container -->
+</div><!-- end layout wrapper -->
+
+<div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
+  <div class="my-5" style="max-width:45em">
+    <h2 class="display-4 mb-4" style="color:#0C9">What is Picture?</h2>
+    <p class="lead">
+      Picture is a website where you can upload and share your best photographies.
+    </p>
+    <p class="">
+      <%= link_to 'Explore the community', explore_path, class: 'btn btn-lg btn-outline-primary mt-4', role: 'button' %>
+    </p>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center p-3" style="min-height:50vh;background:#0C9;color:#fffe">
+  <div class="my-5" style="max-width:45em">
+    <h2 class="display-4 mb-4 text-center">Features</h2>
+    <ol class="lead">
+      <li class="py-2">No advertising, no tracking, no lock in.</li>
+      <li class="py-2">High quality images, Creative Commons licenses.</li>
+      <li class="py-2">Create beautiful albums, gain followers and likes.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
+  <div class="my-5" style="max-width:45em">
+    <h2 class="display-4 mb-4" style="color:#0C9">Try it for free</h2>
+    <p class="lead">
+      When you create an account, we give you 100MB of storage
+      and data transfer to try the service for free.
+    </p>
+    <p class="mt-4">
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %>
+      <%= link_to 'See pricing', pricing_path, class: 'btn btn-lg btn-outline-primary ml-2', role: 'button' %>
+    </p>
+  </div>
+</div>
+
+<div class="wrapper d-flex flex-column" style="background:#034;color:#fffe"><!-- begin layout wrapper -->
+<div class="container align-items-center"><!-- begin layout container -->
+
+  <!--<div class="d-flex justify-content-center p-3">-->
+  <div class="my-5" style="max-width:45em">
+    <h2 class="display-4 mb-4">Host your own instance</h2>
+    <p class="lead">
+      Picture is open source so you can also
+      <a href="https://github.com/vinc/pi.ctu.re">host your own instance</a>
+      and be part of the decentralized web.
+    </p>
+    <p class="text-center my-5">
+      <a href="https://github.com/vinc/pi.ctu.re" style="color:#fff3"><%= fa_icon 'github 4x' %></a>
+    </p>
+  </div>

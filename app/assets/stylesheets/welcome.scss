@@ -1,10 +1,4 @@
 body.welcome-index {
-  background: image-url("home_bg.jpg") no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
   .navbar-dark .navbar-nav .nav-link {
     color: rgba(white, 0.75);
     &:hover {
@@ -12,18 +6,19 @@ body.welcome-index {
     }
   }
 
-  > .container {
-    flex-grow: 1;
-    margin-bottom: 0 !important;
-    display: flex;
-    flex-direction: column;
-
-    .welcome {
+  .wrapper {
+    > .container {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+  }
 
+  .wrapper:first-of-type {
+    background: image-url("home_bg.jpg") no-repeat top center;
+    background-size: cover;
+    > .container {
       h1 {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
@@ -33,7 +28,8 @@ body.welcome-index {
     }
   }
 
-  > footer {
+  .navbar-footer {
+    background: #034;
     color: rgba(white, 0.75);
     a {
       color: rgba(white, 0.75);
@@ -42,6 +38,10 @@ body.welcome-index {
       color: rgba(white, 1.0);
       text-decoration: none;
     }
+  }
+
+  .lead {
+    font-weight: normal;
   }
 }
 

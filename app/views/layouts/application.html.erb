@@ -17,24 +17,26 @@
     <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
-  <body class="d-flex flex-column <%= body_class %>">
-    <% unless body_class == 'pictures-lightbox' %>
-      <%= render partial: 'layouts/navbar' %>
-    <% end %>
-
-    <div class="container">
-      <% if alert %>
-        <div class="alert alert-danger" role="alert"><%= alert %></div>
-      <% end %>
-      <% if notice %>
-        <div class="alert alert-success" role="alert"><%= notice %></div>
+  <body class="<%= body_class %>">
+    <div class="wrapper d-flex flex-column">
+      <% unless body_class == 'pictures-lightbox' %>
+        <%= render partial: 'layouts/navbar' %>
       <% end %>
 
-      <%= yield %>
+      <div class="container">
+        <% if alert %>
+          <div class="alert alert-danger" role="alert"><%= alert %></div>
+        <% end %>
+        <% if notice %>
+          <div class="alert alert-success" role="alert"><%= notice %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+
+      <% unless body_class == 'pictures-lightbox' %>
+        <%= render partial: 'layouts/footer' %>
+      <% end %>
     </div>
-    
-    <% unless body_class == 'pictures-lightbox' %>
-      <%= render partial: 'layouts/footer' %>
-    <% end %>
   </body>
 </html>
