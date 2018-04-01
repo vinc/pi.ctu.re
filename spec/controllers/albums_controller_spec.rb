@@ -6,6 +6,15 @@ RSpec.describe AlbumsController, type: :controller do
       get :index
       expect(response).to be_successful
     end
+
+    context "when nested in user" do
+      let(:user) { FactoryBot.create(:user) }
+
+      it "returns http success" do
+        get :index, params: { user_username: user.username }
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET #show" do
