@@ -8,7 +8,7 @@
       <p class="card-text"><%= render 'pictures/user', picture: picture %></p>
 
       <% if picture.caption.present? %>
-        <p class="card-text"><%= picture.caption %></p>
+        <%= simple_format(truncate(picture.caption, length: 200, separator: '.'), class: 'card-text') %>
       <% end %>
     </div>
   </div>

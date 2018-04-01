@@ -25,6 +25,10 @@ RSpec.describe Picture, type: :model do
     expect(subject).to be_valid
   end
 
+  describe "validations" do
+    it { should validate_length_of(:caption).is_at_most(Picture::CAPTION_LENGTH_MAX) }
+  end
+
   describe "associations" do
     it { is_expected.to belong_to(:user) }
   end

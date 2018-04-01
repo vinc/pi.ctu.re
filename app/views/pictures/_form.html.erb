@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= f.label :caption %>
-    <%= f.text_area :caption, class: 'form-control', placeholder: 'Add a description to your picture' %>
+    <%= f.text_area :caption, placeholder: 'Add a description to your picture', maxlength: Picture::CAPTION_LENGTH_MAX, class: "form-control #{"is-invalid" if picture.errors[:caption].any?}" %>
   </div>
 
   <div class="form-group">

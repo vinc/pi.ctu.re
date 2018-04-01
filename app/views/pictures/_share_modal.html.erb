@@ -13,7 +13,7 @@
           <input type="url" class="form-control" id="share-url" placeholder="URL" value="<%= picture_url(@picture) %>" readonly>
         </div>
 
-        <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u @picture.caption %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
+        <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u truncate(@picture.caption, length: 100, separator: '.') %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
           <%= fa_icon("twitter") %>
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<%=u picture_url(@picture) %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#3B5998">

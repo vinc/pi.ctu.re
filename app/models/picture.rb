@@ -22,6 +22,8 @@ class Picture < ApplicationRecord
   include OrderQuery
   include Tokenizable
 
+  CAPTION_LENGTH_MAX = 500
+
   belongs_to :user
   has_and_belongs_to_many :albums
 
@@ -34,6 +36,7 @@ class Picture < ApplicationRecord
 
   validates_presence_of :image
   validate :user_balance_cannot_be_negative, on: :create
+  validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
 
   def user_balance_cannot_be_negative
     errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?

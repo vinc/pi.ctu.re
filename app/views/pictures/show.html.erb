@@ -1,4 +1,4 @@
-<% content_for(:title, "#{@picture.caption.presence || 'Picture'} by #{@picture.user.name} (#{@picture.token})") %>
+<% content_for(:title, "#{truncate(@picture.caption.presence || 'Picture', length: 100, separator: '.')} by #{@picture.user.name} (#{@picture.token})") %>
 
 <div class="row" style="position:relative">
   <div class="col-md-8">
@@ -72,7 +72,7 @@
       <p><%= render 'pictures/user', picture: @picture %></p>
 
       <% if @picture.caption.present? %>
-        <p><%= @picture.caption %></p>
+        <%= simple_format(@picture.caption) %>
       <% end %>
     </div>
 
