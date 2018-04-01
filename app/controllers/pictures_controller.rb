@@ -117,11 +117,7 @@ class PicturesController < ApplicationController
   end
 
   def set_user
-    if params[:user_username]
-      @user = User.find_by(username: params[:user_username])
-    elsif @picture
-      @user = @picture.user
-    end
+    @user = @picture.user unless @picture.nil?
   end
 
   def set_album

@@ -13,9 +13,7 @@ Rails.application.routes.draw do
     resources :charges, only: [:create]
   end
 
-  resources :albums, param: :token, path: "a" do
-    # resources :pictures, only: [:index]
-  end
+  resources :albums, param: :token, path: "a"
 
   resources :pictures, param: :token, path: "p" do
     collection do
@@ -44,7 +42,6 @@ Rails.application.routes.draw do
     end
 
     resources :albums, only: [:index]
-    # resources :pictures, only: [:index]
   end
 
   namespace :admin do
