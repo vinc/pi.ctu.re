@@ -13,7 +13,7 @@
         <% end %>
       </div>
       <div class="col text-truncate px-0">
-        <%= link_to(user.name, user, class: 'text-secondary') %>
+        <%= link_to(user.name, user, class: 'text-dark') %>
       </div>
       <div class="col-auto">
         <% if user == current_user || user.followers.include?(current_user) %>
