@@ -1,0 +1,11 @@
+#gallery {
+  .card-img-link {
+    display: block;
+    max-height: 800px;
+    overflow-y: hidden;
+
+    @media screen and (max-height: 800px) {
+      max-height: 80vh;
+    }
+  }
+}

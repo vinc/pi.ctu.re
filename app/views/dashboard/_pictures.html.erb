@@ -1,7 +1,7 @@
 <% pictures.each do |picture| %>
   <div class="card mb-4">
-    <%= link_to picture_path(picture), style: 'display:block;max-height:800px;overflow:hidden' do %>
-      <%= image_tag(picture.image.thumb_url('800x800'), alt: picture.alt, class: 'card-img-top', style: '') %>
+    <%= link_to picture_path(picture), class: 'card-img-link' do %>
+      <%= image_tag(picture.image.thumb_url('800x800'), alt: picture.alt, class: 'card-img-top') %>
     <% end %>
 
     <div class="card-body">
