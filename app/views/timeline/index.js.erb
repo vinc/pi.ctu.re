@@ -1,7 +1,7 @@
 $('body').addClass('infinite-scrolling');
 
 // Append new data
-$("<%=j render(:partial => 'dashboard/pictures', :object => @pictures) %>")
+$("<%=j render(:partial => 'timeline/pictures', :object => @pictures) %>")
   .appendTo($('#gallery'));
 
 // Update next-page link

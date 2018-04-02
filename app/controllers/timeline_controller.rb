@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class TimelineController < ApplicationController
   respond_to :html, :js, :atom
 
   before_action :authenticate_user!
