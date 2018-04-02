@@ -40,6 +40,7 @@ group :test do
   gem "action-cable-testing"
   gem "capybara"
   gem "capybara-selenium"
+  gem "chromedriver-helper"
   gem "codecov", require: false
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
