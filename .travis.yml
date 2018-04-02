@@ -6,3 +6,6 @@ script:
   - yarn install
   - bundle exec rails db:setup
   - bundle exec rspec
+sudo: required
+addons:
+  chrome: stable

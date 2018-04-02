@@ -93,4 +93,24 @@ RSpec.describe Picture, type: :model do
       expect(Picture.order_by_view_at(pictures[2]).next).to eql(pictures[0])
     end
   end
+
+  describe "after_create" do
+    it "notifies of picture creation" do
+      ActiveJob::Base.queue_adapter = :test
+      expect {
+        subject.save
+      }.to have_enqueued_job
+    end
+  end
+
+  describe "#notify" do
+    subject! { FactoryBot.create(:picture) }
+
+    it "notifies of picture creation" do
+      ActiveJob::Base.queue_adapter = :test
+      expect {
+        subject.notify!
+      }.to have_enqueued_job
+    end
+  end
 end
