@@ -1,6 +1,8 @@
 // Timeline notifications
 
 $(document).on('turbolinks:load', function() {
+  App.timeline = $('body').hasClass('timeline-index');
+
   App.notifications = {
     pictures: {}
   };
@@ -8,7 +10,7 @@ $(document).on('turbolinks:load', function() {
 
 App.cable.subscriptions.create({ channel: 'TimelineChannel' }, {
   received: function(data) {
-    if ('picture' in data) {
+    if (App.timeline && 'picture' in data) {
       var token = data.picture;
 
       App.notifications.pictures[token] = "created";
@@ -19,6 +21,8 @@ App.cable.subscriptions.create({ channel: 'TimelineChannel' }, {
       var notification = '<div class="alert alert-info" role="alert">' + refresh_link + ' to see ' + subject + '</div>';
 
       $('body.timeline-index #notification').html(notification);
+
+      document.title = '(' + count + ') Picture';
     }
   }
 });
