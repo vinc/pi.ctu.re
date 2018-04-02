@@ -13,6 +13,7 @@ gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.7"
+gem "redis", "~> 4.0"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
@@ -36,7 +37,10 @@ group :development do
 end
 
 group :test do
+  gem "action-cable-testing"
   gem "capybara"
+  gem "capybara-selenium"
+  gem "chromedriver-helper"
   gem "codecov", require: false
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"

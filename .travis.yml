@@ -1,6 +1,8 @@
 language: ruby
 services:
   - postgresql
+addons:
+  chrome: stable
 script:
   - cp .env.sample .env
   - yarn install

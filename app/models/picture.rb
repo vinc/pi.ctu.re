@@ -38,6 +38,12 @@ class Picture < ApplicationRecord
   validate :user_balance_cannot_be_negative, on: :create
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
 
+  after_create_commit :notify!
+
+  def notify!
+    PictureNotificationJob.perform_later(self)
+  end
+
   def user_balance_cannot_be_negative
     errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?
   end

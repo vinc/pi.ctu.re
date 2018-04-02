@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.feature "Home", type: :feature do
-  scenario "User visits the homepage" do
+RSpec.feature "Welcome", type: :feature do
+  scenario "Guest visits the homepage" do
     visit "/"
 
     body_html = I18n.t("welcome.body_html")
