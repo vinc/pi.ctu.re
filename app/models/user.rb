@@ -35,6 +35,8 @@ class User < ApplicationRecord
 
   attr_accessor :invitation_token
 
+  FULLNAME_LENGTH_MAX = 50
+
   acts_as_voter
 
   mount_uploader :avatar, AvatarUploader
@@ -69,6 +71,7 @@ class User < ApplicationRecord
   validates :default_license, inclusion: { in: default_licenses }
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, format: /\A#{User.username_pattern}\z/
+  validates :fullname, length: { maximum: FULLNAME_LENGTH_MAX }
   validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
 
   def remember_me

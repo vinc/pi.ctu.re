@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :fullname %>
-    <%= f.text_field :fullname, autocomplete: 'name', class: 'form-control' %>
+    <%= f.text_field :fullname, autocomplete: 'name', maxlength: User::FULLNAME_LENGTH_MAX, class: "form-control #{'is-invalid' if @user.errors[:caption].any?}" %>
   </div>
 
   <div class="form-group">

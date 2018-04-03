@@ -37,6 +37,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "validations" do
+    it { is_expected.to validate_length_of(:fullname).is_at_most(User::FULLNAME_LENGTH_MAX) }
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_presence_of(:email) }
 

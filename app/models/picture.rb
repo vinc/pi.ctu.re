@@ -35,8 +35,8 @@ class Picture < ApplicationRecord
   order_query :order_by_time, %i[created_at desc]
 
   validates_presence_of :image
-  validate :user_balance_cannot_be_negative, on: :create
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
+  validate :user_balance_cannot_be_negative, on: :create
 
   after_create_commit :notify!
 
