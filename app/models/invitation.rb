@@ -16,6 +16,8 @@ class Invitation < ApplicationRecord
 
   order_query :order_by_time, %i[created_at desc]
 
+  validates :email, presence: true, format: Devise.email_regexp
+
   def self.approved
     where.not(approved_at: nil)
   end

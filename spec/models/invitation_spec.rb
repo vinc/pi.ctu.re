@@ -19,6 +19,10 @@ RSpec.describe Invitation, type: :model do
     expect(subject).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:email) }
+  end
+
   describe ".approved" do
     let!(:invitations) { FactoryBot.create_list(:invitation, 5) }
 
