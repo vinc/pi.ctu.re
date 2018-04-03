@@ -8,6 +8,6 @@
   <% end %>
 <% end %>
 <span class="d-flex flex-column justify-content-center" style="height:50px">
-  <%= link_to(picture.user.name, picture.user) %>
+  <%= link_to(picture.user.name, picture.user, class: 'overflow-hidden') %>
   <span class="text-muted"><%= timeago_tag picture.created_at %></span>
 </span>
