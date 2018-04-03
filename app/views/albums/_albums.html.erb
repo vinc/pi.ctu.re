@@ -17,7 +17,7 @@
           <%= image_tag(album.pictures.first.image.thumb_url('500x500!').to_s, alt: album.title, class: 'card-img-top img-fluid') %>
         <% end %>
         <div class="card-body">
-          <h4 class="card-title"><%= album.title %></h4>
+          <h4 class="card-title overflow-hidden"><%= album.title %></h4>
           <p class="card-text text-muted"><%= pluralize(album.pictures.count, 'picture') %></p>
         </div>
         <div class="card-footer">

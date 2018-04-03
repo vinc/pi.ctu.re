@@ -14,10 +14,12 @@ class Album < ApplicationRecord
   include OrderQuery
   include Tokenizable
 
+  TITLE_LENGTH_MAX = 100
+
   belongs_to :user
   has_and_belongs_to_many :pictures
 
   order_query :order_by_time, %i[updated_at desc]
 
-  validates_presence_of :title
+  validates :title, presence: true, length: { maximum: TITLE_LENGTH_MAX }
 end

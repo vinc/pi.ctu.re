@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.text_field :title, maxlength: Album::TITLE_LENGTH_MAX, class: "form-control #{'is-invalid' if album.errors[:caption].any?}" %>
   </div>
 
   <p class="mb-2">Pictures</p>
