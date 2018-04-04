@@ -113,4 +113,18 @@ RSpec.describe Picture, type: :model do
       }.to have_enqueued_job
     end
   end
+
+  describe "#image" do
+    subject! { FactoryBot.create(:picture) }
+
+    describe "#thumb_size" do
+      it "returns thumbnail size with a correct ratio" do
+        width = subject.image_width / 10
+        height = subject.image_height / 10
+        expect(subject.image.thumb_size("#{width}x#{height}")).to eq("#{width}x#{height}")
+        expect(subject.image.thumb_size("x#{height}")).to eq("#{width}x#{height}")
+        expect(subject.image.thumb_size("#{width}x")).to eq("#{width}x#{height}")
+      end
+    end
+  end
 end
