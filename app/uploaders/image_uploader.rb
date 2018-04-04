@@ -14,7 +14,7 @@ class ImageUploader < ApplicationUploader
       w = model.image_width * h / model.image_height
     else
       w = w.to_i
-      h = model.image_height * w / model.image_weigth
+      h = model.image_height * w / model.image_width
     end
 
     [w, h].join("x")
