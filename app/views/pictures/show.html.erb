@@ -105,7 +105,7 @@
         </div>
 
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shareModal" style="cursor:pointer">
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shareModal"<%= @picture.private_setting? ? "disabled" : "" %>>
             <%= fa_icon("share") %> Share
           </button>
         </div>
