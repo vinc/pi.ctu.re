@@ -34,7 +34,7 @@ class Picture < ApplicationRecord
   order_query :order_by_view, %i[views_count desc]
   order_query :order_by_time, %i[created_at desc]
 
-  enum privacy_setting: %i[public unlisted private], _suffix: :setting
+  enum privacy_setting: %i[public protected private], _suffix: :setting
 
   validates_presence_of :image
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
