@@ -15,6 +15,7 @@ class AlbumsController < ApplicationController
 
   def show
     @pictures = @album.pictures.order_by_time.page(params[:page])
+    @pictures = @pictures.where(privacy_setting: "public") unless @user == current_user
 
     respond_to do |format|
       format.html # show.html.erb
