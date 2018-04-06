@@ -24,7 +24,11 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @pictures = Picture.where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page]) if params[:q].present?
+    if params[:q].present?
+      @pictures = Picture.
+        where(privacy_setting: "public").
+        where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
+    end
 
     respond_to do |format|
       format.html # search.html.erb
@@ -127,6 +131,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:caption, :image, album_ids: [])
+    params.require(:picture).permit(:caption, :image, :privacy_setting, album_ids: [])
   end
 end

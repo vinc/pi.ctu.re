@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180406063417) do
     t.boolean "is_featured", default: false, null: false
     t.integer "image", null: false
     t.string "image_filename"
-    t.integer "privacy"
+    t.integer "privacy_setting", default: 0
     t.index ["token"], name: "index_pictures_on_token", unique: true
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end

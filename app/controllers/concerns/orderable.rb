@@ -32,13 +32,21 @@ module Orderable
     @pictures =
       case @from
       when "all"
-        Picture
+        Picture.where(privacy_setting: "public")
       when "explore"
-        Picture.featured
+        Picture.featured.where(privacy_setting: "public")
       when "user"
-        @user.pictures
+        if @user == current_user
+          @user.pictures
+        else
+          @user.pictures.where(privacy_setting: "public")
+        end
       else
-        @album.pictures
+        if @album.user == current_user
+          @album.pictures
+        else
+          @album.pictures.where(privacy_setting: "public")
+        end
       end
   end
 end
