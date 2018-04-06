@@ -34,6 +34,8 @@ class Picture < ApplicationRecord
   order_query :order_by_view, %i[views_count desc]
   order_query :order_by_time, %i[created_at desc]
 
+  enum privacy: %i[public unlisted private]
+
   validates_presence_of :image
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
   validate :user_balance_cannot_be_negative, on: :create
