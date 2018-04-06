@@ -24,6 +24,8 @@ class Picture < ApplicationRecord
 
   CAPTION_LENGTH_MAX = 500
 
+  attr_accessor :protected_param
+
   belongs_to :user
   has_and_belongs_to_many :albums
 
@@ -57,6 +59,14 @@ class Picture < ApplicationRecord
   def exif
     # TODO: Save in database
     @exif ||= EXIFR::JPEG.new(StringIO.new(image.file.read))
+  end
+
+  def protected_secret
+    Digest::SHA1.hexdigest(image.filename) if protected_setting?
+  end
+
+  def regenerate_protected_secret!
+    # TODO
   end
 
   def self.featured

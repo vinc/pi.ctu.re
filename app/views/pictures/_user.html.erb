@@ -11,7 +11,7 @@
   <%= link_to(picture.user.name, picture.user, class: 'overflow-hidden') %>
   <span class="text-muted">
     <%= timeago_tag picture.created_at %>
-    <% if picture.user == current_user %>
+    <% if picture.user == current_user || picture.protected_setting? %>
       <span class="float-right" data-toggle="tooltip" data-placement="left" title="<%= picture.privacy_setting %>">
         <% if picture.public_setting? %>
           <%= fa_icon "globe" %>

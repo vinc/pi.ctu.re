@@ -40,6 +40,9 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @picture.protected_param = params[:secret]
+    authorize @picture
+
     case @order
     when "view"
       @previous_picture = @pictures.order_by_view_at(@picture).previous(false)
@@ -111,6 +114,9 @@ class PicturesController < ApplicationController
   end
 
   def lightbox
+    @picture.protected_param = params[:secret]
+    authorize @picture
+
     Picture.increment_counter(:views_count, @picture.id)
   end
 
