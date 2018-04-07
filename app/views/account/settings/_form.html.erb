@@ -19,5 +19,10 @@
     </p>
   </div>
 
+  <div class="form-group">
+    <%= f.label :default_privacy_setting %>
+    <%= f.select :default_privacy_setting, User.default_privacy_settings.keys.to_a, {}, { class: 'custom-select' } %>
+  </div>
+
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
