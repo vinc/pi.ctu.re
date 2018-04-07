@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     resources :charges, only: [:create]
   end
 
-  resources :albums, param: :token, path: "a"
-
   resources :pictures, param: :token, path: "p" do
     collection do
       get "import"
@@ -43,6 +41,9 @@ Rails.application.routes.draw do
 
     resources :albums, only: [:index]
   end
+
+  get "/a", to: redirect("/explore")
+  resources :albums, param: :token, except: :index, path: "a"
 
   namespace :admin do
     get "/", to: redirect("/admin/users")

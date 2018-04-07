@@ -1,9 +1,5 @@
-<% if @user %>
-  <% content_for(:title, "Albums by #{@user.name}") %>
+<% content_for(:title, "Albums by #{@user.name}") %>
 
-  <%= render 'users/header' %>
-<% else %>
-  <% content_for(:title, 'Albums') %>
-<% end %>
+<%= render 'users/header' %>
 
 <%= render 'albums', albums: @albums, user: @user %>

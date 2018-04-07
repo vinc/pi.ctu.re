@@ -4,16 +4,19 @@ class AlbumsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   before_action :set_album,            only: %i[show edit update destroy]
-  before_action :set_user,             only: %i[index show]
 
-  before_action :set_from,             only: [:show]
-  before_action :set_order,            only: [:show]
+  before_action :set_from,             only: :show
+  before_action :set_order,            only: :show
 
+  # /u/<user#username>/albums
   def index
-    @albums = (@user ? @user.albums : Album).order_by_time
+    @user = User.find_by(username: params[:user_username])
+    @albums = @user.albums.order_by_time
   end
 
+  # /a/<album#token>
   def show
+    @user = @album.user
     @pictures = @album.pictures.order_by_time.page(params[:page])
     @pictures = @pictures.where(privacy_setting: "public") unless @user == current_user
 
@@ -51,14 +54,6 @@ class AlbumsController < ApplicationController
 
   def set_album
     @album = Album.find_by!(token: params[:token])
-  end
-
-  def set_user
-    if @album
-      @user = @album.user
-    elsif params[:user_username]
-      @user = User.find_by(username: params[:user_username])
-    end
   end
 
   def album_params
