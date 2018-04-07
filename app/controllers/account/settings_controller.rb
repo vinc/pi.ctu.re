@@ -19,6 +19,6 @@ class Account::SettingsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:default_license)
+    params.require(:user).permit(:default_license, :default_privacy_setting)
   end
 end

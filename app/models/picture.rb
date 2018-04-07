@@ -2,18 +2,19 @@
 #
 # Table name: pictures
 #
-#  id             :integer          not null, primary key
-#  caption        :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  user_id        :integer
-#  token          :string
-#  views_count    :integer          default(0), not null
-#  image_height   :integer
-#  image_width    :integer
-#  is_featured    :boolean          default(FALSE), not null
-#  image          :integer          not null
-#  image_filename :string
+#  id              :integer          not null, primary key
+#  caption         :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
+#  token           :string
+#  views_count     :integer          default(0), not null
+#  image_height    :integer
+#  image_width     :integer
+#  is_featured     :boolean          default(FALSE), not null
+#  image           :integer          not null
+#  image_filename  :string
+#  privacy_setting :integer          default("public")
 #
 
 require "exifr/jpeg"
@@ -43,16 +44,12 @@ class Picture < ApplicationRecord
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
   validate :user_balance_cannot_be_negative, on: :create
 
-  before_update :regenerate_protected_secret!, if: :regenerate_secret
-
+  after_initialize :set_default_privacy_setting, if: :new_record?
   after_create_commit :notify!
+  before_update :regenerate_protected_secret!, if: :regenerate_secret
 
   def notify!
     PictureNotificationJob.perform_later(self)
-  end
-
-  def user_balance_cannot_be_negative
-    errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?
   end
 
   def alt
@@ -74,5 +71,15 @@ class Picture < ApplicationRecord
 
   def self.featured
     where(is_featured: true)
+  end
+
+  private
+
+  def set_default_privacy_setting
+    self.privacy_setting = user.default_privacy_setting if user.present?
+  end
+
+  def user_balance_cannot_be_negative
+    errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?
   end
 end
