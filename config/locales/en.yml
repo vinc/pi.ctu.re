@@ -17,14 +17,16 @@ en:
   registration:
     need_invitation: "Don't have one?"
     request_invitation: "Request an invitation token"
+    tos_html: |
+      By signing up you agree to our <a href="/terms">terms of service</a>.
+
+  invitation:
     intro_html: |
       <a class="alert-link" href="/">Picture</a> is a website where you can
       share your pictures and <a class="alert-link" href="/pricing">pay for the
       data</a> stored and transferred. The code is <a class="alert-link"
       href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
       host your own instance.
-    tos_html: |
-      By signing up you agree to our <a href="/terms">terms of service</a>.
 
   contact:
     title: "Contact"
@@ -39,8 +41,29 @@ en:
       <h1 class="mb-4">Terms of Service</h1>
 
       <p>Welcome to Picture! To use our service you must be at least 13 years
-      old and you acknowledge to have read and understood our <a
-      href="/privacy">privacy policy</a>.</p>
+      old and you acknowledge to have read and understood our Terms of Service
+      and our <a href="/privacy">Privacy Policy</a>.</p>
+
+      <h2>Changes</h2>
+
+      <p>We may modify our Terms of Service, it is your responsibility to check
+      periodically for changes.</p>
+
+      <h2>Termination</h2>
+
+      <p>We may remove content or close accounts if we need to, at any time and
+      without notice.</p>
+
+      <h2>Disclaimer of Warranties</h2>
+
+      <p>Your use of Picture is at your sole risk. The service is provided
+      "as is" and "as available", without warranty of any kind.</p>
+
+      <h2>Limitation of Liability</h2>
+
+      <p>You understand and agree that we will not be liable to you or any
+      third party for any losses or damages arising from your use or inability
+      to use the service.</p>
 
       <h2>Contacting Us</h2>
 
