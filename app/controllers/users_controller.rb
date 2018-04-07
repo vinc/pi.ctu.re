@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include Orderable
+  include PaginationContext
 
   respond_to :html, :json, :js, :atom
 
@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
   before_action :set_user
 
-  before_action :set_from,             only: [:show]
-  before_action :set_order,            only: [:show]
+  before_action :set_from,             only: :show
+  before_action :set_order,            only: :show
 
   def show
     @pictures = @user.pictures.order_by_time.page(params[:page])

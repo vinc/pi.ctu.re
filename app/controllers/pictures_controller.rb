@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  include Orderable
+  include PaginationContext
 
   before_action :authenticate_user!, except: %i[index search show lightbox]
 

@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  include Orderable
+  include PaginationContext
 
   before_action :authenticate_user!, except: %i[index show]
 
