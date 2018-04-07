@@ -16,7 +16,7 @@ body.welcome-index {
   }
 
   .wrapper:first-of-type {
-    background: image-url("home_bg.jpg") no-repeat top center;
+    background: #333 image-url("home_bg.jpg") no-repeat top center;
     background-size: cover;
     > .container {
       h1 {
