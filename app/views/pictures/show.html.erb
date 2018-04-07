@@ -96,11 +96,11 @@
       <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
         <div class="btn-group mr-2" role="group">
           <% if user_signed_in? && current_user.liked?(@picture) %>
-            <%= link_to unlike_picture_path(@picture), method: :put, class: 'btn btn-outline-secondary', role: 'button' do %>
+            <%= link_to picture_like_path(@picture), method: :delete, class: 'btn btn-outline-secondary', role: 'button' do %>
               <%= fa_icon("heart") %> Unlike
             <% end %>
           <% else %>
-            <%= link_to like_picture_path(@picture), method: :put, class: 'btn btn-outline-secondary', role: 'button' do %>
+            <%= link_to picture_like_path(@picture), method: :post, class: 'btn btn-outline-secondary', role: 'button' do %>
               <%= fa_icon("heart") %> Like
             <% end %>
           <% end %>

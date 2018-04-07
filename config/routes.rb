@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :pictures, param: :token, path: "p" do
     resource :featured, only: %i[create destroy], controller: "pictures/featureds"
+    resource :like, only: %i[create destroy], controller: "pictures/likes"
 
     collection do
       get "import"
@@ -23,9 +24,6 @@ Rails.application.routes.draw do
 
     member do
       get "lightbox"
-
-      put "like"
-      put "unlike"
     end
   end
 

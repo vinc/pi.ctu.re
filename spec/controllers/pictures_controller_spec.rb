@@ -202,20 +202,6 @@ RSpec.describe PicturesController, type: :controller do
           expect(response).to redirect_to(pictures_url)
         end
       end
-
-      describe "PUT #like" do
-        it "returns http redirect to #show" do
-          put :like, params: { token: picture.token }
-          expect(response).to redirect_to(picture)
-        end
-      end
-
-      describe "PUT #unlike" do
-        it "returns http redirect to #show" do
-          put :unlike, params: { token: picture.token }
-          expect(response).to redirect_to(picture)
-        end
-      end
     end
   end
 end
