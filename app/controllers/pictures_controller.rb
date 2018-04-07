@@ -55,6 +55,10 @@ class PicturesController < ApplicationController
     Picture.increment_counter(:views_count, @picture.id)
   end
 
+  def lightbox
+    show
+  end
+
   def new
     @picture = current_user.pictures.new
   end
@@ -111,13 +115,6 @@ class PicturesController < ApplicationController
       format.html { redirect_back(fallback_location: @picture) }
       format.json { head :no_content }
     end
-  end
-
-  def lightbox
-    @picture.protected_param = params[:secret]
-    authorize @picture
-
-    Picture.increment_counter(:views_count, @picture.id)
   end
 
   private

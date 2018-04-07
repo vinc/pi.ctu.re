@@ -39,6 +39,7 @@
   </div>
   <div class="mr-3" style="position:absolute;right:0">
     <% if user_signed_in? %>
+      <span class="d-none d-sm-inline">
       <% if current_user.is_admin && @picture.public_setting? %>
         <% if @picture.is_featured %>
           <%= link_to unfeature_picture_path(@picture), method: :put, class: 'btn btn-outline-warning', role: 'button' do %>
@@ -50,6 +51,7 @@
           <% end %>
         <% end %>
       <% end %>
+      </span>
 
       <% if @picture.user_id == current_user.id %>
         <%= link_to edit_picture_path(@picture), class: 'btn btn-outline-primary ml-1', role: 'button' do %>
@@ -67,7 +69,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-4 d-flex flex-column mt-2 mt-md-0">
+  <div class="col-md-4 d-flex flex-column mt-3 mt-md-0">
     <div>
       <p><%= render 'pictures/user', picture: @picture %></p>
 

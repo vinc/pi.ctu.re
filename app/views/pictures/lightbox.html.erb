@@ -1,9 +1,27 @@
 <% content_for(:title, "#{truncate(@picture.caption.presence || 'Picture', length: 100, separator: '.')} by #{@picture.user.name} (#{@picture.token}) - Lightbox") %>
 
-<div class="row justify-content-center align-items-center" style="height:100vh">
-  <div class="col-md-10">
+<div class="row align-items-center" style="height:100vh">
+  <div class="col-1 p-0 text-center">
+    <% if @previous_picture %>
+      <%= link_to lightbox_picture_path(@previous_picture, from: @from, order: @order), class: '', aria_label: 'previous' do %>
+        <%= fa_icon("chevron-left") %>
+        <span class="sr-only">Previous</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-10 p-0 text-center">
     <%= link_to(picture_path(@picture, secret: @picture.protected_secret, from: @from, order: @order), style: 'cursor:zoom-out') do %>
       <%= image_tag(@picture.image_url, alt: @picture.alt, class: 'img-fluid mx-auto d-block', style: 'max-height:90vh') %>
+    <% end %>
+  </div>
+
+  <div class="col-1 p-0 text-center">
+    <% if @next_picture %>
+      <%= link_to lightbox_picture_path(@next_picture, from: @from, order: @order), class: '', aria_label: 'next' do %>
+        <%= fa_icon("chevron-right") %>
+        <span class="sr-only">Next</span>
+      <% end %>
     <% end %>
   </div>
 </div>
