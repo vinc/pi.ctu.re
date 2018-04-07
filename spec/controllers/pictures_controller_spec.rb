@@ -218,30 +218,4 @@ RSpec.describe PicturesController, type: :controller do
       end
     end
   end
-
-  context "with signed in admin" do
-    let(:admin) { FactoryBot.create(:user, is_admin: true) }
-
-    before(:each) do
-      sign_in admin
-    end
-
-    context "with a picture" do
-      let(:picture) { FactoryBot.create(:picture) }
-
-      describe "PUT #feature" do
-        it "returns http redirect to #show" do
-          put :feature, params: { token: picture.token }
-          expect(response).to redirect_to(picture)
-        end
-      end
-
-      describe "PUT #unfeature" do
-        it "returns http redirect to #show" do
-          put :unfeature, params: { token: picture.token }
-          expect(response).to redirect_to(picture)
-        end
-      end
-    end
-  end
 end

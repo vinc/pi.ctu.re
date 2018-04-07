@@ -9,11 +9,13 @@ Rails.application.routes.draw do
     get "/", to: redirect("/account/settings/edit")
     get "/settings", to: redirect("/account/settings/edit")
     resource :settings, only: %i[edit update]
-    resource :billing, only: [:show]
-    resources :charges, only: [:create]
+    resource :billing, only: :show
+    resources :charges, only: :create
   end
 
   resources :pictures, param: :token, path: "p" do
+    resource :featured, only: %i[create destroy], controller: "pictures/featureds"
+
     collection do
       get "import"
       get "search"
@@ -24,9 +26,6 @@ Rails.application.routes.draw do
 
       put "like"
       put "unlike"
-
-      put "feature"
-      put "unfeature"
     end
   end
 

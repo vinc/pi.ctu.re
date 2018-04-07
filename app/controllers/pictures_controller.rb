@@ -97,26 +97,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  def feature
-    authorize @picture
-
-    @picture.update(is_featured: true)
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: @picture) }
-      format.json { head :no_content }
-    end
-  end
-
-  def unfeature
-    authorize @picture
-
-    @picture.update(is_featured: false)
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: @picture) }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
   def set_picture

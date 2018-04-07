@@ -42,11 +42,11 @@
       <span class="d-none d-sm-inline">
       <% if current_user.is_admin && @picture.public_setting? %>
         <% if @picture.is_featured %>
-          <%= link_to unfeature_picture_path(@picture), method: :put, class: 'btn btn-outline-warning', role: 'button' do %>
+          <%= link_to picture_featured_path(@picture), method: :delete, class: 'btn btn-outline-warning', role: 'button' do %>
             <%= fa_icon("check") %> Unpick
           <% end %>
         <% else %>
-          <%= link_to feature_picture_path(@picture), method: :put, class: 'btn btn-outline-warning', role: 'button' do %>
+          <%= link_to picture_featured_path(@picture), method: :post, class: 'btn btn-outline-warning', role: 'button' do %>
             <%= fa_icon("check") %> Pick
           <% end %>
         <% end %>
