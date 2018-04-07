@@ -123,14 +123,38 @@ class PicturesController < ApplicationController
     @picture = Picture.find_by!(token: params[:token])
   end
 
-  def set_user
-    @user = @picture.user unless @picture.nil?
-  end
-
   def set_album
     token = params[:album_token] || params[:from] unless %w[all explore user].include?(params[:from])
 
     @album = Album.find_by(token: token) if token
+  end
+
+  def set_user
+    @user = @picture.user unless @picture.nil?
+  end
+
+  def set_pictures
+    @pictures =
+      case @from
+      when "all"
+        Picture.where(privacy_setting: "public")
+      when "explore"
+        Picture.featured.where(privacy_setting: "public")
+      when "user"
+        if @user == current_user
+          @user.pictures
+        else
+          @user.pictures.where(privacy_setting: "public")
+        end
+      when /\w+/ # album token
+        raise(ActionController::BadRequest, "Invalid query parameters: from") if @album.nil?
+
+        if @album.user == current_user
+          @album.pictures
+        else
+          @album.pictures.where(privacy_setting: "public")
+        end
+      end
   end
 
   def picture_params
