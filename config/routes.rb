@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :pictures, param: :token, path: "p" do
-    resource :featured, only: %i[create destroy], controller: "pictures/featureds"
-    resource :like, only: %i[create destroy], controller: "pictures/likes"
+    resource :featured, only: %i[create destroy], module: :pictures
+    resource :like, only: %i[create destroy], module: :pictures
 
     collection do
       get "import"
