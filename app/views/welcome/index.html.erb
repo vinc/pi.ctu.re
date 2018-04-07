@@ -6,13 +6,18 @@
   <p class="mt-5">
     <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %>
   </p>
+
+</div>
+
+<div id="read-more" class="text-center">
+  <%= fa_icon 'chevron-down' %>
 </div>
 
 </div><!-- end layout container -->
 </div><!-- end layout wrapper -->
 
 <div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
-  <div class="my-5 px-5" style="">
+  <div class="my-5 mx-sm-5">
     <div class="row align-items-center">
       <div class="col-md-5 order-md-1">
         <h2 class="display-4 mb-4" style="color:#0C9">What is Picture?</h2>
@@ -31,7 +36,7 @@
       </div>
     </div>
 
-    <hr class="my-5">
+    <hr class="my-5" style="opacity:0">
 
     <div class="row align-items-center">
       <div class="col-md-5 order-md-2">
@@ -62,9 +67,9 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
-  <div class="my-5 px-5" style="">
+  <div class="my-5 mx-sm-5">
     <div class="row align-items-center">
-      <div class="col-md-6 offset-md-1">
+      <div class="col-md-6">
         <h2 class="display-4 mb-4" style="color:#0C9">Try it for free</h2>
         <p class="lead">
           When you create an account, we give you 100MB of storage
@@ -80,7 +85,7 @@
         </p>
       </div>
 
-      <div class="col-md-3 mt-4 mt-md-0">
+      <div class="col-md-6 mt-4 mt-md-0">
         <div class="phone">
           <%= image_tag('screenshots/screenshot-phone-timeline.jpg') %>
         </div>

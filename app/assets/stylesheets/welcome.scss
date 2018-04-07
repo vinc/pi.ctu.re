@@ -56,14 +56,32 @@ body.welcome-index {
     }
   }
   .phone {
-    padding: 2vw;
+    padding: calc(0.5rem + 1vw);
     height: 80vh;
     width: calc(80vh * 0.56);
     margin: 0 auto;
   }
   .tablet {
-    padding: 3vw;
+    padding: calc(1rem + 1vw);
     width: 100%;
+  }
+
+  #read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: rgba(white, 0.95);
+    animation: bounce 1s ease infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 75% {
+    margin-bottom: 0.25rem;
+  }
+  25% {
+    margin-bottom: 0.50rem;
   }
 }
 
