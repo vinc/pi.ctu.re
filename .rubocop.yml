@@ -13,6 +13,9 @@ Layout/DotPosition:
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Metrics/LineLength:
   Max: 120
 

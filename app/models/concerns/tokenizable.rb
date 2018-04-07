@@ -19,7 +19,7 @@ module Tokenizable
 
   module ClassMethods
     def generate_unique_secure_token(attribute)
-      10.times do |_i|
+      10.times do
         token = SecureRandom.uuid.slice(0, 8)
         return token unless exists?(attribute => token)
       end

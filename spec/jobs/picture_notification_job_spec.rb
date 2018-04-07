@@ -6,9 +6,9 @@ RSpec.describe PictureNotificationJob, type: :job do
 
     it "notify picture creation" do
       ActiveJob::Base.queue_adapter = :test
-      expect {
+      expect do
         PictureNotificationJob.perform_later(picture)
-      }.to have_enqueued_job
+      end.to have_enqueued_job
     end
   end
 
@@ -26,9 +26,9 @@ RSpec.describe PictureNotificationJob, type: :job do
           follower = user.followers.first
 
           ActiveJob::Base.queue_adapter = :test
-          expect {
+          expect do
             PictureNotificationJob.perform_now(picture)
-          }.to have_broadcasted_to(follower).from_channel(TimelineChannel).with(picture: picture.token)
+          end.to have_broadcasted_to(follower).from_channel(TimelineChannel).with(picture: picture.token)
         end
       end
     end
