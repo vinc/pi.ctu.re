@@ -97,9 +97,9 @@ RSpec.describe Picture, type: :model do
   describe "after_create" do
     it "notifies of picture creation" do
       ActiveJob::Base.queue_adapter = :test
-      expect {
+      expect do
         subject.save
-      }.to have_enqueued_job
+      end.to have_enqueued_job
     end
   end
 
@@ -108,9 +108,9 @@ RSpec.describe Picture, type: :model do
 
     it "notifies of picture creation" do
       ActiveJob::Base.queue_adapter = :test
-      expect {
+      expect do
         subject.notify!
-      }.to have_enqueued_job
+      end.to have_enqueued_job
     end
   end
 
@@ -124,6 +124,65 @@ RSpec.describe Picture, type: :model do
         expect(subject.image.thumb_size("#{width}x#{height}")).to eq("#{width}x#{height}")
         expect(subject.image.thumb_size("x#{height}")).to eq("#{width}x#{height}")
         expect(subject.image.thumb_size("#{width}x")).to eq("#{width}x#{height}")
+      end
+    end
+
+    describe "#url" do
+      it "returns image url" do
+        expect(subject.image.url).
+          to eq("#{ENV['PICTURE_DELIVERY_URL']}/pictures/#{subject.token}/#{subject.image.filename}")
+      end
+    end
+  end
+
+  describe "#protected_secret" do
+    context "with a protected picture" do
+      subject! { FactoryBot.create(:picture, privacy_setting: "protected") }
+
+      it "returns a secret protecting a picture" do
+        expect(subject.protected_secret).to be_a String
+        expect(subject.protected_secret).to be_present
+      end
+    end
+
+    context "with a public picture" do
+      subject! { FactoryBot.create(:picture, privacy_setting: "public") }
+
+      it "returns nil" do
+        expect(subject.protected_secret).to be_nil
+      end
+    end
+  end
+
+  describe "#regenerate_protected_secret!" do
+    context "with a protected picture" do
+      subject! { FactoryBot.create(:picture, privacy_setting: "protected") }
+
+      it "changes the secret" do
+        old_secret = subject.protected_secret
+        expect(subject.regenerate_protected_secret!).not_to eq(old_secret)
+        expect(subject.protected_secret).not_to eq(old_secret)
+      end
+
+      it "changes the filename" do
+        old_filename = subject.image.filename
+        subject.regenerate_protected_secret!
+        expect(subject.image.filename).not_to eq(old_filename)
+      end
+    end
+
+    context "with a public picture" do
+      subject! { FactoryBot.create(:picture, privacy_setting: "public") }
+
+      it "doesn't change the secret" do
+        expect(subject.regenerate_protected_secret!).to be_nil
+        expect(subject.protected_secret).to be_nil
+      end
+
+      it "doesn't change the filename" do
+        old_filename = subject.image.filename
+        subject.regenerate_protected_secret!
+        expect(subject.image.filename).to eq(old_filename)
       end
     end
   end

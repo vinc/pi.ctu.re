@@ -5,16 +5,26 @@ RSpec.describe PicturePolicy do
 
   subject { described_class }
 
-  context "with picture" do
-    let(:picture) { FactoryBot.create(:picture) }
+  context "with public picture" do
+    let(:picture) { FactoryBot.create(:picture, privacy_setting: "public") }
 
-    permissions :show? do
+    permissions :index?, :show? do
       it "grants access" do
         expect(subject).to permit(user, picture)
       end
     end
 
-    permissions :index?, :new?, :create?, :edit?, :update?, :destroy? do
+    permissions :new?, :create?, :edit?, :update?, :destroy? do
+      it "denies access" do
+        expect(subject).not_to permit(user, picture)
+      end
+    end
+  end
+
+  context "with private picture" do
+    let(:picture) { FactoryBot.create(:picture, privacy_setting: "private") }
+
+    permissions :show?, :new?, :create?, :edit?, :update?, :destroy? do
       it "denies access" do
         expect(subject).not_to permit(user, picture)
       end

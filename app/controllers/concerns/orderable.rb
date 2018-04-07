@@ -41,7 +41,9 @@ module Orderable
         else
           @user.pictures.where(privacy_setting: "public")
         end
-      else
+      when /\w+/ # album token
+        raise(ActionController::BadRequest, "Invalid query parameters: from") if @album.nil?
+
         if @album.user == current_user
           @album.pictures
         else

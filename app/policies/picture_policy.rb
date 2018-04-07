@@ -1,4 +1,8 @@
 class PicturePolicy < ApplicationPolicy
+  def index?
+    true
+  end
+
   def show?
     user.is_admin ||
       user == record.user ||
