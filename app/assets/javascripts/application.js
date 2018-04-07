@@ -19,3 +19,7 @@
 //= require justifiedGallery/dist/js/jquery.justifiedGallery
 //= require dropzone
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});

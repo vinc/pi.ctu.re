@@ -4,6 +4,8 @@ class TimelineController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pictures = Picture.where(user: current_user.followees + [current_user]).order_by_time.page(params[:page])
+    @pictures = Picture.
+      where(privacy_setting: "public", user: current_user.followees + [current_user]).
+      order_by_time.page(params[:page])
   end
 end

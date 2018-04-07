@@ -49,6 +49,73 @@ RSpec.describe PicturesController, type: :controller do
           expect(response).to be_successful
         end
       end
+
+      context "with a valid album token" do
+        let(:album) { FactoryBot.create(:album, pictures: [picture]) }
+
+        context "with own album" do
+          before(:each) do
+            sign_in album.user
+          end
+
+          it "returns http success" do
+            get :show, params: { token: picture.token, from: album.token }
+            expect(response).to be_successful
+          end
+        end
+
+        context "without own album" do
+          it "returns http success" do
+            get :show, params: { token: picture.token, from: album.token }
+            expect(response).to be_successful
+          end
+        end
+      end
+
+      context "with an invalid album token" do
+        it "raises ActionController::BadRequest" do
+          expect do
+            get :show, params: { token: picture.token, from: "invalid" }
+          end.to raise_exception(ActionController::BadRequest)
+        end
+      end
+    end
+
+    context "with a private picture" do
+      let(:picture) { FactoryBot.create(:picture, privacy_setting: "private") }
+
+      it "raises Pundit::NotAuthorizedError" do
+        expect do
+          get :show, params: { token: picture.token }
+        end.to raise_exception(Pundit::NotAuthorizedError)
+      end
+    end
+
+    context "with a protected picture" do
+      let(:picture) { FactoryBot.create(:picture, privacy_setting: "protected") }
+
+      context "with a valid secret" do
+        it "returns http success" do
+          get :show, params: { token: picture.token, secret: picture.protected_secret }
+          expect(response).to be_successful
+        end
+      end
+
+      context "with an invalid secret" do
+        it "raises Pundit::NotAuthorizedError" do
+          expect do
+            get :show, params: { token: picture.token, secret: Faker::Internet.password }
+          end.to raise_exception(Pundit::NotAuthorizedError)
+        end
+      end
+
+      context "without secret" do
+        it "raises Pundit::NotAuthorizedError" do
+          expect do
+            get :show, params: { token: picture.token }
+          end.to raise_exception(Pundit::NotAuthorizedError)
+        end
+      end
     end
 
     context "when picture does not exists" do

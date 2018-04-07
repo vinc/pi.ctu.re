@@ -24,6 +24,9 @@ class Picture < ApplicationRecord
 
   CAPTION_LENGTH_MAX = 500
 
+  attr_accessor :protected_param
+  attr_accessor :regenerate_secret
+
   belongs_to :user
   has_and_belongs_to_many :albums
 
@@ -34,9 +37,13 @@ class Picture < ApplicationRecord
   order_query :order_by_view, %i[views_count desc]
   order_query :order_by_time, %i[created_at desc]
 
+  enum privacy_setting: %i[public protected private], _suffix: :setting
+
   validates_presence_of :image
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
   validate :user_balance_cannot_be_negative, on: :create
+
+  before_update :regenerate_protected_secret!, if: :regenerate_secret
 
   after_create_commit :notify!
 
@@ -55,6 +62,14 @@ class Picture < ApplicationRecord
   def exif
     # TODO: Save in database
     @exif ||= EXIFR::JPEG.new(StringIO.new(image.file.read))
+  end
+
+  def protected_secret
+    Digest::SHA1.hexdigest(image.filename) if protected_setting?
+  end
+
+  def regenerate_protected_secret!
+    Digest::SHA1.hexdigest(image.generate_filename) if protected_setting?
   end
 
   def self.featured

@@ -3,10 +3,6 @@ class ApplicationUploader < CarrierWave::Uploader::Base
 
   storage :postgresql_lo
 
-  def path
-    "/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-
   def url
     "#{asset_host}#{path}/#{filename}"
   end

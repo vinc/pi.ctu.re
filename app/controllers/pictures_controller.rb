@@ -24,7 +24,11 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @pictures = Picture.where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page]) if params[:q].present?
+    if params[:q].present?
+      @pictures = Picture.
+        where(privacy_setting: "public").
+        where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
+    end
 
     respond_to do |format|
       format.html # search.html.erb
@@ -36,6 +40,9 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @picture.protected_param = params[:secret]
+    authorize @picture
+
     case @order
     when "view"
       @previous_picture = @pictures.order_by_view_at(@picture).previous(false)
@@ -107,6 +114,9 @@ class PicturesController < ApplicationController
   end
 
   def lightbox
+    @picture.protected_param = params[:secret]
+    authorize @picture
+
     Picture.increment_counter(:views_count, @picture.id)
   end
 
@@ -127,6 +137,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:caption, :image, album_ids: [])
+    params.require(:picture).permit(:caption, :image, :privacy_setting, :regenerate_secret, album_ids: [])
   end
 end

@@ -2,7 +2,7 @@
 
 <div class="row justify-content-center align-items-center" style="height:100vh">
   <div class="col-md-10">
-    <%= link_to(picture_path(@picture, from: @from, order: @order), style: 'cursor:zoom-out') do %>
+    <%= link_to(picture_path(@picture, secret: @picture.protected_secret, from: @from, order: @order), style: 'cursor:zoom-out') do %>
       <%= image_tag(@picture.image_url, alt: @picture.alt, class: 'img-fluid mx-auto d-block', style: 'max-height:90vh') %>
     <% end %>
   </div>

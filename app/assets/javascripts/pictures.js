@@ -34,16 +34,25 @@ $(document).on('turbolinks:load', function() {
     border: 0
   });
 
-  $("input:file").change(function() {
+  $('input:file').change(function() {
     var f = this.files;
     var n = this.files.length;
-    var msg = n > 1 ? n + " files selected" : f[0].name;
+    var msg = n > 1 ? n + ' files selected' : f[0].name;
 
     if (this.id) {
-      $(".custom-file-label[for=" + this.id + "]").text(msg);
+      $('.custom-file-label[for=' + this.id + ']').text(msg);
     }
   });
 
+  $('select#picture_privacy_setting').change(function() {
+    var checkbox = $('input#picture_regenerate_secret').parents('.form-check');
+
+    if ($(this).val() === 'protected') {
+      checkbox.removeClass('d-none');
+    } else {
+      checkbox.addClass('d-none');
+    }
+  });
 
   var busy = false;
 
