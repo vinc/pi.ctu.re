@@ -36,6 +36,13 @@
     <%= f.select :privacy_setting, Picture.privacy_settings.keys.to_a, {}, { class: 'custom-select' } %>
   </div>
 
+  <% if picture.persisted? %>
+    <div class="form-check form-group <%= 'd-none' unless picture.protected_setting? %>">
+      <%= f.check_box :regenerate_secret, class: 'form-check-input' %>
+      <%= f.label :regenerate_secret, class: 'form-check-label' %>
+    </div>
+  <% end %>
+
   <div class="">
     <% if picture.persisted? %>
       <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'This picture will be deleted, are you sure?' }, class: 'btn btn-link text-danger pull-right', role: 'button' %>

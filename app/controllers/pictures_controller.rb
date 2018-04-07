@@ -137,6 +137,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:caption, :image, :privacy_setting, album_ids: [])
+    params.require(:picture).permit(:caption, :image, :privacy_setting, :regenerate_secret, album_ids: [])
   end
 end
