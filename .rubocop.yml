@@ -26,6 +26,8 @@ Metrics/BlockLength:
   Max: 30
   Exclude:
     - 'spec/**/*.rb'
+    - 'config/environments/*.rb'
+    - 'config/routes.rb'
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
@@ -38,6 +40,9 @@ Style/FrozenStringLiteralComment:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
 
 ClassAndModuleChildren:
   Enabled: false

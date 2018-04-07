@@ -21,7 +21,7 @@ RSpec.describe PictureHelper, type: :helper do
 
       it "formats picture caption" do
         expect(helper.picture_caption_format(subject)).
-          to match /\A(<p>[^<]+<\/p>\s*){2}\z/
+          to match(/\A(<p>[^<]+<\/p>\s*){2}\z/)
       end
 
       it "has a truncate option" do
@@ -30,7 +30,7 @@ RSpec.describe PictureHelper, type: :helper do
         expect(helper.picture_caption_format(subject, truncate: 20).length).
           to be < 50
         expect(helper.picture_caption_format(subject, truncate: 20)).
-          to match /\A<p>[^<]+<\/p>\z/
+          to match(/\A<p>[^<]+<\/p>\z/)
       end
     end
 
