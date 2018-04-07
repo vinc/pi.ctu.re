@@ -43,6 +43,28 @@ body.welcome-index {
   .lead {
     font-weight: normal;
   }
+
+  .phone, .tablet {
+    box-shadow: 0 16px 32px #eeee;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    position: relative;
+    img {
+      border: solid 1px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .phone {
+    padding: 2vw;
+    height: 80vh;
+    width: calc(80vh * 0.56);
+    margin: 0 auto;
+  }
+  .tablet {
+    padding: 3vw;
+    width: 100%;
+  }
 }
 
 @media (max-width: 767.98px) {

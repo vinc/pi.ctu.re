@@ -12,14 +12,41 @@
 </div><!-- end layout wrapper -->
 
 <div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
-  <div class="my-5" style="max-width:45em">
-    <h2 class="display-4 mb-4" style="color:#0C9">What is Picture?</h2>
-    <p class="lead">
-      Picture is a website where you can upload and share your best photographs.
-    </p>
-    <p class="">
-      <%= link_to 'Explore the community', explore_path, class: 'btn btn-lg btn-outline-primary mt-4', role: 'button' %>
-    </p>
+  <div class="my-5 px-5" style="">
+    <div class="row align-items-center">
+      <div class="col-md-5 order-md-1">
+        <h2 class="display-4 mb-4" style="color:#0C9">What is Picture?</h2>
+        <p class="lead">
+          Picture is a website where you can upload and share with the world your best visual creations.
+        </p>
+        <p class="">
+          <%= link_to 'Explore the community', explore_path, class: 'btn btn-lg btn-outline-primary mt-4', role: 'button' %>
+        </p>
+      </div>
+
+      <div class="col-md-7 order-md-2 mt-4 mt-md-0">
+        <div class="tablet">
+          <%= image_tag('screenshots/screenshot-tablet-explore.jpg') %>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row align-items-center">
+      <div class="col-md-5 order-md-2">
+        <h2 class="display-4 mb-4" style="color:#0C9">Stay in control of your content</h2>
+        <p class="lead">
+          You publish your content with the license of your choice and you can control, at any time, who will be able to see it.
+        </p>
+      </div>
+
+      <div class="col-md-7 order-md-1 mt-4 mt-md-0">
+        <div class="tablet">
+          <%= image_tag('screenshots/screenshot-tablet-lightbox.jpg') %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -35,16 +62,30 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
-  <div class="my-5" style="max-width:45em">
-    <h2 class="display-4 mb-4" style="color:#0C9">Try it for free</h2>
-    <p class="lead">
-      When you create an account, we give you 100MB of storage
-      and data transfer to try the service for free.
-    </p>
-    <p class="mt-4">
-      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %>
-      <%= link_to 'See pricing', pricing_path, class: 'btn btn-lg btn-outline-primary ml-2', role: 'button' %>
-    </p>
+  <div class="my-5 px-5" style="">
+    <div class="row align-items-center">
+      <div class="col-md-6 offset-md-1">
+        <h2 class="display-4 mb-4" style="color:#0C9">Try it for free</h2>
+        <p class="lead">
+          When you create an account, we give you 100MB of storage
+          and data transfer to try the service for free.
+        </p>
+        <p class="lead">
+          And of course you don't have to pay to follow other people and see their
+          latest update.
+        </p>
+        <p class="mt-4">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %>
+          <%= link_to 'See pricing', pricing_path, class: 'btn btn-lg btn-outline-primary ml-2', role: 'button' %>
+        </p>
+      </div>
+
+      <div class="col-md-3 mt-4 mt-md-0">
+        <div class="phone">
+          <%= image_tag('screenshots/screenshot-phone-timeline.jpg') %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
