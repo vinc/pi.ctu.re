@@ -39,9 +39,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    # NOTE: `updated_at` is not automatically changed when adding pictures
-    # to album without changing anything else.
-    @album.update(album_params.merge(updated_at: Time.current))
+    @album.update(album_params)
     respond_with(@album)
   end
 

@@ -29,7 +29,7 @@ class Picture < ApplicationRecord
   attr_accessor :regenerate_secret
 
   belongs_to :user
-  has_and_belongs_to_many :albums
+  has_and_belongs_to_many :albums, after_add: :touch_album, after_remove: :touch_album
 
   mount_uploader :image, ImageUploader
 
@@ -78,6 +78,10 @@ class Picture < ApplicationRecord
   end
 
   private
+
+  def touch_album(album)
+    album.touch if persisted?
+  end
 
   def user_balance_cannot_be_negative
     errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?

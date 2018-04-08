@@ -46,6 +46,7 @@ group :test do
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
   gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
+  gem "timecop"
 end
 
 gem "acts_as_votable", "~> 0.11.1"

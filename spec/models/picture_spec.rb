@@ -201,4 +201,36 @@ RSpec.describe Picture, type: :model do
       end
     end
   end
+
+  describe "#albums" do
+    subject { FactoryBot.create(:picture) }
+
+    describe "after_add" do
+      let(:album) do
+        Timecop.freeze(5.minutes.ago) do
+          FactoryBot.create(:album)
+        end
+      end
+
+      it "touches album" do
+        expect(album.updated_at).to be < 1.minute.ago
+        subject.albums << album
+        expect(album.updated_at).to be > 1.minute.ago
+      end
+    end
+
+    describe "after_remove" do
+      let(:album) do
+        Timecop.freeze(5.minutes.ago) do
+          FactoryBot.create(:album, pictures: [subject])
+        end
+      end
+
+      it "touches album" do
+        expect(album.updated_at).to be < 1.minute.ago
+        subject.albums.delete(album)
+        expect(album.updated_at).to be > 1.minute.ago
+      end
+    end
+  end
 end
