@@ -4,15 +4,8 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
-
-    respond_to do |format|
-      if @invitation.save
-        format.html { redirect_to root_path, notice: "Invitation was successfully requested." }
-      else
-        format.html { render :new }
-      end
-    end
+    @invitation = Invitation.create(invitation_params)
+    respond_with(@invitation, location: -> { root_path })
   end
 
   private
