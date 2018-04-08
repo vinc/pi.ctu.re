@@ -1,26 +1,34 @@
-<%= link_to(picture.user) do %>
-  <% if picture.user.avatar? %>
-    <%= image_tag(picture.user.avatar.thumb_url('100x100'), alt: 'avatar', class: 'rounded-circle float-left mr-3', width: 50, height: 50) %>
-  <% else %>
-    <span class="rounded-circle float-left mr-3 align-bottom d-inline-block text-white" style="background:#ccc;width:50px;height:50px">
-      <i class="fa fa-user-o align-top text-center" style="width:50px;line-height:45px;font-size:30px" aria-hidden="true"></i>
-    </span>
-  <% end %>
-<% end %>
-<span class="d-flex flex-column justify-content-center" style="height:50px">
-  <%= link_to(picture.user.name, picture.user, class: 'overflow-hidden') %>
-  <span class="text-muted">
-    <%= timeago_tag picture.created_at %>
-    <% if picture.user == current_user || picture.protected_setting? %>
-      <span class="float-right" data-toggle="tooltip" data-placement="left" title="<%= picture.privacy_setting %>">
-        <% if picture.public_setting? %>
-          <%= fa_icon "globe" %>
-        <% elsif picture.protected_setting? %>
-          <%= fa_icon "lock" %>
-        <% else %>
-          <%= fa_icon "minus-circle" %>
-        <% end %>
-      </span>
+<div class="row flex-nowrap" style="height:50px">
+  <div class="col-auto">
+    <%= link_to(picture.user) do %>
+      <% if picture.user.avatar? %>
+        <%= image_tag(picture.user.avatar.thumb_url('100x100'), alt: 'avatar', class: 'rounded-circle', width: 50, height: 50) %>
+      <% else %>
+        <span class="rounded-circle align-bottom d-inline-block text-white" style="background:#ccc;width:50px;height:50px">
+          <i class="fa fa-user-o align-top text-center" style="width:50px;line-height:45px;font-size:30px" aria-hidden="true"></i>
+        </span>
+      <% end %>
     <% end %>
-  </span>
-</span>
+  </div>
+  <div class="col pl-0 text-truncate">
+    <%= link_to(picture.user, class: 'overflow-hidden') do %>
+      <div style="line-height:25px" class="text-truncate">
+        <%= picture.user.name %>
+      </div>
+    <% end %>
+    <div style="line-height:25px" class="text-muted text-truncate">
+      <% if picture.user == current_user || picture.protected_setting? %>
+        <span class="float-right" data-toggle="tooltip" data-placement="left" title="<%= picture.privacy_setting %>">
+          <% if picture.public_setting? %>
+            <%= fa_icon "globe" %>
+          <% elsif picture.protected_setting? %>
+            <%= fa_icon "lock" %>
+          <% else %>
+            <%= fa_icon "minus-circle" %>
+          <% end %>
+        </span>
+      <% end %>
+      <%= timeago_tag picture.created_at %>
+    </div>
+  </div>
+</div>

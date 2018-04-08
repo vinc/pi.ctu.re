@@ -53,7 +53,7 @@
       <% end %>
       </span>
 
-      <% if @picture.user_id == current_user.id %>
+      <% if @picture.user == current_user %>
         <%= link_to edit_picture_path(@picture), class: 'btn btn-outline-primary ml-1', role: 'button' do %>
           <%= fa_icon("pencil") %> Edit
         <% end %>
@@ -71,7 +71,7 @@
 
   <div class="col-md-4 d-flex flex-column mt-3 mt-md-0">
     <div>
-      <p><%= render 'pictures/user', picture: @picture %></p>
+      <div class="mb-3"><%= render 'pictures/user', picture: @picture %></div>
 
       <% if @picture.caption.present? %>
         <%= picture_caption_format(@picture.caption) %>

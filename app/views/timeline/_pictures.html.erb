@@ -5,10 +5,12 @@
     <% end %>
 
     <div class="card-body">
-      <p class="card-text"><%= render 'pictures/user', picture: picture %></p>
+      <%= render 'pictures/user', picture: picture %>
 
       <% if picture.caption.present? %>
-        <%= picture_caption_format(picture.caption, truncate: 200, class: 'card-text') %>
+        <div class="mt-3">
+          <%= picture_caption_format(picture.caption, truncate: 200, class: 'card-text') %>
+        </div>
       <% end %>
     </div>
   </div>
