@@ -153,6 +153,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    meta-tags (2.9.0)
+      actionpack (>= 3.2.0, < 5.3)
     method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -337,6 +339,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  meta-tags
   mini_magick
   order_query (~> 0.4.0)
   pg (~> 0.18)
