@@ -1,4 +1,4 @@
-<% content_for(:title, "#{@album.title.presence || 'Album'} by #{@album.user.name} (#{@album.token})") %>
+<% title "#{@album.title.presence || 'Album'} by #{@album.user.name} (#{@album.token})" %>
 
 <% if user_signed_in? && @album.user == current_user %>
   <div class="btn-group float-right" role="group">

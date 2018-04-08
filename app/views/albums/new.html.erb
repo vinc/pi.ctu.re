@@ -1,9 +1,7 @@
-<% content_for(:title, 'Create an album') %>
-
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted">Create an album</div>
+      <div class="card-header text-muted"><%= title 'New album' %></div>
       <div class="card-body">
         <%= render 'form', album: @album %>
       </div>

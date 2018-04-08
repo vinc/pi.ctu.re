@@ -1,4 +1,4 @@
-<% content_for(:title, "#{truncate(@picture.caption.presence || 'Picture', length: 100, separator: '.')} by #{@picture.user.name} (#{@picture.token})") %>
+<% title "#{truncate(@picture.caption.presence || 'Picture', length: 100, separator: '.')} by #{@picture.user.name} (#{@picture.token})" %>
 
 <div class="row" style="position:relative">
   <div class="col-md-8">

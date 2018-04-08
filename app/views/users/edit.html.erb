@@ -1,12 +1,10 @@
-<% content_for(:title, "Edit profile") %>
-
 <div class="row">
   <div class="col-lg-3">
     <%= render 'account/nav' %>
   </div>
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted">Edit profile</div>
+      <div class="card-header text-muted"><%= title 'Edit profile' %></div>
       <div class="card-body">
         <%= render 'form' %>
       </div>

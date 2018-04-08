@@ -1,9 +1,7 @@
-<% content_for(:title, t('.sign_in')) %>
-
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted"><%= t('.sign_in', default: 'Sign in') %></div>
+      <div class="card-header text-muted"><%= title t('.sign_in') %></div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
           <div class="form-group">

@@ -1,9 +1,7 @@
-<% content_for(:title, 'Upload many pictures') %>
-
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted">Upload many pictures</div>
+      <div class="card-header text-muted"><%= title 'Upload many pictures' %></div>
       <div class="card-body">
         <% if current_user.billable? && current_user.balance.negative? %>
           <div class="alert alert-danger" role="alert">

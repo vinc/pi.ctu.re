@@ -6,7 +6,6 @@ en:
       subject: "Invitation to Picture approved"
 
   welcome:
-    title: "Upload your pictures to the cloud"
     body_html: |
       <h1 class="display-4 text-white">Upload your pictures<br> to the cloud</h1>
     footer:

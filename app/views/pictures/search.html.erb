@@ -1,14 +1,13 @@
-
 <h1 class="mb-4">Search pictures</h1>
 
 <%= render 'layouts/search' %>
 
 <% if params[:q].present? %>
-  <% content_for(:title, "Pictures about '#{params[:q]}'") %>
+  <% title "Pictures about '#{params[:q]}'" %>
 
   <p class="mt-4"><%= pluralize(@pictures.total_count, 'picture') %> found</p>
 
   <%= render 'pictures/gallery', pictures: @pictures %>
 <% else %>
-  <% content_for(:title, "Search pictures") %>
+  <% title 'Search' %>
 <% end %>

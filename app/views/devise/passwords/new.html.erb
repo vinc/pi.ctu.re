@@ -1,11 +1,9 @@
-<% content_for(:title, t('.forgot_your_password')) %>
-
 <%= bootstrap_devise_error_messages! %>
 
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted"><%= t('.forgot_your_password', default: 'Forgot your password?') %></div>
+      <div class="card-header text-muted"><%= title t('.forgot_your_password') %></div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
           <div class="form-group">
