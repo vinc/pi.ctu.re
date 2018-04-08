@@ -1,4 +1,5 @@
 <% title "Pictures by #{@user.name}" %>
+<% set_meta_tags og: { image: @user.avatar.thumb_url('100x100'), type: 'profile', profile: { username: @user.username } } %>
 
 <%= render 'header' %>
 

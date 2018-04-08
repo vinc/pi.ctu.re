@@ -1,4 +1,6 @@
-<% title "#{truncate(@picture.caption.presence || 'Picture', length: 100, separator: '.')} by #{@picture.user.name} (#{@picture.token})" %>
+<% title "#{truncate((@picture.caption.presence || 'Picture').lines.first.chomp, length: 60, separator: '.')} by #{@picture.user.name} (#{@picture.token})" %>
+<% set_meta_tags og: { image: @picture.image.thumb_url('800x800') } %>
+<% set_meta_tags twitter: { card: 'photo', image: @picture.image.thumb_url('800x800') } %>
 
 <div class="row" style="position:relative">
   <div class="col-md-8">
@@ -6,6 +8,7 @@
       <ul class="pagination pagination justify-content-center">
         <% if @previous_picture %>
           <li class="page-item">
+            <% set_meta_tags prev: picture_url(@previous_picture) %>
             <%= link_to picture_path(@previous_picture, from: @from, order: @order), class: 'page-link', aria_label: 'previous' do %>
               <%= fa_icon("chevron-left") %>
               <span class="sr-only">Previous</span>
@@ -21,6 +24,7 @@
         <% end %>
         <% if @next_picture %>
           <li class="page-item">
+            <% set_meta_tags next: picture_url(@next_picture) %>
             <%= link_to picture_path(@next_picture, from: @from, order: @order), class: 'page-link', aria_label: 'next' do %>
               <%= fa_icon("chevron-right") %>
               <span class="sr-only">Next</span>

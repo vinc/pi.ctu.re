@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= display_meta_tags site: 'Picture', separator: '-', reverse: true %>
+    <%= page_meta_tags %>
 
     <%= csrf_meta_tags %>
 
@@ -14,7 +14,6 @@
     <% if body_class == 'users-show' %>
       <%= auto_discovery_link_tag(:atom) %>
     <% end %>
-    <link rel="canonical" href="<%= url_for(only_path: false) %>" />
   </head>
 
   <body class="<%= body_class %>">
