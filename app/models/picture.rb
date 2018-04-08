@@ -44,9 +44,13 @@ class Picture < ApplicationRecord
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
   validate :user_balance_cannot_be_negative, on: :create
 
-  after_initialize :set_default_privacy_setting, if: :new_record?
   after_create_commit :notify!
   before_update :regenerate_protected_secret!, if: :regenerate_secret
+
+  def initialize(params = {})
+    super
+    write_attribute(:privacy_setting, params[:privacy_setting] || user.default_privacy_setting) if user.present?
+  end
 
   def notify!
     PictureNotificationJob.perform_later(self)
@@ -74,10 +78,6 @@ class Picture < ApplicationRecord
   end
 
   private
-
-  def set_default_privacy_setting
-    self.privacy_setting = user.default_privacy_setting if user.present?
-  end
 
   def user_balance_cannot_be_negative
     errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?
