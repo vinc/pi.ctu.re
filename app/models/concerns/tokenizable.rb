@@ -19,11 +19,12 @@ module Tokenizable
 
   module ClassMethods
     def generate_unique_secure_token(attribute)
-      10.times do
-        token = SecureRandom.uuid.slice(0, 8)
-        return token unless exists?(attribute => token)
+      (8..32).each do |length|
+        10.times do
+          token = SecureRandom.uuid.tr("-", "").slice(0, length)
+          return token unless exists?(attribute => token)
+        end
       end
-      raise "Couldn't generate a unique token in 10 attempts!"
     end
   end
 end
