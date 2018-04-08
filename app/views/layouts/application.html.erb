@@ -19,7 +19,7 @@
 
   <body class="<%= body_class %>">
     <div class="wrapper d-flex flex-column">
-      <% unless body_class == 'pictures-lightbox' %>
+      <% unless body_class == 'pictures-lightboxes-show' %>
         <%= render partial: 'layouts/navbar' %>
       <% end %>
 
@@ -34,7 +34,7 @@
         <%= yield %>
       </div>
 
-      <% unless body_class == 'pictures-lightbox' %>
+      <% unless body_class == 'pictures-lightboxes-show' %>
         <%= render partial: 'layouts/footer' %>
       <% end %>
     </div>

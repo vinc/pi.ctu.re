@@ -14,16 +14,13 @@ Rails.application.routes.draw do
   end
 
   resources :pictures, param: :token, path: "p" do
+    resource :lightbox, only: %i[show], module: :pictures
     resource :featured, only: %i[create destroy], module: :pictures
     resource :like, only: %i[create destroy], module: :pictures
 
     collection do
       get "import"
       get "search"
-    end
-
-    member do
-      get "lightbox"
     end
   end
 

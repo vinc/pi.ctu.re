@@ -1,16 +1,16 @@
 class PicturesController < ApplicationController
   include PaginationContext
 
-  before_action :authenticate_user!, except: %i[index search show lightbox]
+  before_action :authenticate_user!, except: %i[index search show]
 
   before_action :set_picture,        except: %i[index import search new create]
-  before_action :set_album,            only: %i[index show lightbox]
-  before_action :set_user,             only: %i[index show lightbox]
+  before_action :set_album,            only: %i[index show]
+  before_action :set_user,             only: %i[index show]
 
-  before_action :set_from,             only: %i[index show lightbox]
-  before_action :set_order,            only: %i[index show lightbox]
+  before_action :set_from,             only: %i[index show]
+  before_action :set_order,            only: %i[index show]
 
-  before_action :set_pictures,         only: %i[index show lightbox]
+  before_action :set_pictures,         only: %i[index show]
 
   def index
     case @order
@@ -53,10 +53,6 @@ class PicturesController < ApplicationController
     end
 
     Picture.increment_counter(:views_count, @picture.id)
-  end
-
-  def lightbox
-    show
   end
 
   def new

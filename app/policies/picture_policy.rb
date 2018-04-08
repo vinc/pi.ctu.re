@@ -10,10 +10,6 @@ class PicturePolicy < ApplicationPolicy
       record.protected_setting? && record.protected_param == record.protected_secret
   end
 
-  def lightbox?
-    show?
-  end
-
   def feature?
     user.is_admin
   end
