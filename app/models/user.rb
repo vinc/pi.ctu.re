@@ -19,13 +19,13 @@
 #  balance                 :integer          default(0), not null
 #  fullname                :string
 #  default_license         :string           default("CC BY-NC-ND"), not null
-#  is_admin                :boolean          default(FALSE), not null
 #  avatar                  :integer
 #  avatar_filename         :string
 #  customer_id             :string
 #  followers_count         :integer          default(0)
 #  followees_count         :integer          default(0)
 #  default_privacy_setting :integer
+#  role                    :integer          default("member")
 #
 
 class User < ApplicationRecord
@@ -54,6 +54,8 @@ class User < ApplicationRecord
     self.balance = 100.megabytes
   end
 
+  enum role: %i[member moderator admin]
+
   enum default_privacy_setting: %i[public protected private], _suffix: :setting
 
   def self.default_licenses
@@ -75,7 +77,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, format: /\A#{User.username_pattern}\z/
   validates :fullname, length: { maximum: FULLNAME_LENGTH_MAX }
-  validate :invitation_token_must_be_valid, on: :create, unless: :is_admin?
+  validate :invitation_token_must_be_valid, on: :create, unless: :admin?
 
   def remember_me
     true

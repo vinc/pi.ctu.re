@@ -11,7 +11,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   end
 
   context "with signed in admin" do
-    let(:admin) { FactoryBot.create(:user, is_admin: true) }
+    let(:admin) { FactoryBot.create(:user, role: "admin") }
 
     before(:each) do
       sign_in admin

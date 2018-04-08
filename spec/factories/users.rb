@@ -19,21 +19,19 @@
 #  balance                 :integer          default(0), not null
 #  fullname                :string
 #  default_license         :string           default("CC BY-NC-ND"), not null
-#  is_admin                :boolean          default(FALSE), not null
 #  avatar                  :integer
 #  avatar_filename         :string
 #  customer_id             :string
 #  followers_count         :integer          default(0)
 #  followees_count         :integer          default(0)
 #  default_privacy_setting :integer
+#  role                    :integer          default("member")
 #
 
 require "faker"
 
 FactoryBot.define do
   factory :user do
-    is_admin false
-
     email                 { Faker::Internet.email }
     username              { Faker::Internet.user_name(nil, "-") + rand(10_000..99_999).to_s }
     fullname              { Faker::Name.name }

@@ -40,7 +40,7 @@
   <div class="mr-3" style="position:absolute;right:0">
     <% if user_signed_in? %>
       <span class="d-none d-sm-inline">
-      <% if current_user.is_admin && @picture.public_setting? %>
+      <% if current_user.admin? && @picture.public_setting? %>
         <% if @picture.is_featured %>
           <%= link_to picture_featured_path(@picture), method: :delete, class: 'btn btn-outline-warning', role: 'button' do %>
             <%= fa_icon("check") %> Unpick

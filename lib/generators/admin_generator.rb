@@ -8,7 +8,7 @@ class AdminGenerator < Rails::Generators::Base
     username = options.username || read_input("Username: ")
     password = options.password || read_input("Password: ")
 
-    admin = User.new(email: email, username: username, password: password, is_admin: true)
+    admin = User.new(email: email, username: username, password: password, role: "admin")
 
     if admin.save
       puts "Admin created"

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Pictures::FeaturedsController, type: :controller do
   context "with signed in admin" do
-    let(:admin) { FactoryBot.create(:user, is_admin: true) }
+    let(:admin) { FactoryBot.create(:user, role: "admin") }
 
     before(:each) do
       sign_in admin

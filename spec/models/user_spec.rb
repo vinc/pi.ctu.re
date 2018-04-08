@@ -19,13 +19,13 @@
 #  balance                 :integer          default(0), not null
 #  fullname                :string
 #  default_license         :string           default("CC BY-NC-ND"), not null
-#  is_admin                :boolean          default(FALSE), not null
 #  avatar                  :integer
 #  avatar_filename         :string
 #  customer_id             :string
 #  followers_count         :integer          default(0)
 #  followees_count         :integer          default(0)
 #  default_privacy_setting :integer
+#  role                    :integer          default("member")
 #
 
 require "rails_helper"

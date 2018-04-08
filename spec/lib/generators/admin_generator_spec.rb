@@ -17,7 +17,7 @@ describe AdminGenerator, type: :generator do
     it "creates a user admin" do
       created_admin = User.last
       expect(created_admin).not_to be_nil
-      expect(created_admin.is_admin).to be true
+      expect(created_admin.admin?).to be true
     end
   end
 
@@ -50,7 +50,7 @@ describe AdminGenerator, type: :generator do
     it "creates a user admin" do
       created_admin = User.last
       expect(created_admin).not_to be_nil
-      expect(created_admin.is_admin).to be true
+      expect(created_admin.admin?).to be true
     end
   end
 
