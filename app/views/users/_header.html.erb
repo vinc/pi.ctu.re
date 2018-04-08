@@ -31,7 +31,7 @@
 
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <%= link_to pluralize(@user.pictures.where(privacy_setting: 'public').count, 'picture'), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
+    <%= link_to pluralize(@user.pictures.public_setting.count, 'picture'), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
   </li>
   <li class="nav-item">
     <%= link_to pluralize(@user.albums.count, 'album'), user_albums_path(@user), class: "nav-link#{body_class == 'albums-index' ? ' active' : ''}" %>

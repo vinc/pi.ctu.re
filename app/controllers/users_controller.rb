@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @pictures = @user.pictures.order_by_time.page(params[:page])
-    @pictures = @pictures.where(privacy_setting: "public") unless @user == current_user
+    @pictures = @pictures.public_setting unless @user == current_user
 
     respond_with(@user) do |format|
       format.js { render template: "pictures/index" }
