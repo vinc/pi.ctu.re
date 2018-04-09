@@ -31,7 +31,7 @@ module PaginationContext
     @order =
       if params[:order]
         params[:order]
-      elsif request.path == explore_path
+      elsif controller_name == "explore"
         "view"
       else
         "time"
