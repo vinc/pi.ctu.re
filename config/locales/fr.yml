@@ -1,0 +1,57 @@
+fr:
+  invitations_mailer:
+    create:
+      subject: "Invitation à Picture demandée"
+    approve:
+      subject: "Invitation à Picture approuvée"
+
+  layouts:
+    navbar:
+      upload: "Téléversement"
+      explore: "Exploration"
+    footer:
+      contact: "Contact"
+      terms: "Mentions Légales"
+      privacy: "Données Personnelles"
+      pricing: "Tarifs"
+      copyright_html: |
+        <span>Codé avec &hearts; par <a href="https://vinc.cc"><strong>vinc</strong></a>.</span>
+        <span>Licence <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE"><strong>MIT</strong></a>.</span>
+
+  welcome:
+    index:
+      description: "Téléversez vos images dans le nuage"
+      sections:
+        first:
+          title_html: "Téléversez vos images<br> dans le nuage"
+        what:
+          cta: "Explorer la communauté"
+          title: "Qu'est ce que Picture?"
+          description: |
+            Picture est un site internet où vous pouvez téléverser et partager
+            vos plus belles créations visuelles.
+        why:
+          title: "Restez au contrôle de vos données"
+          description: |
+            Publiez votre contenu avec les licences de votre choix et
+            contrôlez, à tout moment, qui peut le voir.
+        features:
+          title: "Fonctionnalités"
+          item_1: "Pas de publicités, pas de traçage, pas de verrouillage."
+          item_2: "Images de haute qualité, licences Creative Commons."
+          item_3: "Albums, tags, feeds, followers, likes, et plus."
+        price:
+          cta: "Voir les tarifs"
+          title: "Essayez le gratuitement"
+          description_1: |
+            Lorsque vous créez un compte, nous vous offrons 100MB de stockage
+            et de transfert de données pour essayer le service gratuitement.
+          description_2: |
+            Et bien sûr vous n'avez pas a payer pour suivre d'autres personnes
+            et voir leurs dernières mise à jour.
+        open_source:
+          title: "Hébergez votre propre instance"
+          description_html: |
+            Picture est open source donc vous pouvez aussi <a
+            href="https://github.com/vinc/pi.ctu.re">héberger votre propre
+            instance</a> et ainsi prendre part au web décentralisé.

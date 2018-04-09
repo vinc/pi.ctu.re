@@ -56,6 +56,14 @@
               <%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path, class: 'btn btn-outline-primary ml-2', role: 'button' %>
           <% end %>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文A
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to 'English', root_path(locale: 'en'), class: 'dropdown-item' %>
+              <%= link_to 'Français', root_path(locale: 'fr'), class: 'dropdown-item' %>
+            </div>
+          </li>
         <% end %>
       </ul>
     </div>
