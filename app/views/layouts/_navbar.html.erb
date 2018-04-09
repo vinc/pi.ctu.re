@@ -11,10 +11,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav w-100">
         <li class="nav-item<%= ' active' if body_class == 'pictures-new' %>">
-          <%= link_to 'Upload', new_picture_path, class: 'nav-link' %>
+          <%= link_to t('.upload'), new_picture_path, class: 'nav-link' %>
         </li>
         <li class="nav-item<%= ' active' if body_class == 'explore-index' %>">
-          <%= link_to 'Explore', explore_path, class: 'nav-link' %>
+          <%= link_to t('.explore'), explore_path, class: 'nav-link' %>
         </li>
         <% unless %w(welcome-index pictures-search).include? body_class %>
           <li class="nav-item ml-md-2 my-md-0 my-2">
@@ -51,9 +51,9 @@
           </li>
         <% else %>
           <li class="nav-item ml-md-auto text-right">
-            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link float-left' %>
+            <%= link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: 'nav-link float-left' %>
           <% unless body_class == 'welcome-index' %>
-              <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary ml-2', role: 'button' %>
+              <%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path, class: 'btn btn-outline-primary ml-2', role: 'button' %>
           <% end %>
           </li>
         <% end %>
