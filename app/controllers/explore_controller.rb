@@ -1,5 +1,7 @@
 class ExploreController < PicturesController
   def index
+    @pictures = Picture.featured.public_setting
+
     super
 
     respond_to do |format|
