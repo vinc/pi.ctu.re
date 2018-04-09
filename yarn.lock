@@ -6,9 +6,15 @@ dropzone@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.4.0.tgz#3290c07f59b189eb5a11e99a58c9b2adae5acfec"
 
+jquery@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+
 justifiedGallery@^3.6.5:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/justifiedGallery/-/justifiedGallery-3.6.5.tgz#0e1eb011bf11a5cf210273b6ed16587dd88d2f77"
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/justifiedGallery/-/justifiedGallery-3.7.0.tgz#794401e455d1e4b62de2081e8843fbc30ea4cbfd"
+  dependencies:
+    jquery "^3.3.1"
 
 roboto-slab-fontface-kit@^1.0.2:
   version "1.0.2"
