@@ -31,10 +31,10 @@ body.welcome-index {
   .navbar-footer {
     background: #034;
     color: rgba(white, 0.75);
-    a {
+    a:not(.dropdown-item) {
       color: rgba(white, 0.75);
     }
-    a:hover {
+    a:hover:not(.dropdown-item) {
       color: rgba(white, 1.0);
       text-decoration: none;
     }

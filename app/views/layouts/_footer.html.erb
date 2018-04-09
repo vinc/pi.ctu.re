@@ -10,6 +10,13 @@
           <li class="list-inline-item"><%= link_to t(".terms"), terms_path %></li>
           <li class="list-inline-item"><%= link_to t(".privacy"), privacy_path %></li>
           <li class="list-inline-item"><%= link_to t(".pricing"), pricing_path %></li>
+          <li class="list-inline-item dropdown">
+            <a class="dropdown-toggle" href="#" id="locale-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文A</span></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="locale-dropdown">
+              <%= link_to 'English', root_path(locale: 'en'), class: 'dropdown-item' %>
+              <%= link_to 'Français', root_path(locale: 'fr'), class: 'dropdown-item' %>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="col-sm text-sm-right mt-3 mt-sm-0">
