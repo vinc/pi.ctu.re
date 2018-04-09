@@ -20,7 +20,7 @@ module PaginationContext
         params[:from] || params[:album_token] || @album.token
       elsif params[:user_username] || @user
         "user"
-      elsif request.path == explore_path
+      elsif controller_name == "explore"
         "explore"
       else
         "all"

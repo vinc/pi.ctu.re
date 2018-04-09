@@ -77,7 +77,7 @@ class PicturesController < ApplicationController
     respond_with(@picture)
   end
 
-  private
+  protected
 
   def set_picture
     @picture = Picture.find_by!(token: params[:token])
