@@ -5,14 +5,52 @@ en:
     approve:
       subject: "Invitation to Picture approved"
 
-  welcome:
-    description: "Upload your pictures to the cloud"
-    body_html: |
-      <h1 class="display-4 text-white">Upload your pictures<br> to the cloud</h1>
+  layouts:
+    navbar:
+      upload: "Upload"
+      explore: "Explore"
     footer:
       copyright_html: |
         <span>Built with &hearts; by <a href="https://vinc.cc"><strong>vinc</strong></a>.</span>
         <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE"><strong>MIT</strong></a>.</span>
+
+  welcome:
+    index:
+      description: "Upload your pictures to the cloud"
+      sections:
+        first:
+          title_html: "Upload your pictures<br> to the cloud"
+        what:
+          cta: "Explore the community"
+          title: "What is Picture?"
+          description: |
+            Picture is a website where you can upload and share with the world
+            your best visual creations.
+        why:
+          title: "Stay in control of your content"
+          description: |
+            You publish your content with the license of your choice and you
+            can control, at any time, who will be able to see it.
+        features:
+          title: "Features"
+          item_1: "No advertising, no tracking, no lock in."
+          item_2: "High quality images, Creative Commons licenses."
+          item_3: "Albums, tags, feeds, followers, likes, and more."
+        price:
+          cta: "See pricing"
+          title: "Try it for free"
+          description_1: |
+            When you create an account, we give you 100MB of storage and data
+            transfer to try the service for free.
+          description_2: |
+            And of course you don't have to pay to follow other people and see
+            their latest update.
+        open_source:
+          title: "Host your own instance"
+          description_html: |
+            Picture is open source so you can also <a
+            href="https://github.com/vinc/pi.ctu.re">host your own instance</a>
+            and be part of the decentralized web.
 
   registration:
     need_invitation: "Don't have one?"
