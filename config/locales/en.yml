@@ -10,6 +10,10 @@ en:
       upload: "Upload"
       explore: "Explore"
     footer:
+      contact: "Contact"
+      terms: "Terms"
+      privacy: "Privacy"
+      pricing: "Pricing"
       copyright_html: |
         <span>Built with &hearts; by <a href="https://vinc.cc"><strong>vinc</strong></a>.</span>
         <span>Code licensed <a href="https://github.com/vinc/pi.ctu.re/blob/master/LICENSE"><strong>MIT</strong></a>.</span>
