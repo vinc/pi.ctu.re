@@ -7,8 +7,8 @@ fr:
 
   layouts:
     navbar:
-      upload: "Téléversement"
-      explore: "Exploration"
+      upload: "Téléverse"
+      explore: "Explore"
     footer:
       contact: "Contact"
       terms: "Mentions Légales"
