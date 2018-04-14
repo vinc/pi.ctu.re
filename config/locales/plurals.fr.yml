@@ -1,0 +1,29 @@
+fr:
+  picture:
+    zero: "0 photo"
+    one: "1 photo"
+    other: "%{count} photos"
+  album:
+    zero: "0 album"
+    one: "1 album"
+    other: "%{count} albums"
+  error:
+    zero: "0 error"
+    one: "1 error"
+    other: "%{count} errors"
+  like:
+    zero: "0 like"
+    one: "1 like"
+    other: "%{count} likes"
+  view:
+    zero: "0 views"
+    one: "1 views"
+    other: "%{count} views"
+  followee:
+    zero: "0 abonnement"
+    one: "1 abonnement"
+    other: "%{count} abonnements"
+  follower:
+    zero: "0 abonné"
+    one: "1 abonné"
+    other: "%{count} abonnés"

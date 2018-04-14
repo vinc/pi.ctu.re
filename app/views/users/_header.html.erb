@@ -31,15 +31,15 @@
 
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <%= link_to pluralize(@user.pictures.public_setting.count, 'picture'), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
+    <%= link_to t('picture', count: @user.pictures.public_setting.count), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
   </li>
   <li class="nav-item">
-    <%= link_to pluralize(@user.albums.count, 'album'), user_albums_path(@user), class: "nav-link#{body_class == 'albums-index' ? ' active' : ''}" %>
+    <%= link_to t('album', count: @user.albums.count), user_albums_path(@user), class: "nav-link#{body_class == 'albums-index' ? ' active' : ''}" %>
   </li>
   <li class="nav-item">
-    <%= link_to pluralize(@user.followees.count, 'followee'), followees_user_path(@user), class: "nav-link#{body_class == 'users-followees' ? ' active' : ''}" %>
+    <%= link_to t('followee', count: @user.followees.count), followees_user_path(@user), class: "nav-link#{body_class == 'users-followees' ? ' active' : ''}" %>
   </li>
   <li class="nav-item">
-    <%= link_to pluralize(@user.followers.count, 'follower'), followers_user_path(@user), class: "nav-link#{body_class == 'users-followers' ? ' active' : ''}" %>
+    <%= link_to t('follower', count: @user.followers.count), followers_user_path(@user), class: "nav-link#{body_class == 'users-followers' ? ' active' : ''}" %>
   </li>
 </ul>

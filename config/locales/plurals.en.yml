@@ -1,0 +1,22 @@
+en:
+  picture:
+    one: "1 picture"
+    other: "%{count} pictures"
+  album:
+    one: "1 album"
+    other: "%{count} albums"
+  error:
+    one: "1 error"
+    other: "%{count} errors"
+  like:
+    one: "1 like"
+    other: "%{count} likes"
+  view:
+    one: "1 views"
+    other: "%{count} views"
+  followee:
+    one: "1 followee"
+    other: "%{count} followees"
+  follower:
+    one: "1 follower"
+    other: "%{count} followers"

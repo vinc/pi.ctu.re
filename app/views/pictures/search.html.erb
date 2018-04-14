@@ -5,7 +5,7 @@
 <% if params[:q].present? %>
   <% title "Pictures about '#{params[:q]}'" %>
 
-  <p class="mt-4"><%= pluralize(@pictures.total_count, 'picture') %> found</p>
+  <p class="mt-4"><%= t('picture', count: @pictures.total_count) %> found</p>
 
   <%= render 'pictures/gallery', pictures: @pictures %>
 <% else %>

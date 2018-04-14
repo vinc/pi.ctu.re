@@ -18,7 +18,7 @@
         <% end %>
         <div class="card-body">
           <h4 class="card-title overflow-hidden"><%= album.title %></h4>
-          <p class="card-text text-muted"><%= pluralize(album.pictures.public_setting.count, 'picture') %></p>
+          <p class="card-text text-muted"><%= t('picture', count: album.pictures.public_setting.count) %></p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Updated <%= timeago_tag album.updated_at %></small>

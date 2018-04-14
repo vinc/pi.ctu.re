@@ -5,7 +5,7 @@
 
   <% if invitation.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading"><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h4>
+      <h4 class="alert-heading"><%= t("error", count: invitation.errors.count) %> prohibited this invitation from being saved:</h4>
 
       <ul>
         <% invitation.errors.full_messages.each do |message| %>
