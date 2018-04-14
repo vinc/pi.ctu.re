@@ -1,6 +1,6 @@
 <%= form_tag(search_pictures_path, method: :get, enforce_utf8: false, class: 'search') do %>
   <div class="input-group">
-    <%= search_field_tag :q, params[:q], placeholder: 'Search pictures...', dir: 'auto', class: 'form-control border-right-0', 'aria-label' => 'Query' %>
+    <%= search_field_tag :q, params[:q], placeholder: t('.search_placeholder'), dir: 'auto', class: 'form-control border-right-0', 'aria-label' => 'Query' %>
     <span class="input-group-append bg-white">
       <button class="btn btn-outline-secondary" id="search-submit" aria-label="Search">
         <%= fa_icon('search') %>

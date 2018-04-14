@@ -1,0 +1,8 @@
+---
+fr:
+  helpers:
+    submit:
+      create: "Créer"
+      update: "Sauvegarder"
+      picture:
+        create: "Téléverser"

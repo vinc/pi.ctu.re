@@ -7,12 +7,14 @@ fr:
 
   layouts:
     navbar:
-      upload: "Téléverse"
-      explore: "Explore"
+      upload: "Téléverser"
+      explore: "Explorer"
+    search:
+      search_placeholder: "Rechercher..."
     footer:
       contact: "Contact"
-      terms: "Mentions Légales"
-      privacy: "Données Personnelles"
+      terms: "Conditions"
+      privacy: "Confidentialité"
       pricing: "Tarifs"
       copyright_html: |
         <span>Codé avec &hearts; par <a href="https://vinc.cc"><strong>vinc</strong></a>.</span>
@@ -65,3 +67,7 @@ fr:
       title: "Explorer les photos les %{order}"
       most_viewed: "plus vues"
       most_recent: "plus récentes"
+
+  pictures:
+    gallery:
+      load_more: "Charger plus"

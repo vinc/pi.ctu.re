@@ -9,6 +9,8 @@ en:
     navbar:
       upload: "Upload"
       explore: "Explore"
+    search:
+      search_placeholder: "Search pictures..."
     footer:
       contact: "Contact"
       terms: "Terms"
@@ -65,6 +67,10 @@ en:
       title: "Explore %{order} pictures"
       most_viewed: "most viewed"
       most_recent: "most recent"
+
+  pictures:
+    gallery:
+      load_more: "Load more"
 
   registration:
     need_invitation: "Don't have one?"

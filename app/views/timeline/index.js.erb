@@ -9,5 +9,5 @@ $("<%=j render(:partial => 'timeline/pictures', :object => @pictures) %>")
   $('.next-page').html('');
   $('body').removeClass('infinite-scrolling');
 <% else %>
-  $('.next-page').html("<%=j link_to_next_page @pictures, 'Load more', remote: true, class: 'btn btn-outline-secondary infinite-scrolling', role: 'button' %>");
+  $('.next-page').html("<%=j link_to_next_page @pictures, t('pictures.gallery.load_more'), remote: true, class: 'btn btn-outline-secondary infinite-scrolling', role: 'button' %>");
 <% end %>
