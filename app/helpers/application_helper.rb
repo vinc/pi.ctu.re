@@ -5,7 +5,7 @@ module ApplicationHelper
       separator: "-",
       reverse: true,
       icon: "/favicon.ico",
-      canonical: url_for(only_path: false),
+      canonical: url_for(only_path: false, locale: nil),
       og: {
         title: :title,
         site_name: :site,
