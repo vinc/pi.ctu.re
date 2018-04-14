@@ -56,6 +56,10 @@ en:
             href="https://github.com/vinc/pi.ctu.re">host your own instance</a>
             and be part of the decentralized web.
 
+  timeline:
+    index:
+      latest: "Latest pictures from your timeline"
+
   registration:
     need_invitation: "Don't have one?"
     request_invitation: "Request an invitation token"

@@ -55,3 +55,7 @@ fr:
             Picture est open source donc vous pouvez aussi <a
             href="https://github.com/vinc/pi.ctu.re">héberger votre propre
             instance</a> et ainsi prendre part au web décentralisé.
+
+  timeline:
+    index:
+      latest: "Dernières photos de votre fil"
