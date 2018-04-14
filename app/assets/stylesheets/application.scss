@@ -29,6 +29,10 @@ $font-size-base: 1.1rem;
   position: relative;
 }
 
+body {
+  text-align: inherit;
+}
+
 body,
 .wrapper {
   min-height: 100vh;
