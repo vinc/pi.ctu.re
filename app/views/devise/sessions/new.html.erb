@@ -10,7 +10,7 @@
           </div>
 
           <div class="form-group">
-            <span class="pull-right"><%= link_to t('.forgot_your_password', default: 'Forgot password?'), new_password_path(resource_name) %></span>
+            <span class="pull-right"><%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path(resource_name) %></span>
             <%= f.label :password %>
             <%= f.password_field :password, required: true, autocomplete: "current-password", class: "form-control #{"is-invalid" if resource.errors[:password].any?}" %>
           </div>
@@ -20,13 +20,13 @@
             <div class="form-check">
               <%= f.label :remember_me, class: 'form-check-label' do %>
                 <%= f.check_box :remember_me, class: 'form-check-input' %>
-                <%= t('.remember_me', default: 'Remember me') %>
+                <%= t('.remember_me') %>
               <% end %>
             </div>
           <% end %>
           -->
 
-          <%= f.submit t('.sign_in', default: 'Sign in'), class: 'btn btn-primary btn-block' %>
+          <%= f.submit t('.sign_in'), class: 'btn btn-primary btn-block' %>
         <% end %>
       </div>
     </div>
