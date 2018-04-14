@@ -10,6 +10,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= timeago_script_tag %>
 
     <% if body_class == 'users-show' %>
       <%= auto_discovery_link_tag(:atom) %>
