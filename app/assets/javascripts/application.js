@@ -16,7 +16,7 @@
 //= require popper.js
 //= require bootstrap-sprockets
 //= require rails-timeago
-//= require locales/jquery.timeago.fr.js
+//= require rails-timeago-all
 //= require justifiedGallery/dist/js/jquery.justifiedGallery
 //= require dropzone
 //= require_tree .
