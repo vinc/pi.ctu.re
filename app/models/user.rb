@@ -55,7 +55,7 @@ class User < ApplicationRecord
   end
 
   before_create do
-    self.balance = 100.megabytes
+    self.balance = 1.gigabyte
   end
 
   enum role: %i[member moderator admin]

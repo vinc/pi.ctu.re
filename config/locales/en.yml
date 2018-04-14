@@ -46,7 +46,7 @@ en:
           cta: "See pricing"
           title: "Try it for free"
           description_1: |
-            When you create an account, we give you 100MB of storage and data
+            When you create an account, we give you 1GB of storage and data
             transfer to try the service for free.
           description_2: |
             And of course you don't have to pay to follow other people and see
@@ -198,7 +198,7 @@ en:
 
       <h2>Free trial</h2>
 
-      <p>When you sign up you will be given <strong>100MB of data for
+      <p>When you sign up you will be given <strong>1GB of data for
       free</strong> to test the service. No credit card required. After that
       you will have to top up your account balance to keep uploading new
       pictures.</p>
