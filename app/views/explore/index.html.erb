@@ -1,13 +1,13 @@
-<% title "Explore #{params[:order] == 'time' ? 'most recent' : 'most viewed'} pictures" %>
+<% title t('.title', order: (params[:order] == 'time' ? t('.most_recent') : t('.most_viewed'))) %>
 
 <div class="dropdown">
   Explore
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <%= params[:order] == 'time' ? 'most recent' : 'most viewed' %>
+    <%= params[:order] == 'time' ? t('.most_recent') : t('.most_viewed') %>
   </a>
   <div class="dropdown-menu">
-    <%= link_to 'most viewed', explore_path(order: 'view'), class: 'dropdown-item' %>
-    <%= link_to 'most recent', explore_path(order: 'time'), class: 'dropdown-item' %>
+    <%= link_to t('.most_viewed'), explore_path(order: 'view'), class: 'dropdown-item' %>
+    <%= link_to t('.most_recent'), explore_path(order: 'time'), class: 'dropdown-item' %>
   </div>
 </div>
 

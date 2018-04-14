@@ -59,3 +59,9 @@ fr:
   timeline:
     index:
       latest: "Dernières photos de votre fil"
+
+  explore:
+    index:
+      title: "Explorer les photos les %{order}"
+      most_viewed: "plus vues"
+      most_recent: "plus récentes"

@@ -60,6 +60,12 @@ en:
     index:
       latest: "Latest pictures from your timeline"
 
+  explore:
+    index:
+      title: "Explore %{order} pictures"
+      most_viewed: "most viewed"
+      most_recent: "most recent"
+
   registration:
     need_invitation: "Don't have one?"
     request_invitation: "Request an invitation token"
