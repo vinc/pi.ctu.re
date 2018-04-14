@@ -5,20 +5,14 @@ class Account::SettingsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if current_user.update(user_params)
-        format.html { redirect_to edit_account_settings_path, notice: "Settings were successfully updated." }
-        format.json { render :show, status: :ok, location: edit_account_settings_path }
-      else
-        format.html { render :edit }
-        format.json { render json: current_user.errors, status: :unprocessable_entity }
-      end
-    end
+    current_user.update(user_params)
+    I18n.locale = current_user.locale
+    respond_with(current_user, location: edit_account_settings_path)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:default_license, :default_privacy_setting)
+    params.require(:user).permit(:locale, :default_license, :default_privacy_setting)
   end
 end

@@ -50,6 +50,10 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :follower
   has_many :followees, through: :followee_relationships, source: :followee
 
+  after_initialize do
+    self.locale ||= I18n.locale
+  end
+
   before_create do
     self.balance = 100.megabytes
   end
@@ -57,6 +61,13 @@ class User < ApplicationRecord
   enum role: %i[member moderator admin]
 
   enum default_privacy_setting: %i[public protected private], _suffix: :setting
+
+  def self.locales
+    {
+      en: "English",
+      fr: "Français"
+    }.freeze
+  end
 
   def self.default_licenses
     [
@@ -73,6 +84,7 @@ class User < ApplicationRecord
     "[0-9A-Za-z][0-9A-Za-z-]{1,30}[0-9A-Za-z]".freeze
   end
 
+  validates :locale, inclusion: { in: locales.keys.map(&:to_s) }
   validates :default_license, inclusion: { in: default_licenses }
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, format: /\A#{User.username_pattern}\z/
