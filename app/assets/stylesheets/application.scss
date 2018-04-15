@@ -25,6 +25,10 @@ $font-size-base: 1.1rem;
 
 @import "bootstrap";
 
+.turbolinks-progress-bar {
+  background-color: $primary;
+}
+
 .container {
   position: relative;
 }
