@@ -21,7 +21,9 @@
     <div class="row align-items-center">
       <div class="col-md-5 order-md-1">
         <h2 class="display-4 mb-4" style="color:#0C9"><%= t(".sections.what.title") %></h2>
-        <p class="lead"><%= t(".sections.what.description") %></p>
+        <div class="lead">
+          <%= render_markdown(t(".sections.what.description_markdown")) %>
+        </div>
         <p>
           <%= link_to t(".sections.what.cta"), explore_path, class: "btn btn-lg btn-outline-primary mt-4", role: "button" %>
         </p>
@@ -39,7 +41,9 @@
     <div class="row align-items-center">
       <div class="col-md-5 order-md-2">
         <h2 class="display-4 mb-4" style="color:#0C9"><%= t(".sections.why.title") %></h2>
-        <p class="lead"><%= t(".sections.why.description") %></p>
+        <div class="lead">
+          <%= render_markdown(t(".sections.why.description_markdown")) %>
+        </div>
       </div>
 
       <div class="col-md-7 order-md-1 mt-4 mt-md-0">
@@ -54,11 +58,9 @@
 <div class="d-flex justify-content-center align-items-center p-3" style="min-height:50vh;background:#0C9;color:#fffe">
   <div class="my-5" style="max-width:45em">
     <h2 class="display-4 mb-4 text-center"><%= t(".sections.features.title") %></h2>
-    <ol class="lead">
-      <li class="py-2"><%= t(".sections.features.item_1") %></li>
-      <li class="py-2"><%= t(".sections.features.item_2") %></li>
-      <li class="py-2"><%= t(".sections.features.item_3") %></li>
-    </ol>
+    <div class="lead">
+      <%= render_markdown(t(".sections.features.description_markdown")) %>
+    </div>
   </div>
 </div>
 
@@ -67,8 +69,9 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <h2 class="display-4 mb-4" style="color:#0C9"><%= t(".sections.price.title") %></h2>
-        <p class="lead"><%= t(".sections.price.description_1") %></p>
-        <p class="lead"><%= t(".sections.price.description_2") %></p>
+        <div class="lead">
+          <%= render_markdown(t(".sections.price.description_markdown")) %>
+        </div>
         <p class="mt-4">
           <%= link_to t("devise.registrations.new.sign_up"), new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %>
           <%= link_to t(".sections.price.cta"), pricing_path, class: "btn btn-lg btn-outline-primary ml-2", role: "button" %>
@@ -89,8 +92,9 @@
 
   <div class="my-5" style="max-width:45em">
     <h2 class="display-4 mb-4"><%= t(".sections.open_source.title") %></h2>
-    <p class="lead"><%= t(".sections.open_source.description_html") %></p>
-    </p>
+    <div class="lead">
+      <%= render_markdown(t(".sections.open_source.description_markdown")) %>
+    </div>
     <p class="text-center my-5">
       <a href="https://github.com/vinc/pi.ctu.re" style="color:#fff3"><%= fa_icon "github 4x" %></a>
     </p>

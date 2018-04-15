@@ -29,34 +29,39 @@ fr:
         what:
           cta: "Explorer la communauté"
           title: "Qu'est ce que Picture?"
-          description: |
+          description_markdown: |
             Picture est un site internet où vous pouvez téléverser et partager
             vos plus belles créations visuelles.
+
+            Le but de ce service est de rester simple et viable à échelle humaine.
+            Notre focus est mis sur les gens.
         why:
           title: "Restez au contrôle de vos données"
-          description: |
-            Publiez votre contenu avec les licences de votre choix et
+          description_markdown: |
+            Publiez votre contenu avec la licence de votre choix et
             contrôlez, à tout moment, qui peut le voir.
         features:
           title: "Fonctionnalités"
-          item_1: "Pas de publicités, pas de traçage, pas de verrouillage."
-          item_2: "Images de haute qualité, licences Creative Commons."
-          item_3: "Albums, tags, feeds, followers, likes, et plus."
+          description_markdown: |
+            1. Pas de publicités, pas de traçage, pas de verrouillage.
+            2. Images de haute qualité, licences Creative Commons.
+            3. Albums, tags, feeds, followers, likes, et plus.
         price:
           cta: "Voir les tarifs"
           title: "Essayez le gratuitement"
-          description_1: |
-            Lorsque vous créez un compte, nous vous offrons 1GB de stockage
+          description_markdown: |
+            Lorsque vous créez un compte, vous démarrez avec 1GB de stockage
             et de transfert de données pour essayer le service gratuitement.
-          description_2: |
+            Sans limite dans le temps.
+
             Et bien sûr vous n'avez pas a payer pour suivre d'autres personnes
             et voir leurs dernières mise à jour.
         open_source:
           title: "Hébergez votre propre instance"
-          description_html: |
-            Picture est open source donc vous pouvez aussi <a
-            href="https://github.com/vinc/pi.ctu.re">héberger votre propre
-            instance</a> et ainsi prendre part au web décentralisé.
+          description_markdown: |
+            Picture est open source donc vous pouvez aussi
+            [héberger votre propre instance](https://github.com/vinc/pi.ctu.re)
+            et ainsi prendre part au web décentralisé.
 
   timeline:
     index:

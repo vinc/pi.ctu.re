@@ -29,33 +29,37 @@ en:
         what:
           cta: "Explore the community"
           title: "What is Picture?"
-          description: |
+          description_markdown: |
             Picture is a website where you can upload and share with the world
             your best visual creations.
+
+            The aim of this service is to keep everything simple and
+            sustainable at human scale. Our focus is on people.
         why:
           title: "Stay in control of your content"
-          description: |
+          description_markdown: |
             You publish your content with the license of your choice and you
             can control, at any time, who will be able to see it.
         features:
           title: "Features"
-          item_1: "No advertising, no tracking, no lock in."
-          item_2: "High quality images, Creative Commons licenses."
-          item_3: "Albums, tags, feeds, followers, likes, and more."
+          description_markdown: |
+            1. No advertising, no tracking, no lock in.
+            2. High quality images, Creative Commons licenses.
+            3. Albums, tags, feeds, followers, likes, and more.
         price:
           cta: "See pricing"
           title: "Try it for free"
-          description_1: |
-            When you create an account, we give you 1GB of storage and data
-            transfer to try the service for free.
-          description_2: |
+          description_markdown: |
+            When you create an account, you start with 1GB of storage and data
+            transfer to try the service for free. No time limit.
+
             And of course you don't have to pay to follow other people and see
             their latest update.
         open_source:
           title: "Host your own instance"
-          description_html: |
-            Picture is open source so you can also <a
-            href="https://github.com/vinc/pi.ctu.re">host your own instance</a>
+          description_markdown: |
+            Picture is open source so you can also
+            [host your own instance](https://github.com/vinc/pi.ctu.re)
             and be part of the decentralized web.
 
   timeline:
