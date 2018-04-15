@@ -1,4 +1,5 @@
 class ApplicationUploader < CarrierWave::Uploader::Base
+  include CarrierWave::BombShelter
   include CarrierWave::MiniMagick
 
   storage :postgresql_lo
@@ -13,6 +14,15 @@ class ApplicationUploader < CarrierWave::Uploader::Base
 
   def content_type_whitelist
     "image/jpeg"
+  end
+
+  # NOTE: file types should be supported by the `fastimage` gem
+  def image_type_whitelist
+    %i[jpeg]
+  end
+
+  def max_pixel_dimensions
+    [8192, 8192]
   end
 
   # Override the filename of the uploaded files:
