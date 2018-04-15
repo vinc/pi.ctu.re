@@ -1,7 +1,7 @@
 <%= form_for(current_user, url: account_settings_path) do |f| %>
   <% if current_user.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading"><%= t("error", count: current_user.errors.count) %> prohibited this profile from being saved:</h4>
+      <h4 class="alert-heading"><%= form_errors_heading(current_user) %></h4>
 
       <ul>
         <% current_user.errors.full_messages.each do |message| %>

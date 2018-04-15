@@ -1,12 +1,12 @@
 <%= form_for(album) do |f| %>
   <% if album.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading"><%= t("error", count: album.errors.count) %> prohibited this album from being saved:</h4>
+      <h4 class="alert-heading"><%= form_errors_heading(album) %></h4>
 
       <ul>
-      <% album.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% album.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

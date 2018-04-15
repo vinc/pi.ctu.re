@@ -64,4 +64,21 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe "#form_errors_heading" do
+    context "with a form error" do
+      let(:picture) { FactoryBot.build(:picture, image: nil) }
+
+      it "returns a form errors heading" do
+        picture.save
+        expect(helper.form_errors_heading(picture)).to match("1 error prohibited this picture from being saved:")
+      end
+    end
+  end
+
+  describe "#render_markdown" do
+    it "returns a html string" do
+      expect(helper.render_markdown("test")).to match("<p>test</p>")
+    end
+  end
 end

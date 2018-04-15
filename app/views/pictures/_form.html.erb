@@ -1,12 +1,12 @@
 <%= form_for(picture) do |f| %>
   <% if picture.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading"><%= t("error", count: picture.errors.count) %> prohibited this picture from being saved:</h4>
+      <h4 class="alert-heading"><%= form_errors_heading(picture) %></h4>
 
       <ul>
-      <% picture.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% picture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

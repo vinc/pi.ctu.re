@@ -18,10 +18,6 @@ module ApplicationHelper
     "#{controller_path}/#{action_name}".tr("/", "-")
   end
 
-  def email_munging(address)
-    address.gsub("@", "(@_@)")
-  end
-
   def language
     ISO::Language.identify(I18n.locale.to_s)
   end
@@ -31,5 +27,22 @@ module ApplicationHelper
     when "rtl" then "pull-left"
     when "ltr" then "pull-right"
     end
+  end
+
+  def email_munging(address)
+    address.gsub("@", "(@_@)")
+  end
+
+  def form_errors_heading(resource)
+    I18n.t(
+      "errors.messages.not_saved",
+      count: resource.errors.count,
+      resource: resource.class.model_name.human.downcase
+    )
+  end
+
+  def render_markdown(text)
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @markdown.render(text).html_safe
   end
 end
