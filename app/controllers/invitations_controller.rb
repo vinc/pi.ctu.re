@@ -5,7 +5,7 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.create(invitation_params)
-    respond_with(@invitation, location: -> { root_path })
+    respond_with(@invitation, location: root_path)
   end
 
   private
