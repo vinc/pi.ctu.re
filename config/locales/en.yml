@@ -71,6 +71,9 @@ en:
   pictures:
     gallery:
       load_more: "Load more"
+    form:
+      upload_a_picture: "Upload a picture"
+      upload_many_pictures: "Upload many pictures"
 
   registration:
     need_invitation: "Don't have one?"

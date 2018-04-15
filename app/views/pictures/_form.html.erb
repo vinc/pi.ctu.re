@@ -47,7 +47,7 @@
     <% if picture.persisted? %>
       <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'This picture will be deleted, are you sure?' }, class: 'btn btn-link text-danger pull-right', role: 'button' %>
     <% else %>
-      <%= link_to 'Upload many pictures', import_pictures_path, class: 'btn btn-link pull-right px-0', role: 'button' %>
+      <%= link_to t('.upload_many_pictures'), import_pictures_path, class: 'btn btn-link pull-right px-0', role: 'button' %>
     <% end %>
 
     <%= f.submit class: 'btn btn-primary', disabled: picture.new_record? && current_user.balance.negative? %>

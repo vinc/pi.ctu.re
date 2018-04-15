@@ -71,3 +71,6 @@ fr:
   pictures:
     gallery:
       load_more: "Charger plus"
+    form:
+      upload_a_picture: "Téléverser une photo"
+      upload_many_pictures: "Téléverser plusieurs photos"
