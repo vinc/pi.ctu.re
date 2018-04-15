@@ -132,6 +132,8 @@ GEM
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
+    iso (0.2.2)
+      i18n
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -347,6 +349,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   generator_spec
+  iso
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

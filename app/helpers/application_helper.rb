@@ -21,4 +21,8 @@ module ApplicationHelper
   def email_munging(address)
     address.gsub("@", "(@_@)")
   end
+
+  def language
+    ISO::Language.identify(I18n.locale.to_s)
+  end
 end

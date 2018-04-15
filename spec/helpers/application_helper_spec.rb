@@ -28,4 +28,23 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.email_munging(subject)).to eq(subject.gsub("@", "(@_@)"))
     end
   end
+
+  describe "#language" do
+    describe "#direction" do
+      context "with default English locale" do
+        it "returns ltr" do
+          expect(helper.language.direction).to eq("ltr")
+        end
+      end
+
+      context "with Arabic locale" do
+        before { I18n.locale = :ar }
+        after { I18n.locale = :en }
+
+        it "returns rtl" do
+          expect(helper.language.direction).to eq("rtl")
+        end
+      end
+    end
+  end
 end
