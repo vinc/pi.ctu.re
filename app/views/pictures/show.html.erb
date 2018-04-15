@@ -9,7 +9,7 @@
         <% if @previous_picture %>
           <li class="page-item">
             <% set_meta_tags prev: picture_url(@previous_picture) %>
-            <%= link_to picture_path(@previous_picture, from: @from, order: @order), class: 'page-link', aria_label: 'previous' do %>
+            <%= link_to picture_path(@previous_picture, from: @from, order: @order), id: 'previous', class: 'page-link', aria_label: 'previous' do %>
               <%= fa_icon("chevron-left") %>
               <span class="sr-only">Previous</span>
             <% end %>
@@ -25,7 +25,7 @@
         <% if @next_picture %>
           <li class="page-item">
             <% set_meta_tags next: picture_url(@next_picture) %>
-            <%= link_to picture_path(@next_picture, from: @from, order: @order), class: 'page-link', aria_label: 'next' do %>
+            <%= link_to picture_path(@next_picture, from: @from, order: @order), id: 'next', class: 'page-link', aria_label: 'next' do %>
               <%= fa_icon("chevron-right") %>
               <span class="sr-only">Next</span>
             <% end %>

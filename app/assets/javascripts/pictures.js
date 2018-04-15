@@ -1,6 +1,28 @@
 Dropzone.autoDiscover = false;
 
 $(document).on('turbolinks:load', function() {
+  if ($('body').hasClass('pictures-show') || $('body').hasClass('pictures-lightboxes-show')) {
+    $(document).keyup(function(e) {
+      var link;
+
+      switch(e.key) {
+      case 'ArrowLeft':
+        link = $('a#previous').attr('href');
+        break;
+      case 'ArrowRight':
+        link = $('a#next').attr('href');
+        break;
+      case 'Escape':
+        link = $('a#back').attr('href');
+        break;
+      }
+
+      if (link) {
+        Turbolinks.visit(link);
+      }
+    });
+  }
+
   var width = 300;
   $('form.custom-dropzone').dropzone({
     acceptedFiles: 'image/*',
