@@ -27,8 +27,6 @@ class ImageUploader < ApplicationUploader
   def store_dimensions
     return unless file && model
 
-    image = MiniMagick::Image.open(file.file)
-    model.image_width = image.width
-    model.image_height = image.height
+    model.image_width, model.image_height = FastImage.size(file.file)
   end
 end
