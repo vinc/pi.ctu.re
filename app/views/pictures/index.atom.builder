@@ -4,9 +4,8 @@ atom_feed do |feed|
 
   @pictures.each do |picture|
     feed.entry(picture) do |entry|
-      entry.title("#{picture.caption.presence || 'Picture'} by #{picture.user.name} (#{picture.token})")
-      entry.content(src: picture.image.thumb_url("800x800"), type: "image/jpeg")
-
+      entry.title("/p/#{picture.token}")
+      entry.content(image_tag(picture.image.thumb_url("x300")) + content_tag(:p, picture.caption), type: "html")
       entry.author do |author|
         author.name(picture.user.name)
       end
