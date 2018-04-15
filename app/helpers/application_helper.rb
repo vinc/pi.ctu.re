@@ -25,4 +25,11 @@ module ApplicationHelper
   def language
     ISO::Language.identify(I18n.locale.to_s)
   end
+
+  def pull_end_class
+    case language.direction
+    when "rtl" then "pull-left"
+    when "ltr" then "pull-right"
+    end
+  end
 end

@@ -47,4 +47,21 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe "#pull_end_class" do
+    context "with default English locale" do
+      it "returns pull-right" do
+        expect(helper.pull_end_class).to eq("pull-right")
+      end
+    end
+
+    context "with Arabic locale" do
+      before { I18n.locale = :ar }
+      after { I18n.locale = :en }
+
+      it "returns pull-left" do
+        expect(helper.pull_end_class).to eq("pull-left")
+      end
+    end
+  end
 end
