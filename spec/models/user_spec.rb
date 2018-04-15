@@ -26,6 +26,7 @@
 #  followees_count         :integer          default(0)
 #  default_privacy_setting :integer
 #  role                    :integer          default("member")
+#  locale                  :string
 #
 
 require "rails_helper"
