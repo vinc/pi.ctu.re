@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get "pricing" => "about#pricing"
   get "privacy" => "about#privacy"
   get "terms" => "about#terms"
+  get "rules" => "about#rules"
 
   devise_scope :user do
     authenticated :user do

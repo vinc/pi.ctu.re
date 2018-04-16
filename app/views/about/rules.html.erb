@@ -1,0 +1,15 @@
+<% title t('rules.title') %>
+
+<div class="row">
+  <div class="col-lg-3">
+    <%= render 'about/nav' %>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header text-muted"><%= t('rules.title') %></div>
+      <div class="card-body">
+        <%= render_markdown(t('rules.body_markdown')) %>
+      </div>
+    </div>
+  </div>
+</div>

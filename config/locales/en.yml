@@ -83,7 +83,9 @@ en:
     need_invitation: "Don't have one?"
     request_invitation: "Request an invitation token"
     tos_html: |
-      By signing up you agree to our <a href="/terms">terms of service</a>.
+      By signing up you agree to follow
+      the <a href="/rules">rules of this instance</a> and
+      our <a href="/terms">terms of service</a>.
 
   invitation:
     intro_html: |
@@ -99,6 +101,21 @@ en:
       # Have a question about Picture?
 
       Email us at [%{email}](mailto:%{email}).
+
+  rules:
+    title: "Rules"
+    body_markdown: |
+      # Rules of this instance
+
+      Any content that doesn't follow the rules of this instance will be
+      removed by the moderation team and may result in account suspension or
+      revocation.
+
+      1. Original content only
+      2. No nudity
+      3. No violence
+      4. No sexism/racism/speciesism
+      5. Be kind and have fun :)
 
   terms:
     title: "Terms of Service"

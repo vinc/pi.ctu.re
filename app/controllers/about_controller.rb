@@ -13,4 +13,7 @@ class AboutController < ApplicationController
 
   def terms
   end
+
+  def rules
+  end
 end

@@ -3,6 +3,9 @@
     <%= link_to t('contact.title'), contact_path, class: "nav-link #{'active' if body_class == 'about-contact'}" %>
   </li>
   <li class="nav-item">
+    <%= link_to t('rules.title'), rules_path, class: "nav-link #{'active' if body_class == 'about-rules'}" %>
+  </li>
+  <li class="nav-item">
     <%= link_to t('terms.title'), terms_path, class: "nav-link #{'active' if body_class == 'about-terms'}" %>
   </li>
   <li class="nav-item">
