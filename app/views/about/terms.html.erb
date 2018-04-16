@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header text-muted"><%= t('terms.title') %></div>
       <div class="card-body">
-        <%= t('terms.body_html') %>
+        <%= render_markdown(t('terms.body_markdown')) %>
       </div>
     </div>
   </div>

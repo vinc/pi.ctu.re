@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header text-muted"><%= t('contact.title') %></div>
       <div class="card-body">
-        <%= t('contact.body_html', email: email_munging(@email)) %>
+        <%= render_markdown(t('contact.body_markdown', email: email_munging(@email))) %>
       </div>
     </div>
   </div>

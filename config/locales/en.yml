@@ -95,85 +95,84 @@ en:
 
   contact:
     title: "Contact"
-    body_html: |
-      <h1 class="mb-4">Have a question about Picture?</h1>
+    body_markdown: |
+      # Have a question about Picture?
 
-      <p>Email us at <strong><a href="mailto:%{email}">%{email}</a></strong>.</p>
+      Email us at [%{email}](mailto:%{email}).
 
   terms:
     title: "Terms of Service"
-    body_html: |
-      <h1 class="mb-4">Terms of Service</h1>
+    body_markdown: |
+      # Terms of Service
 
-      <p>Welcome to Picture! To use our service you must be at least 13 years
-      old and you acknowledge to have read and understood our Terms of Service
-      and our <a href="/privacy">Privacy Policy</a>.</p>
+      Welcome to Picture! To use our service you must be at least 13 years old
+      and you acknowledge to have read and understood our Terms of Service and
+      our [Privacy Policy](/privacy).
 
-      <h2>Changes</h2>
+      ## Changes
 
-      <p>We may modify our Terms of Service, it is your responsibility to check
-      periodically for changes.</p>
+      We may modify our Terms of Service at any time.
 
-      <h2>Termination</h2>
+      ## Termination
 
-      <p>We may remove content or close accounts if we need to, at any time and
-      without notice.</p>
+      We may remove content or close accounts if we need to, at any time and
+      without notice.
 
-      <h2>Disclaimer of Warranties</h2>
+      ## Disclaimer of Warranties
 
-      <p>Your use of Picture is at your sole risk. The service is provided
-      "as is" and "as available", without warranty of any kind.</p>
+      Your use of Picture is at your sole risk. The service is provided "as is"
+      and "as available", without warranty of any kind.
 
-      <h2>Limitation of Liability</h2>
+      ## Limitation of Liability
 
-      <p>You understand and agree that we will not be liable to you or any
-      third party for any losses or damages arising from your use or inability
-      to use the service.</p>
+      You understand and agree that we will not be liable to you or any third
+      party for any losses or damages arising from your use or inability to use
+      the service.
 
-      <h2>Contacting Us</h2>
+      ## Contacting Us
 
-      <p>If you have any question you can <a href="/contact">contact us</a>.</p>
+      If you have any question you can [contact us](/contact).
 
   privacy:
     title: "Privacy"
-    body_html: |
-      <h1 class="mb-4">Privacy Policy</h1>
+    body_markdown: |
+      # Privacy Policy
 
-      <p>Welcome to Picture! This service is open source so after reading this
-      privacy policy we invite you to <a href="https://github.com/vinc/pi.ctu.re">
-      audit the code</a> yourself if you can read the ruby programming language.</p>
+      Welcome to Picture! This service is open source so after reading this
+      privacy policy we invite you to [audit the code](https://github.com/vinc/pi.ctu.re)
+      yourself if you can read the ruby programming language.
 
-      <h2>Information You Provide</h2>
+      ## Information You Provide
       
-      <p>When you create an account on Picture you provide us your email
-      address, a username, and a password (stored as a cryptographic hash) to
-      authenticate you.</p>
+      When you create an account on Picture you provide us your email address,
+      a username, and a password (stored as a cryptographic hash) to
+      authenticate you.
 
-      <p>You may also provide us your full name and your pictures to display on
-      the website.</p>
+      You may also provide us your full name and your pictures to display on
+      the website.
 
-      <h2>Information We Collect</h2>
+      ## Information We Collect
 
-      <p>When you browse this website, our web servers collect your IP address
-      and user agent string, along with the date of your visit, for the
-      duration required by the law.</p>
+      When you browse this website, our web servers collect your IP address and
+      user agent string, along with the date of your visit, for the duration
+      required by the law.
 
-      <p>We also store a cookie in your browser to authenticate you when you
-      sign in, and at the same time we store in our database your current IP
-      address to compare it with the last one for security reason.</p>
+      We also store a cookie in your browser to authenticate you when you sign
+      in, and at the same time we store in our database your current IP address
+      to compare it with the last one for security reason.
 
       %{payment_information}
 
-      <h2>Contacting Us</h2>
+      ## Contacting Us
 
-      <p>If you have any question you can <a href="/contact">contact us</a>.</p>
+      If you have any question you can [contact us](/contact).
 
-    payment_information_html: |
-      <h2>Payment Information</h2>
+    payment_information_markdown: |
+      ## Payment Information
 
-      <p>We use a third party payment processor, <a
-      href="https://stripe.com">Stripe</a>, for all payments. We don't store
-      credit card details and instead relies on Stripe for this.
+      We use a third party payment processor, [Stripe](https://stripe.com),
+      for all payments. We don't store credit card details and instead relies
+      on Stripe for this.
 
   pricing:
     title: "Pricing"
