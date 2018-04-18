@@ -65,8 +65,14 @@ class User < ApplicationRecord
 
   def self.locales
     {
+      ar: "العربية",
+      de: "Deutsch",
       en: "English",
-      fr: "Français"
+      es: "Español",
+      fr: "Français",
+      ja: "日本語",
+      pt: "Português",
+      ru: "Русский"
     }.freeze
   end
 
