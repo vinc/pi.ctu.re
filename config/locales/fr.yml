@@ -79,6 +79,8 @@ fr:
     form:
       upload_a_picture: "Téléverser une photo"
       upload_many_pictures: "Téléverser plusieurs photos"
+    show:
+      license: "Licence"
 
   devise:
     registrations:

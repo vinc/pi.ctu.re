@@ -78,6 +78,8 @@ en:
     form:
       upload_a_picture: "Upload a picture"
       upload_many_pictures: "Upload many pictures"
+    show:
+      license: "License"
 
   devise:
     registrations:

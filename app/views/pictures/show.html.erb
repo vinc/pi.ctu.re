@@ -84,7 +84,7 @@
 
     <div class="mt-auto">
       <p>
-        License:
+        <%= t('.license') %>:
         <a href="http://creativecommons.org/licenses/<%= @picture.user.default_license.sub('CC ', '').downcase %>/4.0/">
           <%= @picture.user.default_license %>
         </a>
