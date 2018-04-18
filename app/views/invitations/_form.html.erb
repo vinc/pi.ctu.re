@@ -1,8 +1,4 @@
 <%= form_for(invitation) do |f| %>
-  <div class="alert alert-info" role="alert">
-    <%= t('invitation.intro_html') %>
-  </div>
-
   <% if invitation.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <h4 class="alert-heading"><%= form_errors_heading(invitation) %></h4>
@@ -20,5 +16,5 @@
     <%= f.email_field :email, required: true, autocomplete: "email", class: "form-control #{"is-invalid" if invitation.errors[:email].any?}" %>
   </div>
 
-  <%= f.submit 'Request invitation', class: 'btn btn-primary btn-block' %>
+  <%= f.submit class: 'btn btn-primary btn-block' %>
 <% end %>

@@ -1,8 +1,12 @@
 <div class="row justify-content-center">
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-header text-muted"><%= title 'Request an invitation' %></div>
+      <div class="card-header text-muted"><%= title t('.title') %></div>
       <div class="card-body">
+        <div class="alert alert-info" role="alert">
+          <%= t('.notice_html') %>
+        </div>
+
         <%= render 'form', invitation: @invitation %>
       </div>
     </div>

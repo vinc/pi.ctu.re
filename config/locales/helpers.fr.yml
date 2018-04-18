@@ -6,3 +6,5 @@ fr:
       update: "Sauvegarder"
       picture:
         create: "Téléverser"
+      invitation:
+        create: "Demander une invitation"

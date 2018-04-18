@@ -9,7 +9,7 @@
           <div class="form-group">
             <%= f.label :invitation_token %>
             <%= f.text_field :invitation_token, required: true, class: "form-control #{"is-invalid" if resource.errors[:invitation_token].any?}" %>
-            <span class="form-text text-muted"><%= t('registration.need_invitation') %> <%= link_to t('registration.request_invitation'), new_invitation_path %></span>
+            <span class="form-text text-muted"><%= t('.need_invitation') %> <%= link_to t('.request_invitation'), new_invitation_path %></span>
           </div>
           <div class="form-group">
             <%= f.label :username %>
@@ -33,6 +33,6 @@
       </div>
     </div>
 
-    <p class="text-muted text-center mt-3"><%= t('registration.tos_html') %></p>
+    <p class="text-muted text-center mt-3"><%= t('.tos_html') %></p>
   </div>
 </div>

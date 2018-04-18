@@ -79,3 +79,25 @@ fr:
     form:
       upload_a_picture: "Téléverser une photo"
       upload_many_pictures: "Téléverser plusieurs photos"
+
+  devise:
+    registrations:
+      new:
+        need_invitation: "Vous n'en avez pas?"
+        request_invitation: "Demandez un code d'invitation"
+        tos_html: |
+          En créant un compte vous acceptez de suivre
+          les <a href="/rules">règles de cette instance</a> et
+          nos <a href="/terms">conditions d'utilisation</a>.
+
+  invitations:
+    new:
+      title: "Demandez une invitation"
+      notice_html: |
+        <p>Après avoir rempli ce formulaire, vous recevrez bientôt un code
+        d'invitation par email pour créer un compte sur <a class="alert-link"
+        href="/">Picture</a>.</p>
+
+        <p class="mb-0">Vous serez l'un des premiers à essayer ce service donc
+        n'hésitez pas a nous <a class="alert-link" href="/contact">contacter
+        </a> pour nous faire part de vos suggestions pour l'améliorer.</p>

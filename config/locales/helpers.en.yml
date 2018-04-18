@@ -6,3 +6,5 @@ en:
       update: "Save"
       picture:
         create: "Upload"
+      invitation:
+        create: "Request invitation"

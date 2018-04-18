@@ -79,21 +79,26 @@ en:
       upload_a_picture: "Upload a picture"
       upload_many_pictures: "Upload many pictures"
 
-  registration:
-    need_invitation: "Don't have one?"
-    request_invitation: "Request an invitation token"
-    tos_html: |
-      By signing up you agree to follow
-      the <a href="/rules">rules of this instance</a> and
-      our <a href="/terms">terms of service</a>.
+  devise:
+    registrations:
+      new:
+        need_invitation: "Don't have one?"
+        request_invitation: "Request an invitation code"
+        tos_html: |
+          By signing up you agree to follow
+          the <a href="/rules">rules of this instance</a> and
+          our <a href="/terms">terms of service</a>.
 
-  invitation:
-    intro_html: |
-      <a class="alert-link" href="/">Picture</a> is a website where you can
-      share your pictures and <a class="alert-link" href="/pricing">pay for the
-      data</a> stored and transferred. The code is <a class="alert-link"
-      href="https://github.com/vinc/pi.ctu.re">open source</a> so you can also
-      host your own instance.
+  invitations:
+    new:
+      title: "Request an invitation"
+      notice_html: |
+        <p>After completing this form, you will soon receive an invitation code
+        by email to sign up to <a class="alert-link" href="/">Picture</a>.</p>
+
+        <p class="mb-0">You will be one of the first to try the service so
+        please feel free to <a class="alert-link" href="/contact">contact
+        us</a> with any feedback or suggestions on how we can improve it.</p>
 
   contact:
     title: "Contact"
