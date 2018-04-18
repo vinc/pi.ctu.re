@@ -39,9 +39,12 @@ And images are delivered by a [node app](https://github.com/vinc/infra.stru.ctu.
 A local instance can also be run using Docker:
 
     $ git clone --recursive https://github.com/vinc/stru.ctu.re
+    $ cd stru.ctu.re
     $ docker-compose up
     $ docker-compose exec web rails db:setup
     $ docker-compose exec web rails generate admin
+
+In all cases a web server is listening at http://localhost:3000
 
 
 License
