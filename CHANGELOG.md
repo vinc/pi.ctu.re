@@ -4,6 +4,7 @@
 
 - Redesign and refactor many views
 - Upgrade to rails 5.2
+- Upgrade to bootstrap 4.1
 - Add translations
 - Add landing page
 - Add rules of instance page
