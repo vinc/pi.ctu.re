@@ -3,6 +3,7 @@
 ## 3.2.0 (unreleased)
 
 - Redesign and refactor many views
+- Upgrade to rails 5.2
 - Add translations
 - Add landing page
 - Add rules of instance page
