@@ -8,7 +8,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
           <div class="form-group">
             <%= f.label :invitation_token %>
-            <%= f.text_field :invitation_token, required: true, class: "form-control #{"is-invalid" if resource.errors[:invitation_token].any?}" %>
+            <%= f.text_field :invitation_token, value: resource.invitation_token.presence || params[:code], required: true, class: "form-control #{"is-invalid" if resource.errors[:invitation_token].any?}" %>
             <span class="form-text text-muted"><%= t('.need_invitation') %> <%= link_to t('.request_invitation'), new_invitation_path %></span>
           </div>
           <div class="form-group">
@@ -17,7 +17,7 @@
           </div>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, required: true, autocomplete: "email", class: "form-control #{"is-invalid" if resource.errors[:email].any?}" %>
+            <%= f.email_field :email, required: true, value: resource.email.presence || params[:email], autocomplete: "email", class: "form-control #{"is-invalid" if resource.errors[:email].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :password %>

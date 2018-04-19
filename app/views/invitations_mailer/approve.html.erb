@@ -4,11 +4,12 @@
 
 <p>
   Your invitation to <%= link_to 'Picture', root_url %> has been approved,
-  you can now sign up through the link below with the token "<%= @invitation.token %>".
+  you can now sign up through the link below with your email and the invitation
+  code "<%= @invitation.token %>".
 </p>
 
 <p>
-  <%= link_to 'Sign up', new_user_registration_url %>
+  <%= link_to 'Sign up', new_user_registration_url(code: @invitation.token, email: @invitation.email) %>
 </p>
 
 <p>Welcome to Picture!</p>
