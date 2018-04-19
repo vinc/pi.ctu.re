@@ -53,6 +53,24 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:followees) }
   end
 
+  describe "#followers_count" do
+    subject { FactoryBot.create(:user) }
+
+    context "with followers" do
+      let(:followers) { FactoryBot.create_list(:user, 5) }
+
+      before do
+        subject.followers = followers
+        subject.reload
+      end
+
+      it "has a followers counter cache" do
+        expect(subject.followers.count).to eq(5)
+        expect(subject.followers_count).to eq(5)
+      end
+    end
+  end
+
   describe "#name" do
     context "with fullname" do
       it "returns fullname" do
