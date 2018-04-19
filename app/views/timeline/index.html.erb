@@ -1,12 +1,22 @@
 <div class="row">
   <div class="offset-md-3 col-md-6">
-    <p class="text-muted"><%= t('.latest') %></p>
+    <% if @pictures.empty? %>
+      <div class="alert alert-info" role="alert">
+        <%= t('.empty_html') %>
+      </div>
 
-    <div id="notification"></div>
+      <% User.where.not(id: current_user.followees).order(followers_count: :desc).limit(5).each do |follow_user| %>
+        <%= render 'users/user_card', user: follow_user %>
+      <% end %>
+    <% else %>
+      <p class="text-muted"><%= t('.latest') %></p>
 
-    <div id="gallery">
-      <%= render 'timeline/pictures', pictures: @pictures %>
-    </div>
+      <div id="notification"></div>
+
+      <div id="gallery">
+        <%= render 'timeline/pictures', pictures: @pictures %>
+      </div>
+    <% end %>
 
     <p class="next-page text-center mt-3">
       <%= link_to_next_page @pictures, t('pictures.gallery.load_more'), remote: true, class: 'btn btn-outline-secondary', role: 'button' %>

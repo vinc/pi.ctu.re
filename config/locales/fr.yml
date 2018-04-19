@@ -66,6 +66,10 @@ fr:
   timeline:
     index:
       latest: "Dernières photos de votre fil"
+      empty_html: |
+        Votre fil est vide! Vous pouvez <a href="/p/new"
+        class="alert-link">téléverser une photo</a> ou suivre des utilisateurs
+        populaires pour commencer à le remplir.
 
   explore:
     index:

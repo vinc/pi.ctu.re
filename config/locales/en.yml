@@ -65,6 +65,10 @@ en:
   timeline:
     index:
       latest: "Latest pictures from your timeline"
+      empty_html: |
+        Your timeline is empty! You can <a href="/p/new"
+        class="alert-link">upload a picture</a> or follow some popular users to
+        start filling it.
 
   explore:
     index:
