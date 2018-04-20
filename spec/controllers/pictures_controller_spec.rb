@@ -30,6 +30,24 @@ RSpec.describe PicturesController, type: :controller do
         end.to raise_exception(ActionController::BadRequest)
       end
     end
+
+    context "within user namespace" do
+      let(:user) { FactoryBot.create(:user) }
+
+      it "returns http success" do
+        get :index, params: { user_username: user.username }
+        expect(response).to be_successful
+      end
+    end
+
+    context "within album namespace" do
+      let(:album) { FactoryBot.create(:album) }
+
+      it "returns http success" do
+        get :index, params: { album_token: album.token }
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET #show" do

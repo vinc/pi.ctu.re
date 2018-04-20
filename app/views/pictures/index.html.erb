@@ -1,1 +1,5 @@
+<% if @user %>
+  <h1>Pictures <small>by <%= link_to @user.name, @user %></small></h1>
+<% end %>
+
 <%= render 'pictures/gallery', pictures: @pictures %>

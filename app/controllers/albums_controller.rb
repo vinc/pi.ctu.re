@@ -21,7 +21,8 @@ class AlbumsController < ApplicationController
     @pictures = @pictures.public_setting unless @user == current_user
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
+      format.json
       format.js { render template: "pictures/index" }
     end
   end

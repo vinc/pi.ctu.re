@@ -34,10 +34,13 @@ Rails.application.routes.draw do
     end
 
     resources :albums, only: [:index]
+    resources :pictures, only: [:index]
   end
 
   get "/a", to: redirect("/explore")
-  resources :albums, param: :token, except: :index, path: "a"
+  resources :albums, param: :token, except: :index, path: "a" do
+    resources :pictures, only: [:index]
+  end
 
   namespace :admin do
     get "/", to: redirect("/admin/users")

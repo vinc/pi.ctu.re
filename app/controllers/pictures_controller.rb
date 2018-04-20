@@ -90,7 +90,12 @@ class PicturesController < ApplicationController
   end
 
   def set_user
-    @user = @picture.user unless @picture.nil?
+    @user =
+      if params[:user_username]
+        User.find_by!(username: params[:user_username])
+      elsif @picture
+        @picture.user
+      end
   end
 
   def set_pictures
