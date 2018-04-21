@@ -1,5 +1,11 @@
 <ul class="nav nav-pills flex-column mb-3">
   <li class="nav-item">
+    <%= link_to 'Account', edit_user_registration_path, class: "nav-link #{'active' if body_class == 'devise-registrations-edit'}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Profile', edit_user_path(current_user), class: "nav-link #{'active' if body_class == 'users-edit'}" %>
+  </li>
+  <li class="nav-item">
     <%= link_to 'Settings', edit_account_settings_path, class: "nav-link #{'active' if body_class == 'account-settings-edit'}" %>
   </li>
   <% if current_user.billable? %>
@@ -7,10 +13,4 @@
       <%= link_to 'Billing', account_billing_path, class: "nav-link #{'active' if body_class == 'account-billings-show'}" %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to 'Profile', edit_user_path(current_user), class: "nav-link #{'active' if body_class == 'users-edit'}" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 'Account', edit_user_registration_path, class: "nav-link #{'active' if body_class == 'devise-registrations-edit'}" %>
-  </li>
 </ul>
