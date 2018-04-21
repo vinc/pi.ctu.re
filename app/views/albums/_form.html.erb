@@ -17,12 +17,14 @@
   </div>
 
   <p class="mb-2">Pictures</p>
-  <div class="form-group d-flex flex-wrap" style="margin:-0.5rem">
+  <div class="form-group form-group-pictures row m-0">
     <%= f.collection_check_boxes :picture_ids, current_user.pictures.order_by_time, :id, :id, { selected: album.picture_ids } do |b| %>
-      <% b.label class: 'form-check-label', style: 'width:33%;padding:0.5rem' do %>
-        <%= image_tag(b.object.image.thumb_url('200x200!').to_s, style:'width:100%;height:auto') %>
-        <%= b.check_box class: 'form-check-input' %>
-      <% end %>
+      <div class="custom-control custom-checkbox p-0 col-6 col-sm-4">
+        <%= b.check_box class: 'custom-control-input' %>
+        <%= b.label class: 'custom-control-label p-2' do %>
+          <%= image_tag(b.object.image.thumb_url('300x300!').to_s, class: 'img-fluid') %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 

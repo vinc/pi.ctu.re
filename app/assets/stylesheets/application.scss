@@ -115,3 +115,27 @@ body.infinite-scrolling {
 .overflow-hidden {
   overflow: hidden;
 }
+
+.form-group-pictures {
+  .custom-control-input:checked ~ .custom-control-label {
+    background: lighten($primary, 33%);
+  }
+
+  .custom-control-label {
+    &::before,
+    &::after {
+      top: inherit;
+      left: inherit;
+      bottom: 1rem;
+      right: 1rem;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &::before {
+      background: #eee6;
+      border-radius: 50%;
+      box-shadow: none !important;
+    }
+  }
+}
