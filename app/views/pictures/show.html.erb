@@ -93,8 +93,8 @@
       <hr>
 
       <p>
-        <%= t('like', count: @picture.get_likes.size) %>,
-        <%= t('view', count: @picture.views_count) %>
+        <%= t('view', count: @picture.views_count) %>,
+        <%= t('like', count: @picture.cached_votes_total) %>
       </p>
 
       <div class="btn-toolbar" role="toolbar" aria-label="Picture social toolbar">
