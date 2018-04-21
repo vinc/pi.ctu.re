@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Admin::BillingsController, type: :controller do
+  let(:stripe_helper) { StripeMock.create_test_helper }
+  before { StripeMock.start }
+  after { StripeMock.stop }
+
   context "without signed in admin" do
     describe "GET #index" do
       it "returns http success" do
