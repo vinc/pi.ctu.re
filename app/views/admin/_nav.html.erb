@@ -1,8 +1,11 @@
 <ul class="nav nav-pills flex-column mb-3">
   <li class="nav-item">
+    <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
+  </li>
+  <li class="nav-item">
     <%= link_to 'Users', admin_users_path, class: "nav-link #{'active' if body_class == 'admin-users-index'}" %>
   </li>
   <li class="nav-item">
-    <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
+    <%= link_to 'Billings', admin_billings_path, class: "nav-link #{'active' if body_class == 'admin-billings-index'}" %>
   </li>
 </ul>

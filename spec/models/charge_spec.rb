@@ -58,6 +58,7 @@ RSpec.describe Album, type: :model do
         expect(charges).not_to be_empty
         expect(charges.count).to eq(1)
         expect(charges.first.amount).to eq(1.0)
+        expect(charges.first.user).to eq(user)
       end
     end
   end

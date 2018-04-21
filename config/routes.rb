@@ -33,19 +33,20 @@ Rails.application.routes.draw do
       get "followees"
     end
 
-    resources :albums, only: [:index]
-    resources :pictures, only: [:index]
+    resources :albums, only: :index
+    resources :pictures, only: :index
   end
 
   get "/a", to: redirect("/explore")
   resources :albums, param: :token, except: :index, path: "a" do
-    resources :pictures, only: [:index]
+    resources :pictures, only: :index
   end
 
   namespace :admin do
     get "/", to: redirect("/admin/users")
-    resources :users, param: :username, only: [:index]
-    resources :invitations, param: :token, only: [:index] do
+    resources :billings, only: :index
+    resources :users, only: :index
+    resources :invitations, param: :token, only: :index do
       member do
         put "approve"
       end

@@ -47,7 +47,7 @@
             <% @charges.each do |charge| %>
               <tr>
                 <td><%= timeago_tag charge.created_at %></td>
-                <td><%= number_to_currency(charge.amount) %></td>
+                <td><%= number_to_currency(charge.amount, unit: "€") %></td>
               </tr>
             <% end %>
           </tbody>
