@@ -31,7 +31,10 @@
 
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <%= link_to t('picture', count: @user.pictures.public_setting.count), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
+    <%= link_to t('profile'), @user, class: "nav-link#{body_class == 'users-show' ? ' active' : ''}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('picture', count: @user.pictures.public_setting.count), user_pictures_path(@user), class: "nav-link#{body_class == 'pictures-index' ? ' active' : ''}" %>
   </li>
   <li class="nav-item">
     <%= link_to t('album', count: @user.albums.count), user_albums_path(@user), class: "nav-link#{body_class == 'albums-index' ? ' active' : ''}" %>

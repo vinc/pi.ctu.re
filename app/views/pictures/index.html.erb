@@ -1,5 +1,7 @@
 <% if @user %>
-  <h1>Pictures <small>by <%= link_to @user.name, @user %></small></h1>
+  <div class="mb-4">
+    <%= render 'users/header' %>
+  </div>
 <% end %>
 
 <%= render 'pictures/gallery', pictures: @pictures %>

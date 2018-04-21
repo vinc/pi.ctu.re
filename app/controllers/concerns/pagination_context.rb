@@ -31,7 +31,7 @@ module PaginationContext
     @order =
       if params[:order]
         params[:order]
-      elsif controller_name == "explore"
+      elsif %w[explore users].include? controller_name
         "view"
       else
         "time"

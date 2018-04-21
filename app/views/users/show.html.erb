@@ -3,6 +3,33 @@
 
 <%= render 'header' %>
 
-<div class="mt-4">
-  <%= render 'pictures/gallery', pictures: @pictures %>
+<div class="row mt-4">
+  <div class="col-sm">
+    <table class="table">
+      <tr>
+        <th scope="row">Joined</th>
+        <td><%= timeago_tag @user.created_at %></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Views</th>
+        <td><%= @user.pictures.sum(:views_count) %></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Likes</th>
+        <td><%= @user.pictures.sum(:cached_votes_total) %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-sm">
+    <%= simple_format(@user.description) %>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h3>Most popular pictures</h3>
+
+  <%= render 'pictures/gallery', pictures: @user.pictures.public_setting.order_by_view.page(1).per(6) %>
 </div>
