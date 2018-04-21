@@ -32,5 +32,27 @@
         <%= render 'form' %>
       </div>
     </div>
+
+    <div class="card mt-4">
+      <div class="card-header text-muted">Billing History</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @charges.each do |charge| %>
+              <tr>
+                <td><%= timeago_tag charge.created_at %></td>
+                <td><%= number_to_currency(charge.amount) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
