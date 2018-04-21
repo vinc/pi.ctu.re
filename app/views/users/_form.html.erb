@@ -24,5 +24,10 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: 'Add a description to your profile', rows: 3, maxlength: User::DESCRIPTION_LENGTH_MAX, class: "form-control #{'is-invalid' if @user.errors[:description].any?}" %>
+  </div>
+
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
