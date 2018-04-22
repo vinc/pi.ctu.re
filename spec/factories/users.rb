@@ -27,6 +27,7 @@
 #  default_privacy_setting :integer
 #  role                    :integer          default("member")
 #  locale                  :string
+#  description             :text
 #
 
 require "faker"
