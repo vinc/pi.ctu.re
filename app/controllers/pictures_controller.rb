@@ -25,8 +25,7 @@ class PicturesController < ApplicationController
 
   def search
     if params[:q].present?
-      @pictures = Picture.
-        public_setting.
+      @pictures = Picture.public_setting.enabled.
         where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
     end
 
@@ -102,14 +101,14 @@ class PicturesController < ApplicationController
     @pictures =
       case @from
       when "all"
-        Picture.public_setting
+        Picture.public_setting.enabled
       when "explore"
-        Picture.featured.public_setting
+        Picture.featured.public_setting.enabled
       when "user"
         if @user == current_user
           @user.pictures
         else
-          @user.pictures.public_setting
+          @user.pictures.public_setting.enabled
         end
       when /\w+/ # album token
         raise(ActionController::BadRequest, "Invalid query parameters: from") if @album.nil?
@@ -117,7 +116,7 @@ class PicturesController < ApplicationController
         if @album.user == current_user
           @album.pictures
         else
-          @album.pictures.public_setting
+          @album.pictures.public_setting.enabled
         end
       end
   end

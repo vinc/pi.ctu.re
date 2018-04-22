@@ -18,7 +18,7 @@ class AlbumsController < ApplicationController
   def show
     @user = @album.user
     @pictures = @album.pictures.order_by_time.page(params[:page])
-    @pictures = @pictures.public_setting unless @user == current_user
+    @pictures = @pictures.public_setting.enabled unless @user == current_user
 
     respond_to do |format|
       format.html

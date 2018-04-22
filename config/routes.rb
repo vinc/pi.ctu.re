@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :pictures, param: :token, path: "p" do
     resource :lightbox, only: %i[show], module: :pictures
+    resource :disabled, only: %i[create destroy], module: :pictures
     resource :featured, only: %i[create destroy], module: :pictures
     resource :like, only: %i[create destroy], module: :pictures
 

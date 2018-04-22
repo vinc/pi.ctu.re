@@ -83,6 +83,7 @@ en:
       upload_a_picture: "Upload a picture"
       upload_many_pictures: "Upload many pictures"
     show:
+      disabled: "This picture has been disabled."
       license: "License"
 
   devise:

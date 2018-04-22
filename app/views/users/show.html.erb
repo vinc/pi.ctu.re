@@ -31,5 +31,5 @@
 <div class="mt-5">
   <h3>Most popular pictures</h3>
 
-  <%= render 'pictures/gallery', pictures: @user.pictures.public_setting.order_by_view.page(1).per(6) %>
+  <%= render 'pictures/gallery', pictures: @user.pictures.public_setting.enabled.order_by_view.page(1).per(6) %>
 </div>

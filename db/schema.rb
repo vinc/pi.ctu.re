@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_21_125610) do
+ActiveRecord::Schema.define(version: 2018_04_22_085603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_04_21_125610) do
     t.string "image_filename"
     t.integer "privacy_setting", default: 0
     t.integer "cached_votes_total", default: 0
+    t.integer "status", default: 0
     t.index ["token"], name: "index_pictures_on_token", unique: true
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end

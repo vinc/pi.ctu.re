@@ -6,8 +6,8 @@ class PicturePolicy < ApplicationPolicy
   def show?
     user.admin? ||
       user == record.user ||
-      record.public_setting? ||
-      record.protected_setting? && record.protected_param == record.protected_secret
+      record.enabled? && record.public_setting? ||
+      record.enabled? && record.protected_setting? && record.protected_param == record.protected_secret
   end
 
   def feature?

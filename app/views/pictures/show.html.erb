@@ -2,6 +2,10 @@
 <% set_meta_tags og: { image: @picture.image.thumb_url('800x800') } %>
 <% set_meta_tags twitter: { card: 'photo', image: @picture.image.thumb_url('800x800') } %>
 
+<% if @picture.disabled? %>
+  <div class="alert alert-danger" role="alert"><%= t('.disabled') %></div>
+<% end %>
+
 <div class="row" style="position:relative">
   <div class="col-md-8">
     <nav aria-label="picture pagination">
@@ -44,14 +48,14 @@
   <div class="mr-3" style="position:absolute;right:0">
     <% if user_signed_in? %>
       <span class="d-none d-sm-inline">
-      <% if current_user.admin? && @picture.public_setting? %>
-        <% if @picture.is_featured %>
-          <%= link_to picture_featured_path(@picture), method: :delete, class: 'btn btn-outline-warning', role: 'button' do %>
-            <%= fa_icon("check") %> Unpick
+      <% if current_user.admin? %>
+        <% if @picture.disabled? %>
+          <%= link_to picture_disabled_path(@picture), method: :delete, class: 'btn btn-outline-danger', role: 'button' do %>
+            <%= fa_icon("ban") %> Enable
           <% end %>
         <% else %>
-          <%= link_to picture_featured_path(@picture), method: :post, class: 'btn btn-outline-warning', role: 'button' do %>
-            <%= fa_icon("check") %> Pick
+          <%= link_to picture_disabled_path(@picture), method: :post, class: 'btn btn-outline-danger', role: 'button' do %>
+            <%= fa_icon("ban") %> Disable
           <% end %>
         <% end %>
       <% end %>

@@ -13,12 +13,12 @@
   <% albums.each do |album| %>
     <%= link_to album do %>
       <div class="card">
-        <% if album.pictures.public_setting.count.positive? %>
-          <%= image_tag(album.pictures.public_setting.first.image.thumb_url('500x500!').to_s, alt: album.title, class: 'card-img-top img-fluid') %>
+        <% if album.pictures.public_setting.enabled.count.positive? %>
+          <%= image_tag(album.pictures.public_setting.enabled.first.image.thumb_url('500x500!').to_s, alt: album.title, class: 'card-img-top img-fluid') %>
         <% end %>
         <div class="card-body">
           <h4 class="card-title overflow-hidden"><%= album.title %></h4>
-          <p class="card-text text-muted"><%= t('picture', count: album.pictures.public_setting.count) %></p>
+          <p class="card-text text-muted"><%= t('picture', count: album.pictures.public_setting.enabled.count) %></p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Updated <%= timeago_tag album.updated_at %></small>

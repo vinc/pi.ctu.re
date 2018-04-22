@@ -8,11 +8,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <div id="share-url-group" class="form-group">
-          <label for="share-url">URL to share</label>
-          <input type="url" class="form-control" id="share-url" placeholder="URL" value="<%= picture_url(@picture, secret: @picture.protected_secret) %>" readonly>
-        </div>
-
         <% if @picture.protected_setting? %>
           <div class="alert alert-warning" role="alert">
             <%= fa_icon "lock", class: "mr-1" %>
@@ -26,6 +21,11 @@
           </div>
         <% end %>
 
+        <div id="share-url-group" class="form-group">
+          <label for="share-url">URL to share</label>
+          <input type="url" class="form-control" id="share-url" placeholder="URL" value="<%= picture_url(@picture, secret: @picture.protected_secret) %>" readonly>
+        </div>
+
         <% if @picture.public_setting? %>
           <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u truncate(@picture.caption, length: 100, separator: '.') %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
             <%= fa_icon("twitter") %>
@@ -36,6 +36,18 @@
           <a href="https://plus.google.com/share?url=<%=u picture_url(@picture) %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#EA4335">
             <%= fa_icon("google") %>
           </a>
+
+          <% if user_signed_in? && current_user.admin? %>
+            <% if @picture.is_featured %>
+              <%= link_to picture_featured_path(@picture), method: :delete, class: 'btn btn-outline-primary', role: 'button' do %>
+                <%= fa_icon("check") %> Unfeature in Explore
+              <% end %>
+            <% else %>
+              <%= link_to picture_featured_path(@picture), method: :post, class: 'btn btn-outline-primary', role: 'button' do %>
+                <%= fa_icon("check") %> Feature in Explore
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
       <div class="modal-footer">
