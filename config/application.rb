@@ -14,6 +14,8 @@ module PictureApplication
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
 
+    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
+
     config.i18n.fallbacks = [:en]
 
     # Settings in config/environments/* take precedence over those specified here.
