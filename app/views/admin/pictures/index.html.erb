@@ -18,10 +18,14 @@
           <tbody>
             <% @pictures.each do |picture| %>
               <tr>
-                <th scope="row"><%= link_to picture.token, picture %></th>
-                <td><%= link_to picture.user.username, picture.user %></td>
-                <td><%= timeago_tag picture.created_at %></td>
-                <td><%= picture.status %></td>
+                <th scope="row">
+                  <%= link_to picture do %>
+                    <%= image_tag(picture.image.thumb_url('64x64!')) %>
+                  <% end %>
+                </th>
+                <td class="align-middle"><%= link_to picture.user.username, picture.user %></td>
+                <td class="align-middle"><%= timeago_tag picture.created_at %></td>
+                <td class="align-middle"><%= picture.status %></td>
               </tr>
             <% end %>
           </tbody>
