@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get "/", to: redirect("/admin/users")
     resources :billings, only: :index
     resources :users, only: :index
+    resources :pictures, only: :index
     resources :invitations, param: :token, only: :index do
       member do
         put "approve"

@@ -6,6 +6,9 @@
     <%= link_to 'Users', admin_users_path, class: "nav-link #{'active' if body_class == 'admin-users-index'}" %>
   </li>
   <li class="nav-item">
+    <%= link_to 'Pictures', admin_pictures_path, class: "nav-link #{'active' if body_class == 'admin-pictures-index'}" %>
+  </li>
+  <li class="nav-item">
     <%= link_to 'Billings', admin_billings_path, class: "nav-link #{'active' if body_class == 'admin-billings-index'}" %>
   </li>
 </ul>
