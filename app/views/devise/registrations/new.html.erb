@@ -13,7 +13,7 @@
           </div>
           <div class="form-group">
             <%= f.label :username %>
-            <%= f.text_field :username, required: true, autocomplete: "username", pattern: "^#{User.username_pattern}$", class: "form-control #{"is-invalid" if resource.errors[:username].any?}" %>
+            <%= f.text_field :username, required: true, autocomplete: "username", pattern: "^#{User::USERNAME_PATTERN}$", class: "form-control #{"is-invalid" if resource.errors[:username].any?}" %>
           </div>
           <div class="form-group">
             <%= f.label :email %>

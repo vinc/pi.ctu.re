@@ -38,6 +38,7 @@ class User < ApplicationRecord
 
   attr_accessor :invitation_token
 
+  USERNAME_PATTERN = "[0-9A-Za-z][0-9A-Za-z-]{1,30}[0-9A-Za-z]".freeze
   FULLNAME_LENGTH_MAX = 50
   DESCRIPTION_LENGTH_MAX = 500
 
@@ -89,14 +90,10 @@ class User < ApplicationRecord
     ].freeze
   end
 
-  def self.username_pattern
-    "[0-9A-Za-z][0-9A-Za-z-]{1,30}[0-9A-Za-z]".freeze
-  end
-
   validates :locale, inclusion: { in: locales.keys.map(&:to_s) }
   validates :default_license, inclusion: { in: default_licenses }
   validates :email, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true, format: /\A#{User.username_pattern}\z/
+  validates :username, presence: true, uniqueness: true, format: /\A#{USERNAME_PATTERN}\z/
   validates :fullname, length: { maximum: FULLNAME_LENGTH_MAX }
   validates :description, length: { maximum: DESCRIPTION_LENGTH_MAX }
   validate :invitation_token_must_be_valid, on: :create, unless: :admin?
