@@ -33,8 +33,8 @@ en:
             Picture is a website where you can upload and share with the world
             your best visual creations.
 
-            The aim of this service is to keep everything simple and
-            sustainable at human scale. Our focus is on people.
+            Unlike most major photo sharing services, the aim of Picture is to
+            keep everything simple and sustainable at human scale.
         why:
           title: "Stay in control of your content"
           description_markdown: |
@@ -214,7 +214,7 @@ en:
       product. You are our customers. The service we offer you is hosting your
       pictures.</p>
 
-      <h2>One simple price</h2>
+      <h2>Pay as you go</h2>
 
       <p>Cloud providers charge, on average, about %{cost_per_gigabyte} per GB
       of data stored or transferred per month. On top of that we need to add
@@ -229,7 +229,7 @@ en:
       </p>
 
       <p>We measure the data transferred by monitoring every picture
-      downloaded. And at the end of the month we also measure how much space
+      downloaded. And at the end of the month we also count how much space
       your pictures are taking on our servers.</p>
 
       <h2>Free trial</h2>
