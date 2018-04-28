@@ -1,4 +1,8 @@
 body.welcome-index {
+  h2.display-4 {
+    font-size: 3rem;
+  }
+
   .navbar-dark .navbar-nav .nav-link {
     color: rgba(white, 0.75);
     &:hover {
