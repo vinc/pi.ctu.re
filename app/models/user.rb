@@ -96,7 +96,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, format: /\A#{USERNAME_PATTERN}\z/
   validates :fullname, length: { maximum: FULLNAME_LENGTH_MAX }
   validates :description, length: { maximum: DESCRIPTION_LENGTH_MAX }
-  validate :invitation_token_must_be_valid, on: :create, unless: :admin? if Rails.configuration.invitation_enabled
+  validate :invitation_token_must_be_valid, on: :create, unless: :skip_invitation?
 
   def remember_me
     true
@@ -108,6 +108,10 @@ class User < ApplicationRecord
 
   def name
     fullname.presence || username
+  end
+
+  def skip_invitation?
+    admin? || !Rails.configuration.invitation_enabled
   end
 
   def invitation_token_must_be_valid
