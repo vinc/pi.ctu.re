@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header text-muted"><%= t('privacy.title') %></div>
       <div class="card-body">
-        <%= render_markdown(t('privacy.body_markdown', payment_information: t('privacy.payment_information_markdown'))) %>
+        <%= render_markdown(t('privacy.body_markdown', payment_information: Rails.configuration.payment_enabled ? t('privacy.payment_information_markdown') : '')) %>
       </div>
     </div>
   </div>

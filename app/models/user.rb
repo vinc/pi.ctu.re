@@ -115,10 +115,6 @@ class User < ApplicationRecord
     errors.add(:invitation_token, "is invalid") unless approved_invitation.exists?
   end
 
-  def billable?
-    ENV["STRIPE_PUBLISHABLE_KEY"].present?
-  end
-
   def usage
     pictures.map(&:image).map(&:size).sum
   end

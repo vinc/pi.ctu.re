@@ -8,7 +8,7 @@
   <li class="nav-item">
     <%= link_to 'Settings', edit_account_settings_path, class: "nav-link #{'active' if body_class == 'account-settings-edit'}" %>
   </li>
-  <% if current_user.billable? %>
+  <% if Rails.configuration.payment_enabled %>
     <li class="nav-item">
       <%= link_to 'Billing', account_billing_path, class: "nav-link #{'active' if body_class == 'account-billings-show'}" %>
     </li>

@@ -3,14 +3,14 @@
     <div class="card">
       <div class="card-header text-muted"><%= title t('pictures.form.upload_a_picture') %></div>
       <div class="card-body">
-        <% if current_user.billable? && current_user.balance.negative? %>
+        <% unless policy(Picture).upload? %>
           <div class="alert alert-danger" role="alert">
             <strong>Warning!</strong>
             Your data balance is <strong>-<%= number_to_human_size(-current_user.balance) %></strong>,
             you need to <%= link_to 'top up', account_billing_path, class: 'alert-link' %> before uploading
             new pictures.
           </div>
-          <% end %>
+        <% end %>
         <%= render 'form', picture: @picture %>
       </div>
     </div>
