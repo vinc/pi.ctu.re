@@ -1,7 +1,9 @@
 <ul class="nav nav-pills flex-column mb-3">
-  <li class="nav-item">
-    <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
-  </li>
+  <% if Rails.configuration.invitation_enabled %>
+    <li class="nav-item">
+      <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to 'Users', admin_users_path, class: "nav-link #{'active' if body_class == 'admin-users-index'}" %>
   </li>
