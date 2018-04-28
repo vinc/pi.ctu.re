@@ -11,7 +11,9 @@
   <li class="nav-item">
     <%= link_to t('privacy.title'), privacy_path, class: "nav-link #{'active' if body_class == 'about-privacy'}" %>
   </li>
-  <li class="nav-item">
-    <%= link_to t('pricing.title'), pricing_path, class: "nav-link #{'active' if body_class == 'about-pricing'}" %>
-  </li>
+  <% if Rails.configuration.payment_enabled %>
+    <li class="nav-item">
+      <%= link_to t('pricing.title'), pricing_path, class: "nav-link #{'active' if body_class == 'about-pricing'}" %>
+    </li>
+  <% end %>
 </ul>

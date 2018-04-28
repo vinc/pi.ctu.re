@@ -45,7 +45,7 @@ class Picture < ApplicationRecord
 
   validates_presence_of :image
   validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
-  validate :user_balance_cannot_be_negative, on: :create
+  validate :user_balance_cannot_be_negative, on: :create if Rails.configuration.payment_enabled
 
   after_create_commit :notify!
   before_update :regenerate_protected_secret!, if: :regenerate_secret
@@ -87,6 +87,6 @@ class Picture < ApplicationRecord
   end
 
   def user_balance_cannot_be_negative
-    errors.add(:user_id, "data balance cannot be negative") if user.billable? && user.balance.negative?
+    errors.add(:user_id, "data balance cannot be negative") if user.balance.negative?
   end
 end

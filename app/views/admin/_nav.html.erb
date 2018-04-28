@@ -1,14 +1,18 @@
 <ul class="nav nav-pills flex-column mb-3">
-  <li class="nav-item">
-    <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
-  </li>
+  <% if Rails.configuration.invitation_enabled %>
+    <li class="nav-item">
+      <%= link_to 'Invitations', admin_invitations_path, class: "nav-link #{'active' if body_class == 'admin-invitations-index'}" %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to 'Users', admin_users_path, class: "nav-link #{'active' if body_class == 'admin-users-index'}" %>
   </li>
   <li class="nav-item">
     <%= link_to 'Pictures', admin_pictures_path, class: "nav-link #{'active' if body_class == 'admin-pictures-index'}" %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Billings', admin_billings_path, class: "nav-link #{'active' if body_class == 'admin-billings-index'}" %>
-  </li>
+  <% if Rails.configuration.payment_enabled %>
+    <li class="nav-item">
+      <%= link_to 'Billings', admin_billings_path, class: "nav-link #{'active' if body_class == 'admin-billings-index'}" %>
+    </li>
+  <% end %>
 </ul>

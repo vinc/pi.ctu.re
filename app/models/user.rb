@@ -96,7 +96,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, format: /\A#{USERNAME_PATTERN}\z/
   validates :fullname, length: { maximum: FULLNAME_LENGTH_MAX }
   validates :description, length: { maximum: DESCRIPTION_LENGTH_MAX }
-  validate :invitation_token_must_be_valid, on: :create, unless: :admin?
+  validate :invitation_token_must_be_valid, on: :create, unless: :skip_invitation?
 
   def remember_me
     true
@@ -110,13 +110,13 @@ class User < ApplicationRecord
     fullname.presence || username
   end
 
+  def skip_invitation?
+    admin? || !Rails.configuration.invitation_enabled
+  end
+
   def invitation_token_must_be_valid
     approved_invitation = Invitation.approved.where(email: email, token: invitation_token)
     errors.add(:invitation_token, "is invalid") unless approved_invitation.exists?
-  end
-
-  def billable?
-    ENV["STRIPE_PUBLISHABLE_KEY"].present?
   end
 
   def usage

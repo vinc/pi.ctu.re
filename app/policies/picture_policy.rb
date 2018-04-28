@@ -17,4 +17,8 @@ class PicturePolicy < ApplicationPolicy
   def unfeature?
     user.admin?
   end
+
+  def upload?
+    user.balance.positive? || !Rail.configuration.payment_enabled
+  end
 end

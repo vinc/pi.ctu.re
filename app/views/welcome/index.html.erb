@@ -64,32 +64,34 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
-  <div class="container my-5">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <h2 class="display-4 mb-4" style="color:#0C9"><%= t(".sections.price.title") %></h2>
-        <div class="lead">
-          <%= render_markdown(t(".sections.price.description_markdown")) %>
-        </div>
-        <div class="row mt-4">
-          <div class="col-sm-auto pr-0 mb-3">
-            <%= link_to t("devise.registrations.new.sign_up"), new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %>
+<% if Rails.configuration.payment_enabled %>
+  <div class="d-flex justify-content-center align-items-center p-3" style="min-height:100vh;background:white;color:#444">
+    <div class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="display-4 mb-4" style="color:#0C9"><%= t(".sections.price.title") %></h2>
+          <div class="lead">
+            <%= render_markdown(t(".sections.price.description_markdown")) %>
           </div>
-          <div class="col-sm pl-0 ml-3 mb-3">
-            <%= link_to t(".sections.price.cta"), pricing_path, class: "btn btn-lg btn-outline-primary", role: "button" %>
+          <div class="row mt-4">
+            <div class="col-sm-auto pr-0 mb-3">
+              <%= link_to t("devise.registrations.new.sign_up"), new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %>
+            </div>
+            <div class="col-sm pl-0 ml-3 mb-3">
+              <%= link_to t(".sections.price.cta"), pricing_path, class: "btn btn-lg btn-outline-primary", role: "button" %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-6 mt-4 mt-md-0 text-center">
-        <div class="phone">
-          <%= image_tag("screenshots/screenshot-phone-timeline.jpg") %>
+        <div class="col-md-6 mt-4 mt-md-0 text-center">
+          <div class="phone">
+            <%= image_tag("screenshots/screenshot-phone-timeline.jpg") %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="wrapper d-flex flex-column" style="background:#034;color:rgba(255,255,255,0.9)"><!-- begin layout wrapper -->
 <div class="container align-items-center"><!-- begin layout container -->

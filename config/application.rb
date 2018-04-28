@@ -18,6 +18,10 @@ module PictureApplication
 
     config.i18n.fallbacks = [:en]
 
+    # Custom configuration
+    config.payment_enabled = ENV["PICTURE_DISABLE_PAYMENT"].blank?
+    config.invitation_enabled = ENV["PICTURE_DISABLE_INVITATION"].blank?
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

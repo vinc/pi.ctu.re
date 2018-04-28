@@ -9,7 +9,9 @@
           <li class="list-inline-item"><%= link_to t(".contact"), contact_path %></li>
           <li class="list-inline-item"><%= link_to t(".terms"), terms_path %></li>
           <li class="list-inline-item"><%= link_to t(".privacy"), privacy_path %></li>
-          <li class="list-inline-item"><%= link_to t(".pricing"), pricing_path %></li>
+          <% if Rails.configuration.payment_enabled %>
+            <li class="list-inline-item"><%= link_to t(".pricing"), pricing_path %></li>
+          <% end %>
 
           <% unless user_signed_in? %>
             <li class="list-inline-item dropdown">
