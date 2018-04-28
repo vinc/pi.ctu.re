@@ -216,13 +216,14 @@ en:
 
       <h2>One simple price</h2>
 
-      <p>Cloud providers charge, on average, about &euro;0.10 per GB of data
-      stored or transferred per month. On top of that we need to add computing
-      costs, payment processing fees, taxes, and developer time, which add up
-      to about <strong>&euro;1.00 per GB</strong> to make it sustainable.</p>
+      <p>Cloud providers charge, on average, about %{cost_per_gigabyte} per GB
+      of data stored or transferred per month. On top of that we need to add
+      computing costs, payment processing fees, taxes, and developer time,
+      which add up to about <strong>%{price_per_gigabyte} per GB</strong> to
+      make it sustainable.</p>
 
       <p class="display-4 my-5 text-center text-muted">
-        &euro;1.00 per GB<br>
+        %{price_per_gigabyte} per GB<br>
         of data stored<br>
         or transferred
       </p>
