@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header text-muted"><%= t('pricing.title') %></div>
       <div class="card-body">
-        <%= t('pricing.body_html') %>
+        <%= t('pricing.body_html', cost_per_gigabyte: cost_per_gigabyte, price_per_gigabyte: price_per_gigabyte) %>
 
         <% unless user_signed_in? %>
           <p class="text-center mt-5"><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-lg btn-primary', role: 'button' %></p>

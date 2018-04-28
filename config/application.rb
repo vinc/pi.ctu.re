@@ -19,8 +19,11 @@ module PictureApplication
     config.i18n.fallbacks = [:en]
 
     # Custom configuration
-    config.payment_enabled = ENV["PICTURE_DISABLE_PAYMENT"].blank?
     config.invitation_enabled = ENV["PICTURE_DISABLE_INVITATION"].blank?
+    config.payment_enabled = ENV["PICTURE_DISABLE_PAYMENT"].blank?
+    config.cost_per_gigabyte = ENV["PICTURE_COST_PER_GIGABYTE"] || "10"
+    config.price_per_gigabyte = ENV["PICTURE_PRICE_PER_GIGABYTE"] || "100"
+    Money.default_currency = Money::Currency.new(ENV["DEFAULT_CURRENCY"] || "eur")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

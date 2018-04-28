@@ -23,7 +23,7 @@
                   <th scope="row"><%= link_to charge.user.username, charge.user %></th>
                 <% end %>
                 <td><%= timeago_tag charge.created_at %></td>
-                <td><%= number_to_currency(charge.amount, unit: "€") %></td>
+                <td><%= format_money(charge.amount, charge.currency) %></td>
               </tr>
             <% end %>
           </tbody>

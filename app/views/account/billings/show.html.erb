@@ -27,7 +27,7 @@
           Top up
         </h5>
         <p class="card-text">
-          The current rate is <strong>&euro;1.00 per GB</strong>.
+          The current rate is <strong><%= price_per_gigabyte %> per GB</strong>.
         </p>
         <%= render 'form' %>
       </div>
@@ -47,7 +47,7 @@
             <% @charges.each do |charge| %>
               <tr>
                 <td><%= timeago_tag charge.created_at %></td>
-                <td><%= number_to_currency(charge.amount, unit: "€") %></td>
+                <td><%= format_money(charge.amount, charge.currency) %></td>
               </tr>
             <% end %>
           </tbody>

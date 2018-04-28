@@ -1,9 +1,10 @@
 class Charge
-  attr_accessor :created_at, :amount, :user
+  attr_accessor :created_at, :amount, :currency, :user
 
   def initialize(data)
     @created_at = Time.at(data.created)
-    @amount = data.amount / 100.0
+    @amount = data.amount
+    @currency = data.currency
     @user = User.where(customer_id: data.customer).first
   end
 
