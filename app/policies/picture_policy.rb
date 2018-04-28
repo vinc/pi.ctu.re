@@ -19,6 +19,6 @@ class PicturePolicy < ApplicationPolicy
   end
 
   def upload?
-    user.balance.positive? || !Rail.configuration.payment_enabled
+    user.balance.positive? || !Rails.configuration.payment_enabled
   end
 end
