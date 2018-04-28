@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || current_user.try(:locale) || I18n.default_locale
   end
 
+  def after_sign_in_path_for(resource)
+    I18n.locale = current_user.locale
+    super
+  end
+
   def self.default_url_options
     { locale: I18n.locale }
   end
