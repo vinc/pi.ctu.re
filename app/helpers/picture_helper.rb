@@ -1,11 +1,11 @@
 module PictureHelper
-  def picture_caption_format(caption, options = {})
+  def picture_description_format(description, options = {})
     if options[:truncate]
-      caption = truncate(caption, length: options[:truncate], separator: ".")
+      description = truncate(description, length: options[:truncate], separator: ".")
       options.delete(:truncate)
     end
 
-    simple_format(caption, options).
+    simple_format(description, options).
       gsub(/(#\w+)/) { |tag| link_to(tag, search_pictures_path(q: tag)) }.
       html_safe
   end

@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
   def search
     if params[:q].present?
       @pictures = Picture.public_setting.enabled.
-        where("caption ILIKE ?", "%#{params[:q]}%").page(params[:page])
+        where("description ILIKE ?", "%#{params[:q]}%").page(params[:page])
     end
 
     respond_to do |format|
@@ -122,6 +122,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:caption, :image, :privacy_setting, :regenerate_secret, album_ids: [])
+    params.require(:picture).permit(:description, :image, :privacy_setting, :regenerate_secret, album_ids: [])
   end
 end

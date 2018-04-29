@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.feature "PictureSearch", type: :feature do
   before :each do
     2.times { FactoryBot.create(:picture) }
-    FactoryBot.create(:picture, caption: "foo")
-    FactoryBot.create(:picture, caption: "foo bar")
-    FactoryBot.create(:picture, caption: "bar foo")
-    FactoryBot.create(:picture, caption: "FOO")
+    FactoryBot.create(:picture, description: "foo")
+    FactoryBot.create(:picture, description: "foo bar")
+    FactoryBot.create(:picture, description: "bar foo")
+    FactoryBot.create(:picture, description: "FOO")
   end
 
   scenario "Search picture" do

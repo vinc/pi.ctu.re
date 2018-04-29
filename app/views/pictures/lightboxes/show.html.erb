@@ -1,4 +1,4 @@
-<% title ["#{truncate((@picture.caption.presence || 'Picture').lines.first.chomp, length: 60, separator: '.')} by #{@picture.user.name} (#{@picture.token})", "Lightbox"] %>
+<% title ["#{truncate((@picture.description.presence || 'Picture').lines.first.chomp, length: 60, separator: '.')} by #{@picture.user.name} (#{@picture.token})", "Lightbox"] %>
 <% set_meta_tags og: { image: @picture.image.thumb_url('800x800') } %>
 <% set_meta_tags twitter: { card: 'photo', image: @picture.image.thumb_url('800x800') } %>
 

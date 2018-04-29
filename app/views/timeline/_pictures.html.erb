@@ -7,9 +7,9 @@
     <div class="card-body">
       <%= render 'pictures/user', picture: picture %>
 
-      <% if picture.caption.present? %>
+      <% if picture.description.present? %>
         <div class="mt-3">
-          <%= picture_caption_format(picture.caption, truncate: 200, class: 'card-text') %>
+          <%= picture_description_format(picture.description, truncate: 200, class: 'card-text') %>
         </div>
       <% end %>
     </div>

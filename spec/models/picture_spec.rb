@@ -3,7 +3,7 @@
 # Table name: pictures
 #
 #  id                 :integer          not null, primary key
-#  caption            :text
+#  description        :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :integer
@@ -29,7 +29,7 @@ RSpec.describe Picture, type: :model do
   end
 
   describe "validations" do
-    it { is_expected.to validate_length_of(:caption).is_at_most(Picture::CAPTION_LENGTH_MAX) }
+    it { is_expected.to validate_length_of(:description).is_at_most(Picture::CAPTION_LENGTH_MAX) }
   end
 
   describe "associations" do

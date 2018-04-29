@@ -1,4 +1,4 @@
-<% title "#{truncate((@picture.caption.presence || 'Picture').lines.first.chomp, length: 60, separator: '.')} by #{@picture.user.name} (#{@picture.token})" %>
+<% title "#{truncate((@picture.description.presence || 'Picture').lines.first.chomp, length: 60, separator: '.')} by #{@picture.user.name} (#{@picture.token})" %>
 <% set_meta_tags og: { image: @picture.image.thumb_url('800x800') } %>
 <% set_meta_tags twitter: { card: 'photo', image: @picture.image.thumb_url('800x800') } %>
 
@@ -81,8 +81,8 @@
     <div>
       <div class="mb-3"><%= render 'pictures/user', picture: @picture %></div>
 
-      <% if @picture.caption.present? %>
-        <%= picture_caption_format(@picture.caption) %>
+      <% if @picture.description.present? %>
+        <%= picture_description_format(@picture.description) %>
       <% end %>
     </div>
 

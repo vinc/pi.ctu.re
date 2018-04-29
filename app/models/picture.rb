@@ -3,7 +3,7 @@
 # Table name: pictures
 #
 #  id                 :integer          not null, primary key
-#  caption            :text
+#  description        :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :integer
@@ -44,7 +44,7 @@ class Picture < ApplicationRecord
   enum status: %i[enabled disabled]
 
   validates_presence_of :image
-  validates :caption, length: { maximum: CAPTION_LENGTH_MAX }
+  validates :description, length: { maximum: CAPTION_LENGTH_MAX }
   validate :user_balance_cannot_be_negative, on: :create if Rails.configuration.payment_enabled
 
   after_create_commit :notify!
@@ -60,7 +60,7 @@ class Picture < ApplicationRecord
   end
 
   def alt
-    caption.presence || "Picture #{token}"
+    description.presence || "Picture #{token}"
   end
 
   def exif

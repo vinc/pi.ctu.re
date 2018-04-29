@@ -3,7 +3,7 @@
 # Table name: pictures
 #
 #  id                 :integer          not null, primary key
-#  caption            :text
+#  description        :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :integer
@@ -25,7 +25,7 @@ FactoryBot.define do
   image_path = Rails.root.join("app/assets/images/home_bg.jpg")
 
   factory :picture do
-    caption { Faker::Lorem.sentence }
+    description { Faker::Lorem.sentence }
     image File.open(image_path)
     user
 

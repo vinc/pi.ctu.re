@@ -27,7 +27,7 @@
         </div>
 
         <% if @picture.public_setting? %>
-          <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u truncate(@picture.caption, length: 100, separator: '.') %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
+          <a href="http://twitter.com/share?url=<%=u picture_url(@picture) %>&text=<%=u truncate(@picture.description, length: 100, separator: '.') %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#4099FF">
             <%= fa_icon("twitter") %>
           </a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=<%=u picture_url(@picture) %>" target="_blank" class="btn" role="button" style="width:3rem;color:white;background:#3B5998">
