@@ -1,0 +1,10 @@
+---
+pl:
+  helpers:
+    submit:
+      create: "Utwórz"
+      update: "Zapisz"
+      picture:
+        create: "Wyślij"
+      invitation:
+        create: "Poproś o zaproszenie"

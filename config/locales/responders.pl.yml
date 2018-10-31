@@ -1,0 +1,16 @@
+pl:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} został pomyślnie utworzony.'
+        # alert: '%{resource_name} could not be created.'
+      update:
+        notice: '%{resource_name} został pomyślnie zaktualizowany.'
+        # alert: '%{resource_name} could not be updated.'
+      destroy:
+        notice: '%{resource_name} został pomyślnie usunięty.'
+        alert: '%{resource_name} could not be destroyed.'
+    invitation:
+      actions:
+        create:
+          notice: 'Pomyślnie poproszono o %{resource_name}.'

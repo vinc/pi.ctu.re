@@ -1,0 +1,5 @@
+pl:
+  activerecord:
+    attributes:
+      user:
+        invitation_token: "Kod zaproszenia"

@@ -1,0 +1,11 @@
+pl:
+  devise:
+    registrations:
+      edit:
+        title: Edytuj konto
+    sessions:
+      new:
+        sign_in: Zaloguj się
+    shared:
+      links:
+        sign_in: Zaloguj się

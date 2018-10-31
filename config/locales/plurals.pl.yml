@@ -1,0 +1,36 @@
+pl:
+  picture:
+    few: "%{count} zdjęcia"
+    many: "%{count} zdjęć"
+    one: "1 zdjęć"
+    other: "%{count} zdjęć"
+  album:
+    few: "%{count} albumy"
+    many: "%{count} albumów"
+    one: "1 album"
+    other: "%{count} albumów"
+  error:
+    few: "%{count} błędy"
+    many: "%{count} błędów"
+    one: "1 błąd"
+    other: "%{count} błędów"
+  like:
+    few: "%{count} polubienia"
+    many: "%{count} polubień"
+    one: "1 polubienie"
+    other: "%{count} polubień"
+  view:
+    few: "%{count} wyświetlenia"
+    many: "%{count} wyświetleń"
+    one: "1 wyświetlenie"
+    other: "%{count} wyświetleń"
+  followee:
+    few: "%{count} śledzonych"
+    many: "%{count} śledzonych"
+    one: "1 śledzony"
+    other: "%{count} śledzonych"
+  follower:
+    few: "%{count} śledzących"
+    many: "%{count} śledzących"
+    one: "1 śledzący"
+    other: "%{count} śledzących"
