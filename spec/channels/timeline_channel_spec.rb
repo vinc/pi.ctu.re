@@ -23,7 +23,7 @@ RSpec.describe TimelineChannel, type: :channel do
       subscribe
 
       expect(subscription).to be_confirmed
-      expect(streams).to include(/timeline/)
+      expect(subscription).to have_stream_from(/timeline/)
     end
   end
 end
