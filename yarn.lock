@@ -3,19 +3,23 @@
 
 
 dropzone@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.4.0.tgz#3290c07f59b189eb5a11e99a58c9b2adae5acfec"
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.5.1.tgz#06e2f513e61d6aa363d4b556f18574f47cf7ba26"
+  integrity sha512-3VduRWLxx9hbVr42QieQN25mx/I61/mRdUSuxAmDGdDqZIN8qtP7tcKMa3KfpJjuGjOJGYYUzzeq6eGDnkzesA==
 
 jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 justifiedGallery@^3.6.5:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/justifiedGallery/-/justifiedGallery-3.7.0.tgz#794401e455d1e4b62de2081e8843fbc30ea4cbfd"
+  integrity sha1-eUQB5FXR5LYt4ggeiEP7ww6ky/0=
   dependencies:
     jquery "^3.3.1"
 
 roboto-slab-fontface-kit@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/roboto-slab-fontface-kit/-/roboto-slab-fontface-kit-1.0.2.tgz#3ff66e72096e486cbdacdf7a89cddfe2bbfc89e4"
+  integrity sha512-EdwkOvb6+D7ENrnjs1JzuHQHbeeEuQpddtbYqHzjl+c4dE2Vep0Jh5CHkpQkAhj+nELrXEUikzDayvIn2xzNNA==
