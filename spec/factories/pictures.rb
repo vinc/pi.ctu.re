@@ -26,11 +26,11 @@ FactoryBot.define do
 
   factory :picture do
     description { Faker::Lorem.sentence }
-    image File.open(image_path)
+    image { File.open(image_path) }
     user
 
     trait :with_uploaded_file do
-      image Rack::Test::UploadedFile.new(image_path, "image/jpeg")
+      image { Rack::Test::UploadedFile.new(image_path, "image/jpeg") }
     end
   end
 end

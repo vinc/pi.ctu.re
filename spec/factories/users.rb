@@ -40,7 +40,7 @@ FactoryBot.define do
     password              { Faker::Internet.password }
     password_confirmation(&:password)
 
-    balance               100_000_000 # 100 MB
+    balance               { 100_000_000 } # 100 MB
 
     invitation_token      { FactoryBot.create(:invitation, email: email, approved_at: Time.zone.now).token }
   end
