@@ -207,7 +207,7 @@ GEM
     powerpack (0.1.2)
     psych (3.1.0)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.1)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     rack (2.0.6)
@@ -386,7 +386,7 @@ DEPENDENCIES
   money
   order_query (~> 0.4.0)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.7)
+  puma (~> 3.12)
   pundit
   rails (~> 5.2.0)
   rails-i18n (~> 5.1)
