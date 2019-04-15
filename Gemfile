@@ -7,7 +7,7 @@ end
 
 ruby "2.5.3"
 
-gem "rails", "~> 5.2.0"
+gem "rails", "~> 5.2.3"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "jbuilder", "~> 2.5"
