@@ -51,7 +51,7 @@ group :test do
 end
 
 gem "acts_as_votable", "~> 0.12.0"
-gem "bootstrap", "~> 4.1.0"
+gem "bootstrap", "~> 4.3.1"
 gem "carrierwave", "~> 1.3.1"
 gem "carrierwave-bombshelter"
 gem "carrierwave-postgresql", "0.3.0"
