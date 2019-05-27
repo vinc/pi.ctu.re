@@ -46,7 +46,7 @@ group :test do
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
-  gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
+  gem "stripe-ruby-mock", "~> 2.5.7", require: "stripe_mock"
   gem "timecop"
 end
 
