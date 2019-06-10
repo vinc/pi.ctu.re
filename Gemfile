@@ -44,7 +44,7 @@ group :test do
   gem "chromedriver-helper"
   gem "codecov", require: false
   gem "database_cleaner"
-  gem "shoulda-matchers", "~> 3.1.2"
+  gem "shoulda-matchers", "~> 4.1.0"
   gem "simplecov", require: false
   gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
   gem "timecop"
