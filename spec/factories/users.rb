@@ -35,7 +35,7 @@ require "faker"
 FactoryBot.define do
   factory :user do
     email                 { Faker::Internet.email }
-    username              { Faker::Internet.user_name(nil, "-") + rand(10_000..99_999).to_s }
+    username              { Faker::Internet.username(separators: "-") + rand(10_000..99_999).to_s }
     fullname              { Faker::Name.name }
     password              { Faker::Internet.password }
     password_confirmation(&:password)
