@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.5.3"
+ruby "2.6.2"
 
 gem "rails", "~> 5.2.3"
 
@@ -46,7 +46,7 @@ group :test do
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
-  gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
+  gem "stripe-ruby-mock", "~> 3.0.1", require: "stripe_mock"
   gem "timecop"
 end
 
