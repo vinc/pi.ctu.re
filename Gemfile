@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.5.3"
+ruby "2.7.6"
 
 gem "rails", "~> 5.2.3"
 
@@ -41,7 +41,8 @@ group :test do
   gem "action-cable-testing"
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
-  gem "chromedriver-helper"
+  gem "selenium-webdriver", require: false
+  gem "webdrivers"
   gem "codecov", require: false
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
