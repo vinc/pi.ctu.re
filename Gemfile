@@ -7,7 +7,7 @@ end
 
 ruby "2.7.6"
 
-gem "rails", "~> 5.2.3"
+gem "rails", "~> 5.2.8"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "jbuilder", "~> 2.5"
@@ -48,7 +48,7 @@ group :test do
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
-  gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
+  gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
   gem "timecop"
 end
 
@@ -73,4 +73,4 @@ gem "rails-i18n", "~> 5.1"
 gem "rails-timeago", "~> 2.17.1"
 gem "redcarpet"
 gem "responders"
-gem "stripe"
+gem "stripe", "~> 7.1"
