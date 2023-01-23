@@ -5,9 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.5.3"
+ruby "2.7.6"
 
-gem "rails", "~> 5.2.3"
+gem "rails", "~> 5.2.8"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "jbuilder", "~> 2.5"
@@ -15,7 +15,7 @@ gem "jquery-rails"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.12"
 gem "redis", "~> 4.1"
-gem "sass-rails", "~> 5.0"
+gem "sassc-rails", "~> 2.1"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
@@ -32,6 +32,7 @@ group :development do
   gem "annotate"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rubocop"
+  gem "rubocop-performance"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
@@ -41,12 +42,13 @@ group :test do
   gem "action-cable-testing"
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
-  gem "chromedriver-helper"
+  gem "selenium-webdriver", require: false
+  gem "webdrivers"
   gem "codecov", require: false
   gem "database_cleaner"
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
-  gem "stripe-ruby-mock", "~> 2.5.3", require: "stripe_mock"
+  gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
   gem "timecop"
 end
 
@@ -71,4 +73,4 @@ gem "rails-i18n", "~> 5.1"
 gem "rails-timeago", "~> 2.17.1"
 gem "redcarpet"
 gem "responders"
-gem "stripe"
+gem "stripe", "~> 7.1"

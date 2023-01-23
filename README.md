@@ -50,4 +50,4 @@ In all cases a web server is listening at http://localhost:3000
 License
 -------
 
-Copyright (c) 2011-2018 Vincent Ollivier. Released under MIT.
+Copyright (c) 2011-2023 Vincent Ollivier. Released under MIT.

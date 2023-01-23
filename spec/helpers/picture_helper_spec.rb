@@ -17,7 +17,7 @@ RSpec.describe PictureHelper, type: :helper do
     end
 
     context "with multiple paragraphs" do
-      subject { Faker::Lorem.paragraphs(2).join("\n\n") }
+      subject { Faker::Lorem.paragraphs(number: 2).join("\n\n") }
 
       it "formats picture description" do
         expect(helper.picture_description_format(subject)).
