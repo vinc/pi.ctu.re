@@ -45,6 +45,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: bin/bundler-audit --update
-      - run: bin/brakeman -q -w2
-      - run: bin/rubocop --parallel
+      - run: bundle exec bundler-audit --update
+      - run: bundle exec brakeman -q -w2
+      - run: bundle exec rubocop --parallel
