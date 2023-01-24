@@ -29,32 +29,23 @@ jobs:
       MAILER_SENDER: "Picture <hello@pi.ctu.re>"
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-          cache: "yarn"
-      - run: yarn install --frozen-lockfile
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Set up database schema
-        run: bin/rails db:schema:load
-      # Add or replace test runners here
-      - name: Run tests
-        run: bundle exec rspec
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
+      - run: bin/rails db:schema:load
+      - run: bundle exec rspec
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      # Add or replace any other lints here
-      - name: Security audit dependencies
-        run: bin/bundler-audit --update
-      - name: Security audit application code
-        run: bin/brakeman -q -w2
-      - name: Lint Ruby files
-        run: bin/rubocop --parallel
+      - run: bin/bundler-audit --update
+      - run: bin/brakeman -q -w2
+      - run: bin/rubocop --parallel
