@@ -103,7 +103,7 @@ GEM
     codecov (0.2.12)
       json
       simplecov
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     crass (1.0.6)
     dante (0.2.0)
     database_cleaner (2.0.1)
@@ -212,9 +212,9 @@ GEM
     nokogiri (1.14.0)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    order_query (0.4.1)
-      activerecord (>= 5.0, < 6.0)
-      activesupport (>= 5.0, < 6.0)
+    order_query (0.5.2)
+      activerecord (>= 5.0, < 7.1)
+      activesupport (>= 5.0, < 7.1)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.2.0.0)
@@ -411,7 +411,7 @@ DEPENDENCIES
   meta-tags
   mini_magick
   money
-  order_query (~> 0.4.0)
+  order_query (~> 0.5.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.12)
   pundit
