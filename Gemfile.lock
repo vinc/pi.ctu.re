@@ -118,7 +118,6 @@ GEM
       simplecov
     colorize (0.8.1)
     concurrent-ruby (1.2.0)
-    connection_pool (2.3.0)
     crass (1.0.6)
     dante (0.2.0)
     database_cleaner (2.0.1)
@@ -284,10 +283,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
-    redis-client (0.12.1)
-      connection_pool
+    redis (4.8.0)
     regexp_parser (2.6.2)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -443,7 +439,7 @@ DEPENDENCIES
   rails-i18n (~> 6.0)
   rails-timeago (~> 2.17.1)
   redcarpet
-  redis (~> 5.0)
+  redis (~> 4.0)
   responders
   rspec-rails (~> 5.0)
   rubocop
