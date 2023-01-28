@@ -58,6 +58,16 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Tracker deprecation messages in each file
+  if ENV["DEPRECATION_TRACKER"]
+    DeprecationTracker.track_rspec(
+      config,
+      shitlist_path: "spec/support/deprecation_warning.shitlist.json",
+      mode: ENV["DEPRECATION_TRACKER"],
+      transform_message: -> (message) { message.gsub("#{Rails.root}/", "") }
+    )
+  end
 end
 
 Shoulda::Matchers.configure do |config|

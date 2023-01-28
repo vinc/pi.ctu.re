@@ -103,6 +103,7 @@ GEM
     codecov (0.2.12)
       json
       simplecov
+    colorize (0.8.1)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
     crass (1.0.6)
@@ -209,6 +210,8 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    next_rails (1.2.1)
+      colorize (>= 0.8.1)
     nio4r (2.5.8)
     nokogiri (1.14.0)
       mini_portile2 (~> 2.8.0)
@@ -415,6 +418,7 @@ DEPENDENCIES
   meta-tags
   mini_magick
   money
+  next_rails
   order_query (~> 0.5.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.12)
