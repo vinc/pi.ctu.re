@@ -13,7 +13,11 @@ ruby "2.7.6"
 
 gem "next_rails"
 
-gem "rails", "~> 6.0.6.1"
+if next?
+  gem "rails", "~> 6.1.7.2"
+else
+  gem "rails", "~> 6.0.6.1"
+end
 gem "rails-i18n", "~> 6.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
