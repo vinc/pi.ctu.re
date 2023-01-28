@@ -39,7 +39,7 @@ group :development do
   gem "annotate"
   gem "brakeman"
   gem "bundler-audit"
-  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "listen", ">= 3.0.5", "< 3.9"
   gem "rubocop"
   gem "rubocop-performance"
   gem "spring"
