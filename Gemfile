@@ -1,6 +1,7 @@
 def next?
   File.basename(__FILE__) == "Gemfile.next"
 end
+
 source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
@@ -14,8 +15,10 @@ gem "next_rails"
 
 if next?
   gem "rails", "~> 6.0.6.1"
+  gem "rails-i18n", "~> 6.0"
 else
   gem "rails", "~> 5.2.8"
+  gem "rails-i18n", "~> 5.1"
 end
 
 gem "bootsnap", ">= 1.1.0", require: false
@@ -80,7 +83,6 @@ gem "mini_magick"
 gem "money"
 gem "order_query", "~> 0.5.2"
 gem "pundit"
-gem "rails-i18n", "~> 5.1"
 gem "rails-timeago", "~> 2.17.1"
 gem "redcarpet"
 gem "responders"
