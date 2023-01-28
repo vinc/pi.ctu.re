@@ -48,7 +48,6 @@ group :development do
 end
 
 group :test do
-  gem "action-cable-testing"
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
   gem "codecov", require: false

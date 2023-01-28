@@ -10,8 +10,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    action-cable-testing (0.6.1)
-      actioncable (>= 5.0)
     actioncable (6.0.6.1)
       actionpack (= 6.0.6.1)
       nio4r (~> 2.0)
@@ -398,7 +396,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  action-cable-testing
   acts_as_votable (~> 0.12.0)
   annotate
   bootsnap (>= 1.1.0)
