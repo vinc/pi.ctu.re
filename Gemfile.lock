@@ -240,7 +240,8 @@ GEM
     pg (1.4.5)
     popper_js (1.16.1)
     public_suffix (5.0.1)
-    puma (3.12.6)
+    puma (6.0.2)
+      nio4r (~> 2.0)
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     racc (1.6.2)
@@ -433,7 +434,7 @@ DEPENDENCIES
   next_rails
   order_query (~> 0.5.2)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.12)
+  puma (~> 6.0)
   pundit
   rails (~> 6.1.7.2)
   rails-i18n (~> 6.0)
