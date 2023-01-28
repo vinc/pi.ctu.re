@@ -27,8 +27,7 @@ class Picture < ApplicationRecord
 
   CAPTION_LENGTH_MAX = 500
 
-  attr_accessor :protected_param
-  attr_accessor :regenerate_secret
+  attr_accessor :protected_param, :regenerate_secret
 
   belongs_to :user
   has_and_belongs_to_many :albums, after_add: :touch_album, after_remove: :touch_album

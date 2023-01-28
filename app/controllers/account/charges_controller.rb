@@ -4,10 +4,10 @@ class Account::ChargesController < ApplicationController
 
   def create
     charge = Stripe::Charge.create(
-      customer:    current_user.customer_id,
-      amount:      charge_params[:amount].to_i, # in cents
+      customer: current_user.customer_id,
+      amount: charge_params[:amount].to_i, # in cents
       description: "Data top up",
-      currency:    "eur"
+      currency: "eur"
     )
 
     current_user.increment!(:balance, 1.gigabyte * charge.amount / 100)
@@ -23,7 +23,7 @@ class Account::ChargesController < ApplicationController
   def create_customer
     if current_user.customer_id.nil?
       customer = Stripe::Customer.create(
-        email:  current_user.email,
+        email: current_user.email,
         source: charge_params[:token_id]
       )
       current_user.update(customer_id: customer.id)

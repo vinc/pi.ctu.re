@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root "timeline#index"
+      root "timeline#index", as: :authenticated_root
     end
 
     unauthenticated do
