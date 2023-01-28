@@ -42,8 +42,8 @@ end
 
 group :development do
   gem "annotate"
-  gem "bundler-audit"
   gem "brakeman"
+  gem "bundler-audit"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rubocop"
   gem "rubocop-performance"
@@ -56,14 +56,14 @@ group :test do
   gem "action-cable-testing"
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
-  gem "selenium-webdriver", require: false
-  gem "webdrivers"
   gem "codecov", require: false
   gem "database_cleaner"
+  gem "selenium-webdriver", require: false
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
   gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
   gem "timecop"
+  gem "webdrivers"
 end
 
 gem "acts_as_votable", "~> 0.12.0"
