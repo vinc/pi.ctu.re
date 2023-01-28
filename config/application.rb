@@ -8,8 +8,7 @@ Bundler.require(*Rails.groups)
 
 module PictureApplication
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 6.1
 
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
