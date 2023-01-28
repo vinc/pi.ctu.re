@@ -13,7 +13,7 @@ ruby "2.7.6"
 
 gem "next_rails"
 
-gem "rails", "~> 6.0.6.1"
+gem "rails", "~> 6.1.7.2"
 gem "rails-i18n", "~> 6.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
@@ -32,7 +32,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker"
   gem "generator_spec"
-  gem "rspec-rails", "~> 5.0"
+  gem "rspec-rails", "~> 6.0"
 end
 
 group :development do
@@ -77,7 +77,7 @@ gem "mini_magick"
 gem "money"
 gem "order_query", "~> 0.5.2"
 gem "pundit"
-gem "rails-timeago", "~> 2.17.1"
+gem "rails-timeago", "~> 2.20.0"
 gem "redcarpet"
 gem "responders"
 gem "stripe", "~> 7.1"
