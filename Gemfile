@@ -43,7 +43,7 @@ group :development do
   gem "rubocop"
   gem "rubocop-performance"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  gem "spring-watcher-listen", "~> 2.1.0"
   gem "web-console", ">= 3.3.0"
 end
 
