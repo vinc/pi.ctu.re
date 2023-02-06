@@ -10,6 +10,8 @@ module PictureApplication
   class Application < Rails::Application
     config.load_defaults 6.1
 
+    config.active_support.cache_format_version = 7.0
+
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
 
