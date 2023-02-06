@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.6"
+ruby "2.7.7"
 
 gem "next_rails"
 
@@ -50,11 +50,11 @@ end
 group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
-  gem "codecov", require: false
   gem "database_cleaner"
   gem "selenium-webdriver", require: false
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
+  gem "simplecov-cobertura"
   gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
   gem "timecop"
   gem "webdrivers"

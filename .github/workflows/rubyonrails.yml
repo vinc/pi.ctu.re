@@ -37,6 +37,7 @@ jobs:
       - run: bin/rails db:schema:load
       - run: cp .env.sample .env
       - run: bundle exec rspec
+      - uses: codecov/codecov-action@v3
 
   lint:
     runs-on: ubuntu-latest
