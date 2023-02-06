@@ -54,6 +54,7 @@ group :test do
   gem "selenium-webdriver", require: false
   gem "shoulda-matchers", "~> 3.1.2"
   gem "simplecov", require: false
+  gem "simplecov-cobertura"
   gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
   gem "timecop"
   gem "webdrivers"
