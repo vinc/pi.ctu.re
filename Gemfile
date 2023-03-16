@@ -13,7 +13,7 @@ ruby "3.2.0"
 
 gem "next_rails"
 
-gem "rails", "~> 7.0.4.2"
+gem "rails", "~> 7.0.4.3"
 gem "rails-i18n", "~> 7.0"
 
 gem "bootsnap", ">= 1.1.0", require: false
