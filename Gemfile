@@ -52,7 +52,7 @@ group :test do
   gem "capybara-selenium"
   gem "database_cleaner"
   gem "selenium-webdriver", require: false
-  gem "shoulda-matchers", "~> 3.1.2"
+  gem "shoulda-matchers", "~> 5.3.0"
   gem "simplecov", require: false
   gem "simplecov-cobertura"
   gem "stripe-ruby-mock", github: "smakani/stripe-ruby-mock"
