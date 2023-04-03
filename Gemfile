@@ -20,7 +20,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma", "~> 6.1"
+gem "puma", "~> 6.2"
 gem "redis", "~> 5.0"
 gem "sassc-rails", "~> 2.1"
 gem "turbolinks", "~> 5"
