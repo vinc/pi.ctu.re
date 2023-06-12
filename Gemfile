@@ -62,7 +62,7 @@ end
 
 gem "acts_as_votable", "~> 0.14.0"
 gem "bootstrap", "~> 4.1.0"
-gem "carrierwave", "~> 1.3.1"
+gem "carrierwave", "~> 2.2.4"
 gem "carrierwave-bombshelter"
 gem "carrierwave-postgresql", "0.3.0"
 gem "devise", "~> 4.9.0"
