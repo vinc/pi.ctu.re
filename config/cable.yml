@@ -1,12 +1,8 @@
 development:
-  adapter: redis
-  url: <%= ENV["REDIS_URL"] %>
-  channel_prefix: picture_application_development
+  adapter: async
 
 test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV["REDIS_URL"] %>
-  channel_prefix: picture_application_production
+  adapter: async

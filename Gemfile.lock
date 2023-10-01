@@ -123,7 +123,6 @@ GEM
       carrierwave (>= 0.10.0)
     colorize (0.8.1)
     concurrent-ruby (1.2.2)
-    connection_pool (2.3.0)
     crass (1.0.6)
     dante (0.2.0)
     database_cleaner (2.0.2)
@@ -289,10 +288,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.6.0)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
-    redis-client (0.14.0)
-      connection_pool
     regexp_parser (2.7.0)
     responders (3.1.0)
       actionpack (>= 5.2)
@@ -447,7 +442,6 @@ DEPENDENCIES
   rails-i18n (~> 7.0)
   rails-timeago (~> 2.20.0)
   redcarpet
-  redis (~> 5.0)
   responders
   rspec-rails (~> 6.0)
   rubocop
